@@ -3,10 +3,19 @@
 @import "variables";
 @import "mixins";
 @import "global";
-@import "common";
+@import "cmn";
 
 
 // blocks
+@import "common/header";
+@import "common/nav";
+
+@import "pages/index/intro";
+@import "pages/index/catalog";
+@import "pages/index/about";
+@import "pages/index/contacts";
+
+@import "common/footer";
 
 
 //--- plugins

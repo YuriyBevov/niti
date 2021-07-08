@@ -1,0 +1,17 @@
+-
+  const slides = [
+    {imageURL: "../../assets/img/intro-slide_1" },
+    {imageURL: "../../assets/img/intro-slide_1" },
+    {imageURL: "../../assets/img/intro-slide_1" },
+    {imageURL: "../../assets/img/intro-slide_1" },
+  ];
+
+section.intro
+  .cmn__container.intro__wrapper
+  .intro-swiper-container
+    .swiper-wrapper
+      each slide in slides
+        .swiper-slide(style="background-image: url(" + slide.imageURL + "@1x.jpg); background-size: cover;")
+          // img(src=slide.imageURL + '@1x.jpg' srcset=slide.imageURL + '@2x.jpg 2x' alt="меню")
+          .intro-swiper-content.cmn__container.intro__wrapper
+            h2.cmn__title.cmn__title--intro ОДЕЖДА ДЛЯ МОРЯКОВ

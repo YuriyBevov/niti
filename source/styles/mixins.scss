@@ -3,6 +3,7 @@
     width: 100%;
     max-width: $desktop_width;
     min-width: $min_width;
+    outline: $outline;
 
     @media(max-width: $tablet_lg_width) {
 

@@ -1,0 +1,12 @@
+-
+  const links = [
+    {title: 'Каталог', url: '#catalog'},
+    {title: 'Доставка и оплата', url: 'delivery.html'},
+    {title: 'О нас', url: '#about'},
+    {title: 'Контакты', url: '#contacts'},
+  ];
+nav.nav
+  ul.nav__list
+    each link in links
+      li.nav__item
+        a.cmn__nav-link.cmn__nav-link--black.nav__link(href=link.url)= link.title

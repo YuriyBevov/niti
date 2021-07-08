@@ -11,17 +11,17 @@ block variables
 html(lang="ru")
   +head(title, desc, keywords)
 
-  body
+  body.cmn
 
     div(style="display:none")
       // include ../../assets/img/svg-sprite.svg 
 
-    // include ../blocks/common/header
+    include ../blocks/common/header
 
     main
       block content
 
-    // include ../blocks/common/footer
+    include ../blocks/common/footer
 
     block modals
 

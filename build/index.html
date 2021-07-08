@@ -20,15 +20,68 @@
     <!-- link(rel="icon" href="./assets/img/fav.svg" type="image/svg + xml")-->
     <link rel="stylesheet" href="./css/styles.min.css">
   </head>
-  <body>
+  <body class="cmn">
     <div style="display:none">
       <!-- include ../../assets/img/svg-sprite.svg -->
     </div>
-    <!-- include ../blocks/common/header-->
+    <header class="header">
+      <div class="cmn__container header__wrapper">
+        <p>шапка</p>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item"><a class="cmn__nav-link cmn__nav-link--black nav__link" href="#catalog">Каталог</a></li>
+            <li class="nav__item"><a class="cmn__nav-link cmn__nav-link--black nav__link" href="delivery.html">Доставка и оплата</a></li>
+            <li class="nav__item"><a class="cmn__nav-link cmn__nav-link--black nav__link" href="#about">О нас</a></li>
+            <li class="nav__item"><a class="cmn__nav-link cmn__nav-link--black nav__link" href="#contacts">Контакты</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <main>
-      <!-- include ./blocks/index/intro-->
+      <section class="intro">
+        <div class="cmn__container intro__wrapper"></div>
+        <div class="intro-swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image: url(../../assets/img/intro-slide_1@1x.jpg); background-size: cover;">
+              <!-- img(src=slide.imageURL + '@1x.jpg' srcset=slide.imageURL + '@2x.jpg 2x' alt="меню")-->
+              <div class="intro-swiper-content cmn__container intro__wrapper">
+                <h2 class="cmn__title cmn__title--intro">ОДЕЖДА ДЛЯ МОРЯКОВ</h2>
+              </div>
+            </div>
+            <div class="swiper-slide" style="background-image: url(../../assets/img/intro-slide_1@1x.jpg); background-size: cover;">
+              <!-- img(src=slide.imageURL + '@1x.jpg' srcset=slide.imageURL + '@2x.jpg 2x' alt="меню")-->
+              <div class="intro-swiper-content cmn__container intro__wrapper">
+                <h2 class="cmn__title cmn__title--intro">ОДЕЖДА ДЛЯ МОРЯКОВ</h2>
+              </div>
+            </div>
+            <div class="swiper-slide" style="background-image: url(../../assets/img/intro-slide_1@1x.jpg); background-size: cover;">
+              <!-- img(src=slide.imageURL + '@1x.jpg' srcset=slide.imageURL + '@2x.jpg 2x' alt="меню")-->
+              <div class="intro-swiper-content cmn__container intro__wrapper">
+                <h2 class="cmn__title cmn__title--intro">ОДЕЖДА ДЛЯ МОРЯКОВ</h2>
+              </div>
+            </div>
+            <div class="swiper-slide" style="background-image: url(../../assets/img/intro-slide_1@1x.jpg); background-size: cover;">
+              <!-- img(src=slide.imageURL + '@1x.jpg' srcset=slide.imageURL + '@2x.jpg 2x' alt="меню")-->
+              <div class="intro-swiper-content cmn__container intro__wrapper">
+                <h2 class="cmn__title cmn__title--intro">ОДЕЖДА ДЛЯ МОРЯКОВ</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="catalog">
+        <p>catalog</p>
+      </section>
+      <section class="about">
+        <p>about</p>
+      </section>
+      <section class="contacts">
+        <p>contacts</p>
+      </section>
     </main>
-    <!-- include ../blocks/common/footer-->
+    <footer class="footer">
+      <p>footer</p>
+    </footer>
     <!-- include ./modals/menuModal-->
     <script src="./js/bundle.js"></script>
   </body>

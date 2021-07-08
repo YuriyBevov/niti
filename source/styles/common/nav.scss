@@ -1,0 +1,21 @@
+.nav {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        width: 25%;
+        outline: $outline;
+    }   
+
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+
+        width: 100%;
+        height: 100%;
+    }
+}
