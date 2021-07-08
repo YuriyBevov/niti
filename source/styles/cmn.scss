@@ -15,7 +15,7 @@
         text-transform: uppercase;
         color: $color-black;
 
-        &--intro {
+        &--white {
             color: $color-white;
         }
 
@@ -36,6 +36,10 @@
         line-height: 3rem;
         
         color: $color-black;
+
+        &--white {
+            color: $color-white;
+        }
     }
 
     &__btn {

@@ -1,9 +1,9 @@
 -
   const slides = [
-    {imageURL: "../../assets/img/intro-slide_1" },
-    {imageURL: "../../assets/img/intro-slide_1" },
-    {imageURL: "../../assets/img/intro-slide_1" },
-    {imageURL: "../../assets/img/intro-slide_1" },
+    {imageURL: "../../assets/img/intro-slide_1", title: "Одежда для моряков", desc: "Одежда для рабочего класса в Санкт-Петербурге"},
+    {imageURL: "../../assets/img/intro-slide_1", title: "Одежда для рабочих", desc: "Одежда для рабочего класса в Санкт-Петербурге" },
+    {imageURL: "../../assets/img/intro-slide_1", title: "Одежда для трудяг", desc: "Одежда для рабочего класса в Санкт-Петербурге" },
+    {imageURL: "../../assets/img/intro-slide_1", title: "Одежда для футболистов", desc: "Одежда для рабочего класса в Санкт-Петербурге"},
   ];
 
 section.intro
@@ -11,7 +11,8 @@ section.intro
   .intro-swiper-container
     .swiper-wrapper
       each slide in slides
-        .swiper-slide(style="background-image: url(" + slide.imageURL + "@1x.jpg); background-size: cover;")
-          // img(src=slide.imageURL + '@1x.jpg' srcset=slide.imageURL + '@2x.jpg 2x' alt="меню")
-          .intro-swiper-content.cmn__container.intro__wrapper
-            h2.cmn__title.cmn__title--intro ОДЕЖДА ДЛЯ МОРЯКОВ
+        .swiper-slide
+          img(src=slide.imageURL + '@1x.jpg' srcset=slide.imageURL + '@2x.jpg 2x' alt="меню")
+          .intro-swiper-content.intro__wrapper
+            p= slide.desc
+            h2.cmn__title.cmn__title--white= slide.title
