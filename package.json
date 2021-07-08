@@ -38,11 +38,11 @@
   },
   "name": "NITI",
   "version": "1.0.0",
-  "description": "ДПС контроль",
+  "description": "",
   "main": "gulp.config.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YuriyBevov/DPSC.git"
+    "url": "git+https://github.com/YuriyBevov/niti.git"
   },
   "author": "Yuriy Bevov <yuriybevov@gmail.com>",
   "license": "ISC",
