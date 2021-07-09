@@ -1,4 +1,18 @@
 header.header
-  .cmn__container.header__wrapper
-     p шапка
-     include ./nav.pug
+  .cmn__container.cmn__wrapper
+    .header__content
+      a(href="tel: +79062723744").header__link +7(906)2723744
+      .header__logo 
+        //svg(width="46" height="46")
+          //use(xlink:href="#icon-logo")
+        p тут будет лого
+          
+      .header__search
+        //.header__search-container
+          //input(type="search")
+          //svg(width="30" height="30")
+            //use(xlink:href="#icon-search")
+
+        svg(width="35" height="35")
+            use(xlink:href="#icon-basket")
+    include ./nav.pug

@@ -3,7 +3,6 @@
     width: 100%;
     max-width: $desktop_width;
     min-width: $min_width;
-    outline: $outline;
 
     @media(max-width: $tablet_lg_width) {
 
@@ -15,5 +14,18 @@
 
     @media(max-width: $mobile_lg_width) {
         
+    }
+}
+
+@mixin link_hover() {
+    transition: opacity $transition-rules;
+    
+    &:hover,
+    &:focus {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.6;
     }
 }

@@ -4,4 +4,57 @@
     width: 100%;
     z-index: 100;
     background-color: $color-white;
+
+    &__content {
+        min-height: 6rem;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $color-black;
+    }
+
+    &__link {
+        font-family: $font_med;
+        font-size: 2rem;
+        line-height: 2.4rem;
+        
+        color: $color-maroon;
+
+        @include link_hover();
+        margin-right: 1rem;
+    }
+
+    &__logo {
+        margin: 0 auto;
+        flex-grow: 1;
+        // outline: $outline;
+        display: flex;
+        align-items: center;
+
+        // пока нет лого temp!!!
+        
+        p {
+            margin: 0 auto;
+        }
+        // !!!
+
+        svg {
+            margin: 0 auto;
+        }
+    }
+
+    &__search {
+        margin-left: 1rem;
+        display: flex;
+        align-items: center;
+
+        &-container {
+            display: none;
+            // display: flex;
+            margin-right: 3.5rem;
+
+            input {
+                margin-right: 1rem;
+            }
+        }
+    }
 }

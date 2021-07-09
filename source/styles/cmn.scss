@@ -43,7 +43,29 @@
     }
 
     &__btn {
+        display: block;
 
+        font-family: $font_med;
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+
+        min-width: 16rem;
+        width: fit-content;
+        min-height: 5rem;
+
+        padding: 1.5rem 4rem;
+
+        color: $color-white;
+        border: 0.3rem solid $color-white;
+
+        &--maroon {
+            color: $color-maroon;
+            border: 0.3rem solid $color-maroon;
+        }
+
+        @include link_hover();
     }
 
     &__nav-link {
@@ -66,8 +88,12 @@
         }
         
         &:hover,
-        &:active {
+        &:focus {
             opacity: 1;
+        }
+
+        &:active {
+            opacity: 0.6;
         }
     }
 }

@@ -1,2 +1,20 @@
+-
+  const footer_links = [
+    {title: 'Каталог', url: '#catalog'},
+    {title: 'Доставка и оплата', url: 'delivery.html'},
+    {title: 'О нас', url: '#about'},
+    {title: 'Контакты', url: '#contacts'},
+    {title: 'Обратный звонок', url: '#'},
+  ];
+
 footer.footer
-  p footer
+  .cmn__wrapper.footer__wrapper.cmn__container
+    .footer__logo
+      a(href="index.html").cmn__title.cmn__title--med.cmn__title--white NITISPB ???
+      span Все  права защищены. ©
+    .footer__nav
+      ul.footer__nav-list
+        each link in footer_links
+          li.footer__nav-item
+            a.cmn__nav-link(href=link.url)= link.title
+      

@@ -12253,9 +12253,22 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_swiper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/swiper.js */ "./source/scripts/modules/swiper.js");
+/* harmony import */ var _utils_adaptiveIntroBlock_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/adaptiveIntroBlock.js */ "./source/scripts/utils/adaptiveIntroBlock.js");
 
 
 
+
+
+
+
+
+
+
+
+Object(_utils_adaptiveIntroBlock_js__WEBPACK_IMPORTED_MODULE_1__["adaptiveIntroBlock"])()
+
+const onWindowResizeHandler = () => Object(_utils_adaptiveIntroBlock_js__WEBPACK_IMPORTED_MODULE_1__["adaptiveIntroBlock"])()
+window.addEventListener('resize', onWindowResizeHandler)
 
 /***/ }),
 
@@ -12284,6 +12297,29 @@ if(iSlider) {
         }
     });
 }
+
+/***/ }),
+
+/***/ "./source/scripts/utils/adaptiveIntroBlock.js":
+/*!****************************************************!*\
+  !*** ./source/scripts/utils/adaptiveIntroBlock.js ***!
+  \****************************************************/
+/*! exports provided: adaptiveIntroBlock */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "adaptiveIntroBlock", function() { return adaptiveIntroBlock; });
+const adaptiveIntroBlock = () => {
+    const headerHeight = document.querySelector('header').offsetHeight
+    const introImg = document.querySelectorAll('.swiper-slide img')
+    introImg.forEach(img => {
+        img.style.height = 'calc(100vh - ' + (headerHeight) +  'px)';
+    })
+    document.querySelector('main').style.marginTop = headerHeight + 'px';
+}
+
+
 
 /***/ })
 
