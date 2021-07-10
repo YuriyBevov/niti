@@ -2,6 +2,7 @@
 
 import swiper from './modules/swiper.js'
 import { adaptiveIntroBlock } from './utils/adaptiveIntroBlock.js'
+import mapOverlay from './modules/mapOverlay.js'
 
 
 

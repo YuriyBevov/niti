@@ -12254,6 +12254,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_swiper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/swiper.js */ "./source/scripts/modules/swiper.js");
 /* harmony import */ var _utils_adaptiveIntroBlock_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/adaptiveIntroBlock.js */ "./source/scripts/utils/adaptiveIntroBlock.js");
+/* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/mapOverlay.js */ "./source/scripts/modules/mapOverlay.js");
+/* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -12272,6 +12275,28 @@ window.addEventListener('resize', onWindowResizeHandler)
 
 /***/ }),
 
+/***/ "./source/scripts/modules/mapOverlay.js":
+/*!**********************************************!*\
+  !*** ./source/scripts/modules/mapOverlay.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+const overlay = document.querySelector('.contacts__overlay')
+console.log(overlay)
+
+const onClickRemoveOverlay = () => {
+    overlay.style.display = 'none'
+}
+
+overlay.addEventListener('click', onClickRemoveOverlay)
+
+
+console.log('overlay')
+
+/***/ }),
+
 /***/ "./source/scripts/modules/swiper.js":
 /*!******************************************!*\
   !*** ./source/scripts/modules/swiper.js ***!
@@ -12283,14 +12308,14 @@ window.addEventListener('resize', onWindowResizeHandler)
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
 
-swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"]]);
+swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"], swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_0__["Navigation"]]);
 
-const sliderDelay = 3000;
+const sliderDelay = 5000;
 
 let iSlider = document.querySelector('.intro-swiper-container');
 
 if(iSlider) {
-    const swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.intro-swiper-container', {
+    const introSwiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.intro-swiper-container', {
         slidesPerView: 1,
         speed: 1000,
         loop: true,
@@ -12300,6 +12325,34 @@ if(iSlider) {
         },
     });
 }
+
+let sSlider = document.querySelector('.sale-swiper-container');
+
+if(sSlider) {
+    const saleSwiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.sale-swiper-container', {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        speed: 1000,
+        loop: true,
+
+        pagination: {
+          el: ".swiper-pagination",
+          type: "progressbar",
+          position: 'bottom'
+        },
+
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+    
+        autoplay: {
+          delay: 1000,
+        }
+    });
+}
+
+
 
 /***/ }),
 
