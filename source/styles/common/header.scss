@@ -6,55 +6,73 @@
     background-color: $color-white;
 
     &__content {
-        min-height: 6rem;
+        position: relative;
         display: flex;
         align-items: center;
-        border-bottom: 1px solid $color-black;
+        min-height: 4rem;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+
+        &::before,
+        &::after {
+            position: absolute;
+            bottom: 0;
+            content: '';
+            width: calc(45% - 3rem);
+            height: 1px;
+            border-bottom: 1px solid $color-black;
+        }
+
+        &::before {
+            left: 0;
+        }
+
+        &::after {
+            right: 0;
+        }
     }
 
-    &__link {
-        font-family: $font_med;
-        font-size: 2rem;
-        line-height: 2.4rem;
-        
-        color: $color-maroon;
+    &__phone {
+        width: 25%;
 
-        @include link_hover();
-        margin-right: 1rem;
+        a {
+            font-family: $font_med;
+            font-size: 2rem;
+            line-height: 2.4rem;
+            min-height: 4rem;
+            min-width: 4rem;
+            display: flex;
+            align-items: center;
+            
+            color: $color-maroon;
+    
+            @include link_hover();
+        }
     }
 
     &__logo {
+        width: 50%;
         margin: 0 auto;
         flex-grow: 1;
-        // outline: $outline;
         display: flex;
         align-items: center;
 
-        // пока нет лого temp!!!
-        
-        p {
+        a {
             margin: 0 auto;
-        }
-        // !!!
 
-        svg {
-            margin: 0 auto;
+            svg {
+                fill: $color-black;
+            }
         }
     }
 
     &__search {
-        margin-left: 1rem;
+        width: 25%;
         display: flex;
         align-items: center;
 
-        &-container {
-            display: none;
-            // display: flex;
-            margin-right: 3.5rem;
-
-            input {
-                margin-right: 1rem;
-            }
+        a {
+            margin-left: auto;
         }
     }
 }

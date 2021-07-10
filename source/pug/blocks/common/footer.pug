@@ -9,12 +9,15 @@
 
 footer.footer
   .cmn__wrapper.footer__wrapper.cmn__container
-    .footer__logo
-      a(href="index.html").cmn__title.cmn__title--med.cmn__title--white NITISPB ???
-      span Все  права защищены. ©
     .footer__nav
       ul.footer__nav-list
+        li.footer__nav-item.footer__nav-item--logo
+          a(href="index.html" aria-label="логотип")
+            svg(width="80" height="60")
+              use(xlink:href="#icon-logo")
         each link in footer_links
           li.footer__nav-item
             a.cmn__nav-link(href=link.url)= link.title
-      
+    .footer__bottom 
+      span.footer__info Вся представленная на сайте информация, носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями Статьи 437(2) Гражданского кодекса РФ.
+      p Cайт разработан: <a href="mailto: yuriybevov@gmail.com"> yuriybevov@gmail.com </a>

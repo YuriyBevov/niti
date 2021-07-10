@@ -12283,18 +12283,21 @@ window.addEventListener('resize', onWindowResizeHandler)
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
 
+swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"]]);
 
 const sliderDelay = 3000;
 
 let iSlider = document.querySelector('.intro-swiper-container');
 
 if(iSlider) {
-    new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.intro-swiper-container', {
+    const swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.intro-swiper-container', {
         slidesPerView: 1,
+        speed: 1000,
+        loop: true,
     
         autoplay: {
           delay: sliderDelay,
-        }
+        },
     });
 }
 
