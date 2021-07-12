@@ -23,6 +23,10 @@
             line-height: 0.8;
             writing-mode: tb-rl;
             writing-mode: vertical-rl;
+
+            @media(max-width: $tablet_lg_width) {
+                font-size: 6rem;
+            }
         }
     }
 
@@ -61,7 +65,16 @@
         }
 
         .swiper-button-next {
+            top: 0;
+            height: 100%;
+            width: 6rem;
             color: $color-black;
+            transition: color $transition-rules;
+
+            &:hover,
+            &:focus {
+                color: rgba(0,0,0,0.4)
+            }
         }
     }
 }
