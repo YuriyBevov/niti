@@ -12,9 +12,9 @@ if(iSlider) {
         speed: 1000,
         loop: true,
         effect: "fade",
-        fadeEffect: {
+        /* fadeEffect: {
           crossFade: true
-        },
+        },*/
     
         autoplay: {
           delay: sliderDelay,
