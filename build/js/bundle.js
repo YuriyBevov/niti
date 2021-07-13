@@ -12316,7 +12316,7 @@ if(iSlider) {
         slidesPerView: 1,
         speed: 1000,
         loop: true,
-        effect: "fade",
+        // effect: "fade",
         /* fadeEffect: {
           crossFade: true
         },*/
