@@ -12253,14 +12253,16 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_swiper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/swiper.js */ "./source/scripts/modules/swiper.js");
-/* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/mapOverlay.js */ "./source/scripts/modules/mapOverlay.js");
-/* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_adaptiveIntroBlock_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/adaptiveIntroBlock.js */ "./source/scripts/utils/adaptiveIntroBlock.js");
+/* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/mapOverlay.js */ "./source/scripts/modules/mapOverlay.js");
+/* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modules_stickyHeader_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/stickyHeader.js */ "./source/scripts/modules/stickyHeader.js");
 
 
 
-//import { adaptiveIntroBlock } from './utils/adaptiveIntroBlock.js'
 
-//import stickyHeader from './modules/stickyHeader.js'
+
+
 
 
 
@@ -12269,13 +12271,12 @@ let vh = window.innerHeight * 0.01
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 
-//adaptiveIntroBlock()
+Object(_utils_adaptiveIntroBlock_js__WEBPACK_IMPORTED_MODULE_1__["adaptiveIntroBlock"])()
 
-//const onWindowResizeHandler = () => adaptiveIntroBlock()
-// window.addEventListener('resize', onWindowResizeHandler)
+const onWindowResizeHandler = () => Object(_utils_adaptiveIntroBlock_js__WEBPACK_IMPORTED_MODULE_1__["adaptiveIntroBlock"])()
+ window.addEventListener('resize', onWindowResizeHandler)
 
 window.addEventListener('resize', () => {
-    console.log(document.documentElement)
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`)
 })
@@ -12297,6 +12298,41 @@ const onClickRemoveOverlay = () => {
 }
 
 overlay.addEventListener('click', onClickRemoveOverlay)
+
+/***/ }),
+
+/***/ "./source/scripts/modules/stickyHeader.js":
+/*!************************************************!*\
+  !*** ./source/scripts/modules/stickyHeader.js ***!
+  \************************************************/
+/*! exports provided: stickyHeader */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "stickyHeader", function() { return stickyHeader; });
+/* harmony import */ var _utils_functions_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/functions.js */ "./source/scripts/utils/functions.js");
+console.log('stickyHeader')
+
+
+
+
+const stickyHeader = function () {
+  const header = document.querySelector('.header');
+  const headerInitialHeight = Object(_utils_functions_js__WEBPACK_IMPORTED_MODULE_0__["getElCurHeight"])(header);
+
+  const onScrollHandler = () => {
+    if(window.pageYOffset > headerInitialHeight) {
+      header.classList.add('header-sticky');
+    } else if (window.pageYOffset < headerInitialHeight && header.classList.contains('header-sticky')) {
+      header.classList.remove('header-sticky');
+    }
+  }
+
+  if(header) {
+    document.addEventListener('scroll', onScrollHandler);
+  }
+}();
 
 /***/ }),
 
@@ -12384,6 +12420,53 @@ if(sSlider) {
         }
     });
 }
+
+
+
+/***/ }),
+
+/***/ "./source/scripts/utils/adaptiveIntroBlock.js":
+/*!****************************************************!*\
+  !*** ./source/scripts/utils/adaptiveIntroBlock.js ***!
+  \****************************************************/
+/*! exports provided: adaptiveIntroBlock */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "adaptiveIntroBlock", function() { return adaptiveIntroBlock; });
+const adaptiveIntroBlock = () => {
+    const headerHeight = document.querySelector('header').offsetHeight
+    const introImg = document.querySelectorAll('.intro')
+    introImg.forEach(img => {
+        img.style.height = 'calc(100vh - ' + (headerHeight) +  'px)';
+    })
+    document.querySelector('main').style.marginTop = headerHeight + 'px';
+}
+
+
+
+/***/ }),
+
+/***/ "./source/scripts/utils/functions.js":
+/*!*******************************************!*\
+  !*** ./source/scripts/utils/functions.js ***!
+  \*******************************************/
+/*! exports provided: getPosY, getElCurHeight */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPosY", function() { return getPosY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getElCurHeight", function() { return getElCurHeight; });
+function getPosY(el) {
+    return el.getBoundingClientRect().top;
+}
+  
+function getElCurHeight(el) {
+    return el.clientHeight;
+}
+
 
 
 
