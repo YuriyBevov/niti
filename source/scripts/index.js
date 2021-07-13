@@ -1,7 +1,7 @@
 'use strict'
 
 import swiper from './modules/swiper.js'
-import { adaptiveIntroBlock } from './utils/adaptiveIntroBlock.js'
+//import { adaptiveIntroBlock } from './utils/adaptiveIntroBlock.js'
 import mapOverlay from './modules/mapOverlay.js'
 //import stickyHeader from './modules/stickyHeader.js'
 
@@ -11,7 +11,7 @@ import mapOverlay from './modules/mapOverlay.js'
 
 
 
-adaptiveIntroBlock()
+//adaptiveIntroBlock()
 
-const onWindowResizeHandler = () => adaptiveIntroBlock()
-window.addEventListener('resize', onWindowResizeHandler)
+//const onWindowResizeHandler = () => adaptiveIntroBlock()
+//window.addEventListener('resize', onWindowResizeHandler)

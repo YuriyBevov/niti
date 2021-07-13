@@ -12253,13 +12253,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_swiper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/swiper.js */ "./source/scripts/modules/swiper.js");
-/* harmony import */ var _utils_adaptiveIntroBlock_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/adaptiveIntroBlock.js */ "./source/scripts/utils/adaptiveIntroBlock.js");
-/* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/mapOverlay.js */ "./source/scripts/modules/mapOverlay.js");
-/* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/mapOverlay.js */ "./source/scripts/modules/mapOverlay.js");
+/* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
-
+//import { adaptiveIntroBlock } from './utils/adaptiveIntroBlock.js'
 
 //import stickyHeader from './modules/stickyHeader.js'
 
@@ -12269,10 +12268,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-Object(_utils_adaptiveIntroBlock_js__WEBPACK_IMPORTED_MODULE_1__["adaptiveIntroBlock"])()
+//adaptiveIntroBlock()
 
-const onWindowResizeHandler = () => Object(_utils_adaptiveIntroBlock_js__WEBPACK_IMPORTED_MODULE_1__["adaptiveIntroBlock"])()
-window.addEventListener('resize', onWindowResizeHandler)
+//const onWindowResizeHandler = () => adaptiveIntroBlock()
+//window.addEventListener('resize', onWindowResizeHandler)
 
 /***/ }),
 
@@ -12377,29 +12376,6 @@ if(sSlider) {
           prevEl: ".swiper-button-prev",
         }
     });
-}
-
-
-
-/***/ }),
-
-/***/ "./source/scripts/utils/adaptiveIntroBlock.js":
-/*!****************************************************!*\
-  !*** ./source/scripts/utils/adaptiveIntroBlock.js ***!
-  \****************************************************/
-/*! exports provided: adaptiveIntroBlock */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "adaptiveIntroBlock", function() { return adaptiveIntroBlock; });
-const adaptiveIntroBlock = () => {
-    const headerHeight = document.querySelector('header').offsetHeight
-    const introImg = document.querySelectorAll('.intro')
-    introImg.forEach(img => {
-        img.style.height = 'calc(100vh - ' + (headerHeight) +  'px)';
-    })
-    document.querySelector('main').style.marginTop = headerHeight + 'px';
 }
 
 
