@@ -1,15 +1,18 @@
 .intro {
-    height: 100vh;
+    height: 100%;
 
     &-swiper-container {
         width: 100%;
-        height: 100vh;
+        height: 100%;
 
         .swiper-slide {
-            height: 100vh;
+            height: 100%;
             background-repeat: no-repeat;
             background-size: cover;
         }
+    }
+
+    &-swiper-content {
     }
 }
 
