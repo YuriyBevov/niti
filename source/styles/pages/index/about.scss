@@ -4,6 +4,10 @@
         padding: 10rem;
         display: flex;
 
+        @media(max-width: $tablet_width) {
+            padding-bottom: 4rem;           
+        }
+
         @media(max-width: $mobile_lg_width) {
             display: flex;
             flex-direction: column;

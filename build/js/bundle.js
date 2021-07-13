@@ -12341,7 +12341,7 @@ const stickyHeader = function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
 
-swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"], swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_0__["Navigation"], swiper__WEBPACK_IMPORTED_MODULE_0__["EffectFade"] ]);
+swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"], /*Pagination,*/ swiper__WEBPACK_IMPORTED_MODULE_0__["Navigation"], swiper__WEBPACK_IMPORTED_MODULE_0__["EffectFade"] ]);
 console.log(swiper__WEBPACK_IMPORTED_MODULE_0__["EffectFade"])
 
 const sliderDelay = 3000;
@@ -12373,16 +12373,40 @@ let sSlider = document.querySelector('.sale-swiper-container');
 
 if(sSlider) {
     const saleSwiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.sale-swiper-container', {
-        slidesPerView: 3,
-        spaceBetween: 20,
+        slidesPerView: 1,
+        spaceBetween: 10,
         speed: 1000,
         loop: true,
 
-        pagination: {
+        breakpoints: {
+          // when window width is >= 320px
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 10
+          },
+
+          434: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+
+          // when window width is >= 480px
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 20
+          },
+          // when window width is >= 640px
+          /* 1140: {
+            slidesPerView: 3,
+            spaceBetween: 30
+          } */
+        },
+
+        /* pagination: {
           el: ".swiper-pagination",
           type: "progressbar",
           position: 'bottom'
-        },
+        }, */
 
         navigation: {
           nextEl: ".swiper-button-next",
