@@ -12265,13 +12265,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
+let vh = window.innerHeight * 0.01
+document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 
 //adaptiveIntroBlock()
 
 //const onWindowResizeHandler = () => adaptiveIntroBlock()
-//window.addEventListener('resize', onWindowResizeHandler)
+// window.addEventListener('resize', onWindowResizeHandler)
+
+window.addEventListener('resize', () => {
+    console.log(document.documentElement)
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`)
+})
 
 /***/ }),
 
