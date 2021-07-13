@@ -12256,13 +12256,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_adaptiveIntroBlock_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/adaptiveIntroBlock.js */ "./source/scripts/utils/adaptiveIntroBlock.js");
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/mapOverlay.js */ "./source/scripts/modules/mapOverlay.js");
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _modules_stickyHeader_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/stickyHeader.js */ "./source/scripts/modules/stickyHeader.js");
 
 
 
 
 
-
+//import stickyHeader from './modules/stickyHeader.js'
 
 
 
@@ -12292,41 +12291,6 @@ const onClickRemoveOverlay = () => {
 }
 
 overlay.addEventListener('click', onClickRemoveOverlay)
-
-/***/ }),
-
-/***/ "./source/scripts/modules/stickyHeader.js":
-/*!************************************************!*\
-  !*** ./source/scripts/modules/stickyHeader.js ***!
-  \************************************************/
-/*! exports provided: stickyHeader */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "stickyHeader", function() { return stickyHeader; });
-/* harmony import */ var _utils_functions_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/functions.js */ "./source/scripts/utils/functions.js");
-console.log('stickyHeader')
-
-
-
-
-const stickyHeader = function () {
-  const header = document.querySelector('.header');
-  const headerInitialHeight = Object(_utils_functions_js__WEBPACK_IMPORTED_MODULE_0__["getElCurHeight"])(header);
-
-  const onScrollHandler = () => {
-    if(window.pageYOffset > headerInitialHeight) {
-      header.classList.add('header-sticky');
-    } else if (window.pageYOffset < headerInitialHeight && header.classList.contains('header-sticky')) {
-      header.classList.remove('header-sticky');
-    }
-  }
-
-  if(header) {
-    document.addEventListener('scroll', onScrollHandler);
-  }
-}();
 
 /***/ }),
 
@@ -12431,36 +12395,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "adaptiveIntroBlock", function() { return adaptiveIntroBlock; });
 const adaptiveIntroBlock = () => {
     const headerHeight = document.querySelector('header').offsetHeight
-    const introImg = document.querySelectorAll('.swiper-slide img')
+    const introImg = document.querySelectorAll('.intro')
     introImg.forEach(img => {
         img.style.height = 'calc(100vh - ' + (headerHeight) +  'px)';
     })
     document.querySelector('main').style.marginTop = headerHeight + 'px';
 }
-
-
-
-/***/ }),
-
-/***/ "./source/scripts/utils/functions.js":
-/*!*******************************************!*\
-  !*** ./source/scripts/utils/functions.js ***!
-  \*******************************************/
-/*! exports provided: getPosY, getElCurHeight */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPosY", function() { return getPosY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getElCurHeight", function() { return getElCurHeight; });
-function getPosY(el) {
-    return el.getBoundingClientRect().top;
-}
-  
-function getElCurHeight(el) {
-    return el.clientHeight;
-}
-
 
 
 
