@@ -7,12 +7,12 @@
   ];
 
 section.intro
-  .cmn__container.intro__wrapper
+  // .cmn__container.intro__wrapper
   .intro-swiper-container
     .swiper-wrapper
       each slide in slides
-        .swiper-slide
-          img(src=slide.imageURL + '@1x.jpg' srcset=slide.imageURL + '@2x.jpg 2x' alt="меню")
+        .swiper-slide(style="background-image: url(" + slide.imageURL + "@1x.jpg" + ")")
+          // img(src=slide.imageURL + '@1x.jpg' srcset=slide.imageURL + '@2x.jpg 2x' alt="меню")
           .intro-swiper-content.intro__wrapper.cmn__container
             p= slide.desc
             h2.cmn__title.cmn__title--white= slide.title
