@@ -1,11 +1,11 @@
 -
   const items = [
-    {imageURL: "./assets/img/sale", title: "", desc: ""},
-    {imageURL: "./assets/img/sale", title: "", desc: ""},
-    {imageURL: "./assets/img/sale", title: "", desc: ""},
-    {imageURL: "./assets/img/sale", title: "", desc: ""},
-    {imageURL: "./assets/img/sale", title: "", desc: ""},
-    {imageURL: "./assets/img/sale", title: "", desc: ""},
+    {imageURL: "./assets/img/sale", title: "товар из раздела распродаж", desc: "описание товара"},
+    {imageURL: "./assets/img/sale", title: "товар из раздела распродаж", desc: "описание товара"},
+    {imageURL: "./assets/img/sale", title: "товар из раздела распродаж", desc: "описание товара"},
+    {imageURL: "./assets/img/sale", title: "товар из раздела распродаж", desc: "описание товара"},
+    {imageURL: "./assets/img/sale", title: "товар из раздела распродаж", desc: "описание товара"},
+    {imageURL: "./assets/img/sale", title: "товар из раздела распродаж", desc: "описание товара"},
   ];
 
 section.sale 
@@ -16,8 +16,7 @@ section.sale
       .swiper-wrapper
         each item in items
           .swiper-slide
-            a(href="#" aria-label="товар и раздела распродаж")
+            a(href="#" aria-label=item.title)
               img(src=item.imageURL + '@1x.png' srcset=item.imageURL + '@2x.png 2x' alt=item.desc)
-      
       // <div class="swiper-pagination"></div>
       <div class="swiper-button-next"></div>

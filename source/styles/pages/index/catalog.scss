@@ -8,6 +8,7 @@
 
         @media(max-width: $tablet_width) {
             grid-template-rows: repeat(14, 7vw);
+            grid-gap: 0.5rem;
         }
 
         @media(max-width: $mobile_lg_width) {

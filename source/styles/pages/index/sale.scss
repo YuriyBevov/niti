@@ -75,14 +75,18 @@
                 height: 100% !important;
                 object-position: center;
                 object-fit: contain;
-                transform: scale(0.9);
-                transition: transform $transition-rules;
             }
 
-            &:hover,
-            &:focus {
-                img {
-                    transform: scale(1);
+            a {   
+                display: block;
+                width: 100%;
+                height: 100%;
+                transform: scale(0.9);
+                transition: transform $transition-rules;
+
+                &:hover,
+                &:focus {
+                    transform: scale(0.95);
                 }
             }
         }
@@ -91,6 +95,7 @@
             opacity: 0.3;
             top: initial !important;
             bottom: 0 !important;
+
             span {
                 background-color: $color-black;
             }
