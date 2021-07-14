@@ -12266,19 +12266,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let vh = window.innerHeight * 0.01
-document.documentElement.style.setProperty('--vh', `${vh}px`);
+// let vh = window.innerHeight * 0.01
+//document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 
 //adaptiveIntroBlock()
 
 //window.addEventListener('resize', () => adaptiveIntroBlock())
 
-window.addEventListener('resize', () => {
+/*window.addEventListener('resize', () => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
     //adaptiveIntroBlock();
-})
+})*/
+
+const appHeight = () => {
+    const doc= document.documentElement
+    doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+}
+
+window.addEventListener('resize', appHeight)
+
+appHeight();
 
 /***/ }),
 
