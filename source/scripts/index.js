@@ -3,6 +3,8 @@
 import swiper from './modules/swiper.js'
 // import { adaptiveIntroBlock } from './utils/adaptiveIntroBlock.js'
 import mapOverlay from './modules/mapOverlay.js'
+import menu from './modules/menu.js'
+import smoothScroll from './modules/smoothScroll.js'
 // import stickyHeader from './modules/stickyHeader.js'
 
 /*let vh = window.innerHeight * 0.01
@@ -33,3 +35,4 @@ const introBlock = document.querySelector('.intro');
 introBlock.style.minHeight = 'calc(100vh - ' + (headerHeight) +  'px)';
 
 document.querySelector('main').style.marginTop = headerHeight + 'px';*/
+

@@ -8,13 +8,15 @@ header.header
           svg(width="80" height="60")
             use(xlink:href="#icon-logo")
           
-      .header__search
+      .header__action
         //.header__search-container
           //input(type="search")
           //svg(width="30" height="30")
             //use(xlink:href="#icon-search")
 
         a(href="#" aria-label="корзина")
-          svg(width="35" height="35")
-              use(xlink:href="#icon-basket")
+          svg(width="30" height="30")
+              use(xlink:href="#icon-cart")
+        .header__action-burger
+          include ../../components/burger.pug
     include ./nav.pug

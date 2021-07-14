@@ -1,0 +1,36 @@
+.burger {
+    padding: 0;
+    border: none;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 1rem;
+        width: 100%;
+    }
+
+    &__top-line,
+    &__bottom-line {
+        width: 100%;
+        height: 3px;
+        background-color: $color-black;
+
+        transition: all $transition-rules;
+    }
+
+    &:hover, 
+    &:focus {
+        .burger__bottom-line {
+            width: 75%;
+        }
+
+        .burger__top-line {
+            width: 75%;
+            margin-left: 25%;
+        }
+    }
+}

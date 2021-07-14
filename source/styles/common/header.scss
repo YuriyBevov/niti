@@ -35,12 +35,18 @@
     }*/
     //----------
 
-
-    //display: none;
-    opacity: 0.9;
     width: 100%;
     z-index: 1000;
     background-color: $color-white;
+
+    &__burger {
+        display: none;
+        width: 25%;
+
+        @media(max-width: $tablet_width) {
+            display: block;
+        }
+    }
 
     &__content {
         position: relative;
@@ -67,6 +73,16 @@
         &::after {
             right: 0;
         }
+
+        @media(max-width: $tablet_width) {
+            order: 3;
+            align-items: flex-end;
+
+            &::before,
+            &::after {
+                display: none;
+            }
+        }
     }
 
     &__phone {
@@ -84,6 +100,27 @@
             color: $color-maroon;
     
             @include link_hover();
+
+            @media(max-width: $tablet_width) {
+                font-size: 1.8rem;
+                line-height: 2rem;
+            }
+    
+            @media(max-width: $mobile_lg_width) {
+                font-size: 1.6rem;
+                line-height: 1.8rem;
+            }
+        }
+
+        @media(max-width: $tablet_width) {
+            width: 50%;
+            order: 2;
+            display: flex;
+            justify-content: center;
+        }
+
+        @media(max-width: 400px) {
+            display: none;
         }
     }
 
@@ -100,16 +137,96 @@
             svg {
                 fill: $color-black;
             }
+
+            @media(max-width: $tablet_width) {
+               margin: 0;
+
+               svg {
+                   width: 6rem;
+                   height: 6rem;
+               }
+            }
+        }
+
+        @media(max-width: $tablet_width) {
+            width: 25%;
+            order: 1;
         }
     }
 
-    &__search {
+    &__action {
         width: 25%;
         display: flex;
         align-items: center;
 
         a {
             margin-left: auto;
+
+            svg {
+                fill: $color-black;
+                transition: fill $transition-rules;
+            }
+
+            &:hover,
+            &:focus {
+                svg {
+                    fill: $color-maroon;
+                }
+            }
+        }
+
+        &-burger {
+            display: none;
+            margin-left: 2rem;
+        }
+
+        @media(max-width: $tablet_width) {
+            order: 3;
+
+            &-burger {
+                display: block;
+            }
+        }
+    }
+
+    @media(max-width: $tablet_width) {
+
+
+        &.js-mobile-opened {
+            position: fixed;
+
+            .nav {
+                display: flex;
+                height: 100vh;
+                width: 100vw;
+                position: fixed;
+                top: auto;
+                left: 0;
+        
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+        
+                background-color: $color-white;
+
+                transform: translateY(100vh);
+
+                animation: menu 0.5s forwards;
+        
+                &__list {
+                    flex-direction: column;
+                }
+            }
+
+            @keyframes menu {
+                0% {
+                    transform: translateY(100vh);
+                }
+
+                100% {
+                    transform: translateY(0);
+                }
+            }
         }
     }
 }

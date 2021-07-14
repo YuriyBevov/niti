@@ -12255,10 +12255,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_swiper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/swiper.js */ "./source/scripts/modules/swiper.js");
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/mapOverlay.js */ "./source/scripts/modules/mapOverlay.js");
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _modules_menu_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/menu.js */ "./source/scripts/modules/menu.js");
+/* harmony import */ var _modules_menu_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_menu_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modules_smoothScroll_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/smoothScroll.js */ "./source/scripts/modules/smoothScroll.js");
+/* harmony import */ var _modules_smoothScroll_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_smoothScroll_js__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
 // import { adaptiveIntroBlock } from './utils/adaptiveIntroBlock.js'
+
+
 
 // import stickyHeader from './modules/stickyHeader.js'
 
@@ -12291,6 +12297,8 @@ introBlock.style.minHeight = 'calc(100vh - ' + (headerHeight) +  'px)';
 
 document.querySelector('main').style.marginTop = headerHeight + 'px';*/
 
+
+
 /***/ }),
 
 /***/ "./source/scripts/modules/mapOverlay.js":
@@ -12307,7 +12315,75 @@ const onClickRemoveOverlay = () => {
     overlay.style.display = 'none'
 }
 
-overlay.addEventListener('click', onClickRemoveOverlay)
+overlay ?
+overlay.addEventListener('click', onClickRemoveOverlay) : null
+
+/***/ }),
+
+/***/ "./source/scripts/modules/menu.js":
+/*!****************************************!*\
+  !*** ./source/scripts/modules/menu.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const burger = document.querySelector('.burger');
+const menu = document.querySelector('.nav');
+const header = document.querySelector('.header');
+
+const onClickOpenMenu = () => {
+    header.classList.toggle('js-mobile-opened')
+
+    if(header.classList.contains('js-mobile-opened')) {
+        const links = menu.querySelectorAll('a[href*="#"]')
+
+        const onClickCloseMenu = () => {
+
+            header.classList.remove('js-mobile-opened');
+            // menu.style.display = 'none';
+
+            links.forEach(link => {
+                link.addEventListener('click', onClickCloseMenu) 
+            })       
+        }
+        
+        //menu.style.display = 'flex'
+
+        links.forEach(link => {
+            link.addEventListener('click', onClickCloseMenu)
+        })
+    } else {
+        // menu.style.display = 'none'
+    }
+}
+
+burger.addEventListener('click', onClickOpenMenu);
+
+
+
+
+/***/ }),
+
+/***/ "./source/scripts/modules/smoothScroll.js":
+/*!************************************************!*\
+  !*** ./source/scripts/modules/smoothScroll.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const smoothLinks = document.querySelectorAll('a[href^="#"]');
+
+for (let smoothLink of smoothLinks) {
+    smoothLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        const id = smoothLink.getAttribute('href');
+
+        document.querySelector(id).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+};
 
 /***/ }),
 
@@ -12340,10 +12416,10 @@ if(iSlider) {
           crossFade: true
         },*/
     
-        /*autoplay: {
+        autoplay: {
           delay: sliderDelay,
           disableOnInteraction: false
-        },*/
+        },
     });
 
     introSwiper.on('click', function()  {
