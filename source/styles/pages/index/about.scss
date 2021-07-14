@@ -88,9 +88,15 @@
         }
 
         @media(max-width: $mobile_lg_width) {
-            display: none;
+            // display: none;
 
             // сделать парралакс для картинки на мобиле!!!!!!!!!
+
+            width: 100%;
+            position: relative;
+            right: 0;
+            padding: 0;
+            height: 20rem;
         }
     }
 }
