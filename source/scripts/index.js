@@ -27,9 +27,9 @@ const appHeight = () => {
 window.addEventListener('resize', appHeight)
 appHeight()
 
-const headerHeight = document.querySelector('header').offsetHeight;
+/*const headerHeight = document.querySelector('header').offsetHeight;
 const introBlock = document.querySelector('.intro');
 
 introBlock.style.minHeight = 'calc(100vh - ' + (headerHeight) +  'px)';
 
-document.querySelector('main').style.marginTop = headerHeight + 'px';
+document.querySelector('main').style.marginTop = headerHeight + 'px';*/
