@@ -12253,32 +12253,32 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_swiper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/swiper.js */ "./source/scripts/modules/swiper.js");
-/* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/mapOverlay.js */ "./source/scripts/modules/mapOverlay.js");
-/* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_adaptiveIntroBlock_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/adaptiveIntroBlock.js */ "./source/scripts/utils/adaptiveIntroBlock.js");
+/* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/mapOverlay.js */ "./source/scripts/modules/mapOverlay.js");
+/* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
-//import { adaptiveIntroBlock } from './utils/adaptiveIntroBlock.js'
+
 
 // import stickyHeader from './modules/stickyHeader.js'
 
 
 
 
-/*let vh = window.innerHeight * 0.01
+let vh = window.innerHeight * 0.01
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 
-// adaptiveIntroBlock()
+//adaptiveIntroBlock()
 
-/*const onWindowResizeHandler = () => adaptiveIntroBlock()
- window.addEventListener('resize', onWindowResizeHandler)*/
+//window.addEventListener('resize', () => adaptiveIntroBlock())
 
-/*window.addEventListener('resize', () => {
-    // adaptiveIntroBlock()
+window.addEventListener('resize', () => {
     let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`)
-})*/
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    //adaptiveIntroBlock();
+})
 
 /***/ }),
 
@@ -12383,6 +12383,31 @@ if(sSlider) {
           prevEl: ".swiper-button-prev",
         }
     });
+}
+
+
+
+/***/ }),
+
+/***/ "./source/scripts/utils/adaptiveIntroBlock.js":
+/*!****************************************************!*\
+  !*** ./source/scripts/utils/adaptiveIntroBlock.js ***!
+  \****************************************************/
+/*! exports provided: adaptiveIntroBlock */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "adaptiveIntroBlock", function() { return adaptiveIntroBlock; });
+const adaptiveIntroBlock = () => {
+    const headerHeight = document.querySelector('header').offsetHeight
+    const intro = document.querySelector('.intro')
+    const introHeight = intro.offsetHeight
+    console.log(introHeight - headerHeight)
+    
+    // intro.style.height = 'calc(var(--vh, 1vh) * 100) -' + (headerHeight) +  'px';
+    intro.style.height = introHeight - headerHeight + 'px';
+    document.querySelector('main').style.marginTop = headerHeight + 'px';
 }
 
 
