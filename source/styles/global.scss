@@ -15,7 +15,7 @@
 
 :root {
   font-size: 62.5%;
-  --app-height: 100%;
+  // --app-height: 100%;
 }
 
 html,
@@ -27,9 +27,9 @@ body {
   overflow-x: hidden;
   -webkit-text-size-adjust: none;
 
-  @media not all and (hover:hover) {
+  /*@media not all and (hover:hover) {
     height: var(--app-height)
-  }
+  } */
 }
 
 body {
