@@ -11,7 +11,6 @@
   -webkit-border-radius: 0;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 :root {
@@ -27,8 +26,8 @@ body {
   height: 100%;
   min-height: 100vh;
   min-height: -webkit-fill-available;
-  overflow-x: hidden;
   -webkit-text-size-adjust: none;
+  overflow-x: hidden;
 
   @media not all and (hover:hover) {
     height: var(--app-height)
@@ -36,6 +35,7 @@ body {
 }
 
 body {
+  position: relative;
   display: flex;
   flex-direction: column;
   font-family: $font_reg, sans-serif;
