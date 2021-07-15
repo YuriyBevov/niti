@@ -17,10 +17,10 @@ if(iSlider) {
           crossFade: true
         },*/
     
-        autoplay: {
+        /* autoplay: {
           delay: sliderDelay,
           disableOnInteraction: false
-        },
+        }, */
     });
 
     introSwiper.on('click', function()  {
