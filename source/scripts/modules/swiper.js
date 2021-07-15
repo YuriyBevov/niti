@@ -32,7 +32,7 @@ let sSlider = document.querySelector('.sale-swiper-container');
 
 if(sSlider) {
     const saleSwiper = new Swiper('.sale-swiper-container', {
-        slidesPerView: 2,
+        slidesPerView: 1,
         spaceBetween: 10,
         speed: 1000,
         loop: true,
@@ -40,12 +40,12 @@ if(sSlider) {
         breakpoints: {
           // when window width is >= 320px
           320: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 10
           },
 
           434: {
-            // slidesPerView: 2,
+            slidesPerView: 2,
             spaceBetween: 20
           },
           

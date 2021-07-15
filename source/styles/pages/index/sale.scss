@@ -65,13 +65,15 @@
         height: 100%;
         width: 100%;
         overflow-x: hidden;
+
+        @media(max-width: $mobile_lg_width) {
+            height: 30rem;
+        }
         
         .swiper-slide {
             display: flex;
-            // width: 100%;
             
             img {
-                // box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
                 width: 100%;
                 height: 100%;
                 object-position: center;
@@ -82,13 +84,6 @@
                 display: block;
                 width: 100%;
                 height: 100%;
-                // transform: scale(0.9);
-                //transition: transform $transition-rules;
-
-                //&:hover,
-                //&:focus {
-                    // transform: scale(0.95);
-                //}
             }
         }
 
