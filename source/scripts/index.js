@@ -8,6 +8,7 @@ import smoothScroll from './modules/smoothScroll.js'
 // import stickyHeader from './modules/stickyHeader.js'
 
 
+
 // adaptiveIntroBlock()
 
 // window.addEventListener('resize', () => adaptiveIntroBlock())
@@ -19,4 +20,12 @@ const appHeight = () => {
 
 window.addEventListener('resize', appHeight)
 appHeight()
+
+
+const slides = document.querySelectorAll('.intro-swiper-container .swiper-slide')
+
+console.log(slides)
+
+
+
 
