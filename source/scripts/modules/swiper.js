@@ -32,7 +32,7 @@ let sSlider = document.querySelector('.sale-swiper-container');
 
 if(sSlider) {
     const saleSwiper = new Swiper('.sale-swiper-container', {
-        slidesPerView: 1,
+        slidesPerView: 2,
         spaceBetween: 10,
         speed: 1000,
         loop: true,
@@ -40,25 +40,19 @@ if(sSlider) {
         breakpoints: {
           // when window width is >= 320px
           320: {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 10
           },
 
           434: {
-            slidesPerView: 2,
+            // slidesPerView: 2,
             spaceBetween: 20
           },
-
-          // when window width is >= 480px
+          
           768: {
             slidesPerView: 3,
             spaceBetween: 20
           },
-          // when window width is >= 640px
-          /* 1140: {
-            slidesPerView: 3,
-            spaceBetween: 30
-          } */
         },
 
         /* pagination: {
