@@ -12410,16 +12410,16 @@ if(iSlider) {
         slidesPerView: 1,
         speed: 1000,
         loop: true,
-        // spaceBetween: 5,
-        // effect: "fade",
-        /* fadeEffect: {
+        // spaceBetween: 10,
+        effect: "fade",
+        fadeEffect: {
           crossFade: true
-        },*/
+        },
     
-        /* autoplay: {
+        autoplay: {
           delay: sliderDelay,
           disableOnInteraction: false
-        }, */
+        },
     });
 
     introSwiper.on('click', function()  {
