@@ -3,8 +3,8 @@
     min-height: calc(100vh - 12rem);
 
     @media(max-width: $tablet_width) {
-        height: 60vh;
-        min-height: 60vh;
+        height: 40rem;
+        min-height: 40rem;
     }
 
     //transition: all 0.5s linear;
