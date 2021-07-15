@@ -1,8 +1,9 @@
 .intro {
-    // height: 100%;
+    height: calc(100vh - 12rem);
     min-height: calc(100vh - 12rem);
 
     @media(max-width: $tablet_width) {
+        height: 60vh;
         min-height: 60vh;
     }
 
