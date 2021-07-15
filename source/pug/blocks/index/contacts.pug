@@ -1,5 +1,10 @@
 section.contacts#contacts
  .contacts__wrapper
    .contacts__overlay
-     span Нажмите на карту для приближения
+    button(type="button" aria-label="показать карту").contacts__btn
+      svg(width="40" height="40")
+        use(xlink:href="#icon-expand")
+
+    include ../common/info.pug
+
    img(src='./assets/img/map__temp!.png' alt="карта")

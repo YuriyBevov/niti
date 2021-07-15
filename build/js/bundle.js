@@ -12268,19 +12268,10 @@ __webpack_require__.r(__webpack_exports__);
 
 // import stickyHeader from './modules/stickyHeader.js'
 
-/*let vh = window.innerHeight * 0.01
-document.documentElement.style.setProperty('--vh', `${vh}px`);
 
+// adaptiveIntroBlock()
 
-adaptiveIntroBlock()
-
-//window.addEventListener('resize', () => adaptiveIntroBlock())
-
-/*window.addEventListener('resize', () => {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-    adaptiveIntroBlock();
-})*/
+// window.addEventListener('resize', () => adaptiveIntroBlock())
 
 const appHeight = () => {
     const doc = document.documentElement
@@ -12289,13 +12280,6 @@ const appHeight = () => {
 
 window.addEventListener('resize', appHeight)
 appHeight()
-
-/*const headerHeight = document.querySelector('header').offsetHeight;
-const introBlock = document.querySelector('.intro');
-
-introBlock.style.minHeight = 'calc(100vh - ' + (headerHeight) +  'px)';
-
-document.querySelector('main').style.marginTop = headerHeight + 'px';*/
 
 
 
@@ -12310,13 +12294,16 @@ document.querySelector('main').style.marginTop = headerHeight + 'px';*/
 
 
 const overlay = document.querySelector('.contacts__overlay')
+const btn = document.querySelector('.contacts__btn')
 
 const onClickRemoveOverlay = () => {
-    overlay.style.display = 'none'
+    //overlay.style.display = 'none'
+
+    overlay.classList.toggle('closed');
 }
 
 overlay ?
-overlay.addEventListener('click', onClickRemoveOverlay) : null
+btn.addEventListener('click', onClickRemoveOverlay) : null
 
 /***/ }),
 
@@ -12330,34 +12317,42 @@ overlay.addEventListener('click', onClickRemoveOverlay) : null
 const burger = document.querySelector('.burger');
 const menu = document.querySelector('.nav');
 const header = document.querySelector('.header');
+const main = document.querySelector('main');
 
 const onClickOpenMenu = () => {
     header.classList.toggle('js-mobile-opened')
 
     if(header.classList.contains('js-mobile-opened')) {
+        const headerHeight = document.querySelector('header').offsetHeight
+        main.style.marginTop = headerHeight + 'px';
         const links = menu.querySelectorAll('a[href*="#"]')
 
         const onClickCloseMenu = () => {
-
             header.classList.remove('js-mobile-opened');
-            // menu.style.display = 'none';
 
             links.forEach(link => {
                 link.addEventListener('click', onClickCloseMenu) 
             })       
         }
-        
-        //menu.style.display = 'flex'
 
         links.forEach(link => {
             link.addEventListener('click', onClickCloseMenu)
         })
     } else {
-        // menu.style.display = 'none'
+        main.style.marginTop = 0 + 'px';
     }
 }
 
 burger.addEventListener('click', onClickOpenMenu);
+
+window.addEventListener('resize', () => {
+    if(window.innerWidth > 767) {
+        main.style.marginTop = 0 + 'px'
+        if(header.classList.contains('js-mobile-opened')) {
+            header.classList.remove('js-mobile-opened');
+        }
+    }
+})
 
 
 

@@ -3,16 +3,16 @@
     &__gallery {
         display: grid;
         grid-template-columns: repeat(8, 1fr);
-        grid-template-rows: repeat(8, 7vw);
+        grid-template-rows: repeat(13, 7vw);
         grid-gap: 1.5rem;
 
         @media(max-width: $tablet_width) {
-            grid-template-rows: repeat(14, 7vw);
+            grid-template-rows: repeat(20, 7vw);
             grid-gap: 0.5rem;
         }
 
         @media(max-width: $mobile_lg_width) {
-            grid-template-rows: repeat(30, 7vw);
+            grid-template-rows: repeat(35, 7vw);
         }
     }
 
@@ -42,7 +42,8 @@
                     line-height: 1.6rem;
 
                     @media(min-width: $mobile_lg_width) {
-                        font-size: 3rem;
+                        font-size: 2.3rem;
+                        line-height: 3rem;
                         transform: rotate(180deg);
                         writing-mode: tb-rl;
                         writing-mode: vertical-rl;
@@ -51,11 +52,12 @@
 
                     @media(min-width: $tablet_width) {
                         font-size: 4rem;
-
+                        line-height: 5rem;
                     }
 
                     @media(min-width: $tablet_lg_width) {
                         font-size: 6rem;
+                        line-height: 7rem;
                     }
                 }
 
@@ -80,11 +82,12 @@
                 @media(max-width: $mobile_lg_width) {
                     grid-column-start: 1;
                     grid-column-end: 9;
-                    grid-row-start: 6;
-                    grid-row-end: 11;
+                    grid-row-start: 11;
+                    grid-row-end: 16;
                 }
             }
 
+            // фартуки
             &--3 {
                 grid-column-start: 5;
                 grid-column-end: 7;
@@ -92,20 +95,21 @@
                 grid-row-end: 6;
 
                 @media(max-width: $tablet_width) {
-                    grid-column-start: 1;
-                    grid-column-end: 4;
-                    grid-row-start: 6;
-                    grid-row-end: 10;
+                    grid-column-start: 5;
+                    grid-column-end: 9;
+                    grid-row-start: 17;
+                    grid-row-end: 21;
                 }
 
                 @media(max-width: $mobile_lg_width) {
                     grid-column-start: 1;
                     grid-column-end: 9;
-                    grid-row-start: 11;
-                    grid-row-end: 16;
+                    grid-row-start: 31;
+                    grid-row-end: 36;
                 }
             }
 
+            // гол уб
             &--4 {
                 grid-column-start: 7;
                 grid-column-end: 9;
@@ -113,20 +117,21 @@
                 grid-row-end: 6;
 
                 @media(max-width: $tablet_width) {
-                    grid-column-start: 6;
-                    grid-column-end: 9;
-                    grid-row-start: 10;
-                    grid-row-end: 15;
+                    grid-column-start: 1;
+                    grid-column-end: 5;
+                    grid-row-start: 17;
+                    grid-row-end: 21;
                 }
 
                 @media(max-width: $mobile_lg_width) {
                     grid-column-start: 1;
                     grid-column-end: 9;
-                    grid-row-start: 16;
-                    grid-row-end: 21;
+                    grid-row-start: 26;
+                    grid-row-end: 31;
                 }
             }
 
+            // Рабочая одежда
             &--5 {
                 grid-column-start: 1;
                 grid-column-end: 6;
@@ -143,9 +148,31 @@
 
                 @media(max-width: $tablet_width) {
                     grid-column-start: 1;
-                    grid-column-end: 6;
-                    grid-row-start: 10;
-                    grid-row-end: 15;
+                    grid-column-end: 9;
+                    grid-row-start: 6;
+                    grid-row-end: 12;
+                }
+
+                @media(max-width: $mobile_lg_width) {
+                    grid-column-start: 1;
+                    grid-column-end: 9;
+                    grid-row-start: 6;
+                    grid-row-end: 11;
+                } 
+            }
+
+            // ст текст
+            &--6 {
+                grid-column-start: 6;
+                grid-column-end: 9;
+                grid-row-start: 6;
+                grid-row-end: 9;
+
+                @media(max-width: $tablet_width) {
+                    grid-column-start: 6;
+                    grid-column-end: 9;
+                    grid-row-start: 12;
+                    grid-row-end: 17;
                 }
 
                 @media(max-width: $mobile_lg_width) {
@@ -156,24 +183,40 @@
                 }
             }
 
-            &--6 {
-                grid-column-start: 6;
+            // пов
+            &--7 {
+                grid-column-start: 1;
                 grid-column-end: 9;
-                grid-row-start: 6;
-                grid-row-end: 9;
+                grid-row-start: 9;
+                grid-row-end: 14;
+
+                a h3 {
+                    font-size: 1.4rem;
+                    line-height: 1.6rem;
+
+                    @media(min-width: $tablet_width) {
+                        font-size: 4rem;
+                        line-height: 5rem;
+                    }
+
+                    @media(min-width: $tablet_lg_width) {
+                        font-size: 6rem;
+                        line-height: 7rem;
+                    }
+                }
 
                 @media(max-width: $tablet_width) {
-                    grid-column-start: 4;
-                    grid-column-end: 9;
-                    grid-row-start: 6;
-                    grid-row-end: 10;
+                    grid-column-start: 1;
+                    grid-column-end: 6;
+                    grid-row-start: 12;
+                    grid-row-end: 17;
                 }
 
                 @media(max-width: $mobile_lg_width) {
                     grid-column-start: 1;
                     grid-column-end: 9;
-                    grid-row-start: 26;
-                    grid-row-end: 31;
+                    grid-row-start: 16;
+                    grid-row-end: 21;
                 }
             }
 
@@ -202,7 +245,7 @@
 
                 h3 { 
                     position: relative;
-                    max-width: 14rem; 
+                    max-width: 20rem; 
                     color: $color-white; 
                 }
 

@@ -1,0 +1,42 @@
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    &__part {
+        margin-bottom: 2rem;
+      
+        @media(max-width: $tablet-width) {
+            margin-bottom: 1rem;
+        }
+
+       p, a, address {
+           text-align: center;
+           font-family: $font_reg; 
+           font-size: 1.6rem;
+           line-height: 2rem;
+           color: $color-white;
+
+            @media(max-width: $tablet-width) {
+                font-size: 1.4rem;
+                line-height: 1.8rem;
+            }
+       }
+
+       p {
+            font-size: 2rem;
+            line-height: 2.4rem;
+            margin-bottom: 1rem;
+
+            @media(max-width: $tablet-width) {
+                font-size: 1.6rem;
+                line-height: 1.8rem;
+            }
+       }
+
+       address {
+           font-style: normal;
+       }
+    }
+}

@@ -7,19 +7,10 @@ import menu from './modules/menu.js'
 import smoothScroll from './modules/smoothScroll.js'
 // import stickyHeader from './modules/stickyHeader.js'
 
-/*let vh = window.innerHeight * 0.01
-document.documentElement.style.setProperty('--vh', `${vh}px`);
 
+// adaptiveIntroBlock()
 
-adaptiveIntroBlock()
-
-//window.addEventListener('resize', () => adaptiveIntroBlock())
-
-/*window.addEventListener('resize', () => {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-    adaptiveIntroBlock();
-})*/
+// window.addEventListener('resize', () => adaptiveIntroBlock())
 
 const appHeight = () => {
     const doc = document.documentElement
@@ -28,11 +19,4 @@ const appHeight = () => {
 
 window.addEventListener('resize', appHeight)
 appHeight()
-
-/*const headerHeight = document.querySelector('header').offsetHeight;
-const introBlock = document.querySelector('.intro');
-
-introBlock.style.minHeight = 'calc(100vh - ' + (headerHeight) +  'px)';
-
-document.querySelector('main').style.marginTop = headerHeight + 'px';*/
 
