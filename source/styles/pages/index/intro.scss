@@ -3,11 +3,10 @@
     min-height: calc(100vh - 12rem);
 
     @media(max-width: $tablet_width) {
-        height: 40rem;
-        min-height: 40rem;
+        height: 60rem;
+        min-height: 60rem;
+        max-height: 100vh;
     }
-
-    //transition: all 0.5s linear;
 
     &__wrapper {
         min-height: inherit;
@@ -17,24 +16,15 @@
         width: 100%;
         height: 100%;
         overflow-x: hidden;
-        //min-height: inherit;
-
-        .swiper-wrapper {
-            // min-height: inherit;
-        }
 
         .swiper-slide {
-            // min-height: inherit;
             display: flex;
-
-            //flex-direction: column;
-            //justify-content: center;
             background-repeat: no-repeat;
             background-size: cover;
 
-            img {
+            /* img {
                 object-fit: cover;
-            }
+            } */
         }
     }
 

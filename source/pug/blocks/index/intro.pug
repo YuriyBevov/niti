@@ -11,5 +11,8 @@ section.intro
   .intro-swiper-container
     .swiper-wrapper
       each slide in slides
-        .swiper-slide
-          img(src=slide.imageURL + '@1x.jpg' srcset=slide.imageURL + '@2x.jpg 2x' alt=slide.desc width="100%" height="100%")
+        .swiper-slide(style="background-image: url(" + slide.imageURL + "@1x.jpg" + ")")
+          .intro-swiper-content.intro__wrapper.cmn__container
+            p= slide.desc
+            h2.cmn__title.cmn__title--white= slide.title
+            a(href="#catalog").cmn__btn каталог
