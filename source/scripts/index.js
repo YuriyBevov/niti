@@ -4,12 +4,10 @@ import swiper from './modules/swiper.js'
 // import { adaptiveIntroBlock } from './utils/adaptiveIntroBlock.js'
 import mapOverlay from './modules/mapOverlay.js'
 import menu from './modules/menu.js'
-import scroll from './modules/smoothScroll.js'
+import scrollToAnchor from './modules/scrollToAnchor.js'
 // import stickyHeader from './modules/stickyHeader.js'
 
-import smoothscroll from 'smoothscroll-polyfill';
-// kick off the polyfill!
-smoothscroll.polyfill();
+
 
 
 

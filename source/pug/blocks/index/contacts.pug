@@ -1,10 +1,9 @@
 section.contacts#contacts
- .contacts__wrapper
-   .contacts__overlay
+  .contacts__wrapper
     button(type="button" aria-label="показать карту").contacts__btn
       svg(width="40" height="40")
         use(xlink:href="#icon-expand")
+    .contacts__overlay
+      include ../common/info.pug
 
-    include ../common/info.pug
-
-   img(src='./assets/img/map__temp!.png' alt="карта")
+    img(src='./assets/img/map__temp!.png' alt="карта")

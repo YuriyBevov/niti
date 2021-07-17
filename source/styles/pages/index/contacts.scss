@@ -24,6 +24,26 @@
         }
     }
 
+    &__btn {
+        position: absolute;
+        right: 0;
+        z-index: 100;
+        display: block;
+        height: 4rem;
+        width: 4rem;
+        border: none;
+        padding: 0;
+        margin: 0 3rem;
+        background-color: transparent;
+        margin-left: auto;
+        transform: rotate(180deg);
+        transition: transform $transition-rules;
+
+        &.opened {
+            transform: rotate(0);
+        }
+    }
+
     &__overlay {
         display: flex;
         flex-direction: column;
@@ -36,28 +56,12 @@
         background-color: rgba(0, 0, 0, 0.5);
         transition: height $transition-rules;
 
-        button {
-            display: block;
-            height: 4rem;
-            width: 4rem;
-            border: none;
-            padding: 0;
-            margin: 0 3rem;
-            background-color: transparent;
-            margin-left: auto;
-            transform: rotate(180deg);
-            transition: transform $transition-rules;
-        }
-
         &.closed {
             height: 40px;
 
-            button {
-                transform: rotate(0)
-            }
-
             .info {
-                transform: translateX(-200%)
+                transition: none;
+                opacity: 0;
             }
         }
     }

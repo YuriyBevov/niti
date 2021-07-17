@@ -18183,10 +18183,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _modules_menu_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/menu.js */ "./source/scripts/modules/menu.js");
 /* harmony import */ var _modules_menu_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_menu_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _modules_smoothScroll_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/smoothScroll.js */ "./source/scripts/modules/smoothScroll.js");
-/* harmony import */ var _modules_smoothScroll_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_smoothScroll_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! smoothscroll-polyfill */ "./node_modules/smoothscroll-polyfill/dist/smoothscroll.js");
-/* harmony import */ var smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _modules_scrollToAnchor_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/scrollToAnchor.js */ "./source/scripts/modules/scrollToAnchor.js");
 
 
 
@@ -18197,8 +18194,6 @@ __webpack_require__.r(__webpack_exports__);
 // import stickyHeader from './modules/stickyHeader.js'
 
 
-// kick off the polyfill!
-smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_4___default.a.polyfill();
 
 
 
@@ -18233,9 +18228,8 @@ const overlay = document.querySelector('.contacts__overlay')
 const btn = document.querySelector('.contacts__btn')
 
 const onClickRemoveOverlay = () => {
-    //overlay.style.display = 'none'
-
     overlay.classList.toggle('closed');
+    btn.classList.toggle('opened');
 }
 
 overlay ?
@@ -18297,13 +18291,22 @@ burger.addEventListener('click', onClickOpenMenu);
 
 /***/ }),
 
-/***/ "./source/scripts/modules/smoothScroll.js":
-/*!************************************************!*\
-  !*** ./source/scripts/modules/smoothScroll.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./source/scripts/modules/scrollToAnchor.js":
+/*!**************************************************!*\
+  !*** ./source/scripts/modules/scrollToAnchor.js ***!
+  \**************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! smoothscroll-polyfill */ "./node_modules/smoothscroll-polyfill/dist/smoothscroll.js");
+/* harmony import */ var smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_0__);
+
+// kick off the polyfill!
+smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_0___default.a.polyfill();
+
+console.log(smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_0___default.a)
 const smoothLinks = document.querySelectorAll('a[href^="#"]');
 
 for (let smoothLink of smoothLinks) {

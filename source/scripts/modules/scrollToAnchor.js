@@ -1,3 +1,8 @@
+import smoothscroll from 'smoothscroll-polyfill';
+// kick off the polyfill!
+smoothscroll.polyfill();
+
+console.log(smoothscroll)
 const smoothLinks = document.querySelectorAll('a[href^="#"]');
 
 for (let smoothLink of smoothLinks) {

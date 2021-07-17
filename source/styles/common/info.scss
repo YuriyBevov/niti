@@ -3,6 +3,7 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+    transition: opacity 1s 0.3s ease;
 
     &__part {
         margin-bottom: 2rem;
