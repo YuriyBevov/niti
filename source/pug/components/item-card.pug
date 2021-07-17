@@ -1,0 +1,12 @@
+.item-card
+  .item-card__wrapper
+    .item-card__content
+      img(src=item.imageURL + '@1x.png' srcset=item.imageURL + '@2x.png 2x' alt=item.desc)
+      .item-card__price-box
+        p.cmn__text <span class="item-card__price">220000</span> р.
+    .item-card__footer
+      a(href="#").cmn__btn.cmn__btn--maroon.item-card__btn Купить
+      .item-card__cart-box
+        a(href="#" aria-label="добавить в корзину")
+          svg(width="30" height="30")
+            use(xlink:href="#icon-cart")

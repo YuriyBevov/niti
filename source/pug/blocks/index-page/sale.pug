@@ -16,7 +16,5 @@ section.sale
       .swiper-wrapper
         each item in items
           .swiper-slide
-            a(href="#" aria-label=item.title)
-              img(src=item.imageURL + '@1x.png' srcset=item.imageURL + '@2x.png 2x' alt=item.desc)
-      // <div class="swiper-pagination"></div>
-      <div class="swiper-button-next"></div>
+
+            include ../../components/item-card

@@ -1,28 +1,26 @@
 import gsap from "gsap";
 import Swiper, { Autoplay, /*Pagination,*/ Navigation, EffectFade } from 'swiper';
 Swiper.use([Autoplay, /*Pagination,*/ Navigation, EffectFade ]);
-console.log(EffectFade)
 
 const sliderDelay = 5000;
-
-let iSlider = document.querySelector('.intro-swiper-container');
+const iSlider = document.querySelector('.intro-swiper-container');
 
 if(iSlider) {
+
     const introSwiper = new Swiper('.intro-swiper-container', {
         slidesPerView: 1,
         speed: 2000,
         loop: true,
-        // spaceBetween: 10,
         effect: "fade",
         fadeEffect: {
           crossFade: true
         },
+    
+        autoplay: {
+          delay: sliderDelay,
+          disableOnInteraction: false
+        },
     });
-
-
-    introSwiper.on('click', function()  {
-      introSwiper.slideNext()
-    })
 
     introSwiper.on('slideChange', function () {
       gsap.fromTo(".intro-swiper-container .swiper-slide-next p", {scale: 0.5}, {scale: 1, duration: 1});
@@ -37,7 +35,7 @@ if(iSlider) {
     });
 }
 
-let sSlider = document.querySelector('.sale-swiper-container');
+const sSlider = document.querySelector('.sale-swiper-container');
 
 if(sSlider) {
     const saleSwiper = new Swiper('.sale-swiper-container', {
@@ -53,27 +51,16 @@ if(sSlider) {
             spaceBetween: 10
           },
 
-          434: {
+          534: {
             slidesPerView: 2,
             spaceBetween: 20
           },
           
-          768: {
+          868: {
             slidesPerView: 3,
             spaceBetween: 20
           },
         },
-
-        /* pagination: {
-          el: ".swiper-pagination",
-          type: "progressbar",
-          position: 'bottom'
-        }, */
-
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        }
     });
 }
 

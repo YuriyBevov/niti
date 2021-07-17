@@ -1,27 +1,17 @@
 'use strict'
 
 import swiper from './modules/swiper.js'
-// import { adaptiveIntroBlock } from './utils/adaptiveIntroBlock.js'
+import fixedHeader from './modules/fixedHeader.js'
+import headerMenu from './modules/headerMenu.js'
 import mapOverlay from './modules/mapOverlay.js'
-import menu from './modules/menu.js'
-import scrollToAnchor from './modules/scrollToAnchor.js'
-// import stickyHeader from './modules/stickyHeader.js'
 
-
-
-
-
-// adaptiveIntroBlock()
-
-// window.addEventListener('resize', () => adaptiveIntroBlock())
-
-/*const appHeight = () => {
+const appHeight = () => {
     const doc = document.documentElement
     doc.style.setProperty('--app-height', '${window.innerHeight}px')
 }
 
 window.addEventListener('resize', appHeight)
-appHeight()*/
+appHeight()
 
 
 

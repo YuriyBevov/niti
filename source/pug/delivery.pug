@@ -1,4 +1,4 @@
-// extends layouts/main-layout.pug
+extends layouts/main-layout.pug
 
 block variables
   -
@@ -7,7 +7,8 @@ block variables
     const keywords = ""
 
 block content
-
+    include ./blocks/delivery-page/delivery
+    include ./blocks/delivery-page/payment
 
 block modals
   // include ./modals/menuModal

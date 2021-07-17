@@ -1,40 +1,4 @@
 .header {
-
-     //--------- 
-    //&-sticky {
-        
-        // background-color: rgb(0,0,0);
-        // может поменять цвет на черный ?
-        /* svg {
-            fill: $color-white;
-        } */
-
-        /*nav {
-            display: none;
-        }
-
-        animation: header-sticky-off 1s 0.1s forwards;
-    }
-
-    @keyframes header-sticky-off {
-        0% {
-            transform: translateY(0);
-        }
-
-        40% {
-            transform: translateY(-100%);
-        }
-
-        60% {
-            transform: translateY(-100%);
-        }
-
-        100% {
-            transform: translateY(0);
-        }
-    }*/
-    //----------
-
     width: 100%;
     z-index: 1000;
     background-color: $color-white;

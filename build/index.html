@@ -78,10 +78,10 @@
         </div>
         <nav class="nav">
           <ul class="nav__list">
-            <li class="nav__item"><a class="cmn__nav-link cmn__nav-link--black nav__link" href="#catalog">Каталог</a></li>
+            <li class="nav__item"><a class="cmn__nav-link cmn__nav-link--black nav__link" href="catalog.html">Каталог</a></li>
             <li class="nav__item"><a class="cmn__nav-link cmn__nav-link--black nav__link" href="delivery.html">Доставка и оплата</a></li>
-            <li class="nav__item"><a class="cmn__nav-link cmn__nav-link--black nav__link" href="#about">О нас</a></li>
-            <li class="nav__item"><a class="cmn__nav-link cmn__nav-link--black nav__link" href="#contacts">Контакты</a></li>
+            <li class="nav__item"><a class="cmn__nav-link cmn__nav-link--black nav__link" href="about.html">О нас</a></li>
+            <li class="nav__item"><a class="cmn__nav-link cmn__nav-link--black nav__link" href="contacts.html">Контакты</a></li>
           </ul>
         </nav>
       </div>
@@ -94,25 +94,25 @@
             <div class="swiper-slide" style="background-image: url(./assets/img/intro-slide_1@1x.jpg)">
               <div class="intro-swiper-content intro__wrapper cmn__container">
                 <p>Одежда для рабочего класса в Санкт-Петербурге Одежда для рабочего класса в Санкт-Петербурге Одежда для рабочего класса в Санкт-Петербурге</p>
-                <h2 class="cmn__title cmn__title--white">Одежда для моряков Одежда для моряков</h2><a class="cmn__btn" href="#catalog">каталог</a>
+                <h2 class="cmn__title cmn__title--white">Одежда для моряков Одежда для моряков</h2><a class="cmn__btn" href="catalog.html">каталог</a>
               </div>
             </div>
             <div class="swiper-slide" style="background-image: url(./assets/img/about_img@1x.jpg)">
               <div class="intro-swiper-content intro__wrapper cmn__container">
                 <p>Одежда для рабочего класса в Санкт-Петербурге Одежда для рабочего класса</p>
-                <h2 class="cmn__title cmn__title--white">Одежда для рабочих</h2><a class="cmn__btn" href="#catalog">каталог</a>
+                <h2 class="cmn__title cmn__title--white">Одежда для рабочих</h2><a class="cmn__btn" href="catalog.html">каталог</a>
               </div>
             </div>
             <div class="swiper-slide" style="background-image: url(./assets/img/intro-slide_1@1x.jpg)">
               <div class="intro-swiper-content intro__wrapper cmn__container">
                 <p>Одежда для рабочего класса в Санкт-Петербурге</p>
-                <h2 class="cmn__title cmn__title--white">Одежда для моряков</h2><a class="cmn__btn" href="#catalog">каталог</a>
+                <h2 class="cmn__title cmn__title--white">Одежда для моряков</h2><a class="cmn__btn" href="catalog.html">каталог</a>
               </div>
             </div>
             <div class="swiper-slide" style="background-image: url(./assets/img/about_img@1x.jpg)">
               <div class="intro-swiper-content intro__wrapper cmn__container">
                 <p>Одежда для рабочего класса в Санкт-Петербурге Одежда для рабочего класса Одежда для рабочего класса Одежда для рабочего класса</p>
-                <h2 class="cmn__title cmn__title--white">Одежда для рабочих</h2><a class="cmn__btn" href="#catalog">каталог</a>
+                <h2 class="cmn__title cmn__title--white">Одежда для рабочих</h2><a class="cmn__btn" href="catalog.html">каталог</a>
               </div>
             </div>
           </div>
@@ -151,14 +151,109 @@
           <h2 class="cmn__title sale__title"><span>Распродажа</span></h2>
           <div class="sale-swiper-container">
             <div class="swiper-wrapper">
-              <div class="swiper-slide"><a href="#" aria-label="товар из раздела распродаж"><img src="./assets/img/sale@1x.png" srcset="./assets/img/sale@2x.png 2x" alt="описание товара"></a></div>
-              <div class="swiper-slide"><a href="#" aria-label="товар из раздела распродаж"><img src="./assets/img/sale@1x.png" srcset="./assets/img/sale@2x.png 2x" alt="описание товара"></a></div>
-              <div class="swiper-slide"><a href="#" aria-label="товар из раздела распродаж"><img src="./assets/img/sale@1x.png" srcset="./assets/img/sale@2x.png 2x" alt="описание товара"></a></div>
-              <div class="swiper-slide"><a href="#" aria-label="товар из раздела распродаж"><img src="./assets/img/sale@1x.png" srcset="./assets/img/sale@2x.png 2x" alt="описание товара"></a></div>
-              <div class="swiper-slide"><a href="#" aria-label="товар из раздела распродаж"><img src="./assets/img/sale@1x.png" srcset="./assets/img/sale@2x.png 2x" alt="описание товара"></a></div>
-              <div class="swiper-slide"><a href="#" aria-label="товар из раздела распродаж"><img src="./assets/img/sale@1x.png" srcset="./assets/img/sale@2x.png 2x" alt="описание товара"></a></div>
+              <div class="swiper-slide">
+                <div class="item-card">
+                  <div class="item-card__wrapper">
+                    <div class="item-card__content"><img src="./assets/img/sale@1x.png" srcset="./assets/img/sale@2x.png 2x" alt="описание товара">
+                      <div class="item-card__price-box">
+                        <p class="cmn__text"><span class="item-card__price">220000</span> р.</p>
+                      </div>
+                    </div>
+                    <div class="item-card__footer"><a class="cmn__btn cmn__btn--maroon item-card__btn" href="#">Купить</a>
+                      <div class="item-card__cart-box"><a href="#" aria-label="добавить в корзину">
+                          <svg width="30" height="30">
+                            <use xlink:href="#icon-cart"></use>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="item-card">
+                  <div class="item-card__wrapper">
+                    <div class="item-card__content"><img src="./assets/img/sale@1x.png" srcset="./assets/img/sale@2x.png 2x" alt="описание товара">
+                      <div class="item-card__price-box">
+                        <p class="cmn__text"><span class="item-card__price">220000</span> р.</p>
+                      </div>
+                    </div>
+                    <div class="item-card__footer"><a class="cmn__btn cmn__btn--maroon item-card__btn" href="#">Купить</a>
+                      <div class="item-card__cart-box"><a href="#" aria-label="добавить в корзину">
+                          <svg width="30" height="30">
+                            <use xlink:href="#icon-cart"></use>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="item-card">
+                  <div class="item-card__wrapper">
+                    <div class="item-card__content"><img src="./assets/img/sale@1x.png" srcset="./assets/img/sale@2x.png 2x" alt="описание товара">
+                      <div class="item-card__price-box">
+                        <p class="cmn__text"><span class="item-card__price">220000</span> р.</p>
+                      </div>
+                    </div>
+                    <div class="item-card__footer"><a class="cmn__btn cmn__btn--maroon item-card__btn" href="#">Купить</a>
+                      <div class="item-card__cart-box"><a href="#" aria-label="добавить в корзину">
+                          <svg width="30" height="30">
+                            <use xlink:href="#icon-cart"></use>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="item-card">
+                  <div class="item-card__wrapper">
+                    <div class="item-card__content"><img src="./assets/img/sale@1x.png" srcset="./assets/img/sale@2x.png 2x" alt="описание товара">
+                      <div class="item-card__price-box">
+                        <p class="cmn__text"><span class="item-card__price">220000</span> р.</p>
+                      </div>
+                    </div>
+                    <div class="item-card__footer"><a class="cmn__btn cmn__btn--maroon item-card__btn" href="#">Купить</a>
+                      <div class="item-card__cart-box"><a href="#" aria-label="добавить в корзину">
+                          <svg width="30" height="30">
+                            <use xlink:href="#icon-cart"></use>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="item-card">
+                  <div class="item-card__wrapper">
+                    <div class="item-card__content"><img src="./assets/img/sale@1x.png" srcset="./assets/img/sale@2x.png 2x" alt="описание товара">
+                      <div class="item-card__price-box">
+                        <p class="cmn__text"><span class="item-card__price">220000</span> р.</p>
+                      </div>
+                    </div>
+                    <div class="item-card__footer"><a class="cmn__btn cmn__btn--maroon item-card__btn" href="#">Купить</a>
+                      <div class="item-card__cart-box"><a href="#" aria-label="добавить в корзину">
+                          <svg width="30" height="30">
+                            <use xlink:href="#icon-cart"></use>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="item-card">
+                  <div class="item-card__wrapper">
+                    <div class="item-card__content"><img src="./assets/img/sale@1x.png" srcset="./assets/img/sale@2x.png 2x" alt="описание товара">
+                      <div class="item-card__price-box">
+                        <p class="cmn__text"><span class="item-card__price">220000</span> р.</p>
+                      </div>
+                    </div>
+                    <div class="item-card__footer"><a class="cmn__btn cmn__btn--maroon item-card__btn" href="#">Купить</a>
+                      <div class="item-card__cart-box"><a href="#" aria-label="добавить в корзину">
+                          <svg width="30" height="30">
+                            <use xlink:href="#icon-cart"></use>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <!-- <div class="swiper-pagination"></div>--><div class="swiper-button-next"></div>
           </div>
         </div>
       </section>
