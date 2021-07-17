@@ -10,7 +10,7 @@ let iSlider = document.querySelector('.intro-swiper-container');
 if(iSlider) {
     const introSwiper = new Swiper('.intro-swiper-container', {
         slidesPerView: 1,
-        speed: 1000,
+        speed: 2000,
         loop: true,
         // spaceBetween: 10,
         effect: "fade",

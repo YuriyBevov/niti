@@ -17899,7 +17899,7 @@ let iSlider = document.querySelector('.intro-swiper-container');
 if(iSlider) {
     const introSwiper = new swiper__WEBPACK_IMPORTED_MODULE_1__["default"]('.intro-swiper-container', {
         slidesPerView: 1,
-        speed: 1000,
+        speed: 2000,
         loop: true,
         // spaceBetween: 10,
         effect: "fade",
