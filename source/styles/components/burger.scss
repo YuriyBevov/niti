@@ -1,36 +1,19 @@
 .burger {
+    position: relative;
     padding: 0;
     border: none;
     width: 4rem;
     height: 4rem;
     background-color: transparent;
+    background-image: url("../assets/img/menu-closed.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-image $transition-rules;
+ 
 
-    &__wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 1rem;
-        width: 100%;
-    }
-
-    &__top-line,
-    &__bottom-line {
-        width: 100%;
-        height: 3px;
-        background-color: $color-black;
-
-        transition: all $transition-rules;
-    }
-
-    &:hover, 
-    &:focus {
-        .burger__bottom-line {
-            width: 75%;
-        }
-
-        .burger__top-line {
-            width: 75%;
-            margin-left: 25%;
-        }
+    &.opened {
+        background-image: url("../assets/img/menu-opened.svg");
+        background-size: 3rem 3rem;
     }
 }
