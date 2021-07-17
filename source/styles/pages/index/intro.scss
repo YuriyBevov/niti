@@ -88,7 +88,8 @@
         }
 
         a {
-            z-index: 1000;
+            position: relative;
+            z-index: 100000;
         }
     }
 }
