@@ -17801,7 +17801,7 @@ aos__WEBPACK_IMPORTED_MODULE_0___default.a.init({
     duration: 1300,
     once: true,
     offset: 150,
-    disable: 'phone',
+    //disable: 'phone',
     initClassName: 'aos-init',
 });
 
