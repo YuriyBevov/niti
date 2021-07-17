@@ -3,7 +3,7 @@ import Swiper, { Autoplay, /*Pagination,*/ Navigation, EffectFade } from 'swiper
 Swiper.use([Autoplay, /*Pagination,*/ Navigation, EffectFade ]);
 console.log(EffectFade)
 
-const sliderDelay = 3000;
+const sliderDelay = 5000;
 
 let iSlider = document.querySelector('.intro-swiper-container');
 
@@ -17,11 +17,6 @@ if(iSlider) {
         fadeEffect: {
           crossFade: true
         },
-    
-        autoplay: {
-          delay: sliderDelay,
-          disableOnInteraction: false
-        },
     });
 
 
@@ -29,21 +24,16 @@ if(iSlider) {
       introSwiper.slideNext()
     })
 
-    gsap.fromTo(".intro-swiper-container .swiper-slide p", {scale: 0.5}, {scale: 1, duration: 1});
-    gsap.fromTo(".intro-swiper-container .swiper-slide .intro-swiper-content", {yPercent: 50}, {yPercent: 0, duration: 1});
-    gsap.fromTo(".intro-swiper-container .swiper-slide h2", {yPercent: 50}, {yPercent: 0, duration: 1});
-    gsap.fromTo(".intro-swiper-container .swiper-slide a", {opacity: 0}, {opacity: 1, duration: 1});
-
     introSwiper.on('slideChange', function () {
       gsap.fromTo(".intro-swiper-container .swiper-slide-next p", {scale: 0.5}, {scale: 1, duration: 1});
-      gsap.fromTo(".intro-swiper-container .swiper-slide-next .intro-swiper-content", {yPercent: 50}, {yPercent: 0, duration: 1});
+      gsap.fromTo(".intro-swiper-container .swiper-slide-next .intro-swiper-content", {yPercent: 50}, {yPercent: 0, duration: 1.5});
       gsap.fromTo(".intro-swiper-container .swiper-slide-next h2", {yPercent: 50}, {yPercent: 0, duration: 1});
-      gsap.fromTo(".intro-swiper-container .swiper-slide-next a", {opacity: 0}, {opacity: 1, duration: 1});
-
+      gsap.fromTo(".intro-swiper-container .swiper-slide-next a", {yPercent: 250}, {yPercent: 0, duration: 2});
+      
       gsap.fromTo(".intro-swiper-container .swiper-slide-prev p", {scale: 0.5}, {scale: 1, duration: 1});
-      gsap.fromTo(".intro-swiper-container .swiper-slide-prev .intro-swiper-content", {yPercent: 50}, {yPercent: 0, duration: 1});
+      gsap.fromTo(".intro-swiper-container .swiper-slide-prev .intro-swiper-content", {yPercent: 50}, {yPercent: 0, duration: 1.5});
       gsap.fromTo(".intro-swiper-container .swiper-slide-prev h2", {yPercent: 50}, {yPercent: 0, duration: 1});
-      gsap.fromTo(".intro-swiper-container .swiper-slide-prev a", {opacity: 0}, {opacity: 1, duration: 1});
+      gsap.fromTo(".intro-swiper-container .swiper-slide-prev a", {yPercent: 250}, {yPercent: 0, duration: 1});
     });
 }
 
