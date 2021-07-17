@@ -5,6 +5,11 @@
 @import "global";
 @import "cmn";
 
+//--- plugins
+
+@import "plugins/swiper";
+@import "plugins/aos";
+
 
 // blocks
 @import "common/header";
@@ -28,6 +33,4 @@
 @import "components/loader";
 
 
-//--- plugins
 
-@import "plugins/swiper";
