@@ -4,8 +4,12 @@ import swiper from './modules/swiper.js'
 // import { adaptiveIntroBlock } from './utils/adaptiveIntroBlock.js'
 import mapOverlay from './modules/mapOverlay.js'
 import menu from './modules/menu.js'
-import smoothScroll from './modules/smoothScroll.js'
+import scroll from './modules/smoothScroll.js'
 // import stickyHeader from './modules/stickyHeader.js'
+
+import smoothscroll from 'smoothscroll-polyfill';
+// kick off the polyfill!
+smoothscroll.polyfill();
 
 
 
@@ -13,18 +17,13 @@ import smoothScroll from './modules/smoothScroll.js'
 
 // window.addEventListener('resize', () => adaptiveIntroBlock())
 
-const appHeight = () => {
+/*const appHeight = () => {
     const doc = document.documentElement
     doc.style.setProperty('--app-height', '${window.innerHeight}px')
 }
 
 window.addEventListener('resize', appHeight)
-appHeight()
-
-
-const slides = document.querySelectorAll('.intro-swiper-container .swiper-slide')
-
-console.log(slides)
+appHeight()*/
 
 
 
