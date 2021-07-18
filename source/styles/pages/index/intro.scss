@@ -1,16 +1,6 @@
 .intro {
     height: 100vh;
-    // min-height: 534px;
-    // min-height: calc(100vh - 12rem);
-
-    /* @media(max-width: $tablet_width) {
-        // height: 60rem;
-        //min-height: 60rem;
-        //max-height: 100vh;
-        height: calc(100vh - 7.7rem);
-    } */
-
-    transition: height 0.5s ease;
+    // transition: height 0.5s ease;
 
     &__wrapper {
         height: inherit;

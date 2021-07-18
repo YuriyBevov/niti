@@ -12,15 +12,17 @@ intro.style.height = `${window.innerHeight - headerInitHeight}px`;
 let initialHeight = window.innerHeight;
 console.log('initialHeight', initialHeight)
 
+const setHeight = (height) => {
+    intro.style.height = `${height - headerInitHeight}px`;
+}
+
 const setIntroBlockHeight = () => {
     console.log(window.innerHeight, initialHeight)
     const height = window.innerHeight;
     // console.log('height', height)
     const width = window.innerWidth;
 
-    const setHeight = (height) => {
-        intro.style.height = `${height - headerInitHeight}px`;
-    }
+
 
     const checkHeaderHeightChange = () => {
         if(headerInitHeight !== header.offsetHeight) {
@@ -49,7 +51,7 @@ const setIntroBlockHeight = () => {
         setHeight(960);
     }
 
-    else {
+    else if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))  {
         setHeight(window.innerHeight);
     }
 }
@@ -58,7 +60,10 @@ setIntroBlockHeight();
 
 window.addEventListener('resize', setIntroBlockHeight);
 
-/*window.addEventListener('orientationchange', () => {
-    intro.style.height = `${window.innerHeight - headerInitHeight}px`;
-    setIntroBlockHeight();
-});*/
+window.addEventListener('orientationchange', () => {
+    console.log(window.screen.orientation.type)
+    if(window.screen.orientation.type === 'portrait-primary') {
+        console.log(window)
+        setHeight(window.innerWidth);
+    }
+});
