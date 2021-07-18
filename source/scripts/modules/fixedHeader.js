@@ -33,6 +33,7 @@ const setIntroBlockHeight = () => {
 
     if( height < 534 ) {
         console.log('< 534')
+        alert('< 534')
 
         checkHeaderHeightChange();
         setHeight(534);
@@ -40,12 +41,14 @@ const setIntroBlockHeight = () => {
     
     if (height < 661 && width > 1140) {
         console.log('< 661')
+        alert('< 661 && width > 1140')
 
         checkHeaderHeightChange();
         setHeight(700);
     }
 
     if(height > 1640) {
+        alert('> 1640')
         console.log('>')
         checkHeaderHeightChange();
         setHeight(960);
