@@ -10,11 +10,14 @@ main.style.marginTop = `${headerInitHeight}px`;
 intro.style.height = `${window.innerHeight - headerInitHeight}px`;
 
 const setIntroBlockHeight = () => {
+    console.log('func')
+    // intro.style.height = `${window.innerHeight - headerInitHeight}px`;
     const height = window.innerHeight;
     const width = window.innerWidth;
 
     const setHeight = (height) => {
         intro.style.height = `${height - headerInitHeight}px`;
+
     }
 
     const checkHeaderHeightChange = () => {
@@ -25,8 +28,9 @@ const setIntroBlockHeight = () => {
     }
 
     checkHeaderHeightChange();
-
+    console.log(window.innerHeight)
     if( height < 534 ) {
+        console.log('<534')
         checkHeaderHeightChange();
         setHeight(534);
     } 
@@ -40,8 +44,18 @@ const setIntroBlockHeight = () => {
         checkHeaderHeightChange();
         setHeight(960);
     }
+
+    if(height > 534 && width < 1140) {
+        console.log('else')
+        setHeight(window.innerHeight);
+    }
 }
 
 setIntroBlockHeight();
 
 window.addEventListener('resize', () => setIntroBlockHeight());
+
+/* window.addEventListener('orientationchange', () => {
+    intro.style.height = `${window.innerHeight - headerInitHeight}px`;
+    setIntroBlockHeight();
+}); */
