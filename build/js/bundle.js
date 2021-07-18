@@ -193,7 +193,6 @@ const setIntroBlockHeight = () => {
 
     const setHeight = (height) => {
         intro.style.height = `${height - headerInitHeight}px`;
-
     }
 
     const checkHeaderHeightChange = () => {
@@ -205,24 +204,26 @@ const setIntroBlockHeight = () => {
 
     checkHeaderHeightChange();
     console.log(window.innerHeight)
-    if( height < 534 ) {
-        console.log('<534')
+    if( height < 534 && width < 1140) {
+        console.log('height < 534 && width < 1140')
         checkHeaderHeightChange();
         setHeight(534);
     } 
     
-    if (height < 661 && width > 1140) {
+    else if (height < 661 && width > 1140) {
+        console.log('height < 661 && width > 1140')
         checkHeaderHeightChange();
         setHeight(700);
     }
 
-    if(height > 1640) {
+    else if (height > 1640) {
+        console.log('height > 1640')
         checkHeaderHeightChange();
         setHeight(960);
     }
 
-    if(height > 534 && width < 1140) {
-        console.log('else')
+    else  {
+        console.log('height > 534 && width < 1140')
         setHeight(window.innerHeight);
     }
 }
