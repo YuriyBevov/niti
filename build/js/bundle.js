@@ -17756,6 +17756,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_headerMenu_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_headerMenu_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/mapOverlay.js */ "./source/scripts/modules/mapOverlay.js");
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _modules_loader_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/loader.js */ "./source/scripts/modules/loader.js");
+/* harmony import */ var _modules_loader_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_modules_loader_js__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
@@ -17763,7 +17765,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import loader from './modules/loader.js'
+
 
 /* const appHeight = () => {
     const doc = document.documentElement
@@ -17906,6 +17908,35 @@ window.addEventListener('resize', () => {
         }
     }
 })
+
+/***/ }),
+
+/***/ "./source/scripts/modules/loader.js":
+/*!******************************************!*\
+  !*** ./source/scripts/modules/loader.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const showPage = () => {
+    document.removeEventListener("DOMContentLoaded", showPage);
+
+    
+
+    const hideLoader = function () {
+        setTimeout(() => {
+            loader.classList.add('ended')
+        }, 1200)
+
+        setTimeout(() => {
+            loader.style.display ='none';
+        }, 2200)
+    }();
+};
+
+const loader = document.querySelector('.loader');
+
+document.addEventListener("DOMContentLoaded", showPage);
 
 /***/ }),
 
