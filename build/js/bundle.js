@@ -186,12 +186,12 @@ main.style.marginTop = `${headerInitHeight}px`;
 intro.style.height = `${window.innerHeight - headerInitHeight}px`;
 
 const setIntroBlockHeight = () => {
+    const height = window.innerHeight;
+    const width = window.innerWidth;
+
     const setHeight = (height) => {
         intro.style.height = `${height - headerInitHeight}px`;
     }
-
-    const height = window.innerHeight;
-    const width = window.innerWidth;
 
     const checkHeaderHeightChange = () => {
         if(headerInitHeight !== header.offsetHeight) {
