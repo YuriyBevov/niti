@@ -14,11 +14,3 @@ import loader from './modules/loader.js'
 
 window.addEventListener('resize', appHeight)
 appHeight() */
-
-
-
-
-
-
-
-
