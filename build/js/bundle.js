@@ -137,6 +137,8 @@ appHeight() */
 
 
 
+
+
 /***/ }),
 
 /***/ "./source/scripts/modules/aos.js":
@@ -174,9 +176,7 @@ aos__WEBPACK_IMPORTED_MODULE_0___default.a.init({
 
 const header = document.querySelector('.header');
 const main = document.querySelector('main');
-
 const intro = document.querySelector('.intro');
-console.log(intro.offsetHeight)
 
 let headerInitHeight = header.offsetHeight;
 
@@ -190,8 +190,22 @@ window.addEventListener('resize', () => {
     if(headerInitHeight !== header.offsetHeight) {
         headerInitHeight = header.offsetHeight;
         main.style.marginTop = `${headerInitHeight}px`;
-        console.log('change')
     }
+})
+
+window.addEventListener('orientationchange', () => {
+    console.log('change', window.screen, intro.offsetHeight, window.innerHeight)
+    setTimeout(() => {
+        if(window.innerHeight < 500) {
+            intro.style.height = `${500 - header.offsetHeight}px`
+        } else {
+            console.log('else' , window.innerHeight)
+            intro.style.height = `${window.innerHeight - header.offsetHeight}px`;
+        }
+    }, 10);
+
+
+    
 })
 
 /***/ }),
