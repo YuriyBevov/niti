@@ -17756,8 +17756,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_headerMenu_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_headerMenu_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/mapOverlay.js */ "./source/scripts/modules/mapOverlay.js");
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _modules_loader_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/loader.js */ "./source/scripts/modules/loader.js");
-/* harmony import */ var _modules_loader_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_modules_loader_js__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
@@ -17765,15 +17763,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import loader from './modules/loader.js'
 
-
-const appHeight = () => {
+/* const appHeight = () => {
     const doc = document.documentElement
     doc.style.setProperty('--app-height', '${window.innerHeight}px')
 }
 
 window.addEventListener('resize', appHeight)
-appHeight()
+appHeight() */
+
+
 
 
 
@@ -17801,11 +17801,8 @@ aos__WEBPACK_IMPORTED_MODULE_0___default.a.init({
     duration: 1300,
     once: true,
     offset: 150,
-    disable: 'phone',
-    initClassName: 'aos-init',
+    disable: 'phone'
 });
-
-console.log(aos__WEBPACK_IMPORTED_MODULE_0___default.a)
 
 
 
@@ -17821,12 +17818,19 @@ console.log(aos__WEBPACK_IMPORTED_MODULE_0___default.a)
 const header = document.querySelector('.header');
 const main = document.querySelector('main');
 
+const intro = document.querySelector('.intro');
+console.log(intro.offsetHeight)
+
 main.style.marginTop = `${header.offsetHeight}px`;
+
 header.style.position = 'fixed';
+
+intro.style.height = `${intro.offsetHeight - header.offsetHeight}px`;
 
 window.addEventListener('resize', () => {
     const header = document.querySelector('.header');
     main.style.marginTop = `${header.offsetHeight}px`;
+    
 })
 
 /***/ }),
@@ -17855,35 +17859,6 @@ window.addEventListener('resize', () => {
         burger.classList.remove('opened')
     }
 })
-
-/***/ }),
-
-/***/ "./source/scripts/modules/loader.js":
-/*!******************************************!*\
-  !*** ./source/scripts/modules/loader.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-const showPage = () => {
-    document.removeEventListener("DOMContentLoaded", showPage);
-
-    
-
-    const hideLoader = function () {
-        setTimeout(() => {
-            loader.classList.add('ended')
-        }, 1200)
-
-        setTimeout(() => {
-            loader.style.display ='none';
-        }, 2200)
-    }();
-};
-
-const loader = document.querySelector('.loader');
-
-document.addEventListener("DOMContentLoaded", showPage);
 
 /***/ }),
 

@@ -6,9 +6,6 @@ AOS.init({
     duration: 1300,
     once: true,
     offset: 150,
-    disable: 'phone',
-    initClassName: 'aos-init',
+    disable: 'phone'
 });
-
-console.log(AOS)
 

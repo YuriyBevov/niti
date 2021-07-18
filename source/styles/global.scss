@@ -15,7 +15,7 @@
 
 :root {
   font-size: 62.5%;
-  --app-height: 100%;
+  // --app-height: 100%;
 }
 
 html,
@@ -25,14 +25,13 @@ body {
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  min-height: -webkit-fill-available;
+  // min-height: -webkit-fill-available;
   -webkit-text-size-adjust: none;
-  //overflow-x: hidden;
 
-  @media not all and (hover:hover) {
+  /*@media not all and (hover:hover) {
     min-height: 100vh;
     height: var(--app-height)
-  }
+  }*/
 }
 
 body {
@@ -40,6 +39,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: $font_reg, sans-serif;
+  overflow-x: hidden;
 }
 
 footer {
