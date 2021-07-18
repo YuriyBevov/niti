@@ -183,10 +183,11 @@ header.style.position = 'fixed';
 let headerInitHeight = header.offsetHeight;
 
 main.style.marginTop = `${headerInitHeight}px`;
+intro.style.height = `${window.innerHeight - headerInitHeight}px`;
 
 const setIntroBlockHeight = () => {
     console.log('func')
-    intro.style.height = `${window.innerHeight - headerInitHeight}px`;
+    
 
     const setHeight = (height) => {
         console.log('setHeight')
