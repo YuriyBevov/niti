@@ -185,10 +185,13 @@ let headerInitHeight = header.offsetHeight;
 main.style.marginTop = `${headerInitHeight}px`;
 intro.style.height = `${window.innerHeight - headerInitHeight}px`;
 
+let initialHeight = window.innerHeight;
+console.log('initialHeight', initialHeight)
+
 const setIntroBlockHeight = () => {
-    console.log('func')
-    // intro.style.height = `${window.innerHeight - headerInitHeight}px`;
+    console.log(window.innerHeight, initialHeight)
     const height = window.innerHeight;
+    // console.log('height', height)
     const width = window.innerWidth;
 
     const setHeight = (height) => {
@@ -203,39 +206,38 @@ const setIntroBlockHeight = () => {
     }
 
     checkHeaderHeightChange();
-    console.log(window.innerHeight)
+
     if( height < 534 && width < 1140) {
-        console.log('height < 534 && width < 1140')
+        // console.log('height < 534 && width < 1140')
         checkHeaderHeightChange();
         setHeight(534);
     } 
     
     else if (height < 661 && width > 1140) {
-        console.log('height < 661 && width > 1140')
+        // console.log('height < 661 && width > 1140')
         checkHeaderHeightChange();
         setHeight(700);
     }
 
     else if (height > 1640) {
-        console.log('height > 1640')
+        // console.log('height > 1640')
         checkHeaderHeightChange();
         setHeight(960);
     }
 
-    else  {
-        console.log('height > 534 && width < 1140')
+    else {
         setHeight(window.innerHeight);
     }
 }
 
 setIntroBlockHeight();
 
-window.addEventListener('resize', () => setIntroBlockHeight());
+window.addEventListener('resize', setIntroBlockHeight);
 
-/* window.addEventListener('orientationchange', () => {
+/*window.addEventListener('orientationchange', () => {
     intro.style.height = `${window.innerHeight - headerInitHeight}px`;
     setIntroBlockHeight();
-}); */
+});*/
 
 /***/ }),
 
