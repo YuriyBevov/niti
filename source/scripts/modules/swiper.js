@@ -11,10 +11,11 @@ if(iSlider) {
         slidesPerView: 1,
         speed: 2000,
         loop: true,
-        effect: "fade",
+
+        /* effect: "fade",
         fadeEffect: {
           crossFade: true
-        },
+        }, */
     
         autoplay: {
           delay: sliderDelay,
@@ -22,17 +23,17 @@ if(iSlider) {
         },
     });
 
-    introSwiper.on('slideChange', function () {
-      gsap.fromTo(".intro-swiper-container .swiper-slide-next p", {scale: 0.5}, {scale: 1, duration: 1});
-      gsap.fromTo(".intro-swiper-container .swiper-slide-next .intro-swiper-content", {yPercent: 50}, {yPercent: 0, duration: 1.5});
-      gsap.fromTo(".intro-swiper-container .swiper-slide-next h2", {yPercent: 50}, {yPercent: 0, duration: 1});
-      gsap.fromTo(".intro-swiper-container .swiper-slide-next a", {yPercent: 250}, {yPercent: 0, duration: 2});
+    /* introSwiper.on('slideChange', function () {
+      gsap.fromTo(".intro-swiper-container .swiper-slide-active p", {scale: 0.5}, {scale: 1, duration: 1, delay: 0.7});
+      gsap.fromTo(".intro-swiper-container .swiper-slide-active .intro-swiper-content", {opacity: 0}, {opacity: 1, duration: 1.2, delay: 0.3});
+      gsap.fromTo(".intro-swiper-container .swiper-slide-active h2", {yPercent: 50}, {yPercent: 0, duration: 1, delay: 0.3});
+      gsap.fromTo(".intro-swiper-container .swiper-slide-active a", {yPercent: 250}, {yPercent: 0, duration: 1,delay: 0.3});
       
-      gsap.fromTo(".intro-swiper-container .swiper-slide-prev p", {scale: 0.5}, {scale: 1, duration: 1});
-      gsap.fromTo(".intro-swiper-container .swiper-slide-prev .intro-swiper-content", {yPercent: 50}, {yPercent: 0, duration: 1.5});
-      gsap.fromTo(".intro-swiper-container .swiper-slide-prev h2", {yPercent: 50}, {yPercent: 0, duration: 1});
-      gsap.fromTo(".intro-swiper-container .swiper-slide-prev a", {yPercent: 250}, {yPercent: 0, duration: 1});
-    });
+      gsap.fromTo(".intro-swiper-container .swiper-slide-prev p", {scale: 0.5}, {scale: 1, duration: 1, delay: 0.7});
+      gsap.fromTo(".intro-swiper-container .swiper-slide-prev .intro-swiper-content", {opacity: 0}, {opacity: 1, duration: 1.2, delay: 0.3});
+      gsap.fromTo(".intro-swiper-container .swiper-slide-prev h2", {yPercent: 50}, {yPercent: 0, duration: 1, delay: 0.3});
+      gsap.fromTo(".intro-swiper-container .swiper-slide-prev a", {yPercent: 250}, {yPercent: 0, duration: 1, delay: 0.3});
+    }); */
 }
 
 const sSlider = document.querySelector('.sale-swiper-container');

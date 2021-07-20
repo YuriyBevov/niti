@@ -17756,8 +17756,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_headerMenu_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_headerMenu_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/mapOverlay.js */ "./source/scripts/modules/mapOverlay.js");
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _modules_loader_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/loader.js */ "./source/scripts/modules/loader.js");
-/* harmony import */ var _modules_loader_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_modules_loader_js__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
@@ -17765,7 +17763,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
+// import loader from './modules/loader.js'
 
 /* const appHeight = () => {
     const doc = document.documentElement
@@ -17911,35 +17909,6 @@ window.addEventListener('resize', () => {
 
 /***/ }),
 
-/***/ "./source/scripts/modules/loader.js":
-/*!******************************************!*\
-  !*** ./source/scripts/modules/loader.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-const showPage = () => {
-    document.removeEventListener("DOMContentLoaded", showPage);
-
-    
-
-    const hideLoader = function () {
-        setTimeout(() => {
-            loader.classList.add('ended')
-        }, 1200)
-
-        setTimeout(() => {
-            loader.style.display ='none';
-        }, 2200)
-    }();
-};
-
-const loader = document.querySelector('.loader');
-
-document.addEventListener("DOMContentLoaded", showPage);
-
-/***/ }),
-
 /***/ "./source/scripts/modules/mapOverlay.js":
 /*!**********************************************!*\
   !*** ./source/scripts/modules/mapOverlay.js ***!
@@ -17985,10 +17954,11 @@ if(iSlider) {
         slidesPerView: 1,
         speed: 2000,
         loop: true,
-        effect: "fade",
+
+        /* effect: "fade",
         fadeEffect: {
           crossFade: true
-        },
+        }, */
     
         autoplay: {
           delay: sliderDelay,
@@ -17996,17 +17966,17 @@ if(iSlider) {
         },
     });
 
-    introSwiper.on('slideChange', function () {
-      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].fromTo(".intro-swiper-container .swiper-slide-next p", {scale: 0.5}, {scale: 1, duration: 1});
-      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].fromTo(".intro-swiper-container .swiper-slide-next .intro-swiper-content", {yPercent: 50}, {yPercent: 0, duration: 1.5});
-      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].fromTo(".intro-swiper-container .swiper-slide-next h2", {yPercent: 50}, {yPercent: 0, duration: 1});
-      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].fromTo(".intro-swiper-container .swiper-slide-next a", {yPercent: 250}, {yPercent: 0, duration: 2});
+    /* introSwiper.on('slideChange', function () {
+      gsap.fromTo(".intro-swiper-container .swiper-slide-active p", {scale: 0.5}, {scale: 1, duration: 1, delay: 0.7});
+      gsap.fromTo(".intro-swiper-container .swiper-slide-active .intro-swiper-content", {opacity: 0}, {opacity: 1, duration: 1.2, delay: 0.3});
+      gsap.fromTo(".intro-swiper-container .swiper-slide-active h2", {yPercent: 50}, {yPercent: 0, duration: 1, delay: 0.3});
+      gsap.fromTo(".intro-swiper-container .swiper-slide-active a", {yPercent: 250}, {yPercent: 0, duration: 1,delay: 0.3});
       
-      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].fromTo(".intro-swiper-container .swiper-slide-prev p", {scale: 0.5}, {scale: 1, duration: 1});
-      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].fromTo(".intro-swiper-container .swiper-slide-prev .intro-swiper-content", {yPercent: 50}, {yPercent: 0, duration: 1.5});
-      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].fromTo(".intro-swiper-container .swiper-slide-prev h2", {yPercent: 50}, {yPercent: 0, duration: 1});
-      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].fromTo(".intro-swiper-container .swiper-slide-prev a", {yPercent: 250}, {yPercent: 0, duration: 1});
-    });
+      gsap.fromTo(".intro-swiper-container .swiper-slide-prev p", {scale: 0.5}, {scale: 1, duration: 1, delay: 0.7});
+      gsap.fromTo(".intro-swiper-container .swiper-slide-prev .intro-swiper-content", {opacity: 0}, {opacity: 1, duration: 1.2, delay: 0.3});
+      gsap.fromTo(".intro-swiper-container .swiper-slide-prev h2", {yPercent: 50}, {yPercent: 0, duration: 1, delay: 0.3});
+      gsap.fromTo(".intro-swiper-container .swiper-slide-prev a", {yPercent: 250}, {yPercent: 0, duration: 1, delay: 0.3});
+    }); */
 }
 
 const sSlider = document.querySelector('.sale-swiper-container');

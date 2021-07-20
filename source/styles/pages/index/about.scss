@@ -1,8 +1,9 @@
 .about {
     &__wrapper {
         position: relative;
-        padding: 10rem;
+        padding: 3rem 10rem;
         display: flex;
+        margin-bottom: 1rem;
 
         @media(max-width: $tablet_width) {
             padding-bottom: 4rem;           

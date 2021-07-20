@@ -21,17 +21,7 @@
     <link rel="stylesheet" href="./css/styles.min.css">
   </head>
   <body class="cmn">
-    <div class="loader js-init">
-      <div class="loader__wrapper">
-        <svg width="80" height="60">
-          <use xlink:href="#icon-logo"></use>
-        </svg>
-        <div class="lds-ellipsis"><div></div>
-<div></div>
-<div></div>
-        </div>
-      </div>
-    </div>
+    <!-- include ../components/loader.pug-->
     <div style="display:none"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="icon-add" viewBox="0 0 17 17">
 <circle cx="8.5" cy="8.5" r="8.5" fill="#9C150C"></circle>
 <path d="M6 8L8 12L11.5 5" stroke="white"></path>
@@ -69,7 +59,7 @@
         <div class="header__content">
           <div class="header__phone"><a href="tel: +79062723744">+7(906)2723744</a></div>
           <div class="header__logo"><a href="index.html" aria-label="логотип">
-              <svg width="80" height="60">
+              <svg width="60" height="40">
                 <use xlink:href="#icon-logo"></use>
               </svg></a></div>
           <div class="header__action">
@@ -79,7 +69,7 @@
               //use(xlink:href="#icon-search")
             
             --><a href="#" aria-label="корзина">
-              <svg width="30" height="30">
+              <svg width="24" height="24">
                 <use xlink:href="#icon-cart"></use>
               </svg></a>
             <div class="header__action-burger">
@@ -96,10 +86,10 @@
         </div>
         <nav class="nav">
           <ul class="nav__list">
-            <li class="nav__item"><a class="cmn__nav-link cmn__nav-link--black nav__link" href="catalog.html">Каталог</a></li>
-            <li class="nav__item"><a class="cmn__nav-link cmn__nav-link--black nav__link" href="delivery.html">Доставка и оплата</a></li>
-            <li class="nav__item"><a class="cmn__nav-link cmn__nav-link--black nav__link" href="about.html">О нас</a></li>
-            <li class="nav__item"><a class="cmn__nav-link cmn__nav-link--black nav__link" href="contacts.html">Контакты</a></li>
+            <li class="nav__item"><a class="cmn__nav-link nav__link" href="catalog.html">Каталог</a></li>
+            <li class="nav__item"><a class="cmn__nav-link nav__link" href="delivery.html">Доставка и оплата</a></li>
+            <li class="nav__item"><a class="cmn__nav-link nav__link" href="about.html">О нас</a></li>
+            <li class="nav__item"><a class="cmn__nav-link nav__link" href="contacts.html">Контакты</a></li>
           </ul>
         </nav>
       </div>
