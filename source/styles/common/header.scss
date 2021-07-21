@@ -88,10 +88,6 @@
         a {
             margin: 0 auto;
 
-            svg {
-                // fill: $color-black;
-            }
-
             @media(max-width: $tablet_width) {
                margin: 0;
 
@@ -145,7 +141,6 @@
 
     @media(max-width: $tablet_width) {
 
-
         &.js-mobile-opened {
             position: fixed;
 
@@ -169,6 +164,10 @@
         
                 &__list {
                     flex-direction: column;
+                }
+
+                &__link {
+                    color: $color-black;
                 }
             }
 

@@ -1,0 +1,23 @@
+.social {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+    }
+
+    &__item {
+        margin-right: 1rem;
+        a {
+            svg {
+                fill: $color-white;
+                transition: fill $transition-rules
+            }
+        }
+        a:hover,
+        a:focus {
+            svg {
+                fill: $color-maroon;
+            }
+        }
+    }
+}

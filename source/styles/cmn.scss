@@ -119,10 +119,6 @@
             line-height: 1.8rem;
             padding: 1rem 2rem;
         }
-
-        @media(max-width: $mobile_lg_width) {
-            margin-bottom: 2rem;          
-        }
     }
 
     &__nav-link {
@@ -131,10 +127,7 @@
         line-height: 2rem;
         letter-spacing: 0.03em;
         text-transform: uppercase;
-        opacity: 0.8;
         color: $color-white;
-
-        transition: opacity $transition-rules;
 
         &--black {
             color: $color-black;
@@ -142,15 +135,6 @@
             &.active {
                 font-family: $font_med;
             }
-        }
-        
-        &:hover,
-        &:focus {
-            opacity: 1;
-        }
-
-        &:active {
-            opacity: 0.6;
         }
 
         @media (max-width: $tablet_width) {

@@ -18,14 +18,15 @@
 }
 
 @mixin link_hover() {
-    transition: opacity $transition-rules;
+    color: $color-white;
+    transition: color $transition-rules;
     
     &:hover,
     &:focus {
-        opacity: 0.8;
+        color: $color-maroon;
     }
 
     &:active {
-        opacity: 0.6;
+        color: $color-maroon;
     }
 }
