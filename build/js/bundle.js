@@ -17810,7 +17810,7 @@ header.style.position = 'fixed';
 
 let headerInitHeight = header.offsetHeight;
 
-main.style.marginTop = `${headerInitHeight}px`;
+main.style.marginTop = `${headerInitHeight - 1}px`;
 
 
 let initialHeight = window.innerHeight;
@@ -17824,7 +17824,7 @@ if(intro) {
     const setIntroBlockHeight = () => {
         if(headerInitHeight !== header.offsetHeight) {
             headerInitHeight = header.offsetHeight
-            main.style.marginTop = `${header.offsetHeight}px`;
+            main.style.marginTop = `${header.offsetHeight - 1}px`;
         }
 
         if(window.innerWidth > 1440) {
