@@ -1,6 +1,5 @@
-import gsap from "gsap";
-import Swiper, { Autoplay, /*Pagination,*/ Navigation, EffectFade } from 'swiper';
-Swiper.use([Autoplay, /*Pagination,*/ Navigation, EffectFade ]);
+import Swiper, { Autoplay} from 'swiper';
+Swiper.use([Autoplay]);
 
 const sliderDelay = 5000;
 const iSlider = document.querySelector('.intro-swiper-container');
@@ -12,10 +11,10 @@ if(iSlider) {
         speed: 800,
         loop: true,
     
-        /*autoplay: {
+        autoplay: {
           delay: sliderDelay,
           disableOnInteraction: false
-        },*/
+        },
 
         breakpoints: {
           768: {

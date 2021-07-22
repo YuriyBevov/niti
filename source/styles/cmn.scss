@@ -100,13 +100,39 @@
 
         color: $color-white;
         border: 0.3rem solid $color-white;
+   
+        @media(min-width: $tablet_width) {
+            transition: color $transition-rules, border $transition-rules;
+        
+        
+            &:hover,
+            &:focus {
+                color: $color-maroon;
+                border: 0.3rem solid rgba(255,255,255,0.5);
+            }
+        
+            &:active {
+                color: $color-maroon;
+                border: 0.3rem solid rgba(255,255,255,0.5);
+            }
+        }
 
         &--maroon {
             color: $color-maroon;
             border: 0.3rem solid $color-maroon;
-        }
+            transition: border $transition-rules;
 
-        @include link_hover();
+            @media(min-width: $tablet_width) {
+                &:hover,
+                &:focus {
+                    border: 0.3rem solid rgba(156,21,12, 0.5);
+                }
+            
+                &:active {
+                    border: 0.3rem solid rgba(156,21,12, 0.5);
+                }
+            }
+        }
 
         @media (max-width: $tablet_lg_width) {
             font-size: 1.6rem;

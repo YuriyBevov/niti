@@ -1,7 +1,7 @@
 .intro {
     
     @media(min-width: $desktop_width) {
-        height: 100vh;
+        height: calc(100vh - 112px);
     }
 
     @media(max-width: $desktop_width) {

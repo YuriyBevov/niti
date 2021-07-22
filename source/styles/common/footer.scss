@@ -65,6 +65,19 @@
 
                 a {
                     padding: 0;
+                    opacity: 1;
+                    transition: opacity $transition-rules;
+        
+                    @media(min-width: $tablet_width) {
+                        &:hover,
+                        &:focus {
+                            opacity: 0.6;
+                        }
+                    
+                        &:active {
+                            opacity: 0.6;
+                        }
+                    }
                 }
 
                 @media (max-width: $tablet_lg_width) {

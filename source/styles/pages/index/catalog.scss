@@ -261,6 +261,7 @@
                 width: 100%;
                 height: 100%;
                 padding: 3rem;
+                opacity: 1;
 
                 &::before {
                     content: '';
@@ -275,7 +276,18 @@
                     background-repeat: repeat-x;
                 }
 
-                @include link-hover();
+                transition: opacity $transition-rules;
+
+                @media(min-width: $tablet_width) {
+                    &:hover,
+                    &:focus {
+                        opacity: 0.5;
+                    }
+                
+                    &:active {
+                        opacity: 0.5;
+                    }
+                }
 
                 h3 { 
                     position: relative;
