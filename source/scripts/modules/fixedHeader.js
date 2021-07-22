@@ -12,11 +12,27 @@ main.style.marginTop = `${headerInitHeight}px`;
 let initialHeight = window.innerHeight;
 
 if(intro) {
-    intro.style.height = `${window.innerHeight - headerInitHeight}px`;
-    const setHeight = (height) => {
+    // intro.style.height = `${window.innerHeight - headerInitHeight}px`;
+    /* const setHeight = (height) => {
         intro.style.height = `${height - headerInitHeight}px`;
-    }
+    }*/
+
     const setIntroBlockHeight = () => {
+        if(headerInitHeight !== header.offsetHeight) {
+            headerInitHeight = header.offsetHeight
+            main.style.marginTop = `${header.offsetHeight}px`;
+        }
+
+        if(window.innerWidth > 1440) {
+            setHeight(window.innerHeight);
+        }
+    }
+
+    // setIntroBlockHeight()
+
+    window.addEventListener('resize', setIntroBlockHeight);
+
+    /*const setIntroBlockHeight = () => {
         const height = window.innerHeight;
         const width = window.innerWidth;
 
@@ -57,5 +73,5 @@ if(intro) {
         if(window.screen.orientation.type === 'portrait-primary') {
             setHeight(window.innerWidth);
         }
-    });
+    });*/
 }

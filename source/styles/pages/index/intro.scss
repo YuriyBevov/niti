@@ -1,5 +1,25 @@
 .intro {
-    height: 100vh;
+    
+    @media(min-width: $desktop_width) {
+        height: 100vh;
+    }
+
+    @media(max-width: $desktop_width) {
+        height: 100%;
+        max-height: 760px;
+    }
+
+    @media(max-width: $tablet_lg_width) {
+        height: 660px;
+    }
+
+    @media(max-width: $tablet_width) {
+        height: 560px;
+    }
+
+    @media(max-width: $mobile_lg_width) {
+        height: 460px;
+    }
 
     &__wrapper {
         height: inherit;
