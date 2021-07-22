@@ -12,10 +12,10 @@ if(iSlider) {
         speed: 800,
         loop: true,
     
-        autoplay: {
+        /*autoplay: {
           delay: sliderDelay,
           disableOnInteraction: false
-        },
+        },*/
 
         breakpoints: {
           768: {

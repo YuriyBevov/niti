@@ -21,17 +21,7 @@
     <link rel="stylesheet" href="./css/styles.min.css">
   </head>
   <body class="cmn">
-    <div class="loader js-init">
-      <div class="loader__wrapper">
-        <svg width="60" height="40">
-          <use xlink:href="#icon-logo"></use>
-        </svg>
-        <div class="lds-ellipsis"><div></div>
-<div></div>
-<div></div>
-        </div>
-      </div>
-    </div>
+    <!-- include ../components/loader.pug-->
     <div style="display:none"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="icon-add" viewBox="0 0 17 17">
 <circle cx="8.5" cy="8.5" r="8.5" fill="#9C150C"></circle>
 <path d="M6 8L8 12L11.5 5" stroke="white"></path>
@@ -120,10 +110,22 @@
             //svg(width="30" height="30")
               //use(xlink:href="#icon-search")
             
-            --><a href="#" aria-label="корзина">
+            --><a class="header__action-cart" href="#" aria-label="корзина">
               <svg width="24" height="24">
                 <use xlink:href="#icon-cart"></use>
               </svg></a>
+            <div class="social">
+              <ul class="social__list">
+                <li class="social__item"><a href="#" aria-label="инстаграм">
+                    <svg width="24" height="24">
+                      <use xlink:href="#icon-insta"></use>
+                    </svg></a></li>
+                <li class="social__item"><a href="#" aria-label="в контакте">
+                    <svg width="24" height="24">
+                      <use xlink:href="#icon-vk"></use>
+                    </svg></a></li>
+              </ul>
+            </div>
             <div class="header__action-burger">
               <button class="burger" aria-label="кнопка открытия меню">
                 <svg class="burger__opened" width="35" height="35">
@@ -143,6 +145,18 @@
             <li class="nav__item"><a class="cmn__nav-link nav__link" href="about.html">О нас</a></li>
             <li class="nav__item"><a class="cmn__nav-link nav__link" href="contacts.html">Контакты</a></li>
           </ul>
+          <div class="social">
+            <ul class="social__list">
+              <li class="social__item"><a href="#" aria-label="инстаграм">
+                  <svg width="24" height="24">
+                    <use xlink:href="#icon-insta"></use>
+                  </svg></a></li>
+              <li class="social__item"><a href="#" aria-label="в контакте">
+                  <svg width="24" height="24">
+                    <use xlink:href="#icon-vk"></use>
+                  </svg></a></li>
+            </ul>
+          </div>
         </nav>
       </div>
     </header>
@@ -155,80 +169,28 @@
               <div class="intro-swiper-content intro__wrapper cmn__container">
                 <p>Одежда для рабочего класса в Санкт-Петербурге Одежда для рабочего класса в Санкт-Петербурге Одежда для рабочего класса в Санкт-Петербурге</p>
                 <h2 class="cmn__title cmn__title--white">Одежда для моряков Одежда для моряков</h2>
-                <div class="intro-swiper-content__bottom"><a class="cmn__btn" href="catalog.html">каталог</a>
-                  <div class="social">
-                    <ul class="social__list">
-                      <li class="social__item"><a href="#" aria-label="инстаграм">
-                          <svg width="35" height="35">
-                            <use xlink:href="#icon-insta"></use>
-                          </svg></a></li>
-                      <li class="social__item"><a href="#" aria-label="в контакте">
-                          <svg width="35" height="35">
-                            <use xlink:href="#icon-vk"></use>
-                          </svg></a></li>
-                    </ul>
-                  </div>
-                </div>
+                <div class="intro-swiper-content__bottom"><a class="cmn__btn" href="catalog.html">каталог</a></div>
               </div>
             </div>
             <div class="swiper-slide" style="background-image: url(./assets/img/about_img@1x.jpg)">
               <div class="intro-swiper-content intro__wrapper cmn__container">
                 <p>Одежда для рабочего класса в Санкт-Петербурге Одежда для рабочего класса</p>
                 <h2 class="cmn__title cmn__title--white">Одежда для рабочих</h2>
-                <div class="intro-swiper-content__bottom"><a class="cmn__btn" href="catalog.html">каталог</a>
-                  <div class="social">
-                    <ul class="social__list">
-                      <li class="social__item"><a href="#" aria-label="инстаграм">
-                          <svg width="35" height="35">
-                            <use xlink:href="#icon-insta"></use>
-                          </svg></a></li>
-                      <li class="social__item"><a href="#" aria-label="в контакте">
-                          <svg width="35" height="35">
-                            <use xlink:href="#icon-vk"></use>
-                          </svg></a></li>
-                    </ul>
-                  </div>
-                </div>
+                <div class="intro-swiper-content__bottom"><a class="cmn__btn" href="catalog.html">каталог</a></div>
               </div>
             </div>
             <div class="swiper-slide" style="background-image: url(./assets/img/intro-slide_1@1x.jpg)">
               <div class="intro-swiper-content intro__wrapper cmn__container">
                 <p>Одежда для рабочего класса в Санкт-Петербурге</p>
                 <h2 class="cmn__title cmn__title--white">Одежда для моряков</h2>
-                <div class="intro-swiper-content__bottom"><a class="cmn__btn" href="catalog.html">каталог</a>
-                  <div class="social">
-                    <ul class="social__list">
-                      <li class="social__item"><a href="#" aria-label="инстаграм">
-                          <svg width="35" height="35">
-                            <use xlink:href="#icon-insta"></use>
-                          </svg></a></li>
-                      <li class="social__item"><a href="#" aria-label="в контакте">
-                          <svg width="35" height="35">
-                            <use xlink:href="#icon-vk"></use>
-                          </svg></a></li>
-                    </ul>
-                  </div>
-                </div>
+                <div class="intro-swiper-content__bottom"><a class="cmn__btn" href="catalog.html">каталог</a></div>
               </div>
             </div>
             <div class="swiper-slide" style="background-image: url(./assets/img/about_img@1x.jpg)">
               <div class="intro-swiper-content intro__wrapper cmn__container">
                 <p>Одежда для рабочего класса в Санкт-Петербурге Одежда для рабочего класса Одежда для рабочего класса Одежда для рабочего класса</p>
                 <h2 class="cmn__title cmn__title--white">Одежда для рабочих</h2>
-                <div class="intro-swiper-content__bottom"><a class="cmn__btn" href="catalog.html">каталог</a>
-                  <div class="social">
-                    <ul class="social__list">
-                      <li class="social__item"><a href="#" aria-label="инстаграм">
-                          <svg width="35" height="35">
-                            <use xlink:href="#icon-insta"></use>
-                          </svg></a></li>
-                      <li class="social__item"><a href="#" aria-label="в контакте">
-                          <svg width="35" height="35">
-                            <use xlink:href="#icon-vk"></use>
-                          </svg></a></li>
-                    </ul>
-                  </div>
-                </div>
+                <div class="intro-swiper-content__bottom"><a class="cmn__btn" href="catalog.html">каталог</a></div>
               </div>
             </div>
           </div>
@@ -237,23 +199,23 @@
       <section class="catalog" id="catalog">
         <div class="cmn__wrapper catalog__wrapper">
           <ul class="catalog__gallery gallery"><li data-aos="fade-up" class="gallery__item gallery__item--1" style="background-image: url(./assets/img/about_img@1x.jpg);"><a href="#">
-              <h3 class="gallery__title gallery__title--lg gallery__title--vert">Одежда для моряков</h3></a></li>
+              <h3 class="gallery__title gallery__title--vert">Одежда для моряков</h3></a></li>
 <li data-aos="fade-up" data-aos-delay="150" class="gallery__item gallery__item--2" style="background-image: url(./assets/img/about_img@1x.jpg);"><a href="#">
-              <h3 class="gallery__title gallery__title--sm">Клининг</h3></a></li>
+              <h3 class="gallery__title">Клининг</h3></a></li>
 <li data-aos="fade-up" data-aos-delay="250" class="gallery__item gallery__item--3" style="background-image: url(./assets/img/about_img@1x.jpg);"><a href="#">
-              <h3 class="gallery__title gallery__title--sm">Фартуки</h3></a></li>
+              <h3 class="gallery__title">Фартуки</h3></a></li>
 <li data-aos="fade-left" data-aos-delay="300" class="gallery__item gallery__item--4" style="background-image: url(./assets/img/about_img@1x.jpg);"><a href="#">
-              <h3 class="gallery__title gallery__title--sm">Головные уборы      </h3></a></li>
+              <h3 class="gallery__title">Головные уборы      </h3></a></li>
 <li data-aos="fade-right" data-aos-delay="350" class="gallery__item gallery__item--5" style="background-image: url(./assets/img/intro-slide_1@1x.jpg);"><a href="#">
-              <h3 class="gallery__title gallery__title--sm">Рабочая одежда    </h3></a></li>
+              <h3 class="gallery__title">Рабочая одежда    </h3></a></li>
 <li data-aos="fade-left" data-aos-delay="350" class="gallery__item gallery__item--6" style="background-image: url(./assets/img/about_img@1x.jpg);"><a href="#">
-              <h3 class="gallery__title gallery__title--sm">Столовый текстиль       </h3></a></li>
+              <h3 class="gallery__title">Столовый текстиль       </h3></a></li>
 <li data-aos="fade-up" data-aos-delay="400" class="gallery__item gallery__item--7" style="background-image: url(./assets/img/about_img@1x.jpg);"><a href="#">
-              <h3 class="gallery__title gallery__title gallery__title--sm">Поварская одежда       </h3></a></li>
+              <h3 class="gallery__title">Поварская одежда       </h3></a></li>
 <li data-aos="fade-left" data-aos-delay="400" class="gallery__item gallery__item--8" style="background-image: url(./assets/img/about_img@1x.jpg);"><a href="#"> 
-              <h3 class="gallery__title gallery__title gallery__title--sm">Брендирование</h3></a></li>
+              <h3 class="gallery__title">Брендирование</h3></a></li>
 <li data-aos="zoom-in" data-aos-delay="400" class="gallery__item gallery__item--9" style="background-image: url(./assets/img/about_img@1x.jpg);"><a href="#">
-              <h3 class="gallery__title gallery__title gallery__title--sm">Распродажа</h3></a></li>
+              <h3 class="gallery__title">Распродажа</h3></a></li>
           </ul>
         </div>
       </section>
@@ -315,11 +277,11 @@
             <div class="social">
               <ul class="social__list">
                 <li class="social__item"><a href="#" aria-label="инстаграм">
-                    <svg width="35" height="35">
+                    <svg width="24" height="24">
                       <use xlink:href="#icon-insta"></use>
                     </svg></a></li>
                 <li class="social__item"><a href="#" aria-label="в контакте">
-                    <svg width="35" height="35">
+                    <svg width="24" height="24">
                       <use xlink:href="#icon-vk"></use>
                     </svg></a></li>
               </ul>

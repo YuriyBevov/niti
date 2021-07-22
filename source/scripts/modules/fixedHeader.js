@@ -2,35 +2,54 @@ const header = document.querySelector('.header');
 const main = document.querySelector('main');
 const intro = document.querySelector('.intro');
 
-header.style.position = 'fixed';
-
-let headerInitHeight = header.offsetHeight;
-
-main.style.marginTop = `${headerInitHeight - 1}px`;
 
 
-let initialHeight = window.innerHeight;
+// header.style.position = 'fixed';
 
-if(intro) {
+/* let headerInitHeight = header.offsetHeight;
+
+console.log(headerInitHeight)
+
+main.style.marginTop = `${headerInitHeight}px`;
+
+console.log(intro.offsetHeight) */
+
+// intro.style.height = `${intro.offsetHeight - headerInitHeight}px`
+
+// let initialHeight = window.innerHeight;
+
+//intro.style.height = `${intro.offsetHeight - headerInitHeight}px`
+
+
+/* window.addEventListener('resize', () => {
+    if(headerInitHeight !== header.offsetHeight) {
+        main.style.marginTop = `${header.offsetHeight - 1}px`;
+        //intro.style.height = `${window.innerHeight - header.offsetHeight}px`
+    }
+});*/
+
+
+//if(intro) {
     // intro.style.height = `${window.innerHeight - headerInitHeight}px`;
-    /* const setHeight = (height) => {
+    /*const setHeight = (height) => {
         intro.style.height = `${height - headerInitHeight}px`;
     }*/
 
-    const setIntroBlockHeight = () => {
+    /*const setIntroBlockHeight = () => {
+        console.log('resize')
         if(headerInitHeight !== header.offsetHeight) {
             headerInitHeight = header.offsetHeight
             main.style.marginTop = `${header.offsetHeight - 1}px`;
-        }
+        }*/
 
-        if(window.innerWidth > 1440) {
+        /*if(window.innerWidth > 1440) {
             setHeight(window.innerHeight);
-        }
-    }
+        }*/
+    //}
 
     // setIntroBlockHeight()
 
-    window.addEventListener('resize', setIntroBlockHeight);
+    //window.addEventListener('resize', setIntroBlockHeight);
 
     /*const setIntroBlockHeight = () => {
         const height = window.innerHeight;
@@ -74,4 +93,4 @@ if(intro) {
             setHeight(window.innerWidth);
         }
     });*/
-}
+//}

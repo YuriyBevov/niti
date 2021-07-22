@@ -1,4 +1,8 @@
 .nav {
+    & .social {
+        display: none;
+    }
+
     &__list {
         display: flex;
         flex-wrap: wrap;

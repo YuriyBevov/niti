@@ -17756,8 +17756,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_headerMenu_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_headerMenu_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/mapOverlay.js */ "./source/scripts/modules/mapOverlay.js");
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _modules_loader_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/loader.js */ "./source/scripts/modules/loader.js");
-/* harmony import */ var _modules_loader_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_modules_loader_js__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
@@ -17765,7 +17763,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
+// import loader from './modules/loader.js'
 
 /***/ }),
 
@@ -17806,35 +17804,54 @@ const header = document.querySelector('.header');
 const main = document.querySelector('main');
 const intro = document.querySelector('.intro');
 
-header.style.position = 'fixed';
-
-let headerInitHeight = header.offsetHeight;
-
-main.style.marginTop = `${headerInitHeight - 1}px`;
 
 
-let initialHeight = window.innerHeight;
+// header.style.position = 'fixed';
 
-if(intro) {
+/* let headerInitHeight = header.offsetHeight;
+
+console.log(headerInitHeight)
+
+main.style.marginTop = `${headerInitHeight}px`;
+
+console.log(intro.offsetHeight) */
+
+// intro.style.height = `${intro.offsetHeight - headerInitHeight}px`
+
+// let initialHeight = window.innerHeight;
+
+//intro.style.height = `${intro.offsetHeight - headerInitHeight}px`
+
+
+/* window.addEventListener('resize', () => {
+    if(headerInitHeight !== header.offsetHeight) {
+        main.style.marginTop = `${header.offsetHeight - 1}px`;
+        //intro.style.height = `${window.innerHeight - header.offsetHeight}px`
+    }
+});*/
+
+
+//if(intro) {
     // intro.style.height = `${window.innerHeight - headerInitHeight}px`;
-    /* const setHeight = (height) => {
+    /*const setHeight = (height) => {
         intro.style.height = `${height - headerInitHeight}px`;
     }*/
 
-    const setIntroBlockHeight = () => {
+    /*const setIntroBlockHeight = () => {
+        console.log('resize')
         if(headerInitHeight !== header.offsetHeight) {
             headerInitHeight = header.offsetHeight
             main.style.marginTop = `${header.offsetHeight - 1}px`;
-        }
+        }*/
 
-        if(window.innerWidth > 1440) {
+        /*if(window.innerWidth > 1440) {
             setHeight(window.innerHeight);
-        }
-    }
+        }*/
+    //}
 
     // setIntroBlockHeight()
 
-    window.addEventListener('resize', setIntroBlockHeight);
+    //window.addEventListener('resize', setIntroBlockHeight);
 
     /*const setIntroBlockHeight = () => {
         const height = window.innerHeight;
@@ -17878,7 +17895,7 @@ if(intro) {
             setHeight(window.innerWidth);
         }
     });*/
-}
+//}
 
 /***/ }),
 
@@ -17916,35 +17933,6 @@ window.addEventListener('resize', () => {
         }
     }
 })
-
-/***/ }),
-
-/***/ "./source/scripts/modules/loader.js":
-/*!******************************************!*\
-  !*** ./source/scripts/modules/loader.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-const showPage = () => {
-    document.removeEventListener("DOMContentLoaded", showPage);
-
-    
-
-    const hideLoader = function () {
-        setTimeout(() => {
-            loader.classList.add('ended')
-        }, 1200)
-
-        setTimeout(() => {
-            loader.style.display ='none';
-        }, 2200)
-    }();
-};
-
-const loader = document.querySelector('.loader');
-
-document.addEventListener("DOMContentLoaded", showPage);
 
 /***/ }),
 
@@ -17994,10 +17982,10 @@ if(iSlider) {
         speed: 800,
         loop: true,
     
-        autoplay: {
+        /*autoplay: {
           delay: sliderDelay,
           disableOnInteraction: false
-        },
+        },*/
 
         breakpoints: {
           768: {
