@@ -19,14 +19,18 @@
 
 @mixin link_hover() {
     color: $color-white;
-    transition: color $transition-rules;
     
-    &:hover,
-    &:focus {
-        color: $color-maroon;
-    }
-
-    &:active {
-        color: $color-maroon;
+    @media(min-width: $tablet_width) {
+        transition: color $transition-rules;
+    
+    
+        &:hover,
+        &:focus {
+            color: $color-maroon;
+        }
+    
+        &:active {
+            color: $color-maroon;
+        }
     }
 }

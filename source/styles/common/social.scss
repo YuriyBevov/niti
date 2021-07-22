@@ -13,10 +13,12 @@
                 transition: fill $transition-rules
             }
         }
-        a:hover,
-        a:focus {
-            svg {
-                fill: $color-maroon;
+        @media(min-width: $tablet_width) {
+            a:hover,
+            a:focus {
+                svg {
+                    fill: $color-maroon;
+                }
             }
         }
     }
