@@ -52,7 +52,7 @@
         left: 0;
         content: '';
         width: 100%;
-        height: 100%;
+        height: inherit;
         background-color: rgba(0, 0, 0, 0.5);
         transition: height $transition-rules;
 
@@ -63,6 +63,14 @@
                 transition: none;
                 opacity: 0;
             }
+        }
+    }
+
+    #yandex-map {
+        height: inherit;
+
+        iframe {
+            height: inherit;
         }
     }
 }

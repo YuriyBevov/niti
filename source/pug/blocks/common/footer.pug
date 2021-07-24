@@ -4,20 +4,19 @@
     {title: 'Доставка и оплата', url: 'delivery.html'},
     {title: 'О нас', url: '#about'},
     {title: 'Контакты', url: '#contacts'},
-    {title: 'Обратный звонок', url: '#'},
   ];
 
 footer.footer
   .cmn__wrapper.footer__wrapper.cmn__container
     .footer__header
-      ul.footer__header-list
-        li.footer__header-item.footer__header-item--logo
-          a(href="index.html" aria-label="логотип")
-            svg(width="80" height="60")
-              use(xlink:href="#icon-logo")
+      .footer__header-logo
+        a(href="index.html" aria-label="логотип")
+          svg(width="80" height="60")
+            use(xlink:href="#icon-logo")
+      ul.footer__header-nav.nav
         each link in footer_links
-          li.footer__header-item
-            a.cmn__nav-link(href=link.url)= link.title
+          li.nav__item
+            a.cmn__nav.cmn__nav-link(href=link.url)= link.title
       .footer__social
         include ../common/social
     .footer__bottom 
