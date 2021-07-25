@@ -12269,13 +12269,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_headerMenu_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_headerMenu_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/mapOverlay.js */ "./source/scripts/modules/mapOverlay.js");
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _modules_loader_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/loader.js */ "./source/scripts/modules/loader.js");
+/* harmony import */ var _modules_loader_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_loader_js__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
 
 
 
-// import loader from './modules/loader.js'
+
 
 /***/ }),
 
@@ -12291,6 +12293,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! aos */ "./node_modules/aos/dist/aos.js");
 /* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(aos__WEBPACK_IMPORTED_MODULE_0__);
 
+
+const galItems = document.querySelectorAll('.gallery__item')
+
+if(galItems) {
+    galItems.forEach((item, i) => {
+        i === 3 || i === 5 ? item.setAttribute('data-aos', 'fade-left') :
+        i === 4 || i === 7 ? item.setAttribute('data-aos', 'fade-right') :
+
+        item.setAttribute('data-aos', 'fade-up')
+
+        let delay = i === 2 || i === 4 ? 300 : i === 3 || i === 5 ? 400 : i === 7 ? 350 : 150
+
+        item.setAttribute('data-aos-delay', delay)
+    })
+}
 
 aos__WEBPACK_IMPORTED_MODULE_0___default.a.init({
     startEvent: 'DOMContentLoaded',
@@ -12339,6 +12356,35 @@ window.addEventListener('resize', () => {
         }
     }
 })
+
+/***/ }),
+
+/***/ "./source/scripts/modules/loader.js":
+/*!******************************************!*\
+  !*** ./source/scripts/modules/loader.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const showPage = () => {
+    document.removeEventListener("DOMContentLoaded", showPage);
+
+    
+
+    const hideLoader = function () {
+        setTimeout(() => {
+            loader.classList.add('ended')
+        }, 1200)
+
+        setTimeout(() => {
+            loader.style.display ='none';
+        }, 2200)
+    }();
+};
+
+const loader = document.querySelector('.loader');
+
+document.addEventListener("DOMContentLoaded", showPage);
 
 /***/ }),
 

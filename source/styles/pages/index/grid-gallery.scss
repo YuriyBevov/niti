@@ -29,20 +29,12 @@
             font-size: 1.4rem;
             line-height: 1.6rem;
         }
-
-        &--vert {
-            @media(min-width: $mobile_lg_width) {
-                transform: rotate(180deg);
-                writing-mode: tb-rl;
-                writing-mode: vertical-rl;
-                max-height: 40rem;
-            }
-        }
     }
 
     &__item {
-
-        &--1 {
+        background-size: contain;
+        
+        &:nth-child(1) {
             grid-column-start: 1;
             grid-column-end: 5;
             grid-row-start: 1;
@@ -54,9 +46,18 @@
                 grid-row-start: 1;
                 grid-row-end: 6;
             }
+
+            h3 {
+                @media(min-width: $mobile_lg_width) {
+                    transform: rotate(180deg);
+                    writing-mode: tb-rl;
+                    writing-mode: vertical-rl;
+                    max-height: 40rem;
+                }
+            }
         }
 
-        &--2 {
+        &:nth-child(2) {
             grid-column-start: 5;
             grid-column-end: 9;
             grid-row-start: 1;
@@ -75,7 +76,7 @@
         }
 
         // фартуки
-        &--3 {
+        &:nth-child(3) {
             grid-column-start: 5;
             grid-column-end: 7;
             grid-row-start: 4;
@@ -97,7 +98,7 @@
         }
 
         // гол уб
-        &--4 {
+        &:nth-child(4) {
             grid-column-start: 7;
             grid-column-end: 9;
             grid-row-start: 4;
@@ -119,7 +120,7 @@
         }
 
         // Рабочая одежда
-        &--5 {
+        &:nth-child(5) {
             grid-column-start: 1;
             grid-column-end: 4;
             grid-row-start: 9;
@@ -141,7 +142,7 @@
         }
 
         // ст текст
-        &--6 {
+        &:nth-child(6) {
             grid-column-start: 4;
             grid-column-end: 9;
             grid-row-start: 9;
@@ -163,7 +164,7 @@
         }
 
         // пов
-        &--7 {
+        &:nth-child(7) {
             grid-column-start: 6;
             grid-column-end: 9;
             grid-row-start: 6;
@@ -184,7 +185,7 @@
             }
         }
         // брэнд
-        &--8 {
+        &:nth-child(8) {
             grid-column-start: 1;
             grid-column-end: 6;
             grid-row-start: 6;
@@ -207,7 +208,7 @@
         }
 
         //распр
-        &--9 {
+        &:nth-child(9) {
             grid-column-start: 1;
             grid-column-end: 9;
             grid-row-start: 12;
