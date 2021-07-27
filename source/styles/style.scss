@@ -10,7 +10,6 @@
 @import "plugins/swiper";
 @import "plugins/aos";
 
-
 // blocks
 @import "common/header";
 @import "common/nav";
@@ -18,13 +17,12 @@
 @import "common/social";
 
 @import "pages/index/intro";
-@import "pages/index/catalog";
+@import "common/catalog";
+@import "common/grid-gallery";
 @import "pages/index/about";
 @import "pages/index/sale";
 @import "pages/index/contacts";
-@import "pages/index/grid-gallery";
 
-@import "pages/catalog/catalog-inner";
 
 @import "common/footer";
 

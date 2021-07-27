@@ -26,3 +26,12 @@
         }
     }
 }
+
+.main-catalog {
+    .catalog {
+        &__gallery {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+}

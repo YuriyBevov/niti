@@ -276,3 +276,22 @@
         }
     }
 }
+
+.main-catalog {
+    .gallery {
+        outline: 1px solid red;
+
+        grid-gap: 0;
+        grid-template-columns: initial;
+        grid-template-rows: initial;
+
+        padding-left: 1rem;
+
+        &__item {
+            width: calc(100%/3 - 1rem);
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            min-height: 40rem;
+        }
+    }
+}

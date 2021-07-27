@@ -12294,9 +12294,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(aos__WEBPACK_IMPORTED_MODULE_0__);
 
 
-const galItems = document.querySelectorAll('.gallery__item')
+const galItems = document.querySelectorAll('.gallery__item');
+const isGalleryPage = document.querySelector('.main-catalog');
 
-if(galItems) {
+if(!isGalleryPage && galItems) {
     galItems.forEach((item, i) => {
         i === 3 || i === 5 ? item.setAttribute('data-aos', 'fade-left') :
         i === 4 || i === 7 ? item.setAttribute('data-aos', 'fade-right') :
@@ -12304,6 +12305,14 @@ if(galItems) {
         item.setAttribute('data-aos', 'fade-up')
 
         let delay = i === 2 || i === 4 ? 300 : i === 3 || i === 5 ? 400 : i === 7 ? 350 : 150
+
+        item.setAttribute('data-aos-delay', delay)
+    })
+} else if (isGalleryPage && galItems) {
+    galItems.forEach((item, i) => {
+        item.setAttribute('data-aos', 'fade-up')
+
+        let delay = i < 6 ? 150 * (i + 1) : 25 * i
 
         item.setAttribute('data-aos-delay', delay)
     })
