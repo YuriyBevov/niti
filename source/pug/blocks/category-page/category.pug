@@ -84,10 +84,10 @@ section.category
       ul.category__list
         each item in items
           li.category__item
-            a.category__item-header(href="#")
+            a.category__item-header(href="product-card.html")
               img(src= item.imgUrl, alt= item.title)
             .category__item-footer
-              a(href="#").category__item-title= item.title
+              a(href="product-card.html").category__item-title= item.title
               p.category__item-price!= item.price
       
       include ../../components/pagination

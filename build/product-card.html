@@ -135,122 +135,62 @@
       </div>
     </header>
     <main>
-      <section class="category">
-        <div class="cmn__wrapper category__wrapper cmn__container">
-          <h1 class="visually-hidden">Каталог продукции ООО "НИТИ"</h1>
-          <aside class="category__sidebar">
-            <div class="sidebar"> 
-              <div class="sidebar__categories">
-                <h3 class="sidebar__title">Категории товаров:</h3>
-              </div>
-              <ul class="sidebar__categories-list">
-                <li class="sidebar__categories-item"><a href="#">Рабочая одежда</a></li>
-                <li class="sidebar__categories-item"><a class="active" href="#">Одежда для моряков</a></li>
-                <li class="sidebar__categories-item"><a href="#">ооооооооооочень длинная категория товаров</a></li>
-                <li class="sidebar__categories-item"><a href="#">Клининг</a></li>
-                <li class="sidebar__categories-item"><a href="#">Просто так</a></li>
-                <li class="sidebar__categories-item"><a href="#">Рабочая одежда</a></li>
-                <li class="sidebar__categories-item"><a href="#">Оджеда для моряков</a></li>
-                <li class="sidebar__categories-item"><a href="#">Рабочая одежда</a></li>
-                <li class="sidebar__categories-item"><a href="#">Оджеда для моряков</a></li>
-              </ul>
-              <div class="sidebar__filter filter">
-                <div class="filter__params"><span class="filter__name sidebar__title">Материал:</span>
-                  <ul class="filter__list" data-id="1">
-                    <li class="filter__item">
-                      <input class="active" type="checkbox" id="1">
-                      <label for="1">канвас</label>
-                    </li>
-                    <li class="filter__item">
-                      <input type="checkbox" id="2">
-                      <label for="2">кожзам</label>
-                    </li>
-                    <li class="filter__item">
-                      <input type="checkbox" id="3">
-                      <label for="3">нат. кожа</label>
-                    </li>
-                    <li class="filter__item">
-                      <input type="checkbox" id="4">
-                      <label for="4">смесовая</label>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+      <div class="section product-card">
+        <div class="cmn__wrapper cmn__container product-card__wrapper">
+          <div class="product-card__preview">
+            <!-- тут будет слайдер--><img src="./assets/img/about_img@1x.jpg" alt="товар">
+            <div class="product-card__thumbnails"><img src="./assets/img/about_img@1x.jpg" alt="товар"><img src="./assets/img/about_img@1x.jpg" alt="товар"><img src="./assets/img/about_img@1x.jpg" alt="товар"><img src="./assets/img/about_img@1x.jpg" alt="товар"></div>
+          </div>
+          <div class="product-card__content">
+            <div class="product-card__content-header"> 
+              <h1 class="product-card__title">Супер фартук<span>Артикул товара: 001346578</span></h1>
+              <p class="product-card-desc">Фартук состоит из сочетания кожзама на облегченной подкладке. </p>
+              <p class="product-card-desc">Данное изделие не нуждается в излишнем уходе. </p>
+              <p class="product-card-desc">Стильные крестообразные подтяжки разгрузят шейный отдел за счет распределения веса фартука по спине.</p>
+              <p class="product-card-desc">Возможен пошив по вашим цветовым пожеланиям.</p>
             </div>
-          </aside>
-          <div class="category__content">
-            <ul class="category__list">
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук с оооооооооооооооооооочень длинным названием"></a>
-                <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук с оооооооооооооооооооочень длинным названием</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
+            <div class="product-card__content-main">
+              <div class="product-card__content-main-wrapper"><b class="product-card__price">2400 р.</b>
+                <div class="product-card__quantity">
+                  <button class="product-card__quantity-btn" type="button" aria-label="удалить">	&minus;</button><span class="product-cart__quantity-value">1</span>
+                  <button class="product-card__quantity-btn" type="button" aria-label="добавить">	&plus;</button>
                 </div>
-              </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/intro-slide_1@1x.jpg" alt="Фартук кактой- то"></a>
-                <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
-                </div>
-              </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то"></a>
-                <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
-                </div>
-              </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук с оооооооооооооооооооочень длинным названием"></a>
-                <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук с оооооооооооооооооооочень длинным названием</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
-                </div>
-              </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то"></a>
-                <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
-                </div>
-              </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то"></a>
-                <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
-                </div>
-              </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук с оооооооооооооооооооочень длинным названием"></a>
-                <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук с оооооооооооооооооооочень длинным названием</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
-                </div>
-              </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то"></a>
-                <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
-                </div>
-              </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то"></a>
-                <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
-                </div>
-              </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то"></a>
-                <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
-                </div>
-              </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то"></a>
-                <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
-                </div>
-              </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то"></a>
-                <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
-                </div>
-              </li>
-            </ul>
-            <div class="pagination">
-              <div class="pagination__btn pagination__btn--disabled"><</div>
-              <div class="pagination__btn pagination__btn--active">1</div>
-              <div class="pagination__btn">2</div>
-              <div class="pagination__btn">3</div>
-              <div class="pagination__btn">></div>
+                <input type="checkbox" id="stitch">
+                <label for="stitch">Нанести вышивку</label>
+              </div>
+              <button class="product-card__cart-btn" type="button">Добавить в корзину
+                <svg width="16" height="16">
+                  <use xlink:href="#icon-cart"></use>
+                </svg>
+              </button>
+            </div>
+            <div class="product-card__content-footer">
+              <ul class="product-card__characters">
+                <li class="product-card__item">
+                  <p class="product-card__item-name">Наличие:</p>
+                  <p class="product-card__item-desc">Есть в наличии</p>
+                </li>
+                <li class="product-card__item">
+                  <p class="product-card__item-name">Цвет:</p>
+                  <p class="product-card__item-desc"> <span class="product-card__item-color product-card__item-color--white">белый</span><span class="product-card__item-color product-card__item-color--black">черный</span></p>
+                </li>
+                <li class="product-card__item">
+                  <p class="product-card__item-name">Материал:</p>
+                  <p class="product-card__item-desc">кожзам</p>
+                </li>
+                <li class="product-card__item">
+                  <p class="product-card__item-name">Длина(см):</p>
+                  <p class="product-card__item-desc">82</p>
+                </li>
+                <li class="product-card__item">
+                  <p class="product-card__item-name">Ширина(см):</p>
+                  <p class="product-card__item-desc">72        </p>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </main>
     <footer class="footer">
       <div class="cmn__wrapper footer__wrapper cmn__container">

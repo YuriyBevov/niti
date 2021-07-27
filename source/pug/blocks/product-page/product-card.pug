@@ -1,0 +1,81 @@
+- 
+  imgList = [
+    {
+        imgUrl: './assets/img/about_img@1x.jpg'
+    },
+
+    {
+        imgUrl: './assets/img/intro-slide_1@1x.jpg'
+    },
+
+    {
+        imgUrl: './assets/img/about_img@1x.jpg'
+    },
+
+    {
+        imgUrl: './assets/img/intro-slide_1@1x.jpg'
+    }
+  ];
+
+.section.product-card
+  .cmn__wrapper.cmn__container.product-card__wrapper
+
+    .product-card__preview
+      // тут будет слайдер
+      img(src="./assets/img/about_img@1x.jpg", alt="товар")
+      .product-card__thumbnails
+        img(src="./assets/img/about_img@1x.jpg", alt="товар")
+        img(src="./assets/img/about_img@1x.jpg", alt="товар")
+        img(src="./assets/img/about_img@1x.jpg", alt="товар")
+        img(src="./assets/img/about_img@1x.jpg", alt="товар")
+    .product-card__content
+      .product-card__content-header  
+        h1.product-card__title Супер фартук
+          span Артикул товара: 001346578
+
+        p.product-card-desc Фартук состоит из сочетания кожзама на облегченной подкладке. 
+        p.product-card-desc Данное изделие не нуждается в излишнем уходе. 
+        p.product-card-desc Стильные крестообразные подтяжки разгрузят шейный отдел за счет распределения веса фартука по спине.
+        p.product-card-desc Возможен пошив по вашим цветовым пожеланиям.
+      
+      .product-card__content-main
+        .product-card__content-main-wrapper
+          b.product-card__price 2400 р.
+
+          .product-card__quantity
+            button(type="button" aria-label="удалить").product-card__quantity-btn 	&minus;
+            span.product-cart__quantity-value 1
+            button(type="button" aria-label="добавить").product-card__quantity-btn 	&plus;
+
+          input(type="checkbox" id="stitch")
+          label(for="stitch") Нанести вышивку
+
+        button(type="button").product-card__cart-btn Добавить в корзину
+          svg(width="16" height="16")
+            use(xlink:href="#icon-cart")
+
+
+      .product-card__content-footer
+        ul.product-card__characters
+          li.product-card__item
+            p.product-card__item-name Наличие:
+            p.product-card__item-desc Есть в наличии
+          
+          li.product-card__item
+            p.product-card__item-name Цвет:
+            p.product-card__item-desc 
+              span.product-card__item-color.product-card__item-color--white белый
+              span.product-card__item-color.product-card__item-color--black черный
+
+          li.product-card__item
+            p.product-card__item-name Материал:
+            p.product-card__item-desc кожзам
+
+          li.product-card__item
+            p.product-card__item-name Длина(см):
+            p.product-card__item-desc 82
+
+          li.product-card__item
+            p.product-card__item-name Ширина(см):
+            p.product-card__item-desc 72        
+          

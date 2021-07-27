@@ -55,6 +55,12 @@
     }
 
     .sidebar__filter {
+        .filter__list {
+            &:not(:last-child) {
+                border-bottom: 1px dashed $color_maroon;
+            }
+        }
+
         .filter__item {
             font-size: 1.4rem;
             display: flex;
