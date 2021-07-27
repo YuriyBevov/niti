@@ -1,8 +1,95 @@
 -
   const items = [
-    {}
+    {
+      title: 'Фартук с оооооооооооооооооооочень длинным названием',
+      price: '3500 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg'
+    },
+
+    {
+      title: 'Фартук кактой- то',
+      price: '3500 <span>р.</span>',
+      imgUrl: './assets/img/intro-slide_1@1x.jpg'
+    },
+
+    {
+      title: 'Фартук кактой- то',
+      price: '3500 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg'
+    },
+
+    {
+      title: 'Фартук с оооооооооооооооооооочень длинным названием',
+      price: '3500 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg'
+    },
+
+    {
+      title: 'Фартук кактой- то',
+      price: '3500 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg'
+    },
+
+    {
+      title: 'Фартук кактой- то',
+      price: '3500 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg'
+    },
+
+    {
+      title: 'Фартук с оооооооооооооооооооочень длинным названием',
+      price: '3500 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg'
+    },
+
+    {
+      title: 'Фартук кактой- то',
+      price: '3500 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg'
+    },
+
+    {
+      title: 'Фартук кактой- то',
+      price: '3500 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg'
+    },
+
+    {
+      title: 'Фартук кактой- то',
+      price: '3500 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg'
+    },
+
+    {
+      title: 'Фартук кактой- то',
+      price: '3500 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg'
+    },
+
+    {
+      title: 'Фартук кактой- то',
+      price: '3500 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg'
+    },
   ];
 
 section.category
-  h2 cat
+  .cmn__wrapper.category__wrapper.cmn__container
+    h1.visually-hidden Каталог продукции ООО "НИТИ"
+
+    aside.category__sidebar
+      include ./components/sidebar
+
+    .category__content
+      ul.category__list
+        each item in items
+          li.category__item
+            a.category__item-header(href="#")
+              img(src= item.imgUrl, alt= item.title)
+            .category__item-footer
+              a(href="#").category__item-title= item.title
+              p.category__item-price!= item.price
+      
+      include ../../components/pagination
+
   
