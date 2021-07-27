@@ -1,0 +1,108 @@
+.sidebar {
+
+    &__title {
+        display: block;
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
+    }
+
+    .sidebar__categories {
+        &-list {
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px dashed $color_maroon;
+
+            .sidebar__categories-item {
+                a {
+                    font-size: 1.4rem;
+                    display: block;
+                    min-width: 4rem;
+                    min-height: 4rem;
+                    padding: 1rem 1.5rem ;
+                    color: $color_black;
+
+                    transition: color $transition-rules;
+
+                    &.active {
+                        cursor: initial;
+                        color: $color_maroon;
+                    }
+            
+                    &--disabled {
+                        opacity: 0.5;
+                        cursor: initial;
+                    }
+            
+                    @media(min-width: $tablet_width) {
+                        &:not(&--active):not(&--disabled) {
+                                
+                            &:hover,
+                            &:focus {
+                                color: $color-maroon;
+                            }
+                        
+                            &:active {
+                                color: $color-maroon;
+                            }
+                        }
+            
+                    }
+                }
+            }
+        }
+    }
+
+    .sidebar__filter {
+        .filter__item {
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            min-width: 4rem;
+            min-height: 4rem;
+            padding: 0rem 1.5rem;
+            color: $color_black;
+
+            label {
+                min-height: 4rem;
+                width: calc(100% - 2rem);
+                display: flex;
+                align-items: center;
+                padding-left: 1rem;
+                cursor: pointer;
+                transition: color $transition-rules;
+
+                @media(min-width: $tablet_width) {
+                            
+                    &:hover,
+                    &:focus {
+                        color: $color-maroon;
+                    }
+                
+                    &:active {
+                        color: $color-maroon;
+                    }
+        
+                }
+            }
+
+            input{
+                box-sizing: border-box;
+                padding: 0;
+                background-color: transparent;
+                width: 10px;
+                height: 10px;
+                border: 1px solid black;
+                border-radius: 50%;
+
+                transition: border $transition-rules, background-color $transition-rules;
+            }
+
+            input:checked {
+                background-color: $color_maroon;
+                border: 1px solid $color_maroon;
+            }
+        }
+    }
+}

@@ -7,7 +7,12 @@
 
     &__sidebar {
         width: calc(20% - 2rem);
-        outline: 1px solid red;
+        border-right: 1px dashed $color_maroon;
+        height: fit-content;
+        position: sticky;
+        top: 15rem;
+        
+        margin-bottom: 5rem;
     }
 
     &__content {
