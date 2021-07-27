@@ -1,44 +1,65 @@
+-
+  const cats = [
+    {
+      title: "Одежда для моряков",
+      style: "background-image: url(./assets/img/about_img@1x.jpg);",
+      link: "category.html",
+    },
+
+    {
+      title: "Клининг",
+      style: "background-image: url(./assets/img/about_img@1x.jpg);",
+      link: "category.html",
+    },
+
+    {
+      title: "Фартуки",
+      style: "background-image: url(./assets/img/intro-slide_1@1x.jpg);",
+      link: "category.html",
+    },
+
+    {
+      title: "Головные уборы",
+      style: "background-image: url(./assets/img/about_img@1x.jpg);",
+      link: "category.html",
+    },
+
+    {
+      title: "Рабочая одежда",
+      style: "background-image: url(./assets/img/intro-slide_1@1x.jpg);",
+      link: "category.html",
+    },
+
+    {
+      title: "Столовый текстиль",
+      style: "background-image: url(./assets/img/about_img@1x.jpg);",
+      link: "category.html",
+    },
+
+    {
+      title: "Поварская одежда",
+      style: "background-image: url(./assets/img/intro-slide_1@1x.jpg);",
+      link: "category.html",
+    },
+
+    {
+      title: "Брендирование",
+      style: "background-image: url(./assets/img/about_img@1x.jpg);",
+      link: "category.html",
+    },
+
+    {
+      title: "Распродажа",
+      style: "background-image: url(./assets/img/intro-slide_1@1x.jpg);",
+      link: "category.html",
+    },
+  ];
+
 section.catalog
   .cmn__wrapper.catalog__wrapper
     ul.catalog__gallery.gallery
-      <li class="gallery__item" style="background-image: url(./assets/img/about_img@1x.jpg);">
-        a(href="#" )
-          h3.gallery__title Одежда для моряков
-      </li>
-      <li class="gallery__item" style="background-image: url(./assets/img/about_img@1x.jpg);">
-        a(href="#")
-          h3.gallery__title Клининг
-      </li>
-      <li class="gallery__item" style="background-image: url(./assets/img/about_img@1x.jpg);">
-        a(href="#")
-          h3.gallery__title Фартуки
-      </li>
-      <li class="gallery__item" style="background-image: url(./assets/img/about_img@1x.jpg);">
-        a(href="#")
-          h3.gallery__title Головные уборы      
-      </li>
-
-      <li class="gallery__item" style="background-image: url(./assets/img/intro-slide_1@1x.jpg);">
-        a(href="#")
-          h3.gallery__title Рабочая одежда    
-      </li>
-      <li class="gallery__item" style="background-image: url(./assets/img/about_img@1x.jpg);">
-        a(href="#")
-          h3.gallery__title Столовый текстиль       
-      </li>
-
-      <li class="gallery__item" style="background-image: url(./assets/img/about_img@1x.jpg);">
-        a(href="#")
-          h3.gallery__title Поварская одежда       
-      </li>
-
-      <li  class="gallery__item" style="background-image: url(./assets/img/about_img@1x.jpg);">
-        a(href="#") 
-          h3.gallery__title Брендирование
-        
-      </li>
-      
-      <li  class="gallery__item" style="background-image: url(./assets/img/about_img@1x.jpg);">
-        a(href="#")
-          h3.gallery__title Распродажа
-      </li>
+      each cat in cats
+        <li class="gallery__item" style="#{cat.style}">
+          a(href= cat.link)
+            h3.gallery__title= cat.title
+        </li>

@@ -279,8 +279,6 @@
 
 .main-catalog {
     .gallery {
-        outline: 1px solid red;
-
         grid-gap: 0;
         grid-template-columns: initial;
         grid-template-rows: initial;
@@ -292,6 +290,12 @@
             margin-right: 1rem;
             margin-bottom: 1rem;
             min-height: 40rem;
+
+            h3 {
+                transform: rotate(0);
+                writing-mode: initial;
+                max-height: 40rem;
+            }
         }
     }
 }
