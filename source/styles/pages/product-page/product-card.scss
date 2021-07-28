@@ -178,6 +178,7 @@ $mb: 2rem;
             .product-card__stitch {
                 display: flex;
                 align-items: center;
+
                 label {
                     min-height: 4rem;
                     display: flex;
@@ -293,7 +294,20 @@ $mb: 2rem;
                         align-items: flex-start;
                         font-weight: 400;
 
-                        span {
+                        &--row {
+                            flex-direction: row;
+                            justify-content: flex-start;
+                        }
+
+                        .product-card__item-size {
+                            margin-right: 0.5rem;
+
+                            &--missing {
+                                opacity: 0.4;
+                            }
+                        }
+
+                        .product-card__item-color {
                             display: block;
                             position: relative;
                             padding-left: 2rem;
