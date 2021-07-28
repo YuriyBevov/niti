@@ -12292,10 +12292,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! aos */ "./node_modules/aos/dist/aos.js");
 /* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(aos__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/utils */ "./source/scripts/utils/utils.js");
+
 
 
 const galItems = document.querySelectorAll('.gallery__item');
 const isGalleryPage = document.querySelector('.main-catalog');
+
+Object(_utils_utils__WEBPACK_IMPORTED_MODULE_1__["changeLastItemWidth"])(galItems)
 
 if(!isGalleryPage && galItems) {
     galItems.forEach((item, i) => {
@@ -12481,6 +12485,37 @@ if(sSlider) {
           },
         },
     });
+}
+
+
+
+/***/ }),
+
+/***/ "./source/scripts/utils/utils.js":
+/*!***************************************!*\
+  !*** ./source/scripts/utils/utils.js ***!
+  \***************************************/
+/*! exports provided: changeLastItemWidth */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeLastItemWidth", function() { return changeLastItemWidth; });
+const changeLastItemWidth = (arr) => {
+    window.innerWidth < 768 ? 
+    arr[arr.length - 1].style.width = 100 + '%' : null
+    
+    const onResizeHandler = () => {
+        if(window.innerWidth < 768 && arr.length % 2 === 1) {
+            arr[arr.length - 1].style.width !== 100 + '%' ?
+            arr[arr.length - 1].style.width = 100 + '%' : null
+        } else {
+            arr[arr.length - 1].style.width === 100 + '%' ?
+            arr[arr.length - 1].style.width = 'calc(100% / 3 - 1rem)' : null
+        }
+    }
+    
+    window.addEventListener('resize', onResizeHandler);
 }
 
 

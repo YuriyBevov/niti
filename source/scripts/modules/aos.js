@@ -1,7 +1,10 @@
 import AOS from 'aos';
+import {changeLastItemWidth} from '../utils/utils'
 
 const galItems = document.querySelectorAll('.gallery__item');
 const isGalleryPage = document.querySelector('.main-catalog');
+
+changeLastItemWidth(galItems)
 
 if(!isGalleryPage && galItems) {
     galItems.forEach((item, i) => {
