@@ -70,6 +70,7 @@ $mb: 2rem;
             }
 
             .product-card__price {
+                font-family: $font_mono;
                 font-size: 1.8rem;
                 line-height: 2rem;
                 color: $color-maroon;
@@ -117,6 +118,7 @@ $mb: 2rem;
                 }
 
                 span {
+                    font-family: $font_mono;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -146,7 +148,6 @@ $mb: 2rem;
                     &:active {
                         color: $color-maroon;
                     }
-        
                 }
             }
 

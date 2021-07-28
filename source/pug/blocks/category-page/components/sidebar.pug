@@ -64,16 +64,16 @@
 
 .sidebar 
   .sidebar__categories
-    h3.sidebar__title Категории товаров:
-  ul.sidebar__categories-list
-    each catItem in catList
-      li.sidebar__categories-item
-        a(href="#" class= catItem.class ? catItem.class : null)= catItem.name
+    h3.sidebar__title.js-expanded-btn.opened Категории товаров
+    ul.sidebar__categories-list.js-expanded-list.expanded
+      each catItem in catList
+        li.sidebar__categories-item
+          a(href="#" class= catItem.class ? catItem.class : null)= catItem.name
 
   .sidebar__filter.filter
     .filter__params
-      span.filter__name.sidebar__title Материал:
-      ul.filter__list(data-id="1")
+      span.filter__name.sidebar__title.js-expanded-btn.opened Материал
+      ul.filter__list.js-expanded-list.expanded
         each mats in materials
           li.filter__item
             input(type="checkbox" id= mats.id class= mats.class? mats.class : null)

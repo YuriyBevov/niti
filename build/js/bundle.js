@@ -12271,6 +12271,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _modules_loader_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/loader.js */ "./source/scripts/modules/loader.js");
 /* harmony import */ var _modules_loader_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_loader_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _modules_expItems_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/expItems.js */ "./source/scripts/modules/expItems.js");
+/* harmony import */ var _modules_expItems_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_modules_expItems_js__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -12299,9 +12302,8 @@ __webpack_require__.r(__webpack_exports__);
 const galItems = document.querySelectorAll('.gallery__item');
 const isGalleryPage = document.querySelector('.main-catalog');
 
-Object(_utils_utils__WEBPACK_IMPORTED_MODULE_1__["changeLastItemWidth"])(galItems)
-
 if(!isGalleryPage && galItems) {
+    
     galItems.forEach((item, i) => {
         i === 3 || i === 5 ? item.setAttribute('data-aos', 'fade-left') :
         i === 4 || i === 7 ? item.setAttribute('data-aos', 'fade-right') :
@@ -12313,6 +12315,8 @@ if(!isGalleryPage && galItems) {
         item.setAttribute('data-aos-delay', delay)
     })
 } else if (isGalleryPage && galItems) {
+    Object(_utils_utils__WEBPACK_IMPORTED_MODULE_1__["changeLastItemWidth"])(galItems);
+
     galItems.forEach((item, i) => {
         item.setAttribute('data-aos', 'fade-up')
 
@@ -12332,6 +12336,27 @@ aos__WEBPACK_IMPORTED_MODULE_0___default.a.init({
 });
 
 
+
+/***/ }),
+
+/***/ "./source/scripts/modules/expItems.js":
+/*!********************************************!*\
+  !*** ./source/scripts/modules/expItems.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const btns = document.querySelectorAll('.js-expanded-btn');
+
+const expItems = document.querySelectorAll('.js-expanded-list');
+
+const onClickExpandItem = (evt) => {
+    const expItem = evt.target.nextElementSibling;
+    evt.target.classList.toggle('opened');
+    expItem.classList.toggle('expanded');
+}
+
+btns.forEach(btn => btn.addEventListener('click', onClickExpandItem))
 
 /***/ }),
 

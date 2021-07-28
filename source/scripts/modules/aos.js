@@ -4,9 +4,8 @@ import {changeLastItemWidth} from '../utils/utils'
 const galItems = document.querySelectorAll('.gallery__item');
 const isGalleryPage = document.querySelector('.main-catalog');
 
-changeLastItemWidth(galItems)
-
 if(!isGalleryPage && galItems) {
+    
     galItems.forEach((item, i) => {
         i === 3 || i === 5 ? item.setAttribute('data-aos', 'fade-left') :
         i === 4 || i === 7 ? item.setAttribute('data-aos', 'fade-right') :
@@ -18,6 +17,8 @@ if(!isGalleryPage && galItems) {
         item.setAttribute('data-aos-delay', delay)
     })
 } else if (isGalleryPage && galItems) {
+    changeLastItemWidth(galItems);
+
     galItems.forEach((item, i) => {
         item.setAttribute('data-aos', 'fade-up')
 

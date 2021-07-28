@@ -1,27 +1,82 @@
 .sidebar {
 
     &__title {
+        position: relative;
         display: block;
         font-size: 1.8rem;
         line-height: 2.2rem;
         font-weight: 400;
-        margin-bottom: 1rem;
+        padding: 1rem;
+        padding-left: 0;
+        z-index: 100;
+        background-color: $color-white;
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%) rotate(180deg);
+
+            content: '';
+
+            width: 1.2rem;
+            height: 1.2rem;
+
+            background-image: url(../assets/img/arr-down.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: transform $transition-rules;
+        }
+
+        @media (max-width: $tablet_width ) {
+            font-size: 1.4rem;
+            line-height: 1.6rem;
+            padding-right: 0.5rem;
+        }
+
+        @media (max-width: 660px ) {
+            font-size: 1.6rem;
+            line-height: 1.8rem;
+            color: $color-maroon;
+            text-align: center;
+        }
     }
 
     .sidebar__categories {
+        position: relative;
+        border-bottom: 1px dashed $color_maroon;
+
         &-list {
             padding-bottom: 1rem;
-            margin-bottom: 2rem;
-            border-bottom: 1px dashed $color_maroon;
+            
+            
+
+            @media (max-width: 660px ) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
 
             .sidebar__categories-item {
                 a {
+                    display: flex;   
+                    align-items: center;
                     font-size: 1.4rem;
-                    display: block;
                     min-width: 4rem;
                     min-height: 4rem;
                     padding: 1rem 1.5rem ;
                     color: $color_black;
+
+                    @media (max-width: $tablet_width ) {
+                        font-size: 1.4rem;
+                        line-height: 1.4rem;
+                        padding-right: 0.5rem;
+                    }
+
+                    @media (max-width: 660px ) {
+                        text-align: center;
+                    }
 
                     transition: color $transition-rules;
 
@@ -56,8 +111,14 @@
 
     .sidebar__filter {
         .filter__list {
+            position: relative;
             &:not(:last-child) {
                 border-bottom: 1px dashed $color_maroon;
+            }
+
+            @media (max-width: 660px ) {
+                display: flex;
+                flex-wrap: wrap;
             }
         }
 
@@ -69,6 +130,13 @@
             min-height: 4rem;
             padding: 0rem 1.5rem;
             color: $color_black;
+
+            @media (max-width: 660px ) {
+                width: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
             label {
                 min-height: 4rem;
@@ -89,7 +157,10 @@
                     &:active {
                         color: $color-maroon;
                     }
-        
+                }
+
+                @media (max-width: 660px ) {
+                    width: fit-content;
                 }
             }
 
@@ -110,5 +181,28 @@
                 border: 1px solid $color_maroon;
             }
         }
+    }
+
+
+    .sidebar__categories,
+    .sidebar__filter {
+        overflow: hidden;
+    }
+
+    .sidebar__title.opened::before{
+        transform: translateY(-50%) rotate(0);
+    }
+
+    .filter__list,
+    .sidebar__categories-list {
+        transform: translateY(0);
+        transition: height 0.3s ease, transform 0.3s ease;
+    }
+
+    .filter__list.expanded,
+    .sidebar__categories-list.expanded {
+        opacity: 0;
+        height: 0;
+        transform: translateY(-200px);
     }
 }
