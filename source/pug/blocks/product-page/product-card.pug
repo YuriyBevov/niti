@@ -14,6 +14,22 @@
 
     {
         imgUrl: './assets/img/intro-slide_1@1x.jpg'
+    },
+    
+    {
+        imgUrl: './assets/img/about_img@1x.jpg'
+    },
+
+    {
+        imgUrl: './assets/img/intro-slide_1@1x.jpg'
+    },
+
+    {
+        imgUrl: './assets/img/about_img@1x.jpg'
+    },
+
+    {
+        imgUrl: './assets/img/intro-slide_1@1x.jpg'
     }
   ];
 
@@ -21,17 +37,24 @@
   .cmn__wrapper.cmn__container.product-card__wrapper
 
     .product-card__preview
-      // тут будет слайдер
-      img(src="./assets/img/about_img@1x.jpg", alt="товар")
-      .product-card__thumbnails
-        img(src="./assets/img/about_img@1x.jpg", alt="товар")
-        img(src="./assets/img/about_img@1x.jpg", alt="товар")
-        img(src="./assets/img/about_img@1x.jpg", alt="товар")
-        img(src="./assets/img/about_img@1x.jpg", alt="товар")
+
+      .product-card-swiper-container.product-card-slider 
+        //(style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff")
+        .swiper-wrapper
+          each img in imgList
+            .swiper-slide
+              img(src=img.imgUrl, alt="товар")
+      .product-card-swiper-container.product-card-slider-thumbs(thumbsSlider="")
+        .swiper-wrapper
+          each img in imgList
+            .swiper-slide
+              img(src=img.imgUrl, alt="товар")
+
+
     .product-card__content
-      .product-card__content-header  
+      .product-card__content-header
+        span.product-card__art Артикул товара: 001346578
         h1.product-card__title Супер фартук
-          span Артикул товара: 001346578
 
         p.product-card-desc Фартук состоит из сочетания кожзама на облегченной подкладке. 
         p.product-card-desc Данное изделие не нуждается в излишнем уходе. 
@@ -47,8 +70,9 @@
             span.product-cart__quantity-value 1
             button(type="button" aria-label="добавить").product-card__quantity-btn 	&plus;
 
-          input(type="checkbox" id="stitch")
-          label(for="stitch") Нанести вышивку
+          .product-card__stitch       
+            input(type="checkbox" id="stitch")
+            label(for="stitch") Нанести вышивку
 
         button(type="button").product-card__cart-btn Добавить в корзину
           svg(width="16" height="16")
@@ -66,6 +90,7 @@
             p.product-card__item-desc 
               span.product-card__item-color.product-card__item-color--white белый
               span.product-card__item-color.product-card__item-color--black черный
+              span.product-card__item-color.product-card__item-color--red бордовый
 
           li.product-card__item
             p.product-card__item-name Материал:

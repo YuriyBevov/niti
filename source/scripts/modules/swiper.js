@@ -1,5 +1,5 @@
-import Swiper, { Autoplay} from 'swiper';
-Swiper.use([Autoplay]);
+import Swiper, { Autoplay, Thumbs, Zoom} from 'swiper';
+Swiper.use([Autoplay, Thumbs, Zoom]);
 
 const sliderDelay = 5000;
 const iSlider = document.querySelector('.intro-swiper-container');
@@ -50,6 +50,39 @@ if(sSlider) {
             spaceBetween: 20
           },
         },
+    });
+}
+
+const pSlider = document.querySelector('.product-card-swiper-container');
+
+if(pSlider) {
+    let swiper = new Swiper(".product-card-slider-thumbs", {
+      slidesPerView: 2,
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+      spaceBetween: 10,
+
+      breakpoints: {
+        534: {
+          slidesPerView: 3,
+        },
+
+        768: {
+          direction: "vertical",
+          spaceBetween: 0,
+          slidesPerView: 4,
+        }
+      }
+      
+    });
+
+    let swiperThumbs = new Swiper(".product-card-slider", {
+      loop: true,
+      spaceBetween: 10,
+
+      thumbs: {
+        swiper: swiper,
+      },
     });
 }
 

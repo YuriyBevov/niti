@@ -12458,7 +12458,7 @@ btn.addEventListener('click', onClickRemoveOverlay) : null
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
 
-swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"]]);
+swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"], swiper__WEBPACK_IMPORTED_MODULE_0__["Thumbs"], swiper__WEBPACK_IMPORTED_MODULE_0__["Zoom"]]);
 
 const sliderDelay = 5000;
 const iSlider = document.querySelector('.intro-swiper-container');
@@ -12509,6 +12509,39 @@ if(sSlider) {
             spaceBetween: 20
           },
         },
+    });
+}
+
+const pSlider = document.querySelector('.product-card-swiper-container');
+
+if(pSlider) {
+    let swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".product-card-slider-thumbs", {
+      slidesPerView: 2,
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+      spaceBetween: 10,
+
+      breakpoints: {
+        534: {
+          slidesPerView: 3,
+        },
+
+        768: {
+          direction: "vertical",
+          spaceBetween: 0,
+          slidesPerView: 4,
+        }
+      }
+      
+    });
+
+    let swiperThumbs = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".product-card-slider", {
+      loop: true,
+      spaceBetween: 10,
+
+      thumbs: {
+        swiper: swiper,
+      },
     });
 }
 

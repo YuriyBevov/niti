@@ -138,12 +138,35 @@
       <div class="section product-card">
         <div class="cmn__wrapper cmn__container product-card__wrapper">
           <div class="product-card__preview">
-            <!-- тут будет слайдер--><img src="./assets/img/about_img@1x.jpg" alt="товар">
-            <div class="product-card__thumbnails"><img src="./assets/img/about_img@1x.jpg" alt="товар"><img src="./assets/img/about_img@1x.jpg" alt="товар"><img src="./assets/img/about_img@1x.jpg" alt="товар"><img src="./assets/img/about_img@1x.jpg" alt="товар"></div>
+            <div class="product-card-swiper-container product-card-slider"> 
+              <!--(style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff")-->
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./assets/img/about_img@1x.jpg" alt="товар"></div>
+                <div class="swiper-slide"><img src="./assets/img/intro-slide_1@1x.jpg" alt="товар"></div>
+                <div class="swiper-slide"><img src="./assets/img/about_img@1x.jpg" alt="товар"></div>
+                <div class="swiper-slide"><img src="./assets/img/intro-slide_1@1x.jpg" alt="товар"></div>
+                <div class="swiper-slide"><img src="./assets/img/about_img@1x.jpg" alt="товар"></div>
+                <div class="swiper-slide"><img src="./assets/img/intro-slide_1@1x.jpg" alt="товар"></div>
+                <div class="swiper-slide"><img src="./assets/img/about_img@1x.jpg" alt="товар"></div>
+                <div class="swiper-slide"><img src="./assets/img/intro-slide_1@1x.jpg" alt="товар"></div>
+              </div>
+            </div>
+            <div class="product-card-swiper-container product-card-slider-thumbs" thumbsSlider="">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./assets/img/about_img@1x.jpg" alt="товар"></div>
+                <div class="swiper-slide"><img src="./assets/img/intro-slide_1@1x.jpg" alt="товар"></div>
+                <div class="swiper-slide"><img src="./assets/img/about_img@1x.jpg" alt="товар"></div>
+                <div class="swiper-slide"><img src="./assets/img/intro-slide_1@1x.jpg" alt="товар"></div>
+                <div class="swiper-slide"><img src="./assets/img/about_img@1x.jpg" alt="товар"></div>
+                <div class="swiper-slide"><img src="./assets/img/intro-slide_1@1x.jpg" alt="товар"></div>
+                <div class="swiper-slide"><img src="./assets/img/about_img@1x.jpg" alt="товар"></div>
+                <div class="swiper-slide"><img src="./assets/img/intro-slide_1@1x.jpg" alt="товар"></div>
+              </div>
+            </div>
           </div>
           <div class="product-card__content">
-            <div class="product-card__content-header"> 
-              <h1 class="product-card__title">Супер фартук<span>Артикул товара: 001346578</span></h1>
+            <div class="product-card__content-header"><span class="product-card__art">Артикул товара: 001346578</span>
+              <h1 class="product-card__title">Супер фартук</h1>
               <p class="product-card-desc">Фартук состоит из сочетания кожзама на облегченной подкладке. </p>
               <p class="product-card-desc">Данное изделие не нуждается в излишнем уходе. </p>
               <p class="product-card-desc">Стильные крестообразные подтяжки разгрузят шейный отдел за счет распределения веса фартука по спине.</p>
@@ -155,8 +178,10 @@
                   <button class="product-card__quantity-btn" type="button" aria-label="удалить">	&minus;</button><span class="product-cart__quantity-value">1</span>
                   <button class="product-card__quantity-btn" type="button" aria-label="добавить">	&plus;</button>
                 </div>
-                <input type="checkbox" id="stitch">
-                <label for="stitch">Нанести вышивку</label>
+                <div class="product-card__stitch">      
+                  <input type="checkbox" id="stitch">
+                  <label for="stitch">Нанести вышивку</label>
+                </div>
               </div>
               <button class="product-card__cart-btn" type="button">Добавить в корзину
                 <svg width="16" height="16">
@@ -172,7 +197,7 @@
                 </li>
                 <li class="product-card__item">
                   <p class="product-card__item-name">Цвет:</p>
-                  <p class="product-card__item-desc"> <span class="product-card__item-color product-card__item-color--white">белый</span><span class="product-card__item-color product-card__item-color--black">черный</span></p>
+                  <p class="product-card__item-desc"> <span class="product-card__item-color product-card__item-color--white">белый</span><span class="product-card__item-color product-card__item-color--black">черный</span><span class="product-card__item-color product-card__item-color--red">бордовый</span></p>
                 </li>
                 <li class="product-card__item">
                   <p class="product-card__item-name">Материал:</p>
