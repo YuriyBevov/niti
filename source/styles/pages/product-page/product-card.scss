@@ -378,6 +378,10 @@ $mb: 2rem;
         @media(max-width: $tablet_width) {
             &:first-child {
                 height: 80%;
+
+                @media(max-width: 660px) {
+                    height: 40rem;
+                }
             }
             &:last-child {
                 height: 20%;

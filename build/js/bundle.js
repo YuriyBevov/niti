@@ -12520,17 +12520,23 @@ if(pSlider) {
       watchSlidesVisibility: true,
       watchSlidesProgress: true,
       spaceBetween: 10,
+      direction: "horizontal",
 
       breakpoints: {
-        534: {
-          slidesPerView: 3,
-        },
+
 
         768: {
           direction: "vertical",
           spaceBetween: 0,
           slidesPerView: 4,
-        }
+        },
+
+        534: {
+          slidesPerView: 3,
+          spaceBetween: 10,
+          direction: "horizontal",
+          direction: "horizontal",
+        },
       }
       
     });
