@@ -1,0 +1,159 @@
+.form {
+    display: flex;
+    flex-direction: column;
+
+    &__content {
+        margin-bottom: 3rem;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        @media(max-width: $tablet_width) {
+            margin-bottom: 1.5rem;
+        }
+
+        fieldset {
+            border: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            margin-bottom: 2rem;
+            width: calc(50% - 1rem);
+
+            @media(max-width: $tablet_width) {
+                width: 100%;
+            }
+        }
+
+        label {
+            font-size: 1.6rem;
+            line-height: 1.8rem;
+
+            @media(max-width: $tablet_lg_width) {
+                font-size: 1.4rem;
+                line-height: 1.6rem;
+            }
+
+            @media(max-width: $tablet_width) {
+                font-size: 1.2rem;
+                line-height: 1.4rem;
+            }
+        }
+        
+        input,
+        textarea,
+        select {
+            border: 1px dashed $color_grey;
+            max-width: 60%;
+            min-width: 30rem;
+            padding: 1rem;
+            cursor: pointer;
+        }
+
+        textarea {
+            width: 100%;
+            height: 15rem;
+            resize: none;
+        }
+
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: column;
+
+        span {
+            font-size: 1.2rem;
+            color: $color-maroon;
+
+            @media(max-width: $tablet_width) {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        &-agreement-field {
+            display: flex;
+            align-items: center;
+
+            @media(max-width: $tablet_width) {
+                margin-bottom: 0.5rem;
+            }
+
+            label {
+                min-height: 4rem;
+                display: flex;
+                align-items: center;
+                font-size: 1.2rem;
+                line-height: 1.4rem;
+                padding-left: 1rem;
+                cursor: pointer;
+                transition: color $transition-rules;
+    
+                @media(min-width: $tablet_width) {
+                            
+                    &:hover,
+                    &:focus {
+                        color: $color-maroon;
+                    }
+                
+                    &:active {
+                        color: $color-maroon;
+                    }
+                }
+            }
+    
+            input {
+                box-sizing: border-box;
+                padding: 0;
+                background-color: transparent;
+                width: 10px;
+                height: 10px;
+                border: 1px solid black;
+                border-radius: 50%;
+    
+                transition: border $transition-rules, 
+                            background-color $transition-rules;
+    
+                &:checked {
+                    background-color: $color_maroon;
+                    border: 1px solid $color_maroon;
+                }
+            }
+        }
+
+        button {
+            max-width: fit-content;
+            border: 0;
+            padding: 1rem;
+            font-size: 1.4rem;
+            line-height: 1.6rem;
+            background-color: $color-maroon;
+            color: $color-white;
+            border: 1px solid transparent;
+            opacity: 1;
+
+            @media(min-width: $tablet_width) {
+                transition: opacity $transition-rules, 
+                            border $transition-rules, 
+                            color $transition-rules, 
+                            background-color $transition-rules;
+
+                &:hover,
+                &:focus {
+                    background-color: $color-white;
+                    color: $color_maroon;
+                    border: 1px solid $color_maroon;
+
+                    svg {
+                        fill: $color_maroon;
+                    }
+                }
+
+                &:active {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}

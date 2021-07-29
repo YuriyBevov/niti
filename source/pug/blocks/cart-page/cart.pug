@@ -1,0 +1,50 @@
+-
+  items = [
+      {
+          name: 'Супер фартук',
+          price: '2500 р.',
+          imgUrl: './assets/img/about_img@1x.jpg'
+      },
+
+      {
+          name: 'Супер фартук -2',
+          price: '5500 р.',
+          imgUrl: './assets/img/about_img@1x.jpg'
+      }
+  ];
+.cart
+  .cmn__wrapper.cart__wrapper
+    .cart__list
+      each item in items
+        .cart__item.product-card
+          .product-card__content-main
+            .product-card__content-main-wrapper
+
+                img(src=item.imgUrl, alt=item.name).product-card__img
+                b.product-card__price= item.price
+
+                .product-card__quantity
+                    button(type="button" aria-label="удалить").product-card__quantity-btn 	&minus;
+                    span.product-cart__quantity-value 1
+                    button(type="button" aria-label="добавить").product-card__quantity-btn 	&plus;
+
+                .product-card__stitch       
+                    input(type="checkbox" id="stitch")
+                    label(for="stitch") Нанести вышивку
+
+          button(type="button").cart__item-remove
+            svg(width="30" height="30")
+              use(xlink:href="#icon-remove")
+
+    .cart__info
+      .cart__info-header
+        span.cart__info-header-title Итоговая стоимость:
+        span.cart__info-header-total 800000 р.
+      .cart__info-footer 
+        p.cart__info-footer-text Укажите свои контактные данные, желаемый вид доставки, и наш специалист свяжется с вами в самое ближайшее время.
+
+        include ./components/form
+  
+      
+           
+        

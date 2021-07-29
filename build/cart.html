@@ -135,95 +135,118 @@
       </div>
     </header>
     <main>
-      <section class="intro">
-        <h1 class="visually-hidden">"ООО НИТИ" - производство униформы и тд</h1>
-        <div class="intro-swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-image: url(./assets/img/intro-slide_1@1x.jpg)">
-              <div class="intro-swiper-content intro__wrapper cmn__container">
-                <p>Одежда для рабочего класса в Санкт-Петербурге Одежда для рабочего класса в Санкт-Петербурге Одежда для рабочего класса в Санкт-Петербурге</p>
-                <h2 class="cmn__title cmn__title--white">Одежда для моряков Одежда для моряков</h2>
-                <div class="intro-swiper-content__bottom"><a class="cmn__btn" href="catalog.html">каталог</a></div>
+      <div class="cart">
+        <div class="cmn__wrapper cart__wrapper">
+          <div class="cart__list">
+            <div class="cart__item product-card">
+              <div class="product-card__content-main">
+                <div class="product-card__content-main-wrapper"><img class="product-card__img" src="./assets/img/about_img@1x.jpg" alt="Супер фартук"><b class="product-card__price">2500 р.</b>
+                  <div class="product-card__quantity">
+                    <button class="product-card__quantity-btn" type="button" aria-label="удалить">	&minus;</button><span class="product-cart__quantity-value">1</span>
+                    <button class="product-card__quantity-btn" type="button" aria-label="добавить">	&plus;</button>
+                  </div>
+                  <div class="product-card__stitch">      
+                    <input type="checkbox" id="stitch">
+                    <label for="stitch">Нанести вышивку</label>
+                  </div>
+                </div>
               </div>
+              <button class="cart__item-remove" type="button">
+                <svg width="30" height="30">
+                  <use xlink:href="#icon-remove"></use>
+                </svg>
+              </button>
             </div>
-            <div class="swiper-slide" style="background-image: url(./assets/img/about_img@1x.jpg)">
-              <div class="intro-swiper-content intro__wrapper cmn__container">
-                <p>Одежда для рабочего класса в Санкт-Петербурге Одежда для рабочего класса</p>
-                <h2 class="cmn__title cmn__title--white">Одежда для рабочих</h2>
-                <div class="intro-swiper-content__bottom"><a class="cmn__btn" href="catalog.html">каталог</a></div>
+            <div class="cart__item product-card">
+              <div class="product-card__content-main">
+                <div class="product-card__content-main-wrapper"><img class="product-card__img" src="./assets/img/about_img@1x.jpg" alt="Супер фартук -2"><b class="product-card__price">5500 р.</b>
+                  <div class="product-card__quantity">
+                    <button class="product-card__quantity-btn" type="button" aria-label="удалить">	&minus;</button><span class="product-cart__quantity-value">1</span>
+                    <button class="product-card__quantity-btn" type="button" aria-label="добавить">	&plus;</button>
+                  </div>
+                  <div class="product-card__stitch">      
+                    <input type="checkbox" id="stitch">
+                    <label for="stitch">Нанести вышивку</label>
+                  </div>
+                </div>
               </div>
+              <button class="cart__item-remove" type="button">
+                <svg width="30" height="30">
+                  <use xlink:href="#icon-remove"></use>
+                </svg>
+              </button>
             </div>
-            <div class="swiper-slide" style="background-image: url(./assets/img/intro-slide_1@1x.jpg)">
-              <div class="intro-swiper-content intro__wrapper cmn__container">
-                <p>Одежда для рабочего класса в Санкт-Петербурге</p>
-                <h2 class="cmn__title cmn__title--white">Одежда для моряков</h2>
-                <div class="intro-swiper-content__bottom"><a class="cmn__btn" href="catalog.html">каталог</a></div>
-              </div>
-            </div>
-            <div class="swiper-slide" style="background-image: url(./assets/img/about_img@1x.jpg)">
-              <div class="intro-swiper-content intro__wrapper cmn__container">
-                <p>Одежда для рабочего класса в Санкт-Петербурге Одежда для рабочего класса Одежда для рабочего класса Одежда для рабочего класса</p>
-                <h2 class="cmn__title cmn__title--white">Одежда для рабочих</h2>
-                <div class="intro-swiper-content__bottom"><a class="cmn__btn" href="catalog.html">каталог</a></div>
-              </div>
+          </div>
+          <div class="cart__info">
+            <div class="cart__info-header"><span class="cart__info-header-title">Итоговая стоимость:</span><span class="cart__info-header-total">800000 р.</span></div>
+            <div class="cart__info-footer"> 
+              <p class="cart__info-footer-text">Укажите свои контактные данные, желаемый вид доставки, и наш специалист свяжется с вами в самое ближайшее время.</p>
+              <form class="form" action="#">
+                <div class="form__content"> 
+                  <fieldset>
+                    <label for="name">Имя*</label>
+                    <input type="text" id="name">
+                  </fieldset>
+                  <fieldset>
+                    <label for="surname">Фамилия*</label>
+                    <input type="text" id="surname">
+                  </fieldset>
+                  <fieldset>
+                    <label for="name">Телефон*</label>
+                    <input type="text" id="name">
+                  </fieldset>
+                  <fieldset>
+                    <label for="name">E-mail*</label>
+                    <input type="text" id="name">
+                  </fieldset>
+                  <fieldset>
+                    <label for="city">Город*</label>
+                    <input type="text" id="city">
+                  </fieldset>
+                  <fieldset>
+                    <label for="address">Адрес доставки*</label>
+                    <input type="text" id="address">
+                  </fieldset>
+                  <fieldset>
+                    <label for="file">Файл для нанесения вышивки</label>
+                    <input type="file" id="file">
+                  </fieldset>
+                  <fieldset>
+                    <label for="delivery">Выбор доставки*</label>
+                    <select id="delivery">
+                      <option>ТРАНСПОРТНОЙ КОМПАНИЕЙ СДЭК</option>
+                      <option>ПОЧТА РОССИИ</option>
+                    </select>
+                  </fieldset>
+                  <fieldset>
+                    <label for="payment-type">Выбор оплаты*</label>
+                    <select id="payment-type">
+                      <option>НАЛИЧНЫМИ В ПУНКТЕ САМОВЫВОЗА</option>
+                      <option>БЕЗНАЛИЧНАЯ ОПЛАТА (ДЛЯ ЮР.ЛИЦ и ИП) </option>
+                      <option>БАНКОВСКОЙ КАРТОЙ ОНЛАЙН</option>
+                    </select>
+                  </fieldset>
+                  <fieldset>
+                    <label for="requisites">Реквизиты компании при безналичной оплате</label>
+                    <input type="file" id="requisites">
+                  </fieldset>
+                  <fieldset>
+                    <label for="comment">Комментарий</label>
+                    <textarea id="comment"></textarea>
+                  </fieldset>
+                </div>
+                <div class="form__footer"><span>* - поля обязательные для заполнения</span>
+                  <div class="form__footer-agreement-field">
+                    <input type="checkbox" id="agreement">
+                    <label for="agreement">Даю согласие на обработку персональных данных*</label>
+                  </div>
+                  <button class="form__submit" type="submit">Оформить заказ</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
-      </section>
-      <section class="catalog">
-        <div class="cmn__wrapper catalog__wrapper">
-          <ul class="catalog__gallery gallery"><li class="gallery__item" style="background-image: url(./assets/img/about_img@1x.jpg);"><a href="category.html">
-              <h3 class="gallery__title">Одежда для моряков</h3></a></li><li class="gallery__item" style="background-image: url(./assets/img/about_img@1x.jpg);"><a href="category.html">
-              <h3 class="gallery__title">Клининг</h3></a></li><li class="gallery__item" style="background-image: url(./assets/img/intro-slide_1@1x.jpg);"><a href="category.html">
-              <h3 class="gallery__title">Фартуки</h3></a></li><li class="gallery__item" style="background-image: url(./assets/img/about_img@1x.jpg);"><a href="category.html">
-              <h3 class="gallery__title">Головные уборы</h3></a></li><li class="gallery__item" style="background-image: url(./assets/img/intro-slide_1@1x.jpg);"><a href="category.html">
-              <h3 class="gallery__title">Рабочая одежда</h3></a></li><li class="gallery__item" style="background-image: url(./assets/img/about_img@1x.jpg);"><a href="category.html">
-              <h3 class="gallery__title">Столовый текстиль</h3></a></li><li class="gallery__item" style="background-image: url(./assets/img/intro-slide_1@1x.jpg);"><a href="category.html">
-              <h3 class="gallery__title">Поварская одежда</h3></a></li><li class="gallery__item" style="background-image: url(./assets/img/about_img@1x.jpg);"><a href="category.html">
-              <h3 class="gallery__title">Брендирование</h3></a></li><li class="gallery__item" style="background-image: url(./assets/img/intro-slide_1@1x.jpg);"><a href="category.html">
-              <h3 class="gallery__title">Распродажа</h3></a></li>
-          </ul>
-        </div>
-      </section>
-      <section class="about" id="about">
-        <div class="cmn__wrapper about__wrapper">
-          <div class="about__content">
-            <h2 class="cmn__title" data-aos="fade-up" data-oas-delay="200">О нас</h2>
-            <p class="cmn__text" data-aos="zoom-in" data-oas-delay="300">Курьер доставит заказ по адресу, указанному при оформлении заказа (если по этому адресу доступна курьерская доставка). Стоимость доставки рассчитыввется на сайте в момент оформления заказа и видна сразу</p><a class="cmn__btn cmn__btn--maroon" href="#">подробнее</a>
-          </div>
-          <div class="about__img" data-aos="fade-left" data-oas-delay="400"><img src="./assets/img/about_img@1x.jpg" srcset="./assets/img/about_img@2x.jpg 2x" alt="изображение швейного производства"></div>
-        </div>
-      </section>
-      <section class="contacts" id="contacts">
-        <div class="contacts__wrapper">
-          <button class="contacts__btn" type="button" aria-label="показать карту">
-            <svg width="40" height="40">
-              <use xlink:href="#icon-expand"></use>
-            </svg>
-          </button>
-          <div class="contacts__overlay">
-            <div class="info">
-              <div class="info__wrapper cmn__wrapper cmn__container"> 
-                <div class="info__part">
-                  <p>Наш адрес:</p>
-                  <address>г. Санкт- Петербург, ул Ярослава Гашека д.25/77 офис 1</address>
-                </div>
-                <div class="info__part">
-                  <p>Время работы:</p>
-                  <p>Пн-Пт  с 9:00 до 18:00</p>
-                </div>
-                <div class="info__part">
-                  <p>Телефон: <a href="tel: +792112345678" )="" class="info__part-mail"> +7 (921) 12345678 </a></p>
-                </div>
-                <div class="info__part">
-                  <p>E-mail: <a href="mailto: niti@mail.ru" )="" class="info__part-mail"> niti@mail.ru </a></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="yandex-map"></div>
-        </div>
-      </section>
+      </div>
     </main>
     <footer class="footer">
       <div class="cmn__wrapper footer__wrapper cmn__container">

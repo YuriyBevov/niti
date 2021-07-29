@@ -104,6 +104,12 @@ $mb: 2rem;
                 }
             }
 
+            .product-card__img {
+                width: 15rem;
+                height: 15rem;
+                margin-right: 5rem;
+            }
+
             .product-card__price {
                 font-family: $font_mono;
                 font-size: 1.8rem;
@@ -214,8 +220,6 @@ $mb: 2rem;
     
                 }
             }
-
-
 
             input:checked {
                 background-color: $color_maroon;
