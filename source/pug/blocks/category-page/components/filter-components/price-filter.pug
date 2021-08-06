@@ -1,0 +1,12 @@
+.price-filter
+  .price-filter__wrapper
+    .price-filter__header
+      input(type="text" placeholder="0" maxlength="7" oninput="this.value=this.value.replace(/[^0-9]/g,'');").price-filter__price.price-filter__price--min
+      .price-filter__separator
+      input(type="text" placeholder="100000" maxlength="7" oninput="this.value=this.value.replace(/[^0-9]/g,'');").price-filter__price.price-filter__price--max
+    
+    button.filter-submit Применить
+    
+    .price-filter__track
+      .price-filter__handle.price-filter__handle--left
+      .price-filter__handle.price-filter__handle--right

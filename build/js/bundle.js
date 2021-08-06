@@ -12348,11 +12348,9 @@ aos__WEBPACK_IMPORTED_MODULE_0___default.a.init({
 
 const btns = document.querySelectorAll('.js-expanded-btn');
 
-const expItems = document.querySelectorAll('.js-expanded-list');
-
 const onClickExpandItem = (evt) => {
-    const expItem = evt.target.nextElementSibling;
-    evt.target.classList.toggle('opened');
+    const expItem = evt.target.parentNode.nextElementSibling;
+    evt.target.parentNode.classList.toggle('opened');
     expItem.classList.toggle('expanded');
 }
 

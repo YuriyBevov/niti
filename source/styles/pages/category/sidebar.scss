@@ -1,32 +1,37 @@
 .sidebar {
-
     &__title {
         position: relative;
-        display: block;
+        display: flex;
+        align-items: center;
         font-size: 1.8rem;
         line-height: 2.2rem;
         font-weight: 400;
-        padding: 1rem;
-        padding-left: 0;
         z-index: 100;
+        width: 100%;
         background-color: $color-white;
+        cursor: pointer;
+        border-bottom: 1px dashed $color_maroon;
 
-        &::before {
+        span {
+            display: block;
+            width: 100%;
+            padding: 1.5rem 0;
+        }
+
+        svg {
+            margin-left: auto;
             position: absolute;
             top: 50%;
-            right: 10px;
-            transform: translateY(-50%) rotate(180deg);
-
-            content: '';
-
-            width: 1.2rem;
-            height: 1.2rem;
-
-            background-image: url(../assets/img/arr-down.svg);
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
+            right: 0;
+            transform: translateY(-50%);
+            z-index: -1;
             transition: transform $transition-rules;
+        }
+
+        &.opened {
+            svg {
+                transform: translateY(-50%) rotate(180deg);
+            }
         }
 
         @media (max-width: $tablet_width ) {
@@ -45,7 +50,6 @@
 
     .sidebar__categories {
         position: relative;
-        border-bottom: 1px dashed $color_maroon;
 
         &-list {
             
@@ -56,14 +60,17 @@
             }
 
             .sidebar__categories-item {
+                padding-left: 2rem;
+
                 a {
                     display: flex;   
                     align-items: center;
-                    font-size: 1.4rem;
+                    font-size: 1.6rem;
                     min-width: 4rem;
                     min-height: 4rem;
                     padding: 1rem 1.5rem ;
-                    color: $color_black;
+                    color: rgb(105, 102, 102);
+                    border-bottom: 1px dashed $color-maroon;
 
                     @media (max-width: $tablet_width ) {
                         font-size: 1.4rem;
@@ -106,100 +113,32 @@
         }
     }
 
-    .sidebar__filter {
-        .filter__list {
-            position: relative;
-            &:not(:last-child) {
-                border-bottom: 1px dashed $color_maroon;
-            }
+    /* &__filter-btn { // если будет кнопка внизу
+        display: flex;
 
-            @media (max-width: 660px ) {
-                display: flex;
-                flex-wrap: wrap;
-            }
+        @media(max-width: 660px) {
+            margin: 0 auto;
         }
-
-        .filter__item {
-            font-size: 1.4rem;
-            display: flex;
-            align-items: center;
-            min-width: 4rem;
-            min-height: 4rem;
-            padding: 0rem 1.5rem;
-            color: $color_black;
-
-            @media (max-width: 660px ) {
-                width: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            label {
-                min-height: 4rem;
-                width: calc(100% - 2rem);
-                display: flex;
-                align-items: center;
-                padding-left: 1rem;
-                cursor: pointer;
-                transition: color $transition-rules;
-
-                @media(min-width: $tablet_width) {
-                            
-                    &:hover,
-                    &:focus {
-                        color: $color-maroon;
-                    }
-                
-                    &:active {
-                        color: $color-maroon;
-                    }
-                }
-
-                @media (max-width: 660px ) {
-                    width: fit-content;
-                }
-            }
-
-            input{
-                box-sizing: border-box;
-                padding: 0;
-                background-color: transparent;
-                width: 10px;
-                height: 10px;
-                border: 1px solid black;
-                border-radius: 50%;
-
-                transition: border $transition-rules, background-color $transition-rules;
-            }
-
-            input:checked {
-                background-color: $color_maroon;
-                border: 1px solid $color_maroon;
-            }
-        }
-    }
-
+    } */
 
     .sidebar__categories,
-    .sidebar__filter {
+    .filter__item-content {
+        width: 100%;
         overflow: hidden;
+        background-color: $color-white;
     }
 
-    .sidebar__title.opened::before{
-        transform: translateY(-50%) rotate(0);
-    }
-
-    .filter__list,
-    .sidebar__categories-list {
-        transform: translateY(0);
-        transition: height 0.3s ease, transform 0.3s ease;
-    }
-
-    .filter__list.expanded,
-    .sidebar__categories-list.expanded {
-        opacity: 0;
+    .sidebar__categories-list,
+    .filter__item-content {
         height: 0;
-        transform: translateY(-200px);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .sidebar__categories-list.expanded,
+    .filter__item-content.expanded {
+        height: fit-content;
+        max-height: 100%;
+        opacity: 1;
     }
 }

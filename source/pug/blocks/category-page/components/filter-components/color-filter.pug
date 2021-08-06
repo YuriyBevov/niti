@@ -1,0 +1,34 @@
+- 
+  colorList = [
+    {   
+        id: 'col1',
+        name: 'Белый',
+        clr: '#ffffff',
+    },
+
+    {
+        id: 'col2',
+        name: 'Черный',
+        clr: '#000000',
+    },
+
+    {
+        id: 'col3',
+        name: 'Красный',
+        clr: '#9c150c',
+    },
+
+    {
+        id: 'col4',
+        name: 'Зеленый',
+        clr: '#008000',
+    }
+  ];
+
+.color-filter
+  ul.color-filter__list
+    each color in colorList
+      li.color-filter__item
+        input(type="checkbox" id= color.id value= color.name class= color.class  style= "border: 3px solid " + color.clr)
+        // label(for= color.id)= color.name
+  button.filter-submit Применить

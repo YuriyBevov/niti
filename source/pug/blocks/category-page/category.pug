@@ -3,73 +3,78 @@
     {
       title: 'Фартук с оооооооооооооооооооочень длинным названием',
       price: '3500 <span>р.</span>',
-      imgUrl: './assets/img/about_img@1x.jpg'
+      oldPrice: '4600 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg',
+      isNew: true,
+      isPopular: false
     },
 
     {
       title: 'Фартук кактой- то',
       price: '3500 <span>р.</span>',
-      imgUrl: './assets/img/intro-slide_1@1x.jpg'
+      imgUrl: './assets/img/intro-slide_1@1x.jpg',
+      isNew: false,
+      isPopular: true
     },
 
     {
       title: 'Фартук кактой- то',
       price: '3500 <span>р.</span>',
-      imgUrl: './assets/img/about_img@1x.jpg'
+      oldPrice: '4600 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg',
+      isNew: false,
+      isPopular: false
     },
-
     {
       title: 'Фартук с оооооооооооооооооооочень длинным названием',
       price: '3500 <span>р.</span>',
-      imgUrl: './assets/img/about_img@1x.jpg'
+      oldPrice: '4600 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg',
+      isNew: true,
+      isPopular: false
     },
 
     {
       title: 'Фартук кактой- то',
       price: '3500 <span>р.</span>',
-      imgUrl: './assets/img/about_img@1x.jpg'
+      imgUrl: './assets/img/intro-slide_1@1x.jpg',
+      isNew: false,
+      isPopular: true
     },
 
     {
       title: 'Фартук кактой- то',
       price: '3500 <span>р.</span>',
-      imgUrl: './assets/img/about_img@1x.jpg'
+      oldPrice: '4600 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg',
+      isNew: false,
+      isPopular: false
     },
 
-    {
+        {
       title: 'Фартук с оооооооооооооооооооочень длинным названием',
       price: '3500 <span>р.</span>',
-      imgUrl: './assets/img/about_img@1x.jpg'
+      oldPrice: '4600 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg',
+      isNew: true,
+      isPopular: false
     },
 
     {
       title: 'Фартук кактой- то',
       price: '3500 <span>р.</span>',
-      imgUrl: './assets/img/about_img@1x.jpg'
+      imgUrl: './assets/img/intro-slide_1@1x.jpg',
+      isNew: false,
+      isPopular: true
     },
 
     {
       title: 'Фартук кактой- то',
       price: '3500 <span>р.</span>',
-      imgUrl: './assets/img/about_img@1x.jpg'
-    },
-
-    {
-      title: 'Фартук кактой- то',
-      price: '3500 <span>р.</span>',
-      imgUrl: './assets/img/about_img@1x.jpg'
-    },
-
-    {
-      title: 'Фартук кактой- то',
-      price: '3500 <span>р.</span>',
-      imgUrl: './assets/img/about_img@1x.jpg'
-    },
-
-    {
-      title: 'Фартук кактой- то',
-      price: '3500 <span>р.</span>',
-      imgUrl: './assets/img/about_img@1x.jpg'
+      oldPrice: '4600 <span>р.</span>',
+      imgUrl: './assets/img/about_img@1x.jpg',
+      isNew: false,
+      isPopular: false
     },
   ];
 
@@ -86,9 +91,14 @@ section.category
           li.category__item
             a.category__item-header(href="product-card.html")
               img(src= item.imgUrl, alt= item.title)
+              .category__item-badges
+                span.category__item-badge.category__item-badge--new= !!item.isNew ? 'Новинка' : null
+                span.category__item-badge.category__item-badge--popular= !!item.isPopular ? 'Популярный товар' : null
             .category__item-footer
               a(href="product-card.html").category__item-title= item.title
-              p.category__item-price!= item.price
+              .category__item-price-box
+                span.category__item-price!= item.price
+                span.category__item-price.category__item-price--old!= item.oldPrice ? item.oldPrice : null
       
       include ../../components/pagination
 

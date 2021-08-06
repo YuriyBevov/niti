@@ -1,0 +1,55 @@
+.material-filter {
+
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 2rem;
+    }
+
+    label {
+        min-height: 4rem;
+        width: calc(100% - 2rem);
+        display: flex;
+        align-items: center;
+
+        font-size: 1.6rem;
+        line-height: 1.8rem;
+        padding-left: 1rem;
+        cursor: pointer;
+        transition: color $transition-rules;
+
+        @media(min-width: $tablet_width) {
+                    
+            &:hover,
+            &:focus {
+                color: $color-maroon;
+            }
+        
+            &:active {
+                color: $color-maroon;
+            }
+        }
+
+        @media (max-width: 660px ) {
+            width: fit-content;
+        }
+    }
+
+    input{
+        box-sizing: border-box;
+        padding: 0;
+        background-color: transparent;
+        width: 2rem;
+        height: 2rem;
+        border: 1px solid black;
+        border-radius: 50%;
+
+        transition: border $transition-rules, background-color $transition-rules;
+    }
+
+    input:checked {
+        background-image: url("../assets/img/check.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}

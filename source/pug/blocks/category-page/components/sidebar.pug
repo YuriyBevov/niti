@@ -10,7 +10,7 @@
     },
 
     {
-        name: 'ооооооооооочень длинная категория товаров'
+        name: 'Ооооооооооочень длинная категория товаров'
     },
 
     {
@@ -38,44 +38,48 @@
     },
   ];
 
--
-  materials = [
-    {
-        id: '1',
-        name: 'канвас',
-        class: 'active'
-    },
-
-    {
-        id: '2',
-        name: 'кожзам',
-    },
-
-    {
-        id: '3',
-        name: 'нат. кожа',
-    },
-
-    {
-        id: '4',
-        name: 'смесовая',
-    }
-  ];
 
 .sidebar 
   .sidebar__categories
-    h3.sidebar__title.js-expanded-btn.opened Категории товаров
-    ul.sidebar__categories-list.js-expanded-list.expanded
+    h3.sidebar__title.opened
+      span.js-expanded-btn Категории товаров
+      svg(width="12" height="12")
+        use(xlink:href="#icon-arr-down")
+
+    ul.sidebar__categories-list.expanded
+
       each catItem in catList
         li.sidebar__categories-item
           a(href="#" class= catItem.class ? catItem.class : null)= catItem.name
-
+  
   .sidebar__filter.filter
-    .filter__params
-      span.filter__name.sidebar__title.js-expanded-btn.opened Материал
-      ul.filter__list.js-expanded-list.expanded
-        each mats in materials
-          li.filter__item
-            input(type="checkbox" id= mats.id class= mats.class? mats.class : null)
-            label(for= mats.id)= mats.name
+    ul.filter__list
+      li.filter__item
+        h3.sidebar__title
+          span.js-expanded-btn Цена
+          svg(width="12" height="12")
+            use(xlink:href="#icon-arr-down")
+
+        .filter__item-content
+          include ./filter-components/price-filter
+
+      li.filter__item
+        h3.sidebar__title
+          span.js-expanded-btn Материал
+          svg(width="12" height="12")
+            use(xlink:href="#icon-arr-down")
+
+        .filter__item-content
+          include ./filter-components/material-filter
+
+      li.filter__item
+        h3.sidebar__title
+          span.js-expanded-btn Цвет
+          svg(width="12" height="12")
+            use(xlink:href="#icon-arr-down")
+        .filter__item-content
+          include ./filter-components/color-filter
+    // button.sidebar__filter-btn.filter-submit Применить все фильтры
+
+        
     

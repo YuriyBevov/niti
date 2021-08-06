@@ -25,6 +25,8 @@
     <div style="display:none"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="icon-add" viewBox="0 0 17 17">
 <circle cx="8.5" cy="8.5" r="8.5" fill="#9C150C"></circle>
 <path d="M6 8L8 12L11.5 5" stroke="white"></path>
+</symbol><symbol id="icon-arr-down" viewBox="0 0 20 11">
+<path d="M18.6968 0.652344L9.56634 10.2176L0.435907 0.652343" stroke="black"></path>
 </symbol><symbol id="icon-arr" viewBox="0 0 24 24"><g><rect fill="none" height="24" width="24"></rect></g><g><g><polygon points="15.5,5 11,5 16,12 11,19 15.5,19 20.5,12"></polygon><polygon points="8.5,5 4,5 9,12 4,19 8.5,19 13.5,12"></polygon></g></g></symbol><symbol id="icon-basket" viewBox="0 0 44 35">
 <path d="M7.58331 21H9.91665V30.3333H7.58331V21Z" fill="black"></path>
 <path d="M13.4167 21H15.75V30.3333H13.4167V21Z" fill="black"></path>
@@ -141,11 +143,15 @@
           <aside class="category__sidebar">
             <div class="sidebar"> 
               <div class="sidebar__categories">
-                <h3 class="sidebar__title js-expanded-btn opened">Категории товаров</h3>
-                <ul class="sidebar__categories-list js-expanded-list expanded">
+                <h3 class="sidebar__title opened"><span class="js-expanded-btn">Категории товаров</span>
+                  <svg width="12" height="12">
+                    <use xlink:href="#icon-arr-down"></use>
+                  </svg>
+                </h3>
+                <ul class="sidebar__categories-list expanded">
                   <li class="sidebar__categories-item"><a href="#">Рабочая одежда</a></li>
                   <li class="sidebar__categories-item"><a class="active" href="#">Одежда для моряков</a></li>
-                  <li class="sidebar__categories-item"><a href="#">ооооооооооочень длинная категория товаров</a></li>
+                  <li class="sidebar__categories-item"><a href="#">Ооооооооооочень длинная категория товаров</a></li>
                   <li class="sidebar__categories-item"><a href="#">Клининг</a></li>
                   <li class="sidebar__categories-item"><a href="#">Просто так</a></li>
                   <li class="sidebar__categories-item"><a href="#">Рабочая одежда</a></li>
@@ -155,89 +161,149 @@
                 </ul>
               </div>
               <div class="sidebar__filter filter">
-                <div class="filter__params"><span class="filter__name sidebar__title js-expanded-btn opened">Материал</span>
-                  <ul class="filter__list js-expanded-list expanded">
-                    <li class="filter__item">
-                      <input class="active" type="checkbox" id="1">
-                      <label for="1">канвас</label>
-                    </li>
-                    <li class="filter__item">
-                      <input type="checkbox" id="2">
-                      <label for="2">кожзам</label>
-                    </li>
-                    <li class="filter__item">
-                      <input type="checkbox" id="3">
-                      <label for="3">нат. кожа</label>
-                    </li>
-                    <li class="filter__item">
-                      <input type="checkbox" id="4">
-                      <label for="4">смесовая</label>
-                    </li>
-                  </ul>
-                </div>
+                <ul class="filter__list">
+                  <li class="filter__item">
+                    <h3 class="sidebar__title"><span class="js-expanded-btn">Цена</span>
+                      <svg width="12" height="12">
+                        <use xlink:href="#icon-arr-down"></use>
+                      </svg>
+                    </h3>
+                    <div class="filter__item-content">
+                      <div class="price-filter">
+                        <div class="price-filter__wrapper">
+                          <div class="price-filter__header">
+                            <input class="price-filter__price price-filter__price--min" type="text" placeholder="0" maxlength="7" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+                            <div class="price-filter__separator"></div>
+                            <input class="price-filter__price price-filter__price--max" type="text" placeholder="100000" maxlength="7" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+                          </div>
+                          <button class="filter-submit">Применить</button>
+                          <div class="price-filter__track">
+                            <div class="price-filter__handle price-filter__handle--left"></div>
+                            <div class="price-filter__handle price-filter__handle--right"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="filter__item">
+                    <h3 class="sidebar__title"><span class="js-expanded-btn">Материал</span>
+                      <svg width="12" height="12">
+                        <use xlink:href="#icon-arr-down"></use>
+                      </svg>
+                    </h3>
+                    <div class="filter__item-content">
+                      <div class="material-filter">
+                        <ul class="material-filter__list">
+                          <li class="material-filter__item">
+                            <input class="active" type="checkbox" id="mat1">
+                            <label for="mat1">канвас</label>
+                          </li>
+                          <li class="material-filter__item">
+                            <input type="checkbox" id="mat2">
+                            <label for="mat2">кожзам</label>
+                          </li>
+                          <li class="material-filter__item">
+                            <input type="checkbox" id="mat3">
+                            <label for="mat3">нат. кожа</label>
+                          </li>
+                          <li class="material-filter__item">
+                            <input type="checkbox" id="mat4">
+                            <label for="mat4">смесовая</label>
+                          </li>
+                        </ul>
+                        <button class="filter-submit">Применить</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="filter__item">
+                    <h3 class="sidebar__title"><span class="js-expanded-btn">Цвет</span>
+                      <svg width="12" height="12">
+                        <use xlink:href="#icon-arr-down"></use>
+                      </svg>
+                    </h3>
+                    <div class="filter__item-content">
+                      <div class="color-filter">
+                        <ul class="color-filter__list">
+                          <li class="color-filter__item">
+                            <input type="checkbox" id="col1" value="Белый" style="border: 3px solid #ffffff">
+                            <!-- label(for= color.id)= color.name-->
+                          </li>
+                          <li class="color-filter__item">
+                            <input type="checkbox" id="col2" value="Черный" style="border: 3px solid #000000">
+                            <!-- label(for= color.id)= color.name-->
+                          </li>
+                          <li class="color-filter__item">
+                            <input type="checkbox" id="col3" value="Красный" style="border: 3px solid #9c150c">
+                            <!-- label(for= color.id)= color.name-->
+                          </li>
+                          <li class="color-filter__item">
+                            <input type="checkbox" id="col4" value="Зеленый" style="border: 3px solid #008000">
+                            <!-- label(for= color.id)= color.name-->
+                          </li>
+                        </ul>
+                        <button class="filter-submit">Применить</button>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <!-- button.sidebar__filter-btn.filter-submit Применить все фильтры-->
               </div>
             </div>
           </aside>
           <div class="category__content">
             <ul class="category__list">
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук с оооооооооооооооооооочень длинным названием"></a>
+              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук с оооооооооооооооооооочень длинным названием">
+                  <div class="category__item-badges"><span class="category__item-badge category__item-badge--new">Новинка</span><span class="category__item-badge category__item-badge--popular"></span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук с оооооооооооооооооооочень длинным названием</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
+                  <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old">4600 <span>р.</span></span></div>
                 </div>
               </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/intro-slide_1@1x.jpg" alt="Фартук кактой- то"></a>
+              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/intro-slide_1@1x.jpg" alt="Фартук кактой- то">
+                  <div class="category__item-badges"><span class="category__item-badge category__item-badge--new"></span><span class="category__item-badge category__item-badge--popular">Популярный товар</span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
+                  <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old"></span></div>
                 </div>
               </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то"></a>
+              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то">
+                  <div class="category__item-badges"><span class="category__item-badge category__item-badge--new"></span><span class="category__item-badge category__item-badge--popular"></span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
+                  <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old">4600 <span>р.</span></span></div>
                 </div>
               </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук с оооооооооооооооооооочень длинным названием"></a>
+              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук с оооооооооооооооооооочень длинным названием">
+                  <div class="category__item-badges"><span class="category__item-badge category__item-badge--new">Новинка</span><span class="category__item-badge category__item-badge--popular"></span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук с оооооооооооооооооооочень длинным названием</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
+                  <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old">4600 <span>р.</span></span></div>
                 </div>
               </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то"></a>
+              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/intro-slide_1@1x.jpg" alt="Фартук кактой- то">
+                  <div class="category__item-badges"><span class="category__item-badge category__item-badge--new"></span><span class="category__item-badge category__item-badge--popular">Популярный товар</span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
+                  <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old"></span></div>
                 </div>
               </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то"></a>
+              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то">
+                  <div class="category__item-badges"><span class="category__item-badge category__item-badge--new"></span><span class="category__item-badge category__item-badge--popular"></span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
+                  <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old">4600 <span>р.</span></span></div>
                 </div>
               </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук с оооооооооооооооооооочень длинным названием"></a>
+              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук с оооооооооооооооооооочень длинным названием">
+                  <div class="category__item-badges"><span class="category__item-badge category__item-badge--new">Новинка</span><span class="category__item-badge category__item-badge--popular"></span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук с оооооооооооооооооооочень длинным названием</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
+                  <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old">4600 <span>р.</span></span></div>
                 </div>
               </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то"></a>
+              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/intro-slide_1@1x.jpg" alt="Фартук кактой- то">
+                  <div class="category__item-badges"><span class="category__item-badge category__item-badge--new"></span><span class="category__item-badge category__item-badge--popular">Популярный товар</span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
+                  <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old"></span></div>
                 </div>
               </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то"></a>
+              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то">
+                  <div class="category__item-badges"><span class="category__item-badge category__item-badge--new"></span><span class="category__item-badge category__item-badge--popular"></span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
-                </div>
-              </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то"></a>
-                <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
-                </div>
-              </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то"></a>
-                <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
-                </div>
-              </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то"></a>
-                <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
-                  <p class="category__item-price">3500 <span>р.</span></p>
+                  <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old">4600 <span>р.</span></span></div>
                 </div>
               </li>
             </ul>

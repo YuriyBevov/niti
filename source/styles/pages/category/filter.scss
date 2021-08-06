@@ -1,0 +1,22 @@
+.filter {
+    /*&__list { // если будет кнопка внизу
+        margin-bottom: 1.5rem;
+    } */
+
+    &__item {
+        &-content {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &-submit {
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+        padding: 1rem 1.5rem;
+        width: fit-content;
+        border: 1px solid $color-maroon;
+        background-color: transparent;
+        color: $color-maroon;
+    }
+}

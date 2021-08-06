@@ -1,0 +1,31 @@
+-
+  materials = [
+    {
+        id: 'mat1',
+        name: 'канвас',
+        class: 'active'
+    },
+
+    {
+        id: 'mat2',
+        name: 'кожзам',
+    },
+
+    {
+        id: 'mat3',
+        name: 'нат. кожа',
+    },
+
+    {
+        id: 'mat4',
+        name: 'смесовая',
+    }
+  ];
+
+.material-filter
+  ul.material-filter__list
+    each mats in materials
+      li.material-filter__item
+        input(type="checkbox" id= mats.id class= mats.class ? mats.class : null)
+        label(for= mats.id)= mats.name
+  button.filter-submit Применить
