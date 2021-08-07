@@ -49,7 +49,6 @@ section.product-card
             .swiper-slide
               img(src=img.imgUrl, alt="товар")
 
-
     .product-card__content
       .product-card__content-header
         span.product-card__art Артикул товара: 001346578
@@ -86,30 +85,37 @@ section.product-card
 
           li.product-card__item
             p.product-card__item-name Размеры:
-            p.product-card__item-desc.product-card__item-desc--row  
-              span.product-card__item-size XS
-              span.product-card__item-size S
-              span.product-card__item-size M
-              span.product-card__item-size.product-card__item-size--missing L
-              span.product-card__item-size.product-card__item-size--missing XL
-              span.product-card__item-size XXL
+            
+            select(name="size")
+              option XS
+              option S
+              option M
+            button.product-card__item-btn Таблица размеров
+          
+          li.product-card__item
+            p.product-card__item-name Интервал роста:
+            select(name="height")
+              option 149-154
+              option 155-160
+              option 161-166
+              option 167-172
+              option 173-178
+              option 179-185
+              option 185-190
+              option 191-196
+              option 197-202
           
           li.product-card__item
             p.product-card__item-name Цвет:
-            p.product-card__item-desc
-              span.product-card__item-color.product-card__item-color--white белый
-              span.product-card__item-color.product-card__item-color--black черный
-              span.product-card__item-color.product-card__item-color--red бордовый
+            select( name="color")
+              option Белый
+              option Черный
+              option Красный
 
           li.product-card__item
             p.product-card__item-name Материал:
-            p.product-card__item-desc кожзам
-
-          li.product-card__item
-            p.product-card__item-name Длина(см):
-            p.product-card__item-desc 82
-
-          li.product-card__item
-            p.product-card__item-name Ширина(см):
-            p.product-card__item-desc 72        
+            select( name="color")
+              option Хлопок
+              option Нат.кожа
+              option Канвас      
           

@@ -35,7 +35,7 @@ $mb: 2rem;
         @media(max-width: 660px) {
             width: 100%;
             padding: 0;
-        }
+        } 
 
         &-header {
             margin-bottom: $mb;
@@ -189,6 +189,8 @@ $mb: 2rem;
                     min-height: 4rem;
                     display: flex;
                     align-items: center;
+                    font-size: 1.6rem;
+                    line-height: 1.6rem;
                     padding-left: 1rem;
                     cursor: pointer;
                     transition: color $transition-rules;
@@ -210,8 +212,8 @@ $mb: 2rem;
                     box-sizing: border-box;
                     padding: 0;
                     background-color: transparent;
-                    width: 10px;
-                    height: 10px;
+                    width: 2rem;
+                    height: 2rem;
                     border: 1px solid black;
                     border-radius: 50%;
     
@@ -281,15 +283,36 @@ $mb: 2rem;
 
                 li {
                     display: flex;
-                    justify-content: space-between;
+                    align-items: center;
                     width: 100%;
+                    margin-bottom: 1rem;
+
+                    select {
+                        font-size: 1.6rem;
+                        padding: 0.5rem;
+                        border: 1px dashed maroon;
+                        border-radius: 5px;
+                        cursor: pointer;
+                    }
 
                     p {
                         display: flex;
                         width: 50%;
+                        max-width: fit-content;
                         font-size: 1.4rem;
                         line-height: 1.6rem;
-                        margin-bottom: 0.5rem;
+                        margin-bottom: .5rem;
+                        margin-right: 2rem;
+                    }
+                    
+                    .product-card__item-btn {
+                        padding: 0.5rem;
+                        font-size: 1.4rem;
+                        margin-left: 1rem;
+                        background-color: transparent;
+
+                        border: 1px dashed $color-maroon;
+                        border-radius: 5px;
                     }
 
                     .product-card__item-desc {

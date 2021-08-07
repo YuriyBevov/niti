@@ -198,23 +198,42 @@
                 </li>
                 <li class="product-card__item">
                   <p class="product-card__item-name">Размеры:</p>
-                  <p class="product-card__item-desc product-card__item-desc--row"> <span class="product-card__item-size">XS</span><span class="product-card__item-size">S</span><span class="product-card__item-size">M</span><span class="product-card__item-size product-card__item-size--missing">L</span><span class="product-card__item-size product-card__item-size--missing">XL</span><span class="product-card__item-size">XXL</span></p>
+                  <select name="size">
+                    <option>XS</option>
+                    <option>S</option>
+                    <option>M</option>
+                  </select>
+                  <button class="product-card__item-btn">Таблица размеров</button>
+                </li>
+                <li class="product-card__item">
+                  <p class="product-card__item-name">Интервал роста:</p>
+                  <select name="height">
+                    <option>149-154</option>
+                    <option>155-160</option>
+                    <option>161-166</option>
+                    <option>167-172</option>
+                    <option>173-178</option>
+                    <option>179-185</option>
+                    <option>185-190</option>
+                    <option>191-196</option>
+                    <option>197-202</option>
+                  </select>
                 </li>
                 <li class="product-card__item">
                   <p class="product-card__item-name">Цвет:</p>
-                  <p class="product-card__item-desc"><span class="product-card__item-color product-card__item-color--white">белый</span><span class="product-card__item-color product-card__item-color--black">черный</span><span class="product-card__item-color product-card__item-color--red">бордовый</span></p>
+                  <select name="color">
+                    <option>Белый</option>
+                    <option>Черный</option>
+                    <option>Красный</option>
+                  </select>
                 </li>
                 <li class="product-card__item">
                   <p class="product-card__item-name">Материал:</p>
-                  <p class="product-card__item-desc">кожзам</p>
-                </li>
-                <li class="product-card__item">
-                  <p class="product-card__item-name">Длина(см):</p>
-                  <p class="product-card__item-desc">82</p>
-                </li>
-                <li class="product-card__item">
-                  <p class="product-card__item-name">Ширина(см):</p>
-                  <p class="product-card__item-desc">72        </p>
+                  <select name="color">
+                    <option>Хлопок</option>
+                    <option>Нат.кожа</option>
+                    <option>Канвас      </option>
+                  </select>
                 </li>
               </ul>
             </div>
@@ -259,7 +278,451 @@
         </div>
       </div>
     </footer>
-    <!-- include ./modals/menuModal-->
+    <div class="sizeModal modal">
+      <div class="sizeModal__wrapper modal__wrapper">
+        <h2>ОСНОВНЫЕ РАЗМЕРНЫЕ ПРИЗНАКИ ТИПОВЫХ ФИГУР</h2>
+        <table cellspacing="0">
+          <tr>
+            <td>
+              <p>Интервал роста, см</p>
+            </td>
+            <td>
+              <p>Рост типовой фигуры, см</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>149 - 154</p>
+            </td>
+            <td>
+              <p>152</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>155 - 160</p>
+            </td>
+            <td>
+              <p>158</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>161 - 166</p>
+            </td>
+            <td>
+              <p>164</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>167 - 172</p>
+            </td>
+            <td>
+              <p>170</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>173 - 178</p>
+            </td>
+            <td>
+              <p>176</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>179 - 185</p>
+            </td>
+            <td>
+              <p>182</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>185 - 190</p>
+            </td>
+            <td>
+              <p>188</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>191 - 196</p>
+            </td>
+            <td>
+              <p>194</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>197 - 202</p>
+            </td>
+            <td>
+              <p>200                                                                               </p>
+            </td>
+          </tr>
+        </table>
+        <h2>РАЗМЕРЫ МУЖСКОЙ ОДЕЖДЫ</h2>
+        <table cellspacing="0">
+          <tr>
+            <td>
+              <p>Размер типовой фигуры</p>
+            </td>
+            <td>
+              <p>Интервал обхвата груди мужчин, см</p>
+            </td>
+            <td>
+              <p>Интервал обхвата бедер мужчин, см</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>42</p>
+            </td>
+            <td> 
+              <p>82 - 85</p>
+            </td>
+            <td> 
+              <p>87 - 90</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>44</p>
+            </td>
+            <td> 
+              <p>86 - 89</p>
+            </td>
+            <td> 
+              <p>91- 92</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>46</p>
+            </td>
+            <td> 
+              <p>90 - 93</p>
+            </td>
+            <td> 
+              <p>93 - 94</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>48</p>
+            </td>
+            <td> 
+              <p>94 - 97</p>
+            </td>
+            <td> 
+              <p>95 - 97</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>50</p>
+            </td>
+            <td> 
+              <p>98 - 101</p>
+            </td>
+            <td> 
+              <p>98 - 99</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>52</p>
+            </td>
+            <td> 
+              <p>102 - 105</p>
+            </td>
+            <td> 
+              <p>100 - 101</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>54</p>
+            </td>
+            <td> 
+              <p>106 - 109</p>
+            </td>
+            <td> 
+              <p>102 - 104</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>56</p>
+            </td>
+            <td> 
+              <p>110 - 113</p>
+            </td>
+            <td> 
+              <p>105 -107</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>58</p>
+            </td>
+            <td> 
+              <p>114 - 117</p>
+            </td>
+            <td> 
+              <p>108 - 110</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>60</p>
+            </td>
+            <td> 
+              <p>118 - 121</p>
+            </td>
+            <td> 
+              <p>111 - 113</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>62</p>
+            </td>
+            <td> 
+              <p>122 - 125</p>
+            </td>
+            <td> 
+              <p>114 - 116</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>64</p>
+            </td>
+            <td> 
+              <p>126 - 129</p>
+            </td>
+            <td> 
+              <p>117 - 119</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>66</p>
+            </td>
+            <td> 
+              <p>130 - 133</p>
+            </td>
+            <td> 
+              <p>120 - 122</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>68</p>
+            </td>
+            <td> 
+              <p>134 - 137</p>
+            </td>
+            <td> 
+              <p>123 - 125</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>70</p>
+            </td>
+            <td> 
+              <p>138 - 141</p>
+            </td>
+            <td> 
+              <p>126 - 128</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>72</p>
+            </td>
+            <td> 
+              <p>142 - 145</p>
+            </td>
+            <td> 
+              <p>129 - 132                                                                                                           </p>
+            </td>
+          </tr>
+        </table>
+        <h2>РАЗМЕРЫ ЖЕНСКОЙ ОДЕЖДЫ</h2>
+        <table cellspacing="0">
+          <tr>
+            <td>
+              <p>Размеры типовой фигуры</p>
+            </td>
+            <td>
+              <p>Интервал обхвата груди женщины, см</p>
+            </td>
+            <td>
+              <p>Интервал обхвата бедер женщины, см</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>40</p>
+            </td>
+            <td>
+              <p>78 - 81</p>
+            </td>
+            <td>
+              <p>83 - 86</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>42</p>
+            </td>
+            <td>
+              <p>82 - 85</p>
+            </td>
+            <td>
+              <p>87 - 90</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>44</p>
+            </td>
+            <td>
+              <p>86 - 89</p>
+            </td>
+            <td>
+              <p>91 - 94</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>46</p>
+            </td>
+            <td>
+              <p>90 - 93</p>
+            </td>
+            <td>
+              <p>95 - 98</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>48</p>
+            </td>
+            <td>
+              <p>94 - 97</p>
+            </td>
+            <td>
+              <p>99 - 102</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>50</p>
+            </td>
+            <td>
+              <p>98 - 101</p>
+            </td>
+            <td>
+              <p>103 - 106 </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>52</p>
+            </td>
+            <td>
+              <p>102 - 105</p>
+            </td>
+            <td>
+              <p>107 - 110 </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>54</p>
+            </td>
+            <td>
+              <p>106 - 109</p>
+            </td>
+            <td>
+              <p>111 - 113 </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>56</p>
+            </td>
+            <td>
+              <p>110 - 113</p>
+            </td>
+            <td>
+              <p>114 - 117 </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>58</p>
+            </td>
+            <td>
+              <p>114 - 117</p>
+            </td>
+            <td>
+              <p>118 - 212</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>60</p>
+            </td>
+            <td>
+              <p>118 - 121</p>
+            </td>
+            <td>
+              <p>122 - 125</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>62</p>
+            </td>
+            <td>
+              <p>122 - 125</p>
+            </td>
+            <td>
+              <p>126 - 129</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>64</p>
+            </td>
+            <td>
+              <p>126 - 129</p>
+            </td>
+            <td>
+              <p>130 - 133</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>66</p>
+            </td>
+            <td>
+              <p>130 - 133</p>
+            </td>
+            <td>
+              <p>134 - 137</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
     <script src="./js/bundle.js"></script>
   </body>
 </html>
