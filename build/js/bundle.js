@@ -12273,6 +12273,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_loader_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_loader_js__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _modules_expItems_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/expItems.js */ "./source/scripts/modules/expItems.js");
 /* harmony import */ var _modules_expItems_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_modules_expItems_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/modals.js */ "./source/scripts/modules/modals.js");
+/* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_modules_modals_js__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -12442,6 +12445,70 @@ const onClickRemoveOverlay = () => {
 
 overlay ?
 btn.addEventListener('click', onClickRemoveOverlay) : null
+
+/***/ }),
+
+/***/ "./source/scripts/modules/modals.js":
+/*!******************************************!*\
+  !*** ./source/scripts/modules/modals.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const btns = document.querySelectorAll('.js-open-modal-btn');
+const modals = document.querySelectorAll('modal');
+
+const onClickOpenModal = (evt) => {
+    evt.stopPropagation();
+    let currentModal = document.querySelector("." + evt.target.getAttribute("data-id"));
+    currentModal.classList.add('opened');
+    const modalContent = currentModal.querySelector('.modal__wrapper');
+
+    btns.forEach(btn => {
+        btn.removeEventListener('click', onClickOpenModal)
+    })
+
+    let closeBtn = currentModal.querySelector('.js-modal__close');
+
+    const onClickCloseModal = () => {
+        currentModal.classList.remove('opened');
+        removeEventListeners();
+    }
+
+    const onTouchCloseModal = (evt) => {
+        if(!modalContent.contains( evt.target )) {
+            currentModal.classList.remove('opened')
+            removeEventListeners();
+        }
+    }
+
+    const onEscCloseModal = (evt) => {
+        console.log('qwer',evt.key)
+
+        if(evt.key === 'Escape') {
+            currentModal.classList.remove('opened')
+            removeEventListeners();
+        }
+    }
+
+    const removeEventListeners = () => {
+        closeBtn.removeEventListener('click', onClickCloseModal)
+        document.removeEventListener('click', onTouchCloseModal)
+        document.removeEventListener('keydown', onEscCloseModal)
+
+        btns.forEach(btn => {
+            btn.addEventListener('click', onClickOpenModal)
+        })
+    };
+
+    closeBtn.addEventListener('click', onClickCloseModal)
+    document.addEventListener('click', onTouchCloseModal)
+    document.addEventListener('keydown', onEscCloseModal)
+}
+
+btns.forEach(btn => {
+    btn.addEventListener('click', onClickOpenModal)
+})
 
 /***/ }),
 
