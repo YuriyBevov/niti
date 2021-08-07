@@ -7,6 +7,7 @@ $mb: 2rem;
 
         @media(max-width: 660px) {
             flex-direction: column;
+            padding: 1.5rem 1rem;
         }
     }
 
@@ -279,7 +280,6 @@ $mb: 2rem;
         &-footer {
             .product-card__characters {
                 width: fit-content;
-                min-width: 30rem;
 
                 li {
                     display: flex;
@@ -297,7 +297,6 @@ $mb: 2rem;
 
                     p {
                         display: flex;
-                        width: 50%;
                         max-width: fit-content;
                         font-size: 1.4rem;
                         line-height: 1.6rem;
