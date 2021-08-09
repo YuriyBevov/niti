@@ -12388,10 +12388,7 @@ const onClickSetColor = (evt) => {
 }
 
 const onClickOpenColorpicker = () => {
-
-    console.log('open')
     colorpicker.classList.remove('js-closed');
-
     colorpickerOpener.removeEventListener('click', onClickOpenColorpicker);
 
     colorpickerItems.forEach(item => {
@@ -12400,8 +12397,6 @@ const onClickOpenColorpicker = () => {
 }
 
 const colorpickerOpener = document.querySelector('.js-colorpicker-opener');
-
-console.log(colorpickerOpener)
 
 colorpickerOpener.addEventListener('click', onClickOpenColorpicker);
 
