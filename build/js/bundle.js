@@ -12273,8 +12273,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_loader_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_loader_js__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _modules_expItems_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/expItems.js */ "./source/scripts/modules/expItems.js");
 /* harmony import */ var _modules_expItems_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_modules_expItems_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/modals.js */ "./source/scripts/modules/modals.js");
-/* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_modules_modals_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _modules_colorpicker_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/colorpicker.js */ "./source/scripts/modules/colorpicker.js");
+/* harmony import */ var _modules_colorpicker_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_modules_colorpicker_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/modals.js */ "./source/scripts/modules/modals.js");
+/* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_modules_modals_js__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -12337,6 +12340,72 @@ aos__WEBPACK_IMPORTED_MODULE_0___default.a.init({
     offset: 150,
     disable: 'phone'
 });
+
+
+
+/***/ }),
+
+/***/ "./source/scripts/modules/colorpicker.js":
+/*!***********************************************!*\
+  !*** ./source/scripts/modules/colorpicker.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const colorpickerSelect = document.querySelector('#colorpicker');
+const options = document.querySelectorAll('#colorpicker option');
+const colorpicker = document.querySelector('.colorpicker');
+const colorsContainer = document.querySelector('.colorpicker__wrapper');
+const currentColor = document.querySelector('.js-colorpicker-opener');
+let colors = [];
+
+options.forEach(option => {
+    colors.push(option.value);
+})
+
+colors.forEach((clr,i) => {
+    let colorpickerItem = document.createElement('div');
+    colorpickerItem.classList.add('colorpicker__item');
+    colorpickerItem.setAttribute('style', 'background-color:' + clr);
+    colorpickerItem.setAttribute('data-color', i);
+    colorsContainer.appendChild(colorpickerItem)
+})
+
+colorpickerItems = document.querySelectorAll('.colorpicker__item');
+
+const onClickSetColor = (evt) => {    
+    const index  = evt.target.getAttribute('data-color');
+    colorpickerSelect.value = colors[index];
+    currentColor.style.background = colors[index];
+
+    colorpicker.classList.add('js-closed')
+
+    colorpickerItems.forEach(item => {
+        item.removeEventListener('click', onClickSetColor);
+    })
+
+    colorpickerOpener.addEventListener('click', onClickOpenColorpicker);
+}
+
+const onClickOpenColorpicker = () => {
+
+    console.log('open')
+    colorpicker.classList.remove('js-closed');
+
+    colorpickerOpener.removeEventListener('click', onClickOpenColorpicker);
+
+    colorpickerItems.forEach(item => {
+        item.addEventListener('click', onClickSetColor);
+    })
+}
+
+const colorpickerOpener = document.querySelector('.js-colorpicker-opener');
+
+console.log(colorpickerOpener)
+
+colorpickerOpener.addEventListener('click', onClickOpenColorpicker);
+
+
 
 
 

@@ -219,13 +219,25 @@
                     <option>197-202</option>
                   </select>
                 </li>
-                <li class="product-card__item">
+                <li class="product-card__item product-card__item--colorpicker">
                   <p class="product-card__item-name">Цвет:</p>
-                  <select name="color">
-                    <option>Белый</option>
-                    <option>Черный</option>
-                    <option>Красный</option>
+                  <button class="js-colorpicker-opener"></button>
+                  <select class="visually-hidden" name="colorpicker" id="colorpicker" required="">
+                    <option>#ffffff</option>
+                    <option>#000000</option>
+                    <option>#9c150c</option>
+                    <option>#ffffff</option>
+                    <option>#000000</option>
+                    <option>#9c150c</option>
+                    <option>#ffffff</option>
+                    <option>#000000</option>
+                    <option>#9c150c</option>
+                    <option>#ffffff</option>
+                    <option>#9c150c</option>
                   </select>
+                  <div class="colorpicker js-closed">
+                    <div class="colorpicker__wrapper"></div>
+                  </div>
                 </li>
                 <li class="product-card__item">
                   <p class="product-card__item-name">Материал:</p>

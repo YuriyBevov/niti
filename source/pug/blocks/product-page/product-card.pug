@@ -105,12 +105,28 @@ section.product-card
               option 191-196
               option 197-202
           
-          li.product-card__item
+          li.product-card__item.product-card__item--colorpicker
             p.product-card__item-name Цвет:
-            select( name="color")
-              option Белый
-              option Черный
-              option Красный
+
+            button.js-colorpicker-opener
+            
+            select( name="colorpicker" id="colorpicker" required).visually-hidden
+              option #ffffff
+              option #000000
+              option #9c150c
+              option #ffffff
+              option #000000
+              option #9c150c
+              option #ffffff
+              option #000000
+              option #9c150c
+              option #ffffff
+              
+              option #9c150c
+
+            .colorpicker.js-closed
+              .colorpicker__wrapper
+                
 
           li.product-card__item
             p.product-card__item-name Материал:
