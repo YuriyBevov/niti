@@ -12277,6 +12277,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_colorpicker_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_modules_colorpicker_js__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/modals.js */ "./source/scripts/modules/modals.js");
 /* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_modules_modals_js__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _modules_searchPrevent_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/searchPrevent.js */ "./source/scripts/modules/searchPrevent.js");
+/* harmony import */ var _modules_searchPrevent_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_modules_searchPrevent_js__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _modules_productCount_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/productCount.js */ "./source/scripts/modules/productCount.js");
+/* harmony import */ var _modules_productCount_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_modules_productCount_js__WEBPACK_IMPORTED_MODULE_9__);
+
+
 
 
 
@@ -12353,52 +12359,59 @@ aos__WEBPACK_IMPORTED_MODULE_0___default.a.init({
 /***/ (function(module, exports) {
 
 const colorpickerSelect = document.querySelector('#colorpicker');
-const options = document.querySelectorAll('#colorpicker option');
-const colorpicker = document.querySelector('.colorpicker');
-const colorsContainer = document.querySelector('.colorpicker__wrapper');
-const currentColor = document.querySelector('.js-colorpicker-opener');
-let colors = [];
+if(colorpickerSelect) {
 
-options.forEach(option => {
-    colors.push(option.value);
-})
 
-colors.forEach((clr,i) => {
-    let colorpickerItem = document.createElement('div');
-    colorpickerItem.classList.add('colorpicker__item');
-    colorpickerItem.setAttribute('style', 'background-color:' + clr);
-    colorpickerItem.setAttribute('data-color', i);
-    colorsContainer.appendChild(colorpickerItem)
-})
+    const options = document.querySelectorAll('#colorpicker option');
+    const colorpicker = document.querySelector('.colorpicker');
+    const colorsContainer = document.querySelector('.colorpicker__wrapper');
+    const currentColor = document.querySelector('.js-colorpicker-opener');
+    let colors = [];
 
-colorpickerItems = document.querySelectorAll('.colorpicker__item');
-
-const onClickSetColor = (evt) => {    
-    const index  = evt.target.getAttribute('data-color');
-    colorpickerSelect.value = colors[index];
-    currentColor.style.background = colors[index];
-
-    colorpicker.classList.add('js-closed')
-
-    colorpickerItems.forEach(item => {
-        item.removeEventListener('click', onClickSetColor);
+    options.forEach(option => {
+        colors.push(option.value);
     })
+
+    currentColor.style.background = colors[0];
+
+    colors.forEach((clr,i) => {
+        let colorpickerItem = document.createElement('div');
+        colorpickerItem.classList.add('colorpicker__item');
+        colorpickerItem.setAttribute('style', 'background-color:' + clr);
+        colorpickerItem.setAttribute('data-color', i);
+        colorsContainer.appendChild(colorpickerItem)
+    })
+
+    colorpickerItems = document.querySelectorAll('.colorpicker__item');
+
+    const onClickSetColor = (evt) => {    
+        const index  = evt.target.getAttribute('data-color');
+        colorpickerSelect.value = colors[index];
+        currentColor.style.background = colors[index];
+
+        colorpicker.classList.add('js-closed')
+
+        colorpickerItems.forEach(item => {
+            item.removeEventListener('click', onClickSetColor);
+        })
+
+        colorpickerOpener.addEventListener('click', onClickOpenColorpicker);
+    }
+
+    const onClickOpenColorpicker = (evt) => {
+        evt.preventDefault();
+        colorpicker.classList.remove('js-closed');
+        colorpickerOpener.removeEventListener('click', onClickOpenColorpicker);
+
+        colorpickerItems.forEach(item => {
+            item.addEventListener('click', onClickSetColor);
+        })
+    }
+
+    const colorpickerOpener = document.querySelector('.js-colorpicker-opener');
 
     colorpickerOpener.addEventListener('click', onClickOpenColorpicker);
 }
-
-const onClickOpenColorpicker = () => {
-    colorpicker.classList.remove('js-closed');
-    colorpickerOpener.removeEventListener('click', onClickOpenColorpicker);
-
-    colorpickerItems.forEach(item => {
-        item.addEventListener('click', onClickSetColor);
-    })
-}
-
-const colorpickerOpener = document.querySelector('.js-colorpicker-opener');
-
-colorpickerOpener.addEventListener('click', onClickOpenColorpicker);
 
 
 
@@ -12445,7 +12458,13 @@ const onClickOpenMenu = () => {
         burger.classList.add('opened')
     }
     
-    header.classList.toggle('js-mobile-opened')
+    header.classList.toggle('js-mobile-opened');
+
+    const body = document.querySelector('body');
+
+    header.classList.contains('js-mobile-opened') ?
+    body.style.overflowY = 'hidden' :
+    body.style.overflowY = 'auto'
 };
 
 burger.addEventListener('click', onClickOpenMenu);
@@ -12523,6 +12542,7 @@ const btns = document.querySelectorAll('.js-open-modal-btn');
 const modals = document.querySelectorAll('modal');
 
 const onClickOpenModal = (evt) => {
+    evt.preventDefault();
     evt.stopPropagation();
     let currentModal = document.querySelector("." + evt.target.getAttribute("data-id"));
     currentModal.classList.add('opened');
@@ -12573,6 +12593,73 @@ const onClickOpenModal = (evt) => {
 btns.forEach(btn => {
     btn.addEventListener('click', onClickOpenModal)
 })
+
+/***/ }),
+
+/***/ "./source/scripts/modules/productCount.js":
+/*!************************************************!*\
+  !*** ./source/scripts/modules/productCount.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const addBtns = document.querySelectorAll('.js-add-item');
+const removeBtns = document.querySelectorAll('.js-remove-item');
+
+const onClickAddItem = (evt) => {
+    const input = evt.currentTarget.parentNode.querySelector('input');
+    let value = Number(input.value);
+
+    value !== 100 ?
+    value +=  1 : value = 100;
+
+    input.value = value;
+}
+
+const onClickRemoveItem = (evt) => {
+    const input = evt.currentTarget.parentNode.querySelector('input');
+
+    let value = Number(input.value);
+
+    value !== 1 ?
+    value -= 1 : value = 1;
+
+    input.value = value;
+}
+
+addBtns.forEach(btn => {
+    btn.addEventListener('click', onClickAddItem);
+})
+
+removeBtns.forEach(btn => {
+    btn.addEventListener('click', onClickRemoveItem);
+})
+
+/***/ }),
+
+/***/ "./source/scripts/modules/searchPrevent.js":
+/*!*************************************************!*\
+  !*** ./source/scripts/modules/searchPrevent.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const searchBtns = document.querySelectorAll('.search button');
+
+const onClickHandler = (evt) => {
+    const searchField = evt.currentTarget.parentNode;
+    const input = searchField.querySelector('input')
+    if(input.value.trim() === '') {
+        evt.preventDefault();
+        input.focus();
+    }
+}
+
+if(searchBtns) {
+    searchBtns.forEach(btn => {
+        btn.addEventListener('click', onClickHandler) 
+    });
+}
 
 /***/ }),
 

@@ -10,7 +10,21 @@
 
     &__item {
         flex-grow: 1;
-    }   
+    }
+
+    & .search {
+        display: none;
+        
+        @media(max-width: $tablet-width) {
+            display: block;
+            margin: 0 auto;
+            width: 90%;
+            max-width: 75vw;
+            margin-bottom: 3rem;
+            border-radius: 0.5rem;
+            border: 1px solid $color-lightblack;
+        }
+    }
 
     &__link {
         display: flex;

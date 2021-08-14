@@ -153,12 +153,29 @@
       </div>
     </header>
     <main>
-      <div class="cart-empty">
-        <div class="cmn__wrapper cart-empty__wrapper">
-          <h2>Корзина пуста</h2>
-          <p> Перейдите в <a href="catalog.html">каталог</a> для выбора товаров</p>
+      <section class="cmn search-result">
+        <div class="cmn__wrapper search-result__wrapper">
+          <ul class="search-result__list">
+            <li class="search-result__item">
+              <form action="">
+                <div class="search-result__item-container"><a class="search-result__preview" href="#"><img src="./assets/img/about_img@1x.jpg" alt="product">
+                    <div class="search-result__badge"><span>новинка</span><span>хит</span></div></a>
+                  <div class="search-result__content">
+                    <div class="search-result__content-info"><a href="#">название продукта</a>
+                      <p>описание продукта описание продукта описание продукта описание продукта описание продукта описание продукта</p>
+                    </div>
+                  </div>
+                  <div class="search-result__order"><small>арт. 001-2345</small>
+                    <p>Цена:</p><span class="search-result__order-price">5000 руб.</span>
+                    <p>Старая цена:</p><span class="search-result__order-price search-result__order-price--old">7000 руб.</span>
+                    <button>в корзину</button>
+                  </div>
+                </div>
+              </form>
+            </li>
+          </ul>
         </div>
-      </div>
+      </section>
     </main>
     <footer class="footer">
       <div class="cmn__wrapper footer__wrapper cmn__container">
@@ -197,7 +214,456 @@
         </div>
       </div>
     </footer>
-    <!-- include ./modals/menuModal-->
+    <div class="sizeModal modal">
+      <div class="sizeModal__wrapper modal__wrapper">
+        <button class="js-modal__close modal__close" aria-label="закрыть">
+          <svg width="24" height="24">
+            <use xlink:href="#icon-close"></use>
+          </svg>
+        </button>
+        <h2>ОСНОВНЫЕ РАЗМЕРНЫЕ ПРИЗНАКИ ТИПОВЫХ ФИГУР</h2>
+        <table cellspacing="0">
+          <tr>
+            <td>
+              <p>Интервал роста, см</p>
+            </td>
+            <td>
+              <p>Рост типовой фигуры, см</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>149 - 154</p>
+            </td>
+            <td>
+              <p>152</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>155 - 160</p>
+            </td>
+            <td>
+              <p>158</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>161 - 166</p>
+            </td>
+            <td>
+              <p>164</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>167 - 172</p>
+            </td>
+            <td>
+              <p>170</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>173 - 178</p>
+            </td>
+            <td>
+              <p>176</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>179 - 185</p>
+            </td>
+            <td>
+              <p>182</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>185 - 190</p>
+            </td>
+            <td>
+              <p>188</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>191 - 196</p>
+            </td>
+            <td>
+              <p>194</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>197 - 202</p>
+            </td>
+            <td>
+              <p>200                                                                               </p>
+            </td>
+          </tr>
+        </table>
+        <h2>РАЗМЕРЫ МУЖСКОЙ ОДЕЖДЫ</h2>
+        <table cellspacing="0">
+          <tr>
+            <td>
+              <p>Размер типовой фигуры</p>
+            </td>
+            <td>
+              <p>Интервал обхвата груди мужчин, см</p>
+            </td>
+            <td>
+              <p>Интервал обхвата бедер мужчин, см</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>42</p>
+            </td>
+            <td> 
+              <p>82 - 85</p>
+            </td>
+            <td> 
+              <p>87 - 90</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>44</p>
+            </td>
+            <td> 
+              <p>86 - 89</p>
+            </td>
+            <td> 
+              <p>91- 92</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>46</p>
+            </td>
+            <td> 
+              <p>90 - 93</p>
+            </td>
+            <td> 
+              <p>93 - 94</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>48</p>
+            </td>
+            <td> 
+              <p>94 - 97</p>
+            </td>
+            <td> 
+              <p>95 - 97</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>50</p>
+            </td>
+            <td> 
+              <p>98 - 101</p>
+            </td>
+            <td> 
+              <p>98 - 99</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>52</p>
+            </td>
+            <td> 
+              <p>102 - 105</p>
+            </td>
+            <td> 
+              <p>100 - 101</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>54</p>
+            </td>
+            <td> 
+              <p>106 - 109</p>
+            </td>
+            <td> 
+              <p>102 - 104</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>56</p>
+            </td>
+            <td> 
+              <p>110 - 113</p>
+            </td>
+            <td> 
+              <p>105 -107</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>58</p>
+            </td>
+            <td> 
+              <p>114 - 117</p>
+            </td>
+            <td> 
+              <p>108 - 110</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>60</p>
+            </td>
+            <td> 
+              <p>118 - 121</p>
+            </td>
+            <td> 
+              <p>111 - 113</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>62</p>
+            </td>
+            <td> 
+              <p>122 - 125</p>
+            </td>
+            <td> 
+              <p>114 - 116</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>64</p>
+            </td>
+            <td> 
+              <p>126 - 129</p>
+            </td>
+            <td> 
+              <p>117 - 119</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>66</p>
+            </td>
+            <td> 
+              <p>130 - 133</p>
+            </td>
+            <td> 
+              <p>120 - 122</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>68</p>
+            </td>
+            <td> 
+              <p>134 - 137</p>
+            </td>
+            <td> 
+              <p>123 - 125</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>70</p>
+            </td>
+            <td> 
+              <p>138 - 141</p>
+            </td>
+            <td> 
+              <p>126 - 128</p>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <p>72</p>
+            </td>
+            <td> 
+              <p>142 - 145</p>
+            </td>
+            <td> 
+              <p>129 - 132                                                                                                           </p>
+            </td>
+          </tr>
+        </table>
+        <h2>РАЗМЕРЫ ЖЕНСКОЙ ОДЕЖДЫ</h2>
+        <table cellspacing="0">
+          <tr>
+            <td>
+              <p>Размеры типовой фигуры</p>
+            </td>
+            <td>
+              <p>Интервал обхвата груди женщины, см</p>
+            </td>
+            <td>
+              <p>Интервал обхвата бедер женщины, см</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>40</p>
+            </td>
+            <td>
+              <p>78 - 81</p>
+            </td>
+            <td>
+              <p>83 - 86</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>42</p>
+            </td>
+            <td>
+              <p>82 - 85</p>
+            </td>
+            <td>
+              <p>87 - 90</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>44</p>
+            </td>
+            <td>
+              <p>86 - 89</p>
+            </td>
+            <td>
+              <p>91 - 94</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>46</p>
+            </td>
+            <td>
+              <p>90 - 93</p>
+            </td>
+            <td>
+              <p>95 - 98</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>48</p>
+            </td>
+            <td>
+              <p>94 - 97</p>
+            </td>
+            <td>
+              <p>99 - 102</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>50</p>
+            </td>
+            <td>
+              <p>98 - 101</p>
+            </td>
+            <td>
+              <p>103 - 106 </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>52</p>
+            </td>
+            <td>
+              <p>102 - 105</p>
+            </td>
+            <td>
+              <p>107 - 110 </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>54</p>
+            </td>
+            <td>
+              <p>106 - 109</p>
+            </td>
+            <td>
+              <p>111 - 113 </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>56</p>
+            </td>
+            <td>
+              <p>110 - 113</p>
+            </td>
+            <td>
+              <p>114 - 117 </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>58</p>
+            </td>
+            <td>
+              <p>114 - 117</p>
+            </td>
+            <td>
+              <p>118 - 212</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>60</p>
+            </td>
+            <td>
+              <p>118 - 121</p>
+            </td>
+            <td>
+              <p>122 - 125</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>62</p>
+            </td>
+            <td>
+              <p>122 - 125</p>
+            </td>
+            <td>
+              <p>126 - 129</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>64</p>
+            </td>
+            <td>
+              <p>126 - 129</p>
+            </td>
+            <td>
+              <p>130 - 133</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>66</p>
+            </td>
+            <td>
+              <p>130 - 133</p>
+            </td>
+            <td>
+              <p>134 - 137</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
     <script src="./js/bundle.js"></script>
   </body>
 </html>

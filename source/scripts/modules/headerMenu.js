@@ -11,7 +11,13 @@ const onClickOpenMenu = () => {
         burger.classList.add('opened')
     }
     
-    header.classList.toggle('js-mobile-opened')
+    header.classList.toggle('js-mobile-opened');
+
+    const body = document.querySelector('body');
+
+    header.classList.contains('js-mobile-opened') ?
+    body.style.overflowY = 'hidden' :
+    body.style.overflowY = 'auto'
 };
 
 burger.addEventListener('click', onClickOpenMenu);

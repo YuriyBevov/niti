@@ -21,10 +21,12 @@
   width: 12px;
   min-height: 8px;
   background-color: $color-footer_bcg;
+
 }
 
 ::-webkit-scrollbar-thumb { /* 5 - ползунок */
   background-color: $color_maroon;
+  border-radius: 0.5rem;
 }
 
 ::-webkit-scrollbar-corner { /* 6 - уголок */

@@ -2,6 +2,7 @@ const btns = document.querySelectorAll('.js-open-modal-btn');
 const modals = document.querySelectorAll('modal');
 
 const onClickOpenModal = (evt) => {
+    evt.preventDefault();
     evt.stopPropagation();
     let currentModal = document.querySelector("." + evt.target.getAttribute("data-id"));
     currentModal.classList.add('opened');

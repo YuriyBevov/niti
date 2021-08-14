@@ -1,0 +1,29 @@
+.ui-menu.ui-front {
+    z-index: 1000000;
+    border-radius: 0.5rem 0 0 0.5rem;
+    padding: 0.5rem;
+    max-height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.mse2-ac-item {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    
+    img {
+        margin-top: 0.5rem;
+    }
+
+    small {
+        text-transform: initial;
+        b {
+            font-style: italic;
+            color: $color-maroon;
+        }
+    }
+}

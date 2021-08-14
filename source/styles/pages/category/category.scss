@@ -73,6 +73,7 @@
             max-height: 60rem;
             margin-right: 1rem;
             margin-bottom: 2rem;
+            border: 2px solid $color-lightblack;
 
             @media (max-width: 1280px ) {
                 width: calc(100%/2 - 1rem);
@@ -114,10 +115,7 @@
                         margin-bottom: 1rem;
                         color: $color-white;
                         background-color: rgba(0,0,0,0.5);
-
                     }
-
-
                 }
 
                 img {
@@ -133,8 +131,6 @@
 
                     @media (max-width: $tablet_width ) {
                         min-height: 35rem;
-                        max-width: 25rem;
-                        margin: 0 auto;
                     }
                 }
 
@@ -148,6 +144,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                border-top: 2px solid $color-lightblack;
 
                 .category__item-title {
                     font-size: 1.8rem;
@@ -159,6 +156,8 @@
                     max-width: 100%;
                     overflow: hidden;
                     color: $color_black;
+                    border-bottom: 1px dashed $color-maroon;
+                    margin-bottom: 0.5rem;
 
                     transition: color $transition-rules;
     
@@ -191,6 +190,11 @@
                         text-decoration: line-through;
                         opacity: 0.8;
                         color: $color_black;
+                    }
+
+                    @media(max-width: $tablet-width) {
+                        font-size: 1.4rem;
+                        line-height: 1.8rem;
                     }
                 }
             }

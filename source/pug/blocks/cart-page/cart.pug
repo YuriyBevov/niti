@@ -24,13 +24,15 @@
                 b.product-card__price= item.price
 
                 .product-card__quantity
-                    button(type="button" aria-label="удалить").product-card__quantity-btn 	&minus;
-                    span.product-cart__quantity-value 1
-                    button(type="button" aria-label="добавить").product-card__quantity-btn 	&plus;
+                  button(type="button" aria-label="удалить").product-card__quantity-btn.js-remove-item 	&minus;
+                  input(type="number" name="count" value="1")
+                  button(type="button" aria-label="добавить").product-card__quantity-btn.js-add-item 	&plus;
+
+
 
                 .product-card__stitch       
-                    input(type="checkbox" id="stitch")
-                    label(for="stitch") Нанести вышивку
+                  input(type="checkbox" id="stitch")
+                  label(for="stitch") Нанести вышивку
 
           button(type="button").cart__item-remove
             svg(width="30" height="30")

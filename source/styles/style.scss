@@ -36,11 +36,13 @@
 @import "pages/cart/cart-empty";
 @import "pages/cart/cart";
 @import "pages/cart/components/form";
+@import "pages/search-result-page/search-result";
 
 @import "common/footer";
 
 // components
 
+@import "components/search";
 @import "components/burger";
 @import "components/loader";
 @import "components/pagination";
@@ -49,6 +51,11 @@
 
 @import "modals/modal";
 @import "modals/sizeModal";
+
+// modx styles
+
+@import "modx/search";
+@import "modx/pagination";
 
 
 

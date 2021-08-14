@@ -48,8 +48,6 @@
     }
 
     input:checked {
-        background-image: url("../assets/img/check.png");
-        background-repeat: no-repeat;
-        background-size: cover;
+        background-color: $color-maroon;
     }
 }

@@ -9,7 +9,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 3rem;
+        width: fit-content;
+        min-width: 3rem;
         height: 3rem;
         font-family: $font_mono;
         font-size: 1.8rem;

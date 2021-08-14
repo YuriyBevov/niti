@@ -1,16 +1,176 @@
 .filter {
-    /*&__list { // если будет кнопка внизу
-        margin-bottom: 1.5rem;
-    } */
+    fieldset {
+        padding: 0;
+        border: 0;
+    }
+
+    &__wrapper {
+        margin-bottom: 2rem;
+    }
 
     &__item {
         &-content {
             display: flex;
             flex-direction: column;
+
+            label {
+                min-height: 4rem;
+                width: calc(100% - 2rem);
+                display: flex;
+                align-items: center;
+        
+                font-size: 1.6rem;
+                line-height: 1.8rem;
+                padding-left: 1rem;
+                cursor: pointer;
+                transition: color $transition-rules;
+
+                span {
+                    padding-left: 1rem;
+                }
+        
+                @media(min-width: $tablet_width) {
+                            
+                    &:hover,
+                    &:focus {
+                        color: $color-maroon;
+                    }
+                
+                    &:active {
+                        color: $color-maroon;
+                    }
+                }
+        
+                @media (max-width: 660px ) {
+                    width: fit-content;
+                }
+            }
+        
+            input{
+                box-sizing: border-box;
+                padding: 0;
+                background-color: transparent;
+                width: 2rem;
+                height: 2rem;
+                border: 1px solid black;
+                border-radius: 50%;
+        
+                transition: border $transition-rules, background-color $transition-rules;
+            }
+        
+            input:checked {
+                background-color: $color-maroon;
+            }
+        }
+
+        &-content--price {
+            padding-left: 1rem;
+            padding-right: 1rem;
+
+            @media(max-width: 660px) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            input{
+                width: fit-content;
+                height: fit-content;
+                border-radius: 0;
+                max-width: 10rem;
+                padding: 0.5rem;
+                border: 1px solid $color-maroon;
+            }
+
+            label {
+                @media(max-width: 768px) {
+                    margin-bottom: 1rem;
+                }
+                @media(max-width: 660px) {
+                    padding-left: 0;
+                    margin-bottom: 0;
+                }
+            }
+            
+
+            .mse2_number_slider {
+                width: 90%;
+                margin: 1rem auto;
+            }
+
+            .ui-slider-range.ui-corner-all.ui-widget-header {
+                height: 0.5rem;
+                background-color: $color-lightblack;
+            }
+
+            .ui-slider-handle.ui-corner-all.ui-state-default {
+                width: 15px;
+                left: 0%;
+                top: 50%;
+                height: 15px;
+                border-radius: 50%;
+                color: red;
+                background-color: red;
+                transform: translateY(-50%);
+            }
+        }
+
+        &-content--colorpicker {
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding-left: 1rem;
+
+            &.expanded {
+                padding-top: 2rem;
+            }
+
+            input {
+                display: none;
+            }
+
+            label {
+                position: relative;
+                width: 4rem;
+                height: 4rem;
+                border-radius: 50%;
+                border: 1px solid $color-grey;
+                margin-right: 1rem;
+                padding-left: 0;
+
+                sup {
+                    position: absolute;
+                    top: -6px;
+                    right: -10px;
+                }
+                
+                &.disabled {
+                    opacity: 0.5;
+                }
+            }
+
+            input:checked + label {
+                opacity: 0.6;
+            }
+        }
+
+        &-content-number-inputs {
+            @media(max-width: 660px) {
+                display: flex;
+                justify-content: space-between;
+            }
         }
     }
 
-    &-submit {
+    &__submit {
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+        padding: 1rem 1.5rem;
+        width: fit-content;
+        border: 1px solid $color-maroon;
+        background-color: transparent;
+        color: $color-maroon;
+    }
+
+    &__reset {
         font-size: 1.6rem;
         line-height: 1.6rem;
         padding: 1rem 1.5rem;

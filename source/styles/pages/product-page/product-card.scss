@@ -1,5 +1,12 @@
 $mb: 2rem;
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
 .product-card {
     &__wrapper {
         display: flex;
@@ -169,7 +176,7 @@ $mb: 2rem;
                     }
                 }
 
-                span {
+                input {
                     font-family: $font_mono;
                     display: flex;
                     align-items: center;
@@ -179,6 +186,7 @@ $mb: 2rem;
                     font-size: 1.6rem;
                     line-height: 1.6rem;
                     border: 1px dashed $color_grey;
+                    width: 3rem;
                 }
             }
 
@@ -300,7 +308,6 @@ $mb: 2rem;
                         max-width: fit-content;
                         font-size: 1.4rem;
                         line-height: 1.6rem;
-                        margin-bottom: .5rem;
                         margin-right: 2rem;
                     }
 
