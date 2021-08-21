@@ -2,6 +2,69 @@
     display: flex;
     flex-direction: column;
 
+    &__btn {
+        max-width: fit-content;
+        border: 0;
+        padding: 1rem;
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+        border: 1px solid transparent;
+        opacity: 1;
+        background-color: transparent;
+
+        transition: opacity $transition-rules, 
+                    border $transition-rules, 
+                    color $transition-rules, 
+                    background-color $transition-rules;
+
+        &--clean {
+            background-color: transparent;
+            color: $color-black;
+            border: 1px solid $color-black;
+            margin-bottom: 1.5rem;
+
+            @media(min-width: $tablet_width) {
+    
+                &:hover,
+                &:focus {
+                    color: $color_maroon;
+                    border: 1px solid $color_maroon;
+    
+                    svg {
+                        fill: $color_maroon;
+                    }
+                }
+    
+                &:active {
+                    opacity: 0.7;
+                }
+            }
+        }
+
+        &--submit {
+            background-color: $color-maroon;
+            color: $color-white;
+    
+            @media(min-width: $tablet_width) {
+    
+                &:hover,
+                &:focus {
+                    background-color: $color-white;
+                    color: $color_maroon;
+                    border: 1px solid $color_maroon;
+    
+                    svg {
+                        fill: $color_maroon;
+                    }
+                }
+    
+                &:active {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+
     &__content {
         margin-bottom: 3rem;
 
@@ -12,6 +75,10 @@
             margin-bottom: 1.5rem;
         }
 
+        &-part {
+            width: 50%;
+        }
+
         fieldset {
             border: 0;
             padding: 0;
@@ -19,11 +86,7 @@
             flex-direction: column;
             margin: 0;
             margin-bottom: 2rem;
-            width: calc(50% - 1rem);
-
-            @media(max-width: $tablet_width) {
-                width: 100%;
-            }
+            width: 100%;
         }
 
         label {
@@ -46,7 +109,7 @@
         select {
             border: 1px dashed $color_grey;
             max-width: 60%;
-            min-width: 30rem;
+            //min-width: 30rem;
             padding: 1rem;
             cursor: pointer;
         }
@@ -118,40 +181,6 @@
                 &:checked {
                     background-color: $color_maroon;
                     border: 1px solid $color_maroon;
-                }
-            }
-        }
-
-        button {
-            max-width: fit-content;
-            border: 0;
-            padding: 1rem;
-            font-size: 1.4rem;
-            line-height: 1.6rem;
-            background-color: $color-maroon;
-            color: $color-white;
-            border: 1px solid transparent;
-            opacity: 1;
-
-            @media(min-width: $tablet_width) {
-                transition: opacity $transition-rules, 
-                            border $transition-rules, 
-                            color $transition-rules, 
-                            background-color $transition-rules;
-
-                &:hover,
-                &:focus {
-                    background-color: $color-white;
-                    color: $color_maroon;
-                    border: 1px solid $color_maroon;
-
-                    svg {
-                        fill: $color_maroon;
-                    }
-                }
-
-                &:active {
-                    opacity: 0.7;
                 }
             }
         }

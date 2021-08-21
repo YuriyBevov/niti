@@ -18,6 +18,72 @@ input::-webkit-inner-spin-button {
         }
     }
 
+    &__btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        padding-left: 3rem;
+        background-color: $color_maroon;
+        color: $color-white;
+        border: 1px solid transparent;
+        font-size: 1.4rem;
+        font-weight: 400;
+        opacity: 1;
+        width: fit-content;
+        margin-top: 1.5rem;
+
+        svg {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-50%);
+            transition: fill $transition-rules;
+        }
+
+        @media(min-width: $tablet_width) {
+            transition: opacity $transition-rules, 
+                        border $transition-rules, 
+                        color $transition-rules, 
+                        background-color $transition-rules;
+
+            &:hover,
+            &:focus {
+                background-color: $color-white;
+                color: $color_maroon;
+                border: 1px solid $color_maroon;
+
+                svg {
+                    fill: $color_maroon;
+                }
+            }
+
+            &:active {
+                opacity: 0.7;
+            }
+        }
+
+    }
+
+    &__chars {
+        &-list {
+            margin-bottom: 1.5rem;
+        }
+
+        &-item {
+            display: flex;
+            align-items: center;
+
+            span {
+                font-style: italic;
+                font-size: 1.4rem !important;
+                line-height: 1.6rem !important;
+                margin-bottom: 0 !important;
+                margin-right: 0.5rem;
+            }
+        }
+    }
+
     &__content {
         position: relative;
         display: flex;
@@ -149,11 +215,14 @@ input::-webkit-inner-spin-button {
                     font-size: 1.8rem;
                     line-height: 1.8rem;
                     border: 1px solid $color_grey;
-                    background-color: transparent;
+                    
                     margin: 0 0.5rem;
                     opacity: 1;
                     border-radius: 5px;
                     padding: 0;
+
+                    //color: $color-white;    
+                    background-color: transparent;
 
                     @media(min-width: $tablet_width) {
                         transition: opacity $transition-rules, 
@@ -235,53 +304,6 @@ input::-webkit-inner-spin-button {
             input:checked {
                 background-color: $color_maroon;
                 border: 1px solid $color_maroon;
-            }
-
-            .product-card__cart-btn {
-                position: relative;
-                display: flex;
-                align-items: center;
-                padding: 1rem;
-                padding-left: 3rem;
-                background-color: $color_maroon;
-                color: $color-white;
-                border: 1px solid transparent;
-                font-size: 1.4rem;
-                font-weight: 400;
-                opacity: 1;
-                width: fit-content;
-                margin-bottom: $mb;
-
-                svg {
-                    position: absolute;
-                    top: 50%;
-                    left: 1rem;
-                    transform: translateY(-50%);
-                    transition: fill $transition-rules;
-                }
-
-                @media(min-width: $tablet_width) {
-                    transition: opacity $transition-rules, 
-                                border $transition-rules, 
-                                color $transition-rules, 
-                                background-color $transition-rules;
-
-                    &:hover,
-                    &:focus {
-                        background-color: $color-white;
-                        color: $color_maroon;
-                        border: 1px solid $color_maroon;
-
-                        svg {
-                            fill: $color_maroon;
-                        }
-                    }
-
-                    &:active {
-                        opacity: 0.7;
-                    }
-                }
-
             }
         }
 

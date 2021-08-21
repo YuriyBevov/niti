@@ -1,59 +1,61 @@
 form(action="#").form
-  .form__content  
-    fieldset
-      label(for="name") Имя*
-      input(type="text" id="name")
+  .form__content
+    .form__content-part
+      fieldset
+        label(for="name") Имя*
+        input(type="text" id="name")
 
-    fieldset
-      label(for="surname") Фамилия*
-      input(type="text" id="surname")
-    
-    fieldset
-      label(for="name") Телефон*
-      input(type="text" id="name")
+      fieldset
+        label(for="surname") Фамилия*
+        input(type="text" id="surname")
+      
+      fieldset
+        label(for="name") Телефон*
+        input(type="text" id="name")
 
-    fieldset
-      label(for="name") E-mail*
-      input(type="text" id="name")
+      fieldset
+        label(for="name") E-mail*
+        input(type="text" id="name")
 
-    fieldset
-      label(for="city") Город*
-      input(type="text" id="city")
+      fieldset
+        label(for="city") Город*
+        input(type="text" id="city")
 
-    fieldset
-      label(for="address") Адрес доставки*
-      input(type="text" id="address")
+      fieldset
+        label(for="address") Адрес доставки*
+        input(type="text" id="address")
+    .form__content-part
+      fieldset
+        label(for="file") Файл для нанесения вышивки
+        input(type="file" id="file")                       
 
-    fieldset
-      label(for="file") Файл для нанесения вышивки
-      input(type="file" id="file")                       
+      fieldset
+        label(for="delivery") Выбор доставки*
+        select(id="delivery")
+          option ТРАНСПОРТНОЙ КОМПАНИЕЙ СДЭК
+          option ПОЧТА РОССИИ
 
-    fieldset
-      label(for="delivery") Выбор доставки*
-      select(id="delivery")
-        option ТРАНСПОРТНОЙ КОМПАНИЕЙ СДЭК
-        option ПОЧТА РОССИИ
+      fieldset
+        label(for="payment-type") Выбор оплаты*
+        select(id="payment-type")
+          option НАЛИЧНЫМИ В ПУНКТЕ САМОВЫВОЗА
+          option БЕЗНАЛИЧНАЯ ОПЛАТА (ДЛЯ ЮР.ЛИЦ и ИП) 
+          option БАНКОВСКОЙ КАРТОЙ ОНЛАЙН
 
-    fieldset
-      label(for="payment-type") Выбор оплаты*
-      select(id="payment-type")
-        option НАЛИЧНЫМИ В ПУНКТЕ САМОВЫВОЗА
-        option БЕЗНАЛИЧНАЯ ОПЛАТА (ДЛЯ ЮР.ЛИЦ и ИП) 
-        option БАНКОВСКОЙ КАРТОЙ ОНЛАЙН
+      fieldset
+        label(for="requisites") Реквизиты компании при безналичной оплате
+        input(type="file" id="requisites")
 
-    fieldset
-      label(for="requisites") Реквизиты компании при безналичной оплате
-      input(type="file" id="requisites")
-
-    fieldset
-      label(for="comment") Комментарий
-      textarea(id="comment")
+      fieldset
+        label(for="comment") Комментарий
+        textarea(id="comment")
 
   .form__footer
+    button.form__btn.form__btn--clean Очистить форму
     span * - поля обязательные для заполнения
 
     .form__footer-agreement-field
       input(type="checkbox" id="agreement")
       label(for="agreement") Даю согласие на обработку персональных данных*
 
-    button(type="submit").form__submit Оформить заказ
+    button(type="submit").form__btn.form__btn--submit Оформить заказ

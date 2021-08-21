@@ -12281,6 +12281,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_searchPrevent_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_modules_searchPrevent_js__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _modules_productCount_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/productCount.js */ "./source/scripts/modules/productCount.js");
 /* harmony import */ var _modules_productCount_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_modules_productCount_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _modules_showMinicart_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/showMinicart.js */ "./source/scripts/modules/showMinicart.js");
+/* harmony import */ var _modules_showMinicart_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_modules_showMinicart_js__WEBPACK_IMPORTED_MODULE_10__);
+
 
 
 
@@ -12660,6 +12663,32 @@ if(searchBtns) {
         btn.addEventListener('click', onClickHandler) 
     });
 }
+
+/***/ }),
+
+/***/ "./source/scripts/modules/showMinicart.js":
+/*!************************************************!*\
+  !*** ./source/scripts/modules/showMinicart.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const minicartLink = document.querySelector('.js-show-minicart');
+const minicart = document.querySelector('.minicart');
+
+const onMouseOutHideMiniCart = () => {
+    minicartLink.removeEventListener('mouseout', onMouseOutHideMiniCart);
+    minicart.classList.remove('js-minicart-showed');
+    minicartLink.addEventListener('mouseover', onMouseOverShowMiniCart);
+}
+
+const onMouseOverShowMiniCart = () => {
+    minicartLink.removeEventListener('mouseover', onMouseOverShowMiniCart);
+    minicart.classList.add('js-minicart-showed');
+    minicartLink.addEventListener('mouseout', onMouseOutHideMiniCart);
+}
+
+minicartLink.addEventListener('mouseover', onMouseOverShowMiniCart);
 
 /***/ }),
 

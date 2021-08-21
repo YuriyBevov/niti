@@ -13,7 +13,8 @@
     background-color: $color-white;
     width: fit-content;
     height: fit-content;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-bottom: 1.5rem;
+    box-shadow: $box-shadow;
 
     &.js-closed {
         display: none;

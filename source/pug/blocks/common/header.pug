@@ -12,9 +12,18 @@ header.header
         .header__action-search
           include ../../components/search
 
-        a(href="cart.html" aria-label="корзина").header__action-cart
+        a(href="cart.html" aria-label="корзина").header__action-cart.js-show-minicart
           svg(width="24" height="24")
               use(xlink:href="#icon-cart")
+
+        .minicart
+          .minicart__info.empty
+            span Корзина пока пуста...
+            
+          .minicart__info.not_empty
+            span Всего товаров:&nbsp;<span> 123 </span>&nbsp;,
+            span На сумму:&nbsp;<span> 111160000 </span>&nbsp;руб.
+
         include ../common/social
         .header__action-burger
           include ../../components/burger.pug
