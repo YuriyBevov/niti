@@ -2,6 +2,49 @@
     display: flex;
     flex-direction: column;
 
+    .payments,
+    .deliveries {
+        span {
+            font-size: 1.4rem;
+            line-height: 1.6rem;
+            margin-bottom: 1rem;
+            color: $color-maroon;
+
+        }
+
+        &__item {
+
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            // padding-left: 1rem;
+            margin-bottom: 1rem;
+
+            img {
+                width: 3rem;
+                height: 3rem;
+                margin-right: 1rem;
+                border-radius: 0.5rem;
+            }
+
+            label {
+                margin-right: 1rem;
+                font-size: 1.6rem;
+                line-height: 1.6rem;
+                cursor: pointer;
+            }
+        }
+
+        &__desc {
+            width: 100%;
+            font-size: 1.4rem;
+            line-height: 1.6rem;
+            padding-top: 0.5rem;
+            
+            font-style: italic;
+        }
+    }
+
     &__btn {
         max-width: fit-content;
         border: 0;
@@ -44,11 +87,15 @@
         &--submit {
             background-color: $color-maroon;
             color: $color-white;
+
+            &:disabled {
+                opacity: 0.5;
+            }
     
             @media(min-width: $tablet_width) {
     
-                &:hover,
-                &:focus {
+                &:hover:not(:disabled),
+                &:focus:not(:disabled) {
                     background-color: $color-white;
                     color: $color_maroon;
                     border: 1px solid $color_maroon;
@@ -58,7 +105,7 @@
                     }
                 }
     
-                &:active {
+                &:active:not(:disabled) {
                     opacity: 0.7;
                 }
             }

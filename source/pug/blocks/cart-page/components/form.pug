@@ -24,23 +24,28 @@ form(action="#").form
       fieldset
         label(for="address") Адрес доставки*
         input(type="text" id="address")
+
     .form__content-part
       fieldset
         label(for="file") Файл для нанесения вышивки
         input(type="file" id="file")                       
 
-      fieldset
-        label(for="delivery") Выбор доставки*
-        select(id="delivery")
-          option ТРАНСПОРТНОЙ КОМПАНИЕЙ СДЭК
-          option ПОЧТА РОССИИ
+      fieldset.payments
+        span Способы оплаты:
 
-      fieldset
-        label(for="payment-type") Выбор оплаты*
-        select(id="payment-type")
-          option НАЛИЧНЫМИ В ПУНКТЕ САМОВЫВОЗА
-          option БЕЗНАЛИЧНАЯ ОПЛАТА (ДЛЯ ЮР.ЛИЦ и ИП) 
-          option БАНКОВСКОЙ КАРТОЙ ОНЛАЙН
+        ul.payments__list
+          li.payments__item
+            
+            img(src="assets/img/about_img@1x.jpg")
+            label(for="payment") оплата картой курьеру
+            input(type="radio" name="payment")
+            p.payments__desc Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolore unde iste vel quaerat quae facilis impedit, ut voluptatum consequatur doloremque nesciunt! Ipsam, quae nisi soluta voluptate deleniti itaque consequatur.
+
+          li.payments__item
+            input(type="radio" name="payment")
+            img(src="assets/img/about_img@1x.jpg")
+            label(for="payment") оплата картой курьеру
+            p.payments__desc Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolore unde iste vel quaerat quae facilis impedit, ut voluptatum consequatur doloremque nesciunt! Ipsam, quae nisi soluta voluptate deleniti itaque consequatur.
 
       fieldset
         label(for="requisites") Реквизиты компании при безналичной оплате
@@ -58,4 +63,4 @@ form(action="#").form
       input(type="checkbox" id="agreement")
       label(for="agreement") Даю согласие на обработку персональных данных*
 
-    button(type="submit").form__btn.form__btn--submit Оформить заказ
+    button(type="submit" disabled).form__btn.form__btn--submit.js-form-disable Оформить заказ

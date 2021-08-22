@@ -12283,6 +12283,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_productCount_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_modules_productCount_js__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _modules_showMinicart_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/showMinicart.js */ "./source/scripts/modules/showMinicart.js");
 /* harmony import */ var _modules_showMinicart_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_modules_showMinicart_js__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _modules_acceptRulesBtn__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/acceptRulesBtn */ "./source/scripts/modules/acceptRulesBtn.js");
+/* harmony import */ var _modules_acceptRulesBtn__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_modules_acceptRulesBtn__WEBPACK_IMPORTED_MODULE_11__);
 
 
 
@@ -12296,6 +12298,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+/***/ }),
+
+/***/ "./source/scripts/modules/acceptRulesBtn.js":
+/*!**************************************************!*\
+  !*** ./source/scripts/modules/acceptRulesBtn.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const btn = document.querySelector('.js-form-disable');
+const agreement = document.querySelector('#agreement');
+
+const onClickTurnOnBtn = (evt) => {
+    evt.target.checked ?
+    btn.removeAttribute('disabled') :
+    btn.setAttribute('disabled', true)
+}
+
+agreement ?
+agreement.addEventListener('change', onClickTurnOnBtn) : null
 
 /***/ }),
 
