@@ -224,39 +224,40 @@
             <div class="cart__info-header"><span class="cart__info-header-title">Итоговая стоимость:</span><span class="cart__info-header-total">800000 р.</span></div>
             <div class="cart__info-footer"> 
               <p class="cart__info-footer-text">Укажите свои контактные данные, желаемый вид доставки, и наш специалист свяжется с вами в самое ближайшее время.</p>
-              <form class="form" action="#">
+              <form class="form" action="#" id="msOrder">
                 <div class="form__content">
                   <div class="form__content-part">
                     <fieldset>
                       <label for="name">Имя*</label>
-                      <input type="text" id="name">
+                      <input type="text" id="name" data-val="required">
                     </fieldset>
                     <fieldset>
                       <label for="surname">Фамилия*</label>
-                      <input type="text" id="surname">
+                      <input type="text" id="surname" data-val="required">
                     </fieldset>
                     <fieldset>
                       <label for="name">Телефон*</label>
-                      <input type="text" id="name">
+                      <input type="text" id="name" data-val="required">
                     </fieldset>
                     <fieldset>
                       <label for="name">E-mail*</label>
-                      <input type="text" id="name">
+                      <input type="text" id="name" data-val="required">
                     </fieldset>
                     <fieldset>
                       <label for="city">Город*</label>
-                      <input type="text" id="city">
+                      <input type="text" id="city" data-val="required">
                     </fieldset>
                     <fieldset>
                       <label for="address">Адрес доставки*</label>
-                      <input type="text" id="address">
+                      <input type="text" id="address" data-val="required">
                     </fieldset>
                   </div>
                   <div class="form__content-part">
-                    <fieldset>
-                      <label for="file">Файл для нанесения вышивки</label>
-                      <input type="file" id="file">
-                    </fieldset>
+                    <!-- fieldset
+                    label(for="file") Файл для нанесения вышивки
+                    input(type="file" id="file")                       
+                    
+                    -->
                     <fieldset class="payments"><span>Способы оплаты:</span>
                       <ul class="payments__list">
                         <li class="payments__item"><img src="assets/img/about_img@1x.jpg">
@@ -271,10 +272,11 @@
                         </li>
                       </ul>
                     </fieldset>
-                    <fieldset>
-                      <label for="requisites">Реквизиты компании при безналичной оплате</label>
-                      <input type="file" id="requisites">
-                    </fieldset>
+                    <!-- fieldset
+                    label(for="requisites") Реквизиты компании при безналичной оплате
+                    input(type="file" id="requisites")
+                    
+                    -->
                     <fieldset>
                       <label for="comment">Комментарий</label>
                       <textarea id="comment"></textarea>
@@ -287,7 +289,7 @@
                     <input type="checkbox" id="agreement">
                     <label for="agreement">Даю согласие на обработку персональных данных*</label>
                   </div>
-                  <button class="form__btn form__btn--submit js-form-disable" type="submit" disabled="">Оформить заказ</button>
+                  <button class="form__btn form__btn--submit js-form-submit" type="submit" disabled="">Оформить заказ</button>
                 </div>
               </form>
             </div>

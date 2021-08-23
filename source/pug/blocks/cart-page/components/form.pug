@@ -1,32 +1,32 @@
-form(action="#").form
+form(action="#").form#msOrder
   .form__content
     .form__content-part
       fieldset
         label(for="name") Имя*
-        input(type="text" id="name")
+        input(type="text" id="name" data-val="required")
 
       fieldset
         label(for="surname") Фамилия*
-        input(type="text" id="surname")
+        input(type="text" id="surname" data-val="required")
       
       fieldset
         label(for="name") Телефон*
-        input(type="text" id="name")
+        input(type="text" id="name" data-val="required")
 
       fieldset
         label(for="name") E-mail*
-        input(type="text" id="name")
+        input(type="text" id="name" data-val="required")
 
       fieldset
         label(for="city") Город*
-        input(type="text" id="city")
+        input(type="text" id="city" data-val="required")
 
       fieldset
         label(for="address") Адрес доставки*
-        input(type="text" id="address")
+        input(type="text" id="address" data-val="required")
 
     .form__content-part
-      fieldset
+      // fieldset
         label(for="file") Файл для нанесения вышивки
         input(type="file" id="file")                       
 
@@ -47,7 +47,7 @@ form(action="#").form
             label(for="payment") оплата картой курьеру
             p.payments__desc Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolore unde iste vel quaerat quae facilis impedit, ut voluptatum consequatur doloremque nesciunt! Ipsam, quae nisi soluta voluptate deleniti itaque consequatur.
 
-      fieldset
+      // fieldset
         label(for="requisites") Реквизиты компании при безналичной оплате
         input(type="file" id="requisites")
 
@@ -63,4 +63,4 @@ form(action="#").form
       input(type="checkbox" id="agreement")
       label(for="agreement") Даю согласие на обработку персональных данных*
 
-    button(type="submit" disabled).form__btn.form__btn--submit.js-form-disable Оформить заказ
+    button(type="submit" disabled).form__btn.form__btn--submit.js-form-submit Оформить заказ

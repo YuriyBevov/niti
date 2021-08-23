@@ -12285,6 +12285,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_showMinicart_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_modules_showMinicart_js__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var _modules_acceptRulesBtn__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/acceptRulesBtn */ "./source/scripts/modules/acceptRulesBtn.js");
 /* harmony import */ var _modules_acceptRulesBtn__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_modules_acceptRulesBtn__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _modules_formValidation__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/formValidation */ "./source/scripts/modules/formValidation.js");
+/* harmony import */ var _modules_formValidation__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_modules_formValidation__WEBPACK_IMPORTED_MODULE_12__);
+
+
 
 
 
@@ -12309,7 +12313,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-const btn = document.querySelector('.js-form-disable');
+const btn = document.querySelector('.js-form-submit');
 const agreement = document.querySelector('#agreement');
 
 const onClickTurnOnBtn = (evt) => {
@@ -12462,6 +12466,35 @@ const onClickExpandItem = (evt) => {
 }
 
 btns.forEach(btn => btn.addEventListener('click', onClickExpandItem))
+
+/***/ }),
+
+/***/ "./source/scripts/modules/formValidation.js":
+/*!**************************************************!*\
+  !*** ./source/scripts/modules/formValidation.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const fields = document.querySelectorAll('[data-val="required"]')
+const btn = document.querySelector('.js-form-submit');
+const form = document.querySelector('#msOrder');
+
+const onClickCheckValidity = (evt) => {
+    evt.preventDefault()
+    let isValid = []
+    fields.forEach(field => {
+        if(!field.value) {
+            isValid.push('false')
+        }
+    })
+
+    isValid.length ?
+    console.log('not valid') : 
+    form.submit();
+}
+
+btn.addEventListener('click', onClickCheckValidity)
 
 /***/ }),
 

@@ -1,4 +1,4 @@
-const btn = document.querySelector('.js-form-disable');
+const btn = document.querySelector('.js-form-submit');
 const agreement = document.querySelector('#agreement');
 
 const onClickTurnOnBtn = (evt) => {

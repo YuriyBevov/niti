@@ -12,3 +12,5 @@ import searchPrevent from './modules/searchPrevent.js'
 import productCount from './modules/productCount.js'
 import showMinicart from './modules/showMinicart.js'
 import acceptRulesBtn from './modules/acceptRulesBtn'
+
+import formValidation from './modules/formValidation'
