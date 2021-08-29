@@ -43,7 +43,6 @@
         @media (max-width: 660px ) {
             font-size: 1.6rem;
             line-height: 1.8rem;
-            color: $color-maroon;
             text-align: center;
         }
     }
@@ -60,7 +59,7 @@
             }
 
             .sidebar__categories-item {
-                padding-left: 2rem;
+                width: 100%;
 
                 a {
                     display: flex;   
@@ -80,6 +79,8 @@
 
                     @media (max-width: 660px ) {
                         text-align: center;
+                        display: flex;
+                        flex-direction: column;
                     }
 
                     transition: color $transition-rules;
@@ -109,17 +110,21 @@
             
                     }
                 }
+
+                & > ul {
+                    margin-bottom: 2rem;
+
+                    & > li {
+                        padding-left: 2rem;
+
+                        @media (max-width: 660px ) {
+                            padding: 0 2rem;
+                        }
+                    }
+                }
             }
         }
     }
-
-    /* &__filter-btn { // если будет кнопка внизу
-        display: flex;
-
-        @media(max-width: 660px) {
-            margin: 0 auto;
-        }
-    } */
 
     .sidebar__categories,
     .filter__item-content {

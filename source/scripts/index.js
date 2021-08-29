@@ -13,4 +13,4 @@ import productCount from './modules/productCount.js'
 import showMinicart from './modules/showMinicart.js'
 import acceptRulesBtn from './modules/acceptRulesBtn'
 
-import formValidation from './modules/formValidation'
+// import formValidation from './modules/formValidation'
