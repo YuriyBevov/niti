@@ -64,8 +64,6 @@ if(pSlider) {
       direction: "horizontal",
 
       breakpoints: {
-
-
         768: {
           direction: "vertical",
           spaceBetween: 0,
@@ -83,6 +81,7 @@ if(pSlider) {
     });
 
     let swiperThumbs = new Swiper(".product-card-slider", {
+      zoom: true,
       loop: true,
       spaceBetween: 10,
 

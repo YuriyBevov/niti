@@ -42,7 +42,8 @@ section.product-card
         .swiper-wrapper
           each img in imgList
             .swiper-slide
-              img(src=img.imgUrl, alt="товар")
+              .swiper-zoom-container
+                img(src=img.imgUrl, alt="товар")
       .product-card-swiper-container.product-card-slider-thumbs(thumbsSlider="")
         .swiper-wrapper
           each img in imgList

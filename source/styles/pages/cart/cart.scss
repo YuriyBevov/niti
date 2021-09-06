@@ -156,6 +156,10 @@
                     font-size: 1.8rem;
                     line-height: 2rem;
                 }
+
+                @media(max-width: $mobile_lg_width) {
+                    width: 100%;
+                }
             }
     
             &-total {
@@ -167,6 +171,10 @@
                 @media(max-width: $tablet_width) {
                     font-size: 1.8rem;
                     line-height: 2rem;
+                }
+
+                @media(max-width: $mobile_lg_width) {
+                    width: 100%;
                 }
             }
         }

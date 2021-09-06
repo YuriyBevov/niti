@@ -130,7 +130,7 @@
             position: relative;
             display: flex;
             align-items: center;
-            width: 100%;
+            flex-grow: 1;
             margin-left: auto;
 
             @media(max-width: $tablet-width) {
@@ -161,10 +161,12 @@
                 transition: fill $transition-rules;
             }
 
-            &:hover,
-            &:focus {
-                svg {
-                    fill: $color-maroon;
+            @media(min-width: $tablet-width) {
+                &:hover,
+                &:focus {
+                    svg {
+                        fill: $color-maroon;
+                    }
                 }
             }
         }
