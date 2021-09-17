@@ -12,7 +12,7 @@ input::-webkit-inner-spin-button {
         display: flex;
         padding: 3rem;
 
-        @media(max-width: 660px) {
+        @media(max-width: 960px) {
             flex-direction: column;
             padding: 1.5rem 1rem;
         }
@@ -65,51 +65,29 @@ input::-webkit-inner-spin-button {
 
     }
 
-    &__chars {
-        &-list {
-            margin-bottom: 1.5rem;
+    &__preview{
+        display: flex;
+        width: 58rem;
+        margin-right: 2rem;
+
+        @media(max-width: 960px) {
+            margin-bottom: 3rem;
         }
 
-        &-item {
-            display: flex;
-            align-items: center;
-
-            span {
-                font-style: italic;
-                font-size: 1.4rem !important;
-                line-height: 1.6rem !important;
-                margin-bottom: 0 !important;
-                margin-right: 0.5rem;
-            }
-        }
     }
 
     &__content {
+        width: calc(100% - 60rem);
+
         position: relative;
         display: flex;
         flex-direction: column;
         margin: auto 0;
-        width: 60%;
-        margin-left: auto; 
         padding: 2.5rem;
 
-        @media(max-width: $tablet_lg_width) {
-            width: 50%;
-        }
-
         @media(max-width: 960px) {
-            width: 40%;
-        }
-
-        @media(max-width: $tablet_width) {
-            width: 50%;
-            padding: 1.5rem;
-        }
-
-        @media(max-width: 660px) {
             width: 100%;
-            padding: 0;
-        } 
+        }
 
         &-header {
             margin-bottom: $mb;
@@ -134,11 +112,10 @@ input::-webkit-inner-spin-button {
                 right: 0;
                 font-weight: 400;
                 font-size: 1.4rem;
-                margin-left: auto;
                 padding-bottom: 0.5rem;
                 border-bottom: 1px dashed $color-maroon;
 
-                @media(max-width: 960px) {
+                @media(max-width: $tablet_lg_width) {
                     display: block;
                     position: relative;
                     top: 0;
@@ -310,13 +287,13 @@ input::-webkit-inner-spin-button {
         &-footer {
             .product-card__characters {
                 width: fit-content;
-
+    
                 li {
                     display: flex;
                     align-items: center;
                     width: 100%;
                     margin-bottom: 1rem;
-
+    
                     select {
                         font-size: 1.6rem;
                         padding: 0.5rem;
@@ -324,7 +301,7 @@ input::-webkit-inner-spin-button {
                         border-radius: 5px;
                         cursor: pointer;
                     }
-
+    
                     p {
                         display: flex;
                         max-width: fit-content;
@@ -332,7 +309,7 @@ input::-webkit-inner-spin-button {
                         line-height: 1.6rem;
                         margin-right: 2rem;
                     }
-
+    
                     .product-card__item--colorpicker {
                         position: relative;
                     }
@@ -342,35 +319,35 @@ input::-webkit-inner-spin-button {
                         font-size: 1.4rem;
                         margin-left: 1rem;
                         background-color: transparent;
-
+    
                         border: 1px dashed $color-maroon;
                         border-radius: 5px;
                     }
-
+    
                     .product-card__item-desc {
                         flex-direction: column;
                         justify-content: center;
                         align-items: flex-start;
                         font-weight: 400;
-
+    
                         &--row {
                             flex-direction: row;
                             justify-content: flex-start;
                         }
-
+    
                         .product-card__item-size {
                             margin-right: 0.5rem;
-
+    
                             &--missing {
                                 opacity: 0.4;
                             }
                         }
-
+    
                         .product-card__item-color {
                             display: block;
                             position: relative;
                             padding-left: 2rem;
-
+    
                             &::before {
                                 position: absolute;
                                 left: 0;
@@ -390,29 +367,6 @@ input::-webkit-inner-spin-button {
         }
     }
 
-    &__preview{
-        display: flex;
-        width: calc(40% - 2rem);
-
-        @media(max-width: $tablet_lg_width) {
-            width: calc(50% - 1rem);
-        }
-
-        @media(max-width: 960px) {
-            width: calc(60% - 1rem);
-        }
-
-        @media(max-width: $tablet_width) {
-            width: calc(50% - 1rem);
-            flex-direction: column;
-        }
-
-        @media(max-width: 660px) {
-            width: 100%;
-            margin-bottom: 1.5rem;
-        }
-    }
-
     &-swiper-container {
         height: 100%;
         max-height: 60rem;
@@ -426,51 +380,36 @@ input::-webkit-inner-spin-button {
                 object-fit: cover;
             }
         }
-
-        @media(max-width: $tablet_width) {
-            &:first-child {
-                height: 80%;
-
-                @media(max-width: 660px) {
-                    height: 40rem;
-                }
-            }
-            &:last-child {
-                height: 20%;
-
-                @media(max-width: 660px) {
-                    height: 10rem;
-                }
-            }
-        }
     }
 
     &-swiper-container:first-child {
         order: 2;
-        width: calc(70% - 1rem);
-        margin-left: auto;
+        width: 40rem;
+        height: 60rem;
 
-        @media(max-width: $tablet_width) {
-            order: 1;
-            width: 100%;
-            margin-bottom: 1rem;
+        @media(max-width: 600px) {
+            width: 20rem;
+            height: 30rem;
         }
     }
 
     &-swiper-container:last-child {
         order: 1;
-        width: 30%;
-
-        @media(max-width: $tablet_width) {
-            order: 2;
-            width: 100%;
-        }
+        width: 18rem;
+        height: 60rem;
 
         .swiper-slide {
             padding: 0.5rem;
+            height: 27rem;
+        }
 
-            @media(max-width: $tablet_width) {
-                padding: 0;
+        @media(max-width: 600px) {
+            width: 9rem;
+            height: 30rem;
+
+            .swiper-slide {
+                padding: 0.5rem;
+                height: 13.5rem;
             }
         }
     }

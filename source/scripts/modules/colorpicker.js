@@ -1,7 +1,6 @@
 const colorpickerSelect = document.querySelector('#colorpicker');
+
 if(colorpickerSelect) {
-
-
     const options = document.querySelectorAll('#colorpicker option');
     const colorpicker = document.querySelector('.colorpicker');
     const colorsContainer = document.querySelector('.colorpicker__wrapper');
@@ -46,6 +45,7 @@ if(colorpickerSelect) {
         colorpickerItems.forEach(item => {
             item.addEventListener('click', onClickSetColor);
         })
+
     }
 
     const colorpickerOpener = document.querySelector('.js-colorpicker-opener');

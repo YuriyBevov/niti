@@ -57,24 +57,21 @@ const pSlider = document.querySelector('.product-card-swiper-container');
 
 if(pSlider) {
     let swiper = new Swiper(".product-card-slider-thumbs", {
-      slidesPerView: 2,
+      slidesPerView: "auto",
       watchSlidesVisibility: true,
       watchSlidesProgress: true,
       spaceBetween: 10,
-      direction: "horizontal",
+      direction: "vertical",
 
       breakpoints: {
         768: {
           direction: "vertical",
           spaceBetween: 0,
-          slidesPerView: 4,
         },
 
         534: {
-          slidesPerView: 3,
           spaceBetween: 10,
-          direction: "horizontal",
-          direction: "horizontal",
+          direction: "vertical",
         },
       }
       

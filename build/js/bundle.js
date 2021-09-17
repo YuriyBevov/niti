@@ -12388,9 +12388,8 @@ aos__WEBPACK_IMPORTED_MODULE_0___default.a.init({
 /***/ (function(module, exports) {
 
 const colorpickerSelect = document.querySelector('#colorpicker');
+
 if(colorpickerSelect) {
-
-
     const options = document.querySelectorAll('#colorpicker option');
     const colorpicker = document.querySelector('.colorpicker');
     const colorsContainer = document.querySelector('.colorpicker__wrapper');
@@ -12435,6 +12434,7 @@ if(colorpickerSelect) {
         colorpickerItems.forEach(item => {
             item.addEventListener('click', onClickSetColor);
         })
+
     }
 
     const colorpickerOpener = document.querySelector('.js-colorpicker-opener');
@@ -12787,24 +12787,21 @@ const pSlider = document.querySelector('.product-card-swiper-container');
 
 if(pSlider) {
     let swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".product-card-slider-thumbs", {
-      slidesPerView: 2,
+      slidesPerView: "auto",
       watchSlidesVisibility: true,
       watchSlidesProgress: true,
       spaceBetween: 10,
-      direction: "horizontal",
+      direction: "vertical",
 
       breakpoints: {
         768: {
           direction: "vertical",
           spaceBetween: 0,
-          slidesPerView: 4,
         },
 
         534: {
-          slidesPerView: 3,
           spaceBetween: 10,
-          direction: "horizontal",
-          direction: "horizontal",
+          direction: "vertical",
         },
       }
       
