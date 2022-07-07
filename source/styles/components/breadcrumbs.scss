@@ -1,0 +1,44 @@
+.breadcrumbs {
+    padding: 1.6rem;
+    background-color: #cccccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media(max-width: $tablet_width) {
+        padding: 0.8rem;
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        border-bottom: 1px solid $color-gray-300;
+
+        a,span {
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        a {
+            color: $color-gray-500;
+        }
+
+        span {
+            color: $color-maroon;
+        }
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 36px;
+
+        text-transform: uppercase;
+
+        color: $color-gray-700;
+
+        @media(max-width: $tablet_width) {
+            font-size: 2rem;
+        }
+    }
+}

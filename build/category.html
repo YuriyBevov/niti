@@ -15,10 +15,12 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <title></title>
-    <link rel="stylesheet preload prefetch" href="./fonts/Inter-Regular.woff" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="stylesheet preload prefetch" href="./fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <!--link(rel="preload" href="./fonts/Montserrat-Regular.woff2" as="font" type="font/woff2")-->
     <link rel="icon" href="./assets/img/favicon.svg" type="image/svg + xml">
     <link rel="stylesheet" href="./css/styles.min.css">
+    <!--link(rel="stylesheet" src="https://cdn.jsdelivr.net/gh/cotton123236/zoomist@latest/dist/zoomist.min.css")-->
+    <!--script(src="https://cdn.jsdelivr.net/gh/cotton123236/zoomist@latest/dist/zoomist.min.js") */-->
+    <script src="./js/vendors/zoomist.js"></script>
   </head>
   <body class="cmn">
     <!-- include ../components/loader.pug-->
@@ -33,16 +35,11 @@
 <path d="M19.25 21H21.5833V30.3333H19.25V21Z" fill="black"></path>
 <path d="M25.0833 21H27.4166V30.3333H25.0833V21Z" fill="black"></path>
 <path d="M33.3726 11.0833L27.567 0H24.933L30.7385 11.0833H4.26147L10.067 0H7.43298L1.62743 11.0833H0V19.2112L3.12492 35H31.8731L35 19.3655V11.0833H33.3726ZM32.6667 19.1345L29.9602 32.6667H5.04175L2.33333 18.9825V18.6667H32.6667V19.1345ZM32.6667 16.3333H2.33333V13.4167H32.6667V16.3333Z" fill="black"></path>
-</symbol><symbol id="icon-cart" viewBox="0 0 512 512">
-  <g>
-    <g>
-      <path d="m485.7,198.5c-10.7-13.4-25.3-20.8-41.1-20.8h-36.1c-3.4-92.6-70.5-166.7-152.5-166.7-82,0-149.1,74.1-152.5,166.7h-36.1c-15.8,0-30.4,7.4-41.1,20.8-13.5,16.8-18.4,40.2-13.3,62.7l43.3,190.8c6.5,28.8 28.9,49 54.4,49h290.5c25.5,0 47.9-20.1 54.4-49l43.4-190.8c5.1-22.5 0.2-45.9-13.3-62.7zm-229.7-146.7c59.6-1.42109e-14 108.4,55.8 111.6,125.9h-223.2c3.2-70 52-125.9 111.6-125.9zm203.2,200.3l-43.3,190.9c-2.2,9.8-8.5,17.2-14.6,17.2h-290.6c-6.1,0-12.4-7.4-14.6-17.2l-43.3-190.9c-2.3-10.1-3.7-33.6 14.6-33.6h377.2c19.7,0 16.9,23.5 14.6,33.6z"></path>
-      <path d="m154.7,259.1c-11.3,0-20.4,9.1-20.4,20.4v127.5c0,11.3 9.1,20.4 20.4,20.4 11.3,0 20.4-9.1 20.4-20.4v-127.5c0.1-11.2-9.1-20.4-20.4-20.4z"></path>
-      <path d="m253.6,259.1c-11.3,0-20.4,9.1-20.4,20.4v127.5c0,11.3 9.1,20.4 20.4,20.4 11.3,0 20.4-9.1 20.4-20.4v-127.5c0-11.2-9.2-20.4-20.4-20.4z"></path>
-      <path d="m352.4,259.1c-11.3,0-20.4,9.1-20.4,20.4v127.5c0,11.3 9.1,20.4 20.4,20.4 11.3,0 20.4-9.1 20.4-20.4v-127.5c5.68434e-14-11.2-9.1-20.4-20.4-20.4z"></path>
-    </g>
-  </g>
-</symbol><symbol id="icon-cart2" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></symbol><symbol id="icon-close" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></symbol><symbol id="icon-expand" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></symbol><symbol id="icon-insta" viewBox="0 0 256 256" preserveAspectRatio="xMidYMid">
+</symbol><symbol id="icon-cart" viewBox="0 0 22 19">
+<path d="M4.30543 10.0541C4.30433 10.0484 4.30334 10.0426 4.30244 10.0369L3.04422 2.79243C2.91991 2.07668 2.27457 1.55208 1.51841 1.55208H1.20312C0.91835 1.55208 0.6875 1.33056 0.6875 1.05729C0.6875 0.784026 0.91835 0.5625 1.20312 0.5625H1.51841C2.74746 0.5625 3.80082 1.39404 4.04443 2.54167H20.7966C21.1391 2.54167 21.3865 2.85631 21.2923 3.17239L19.2299 10.0995C19.1666 10.3119 18.9643 10.4583 18.7341 10.4583H5.4211L5.54942 11.1972C5.67373 11.9129 6.31907 12.4375 7.07523 12.4375H18.7341C19.0189 12.4375 19.2497 12.659 19.2497 12.9323C19.2497 13.2056 19.0189 13.4271 18.7341 13.4271H7.07523C5.81496 13.4271 4.73941 12.5528 4.53222 11.3598L4.30543 10.0541V10.0541ZM4.218 3.53125L5.24923 9.46875H18.3452L20.113 3.53125H4.218ZM6.87491 18.375C5.73584 18.375 4.81244 17.4889 4.81244 16.3958C4.81244 15.3028 5.73584 14.4167 6.87491 14.4167C8.01398 14.4167 8.93737 15.3028 8.93737 16.3958C8.93737 17.4889 8.01398 18.375 6.87491 18.375ZM6.87491 17.3854C7.44444 17.3854 7.90614 16.9424 7.90614 16.3958C7.90614 15.8493 7.44444 15.4062 6.87491 15.4062C6.30537 15.4062 5.84367 15.8493 5.84367 16.3958C5.84367 16.9424 6.30537 17.3854 6.87491 17.3854ZM16.156 18.375C15.0169 18.375 14.0935 17.4889 14.0935 16.3958C14.0935 15.3028 15.0169 14.4167 16.156 14.4167C17.2951 14.4167 18.2185 15.3028 18.2185 16.3958C18.2185 17.4889 17.2951 18.375 16.156 18.375ZM16.156 17.3854C16.7255 17.3854 17.1872 16.9424 17.1872 16.3958C17.1872 15.8493 16.7255 15.4062 16.156 15.4062C15.5865 15.4062 15.1248 15.8493 15.1248 16.3958C15.1248 16.9424 15.5865 17.3854 16.156 17.3854Z" fill="white"></path>
+</symbol><symbol id="icon-cart2" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></symbol><symbol id="icon-close" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></symbol><symbol id="icon-contacts-map" viewBox="0 0 48 48">
+<path d="M24 4C16.26 4 10 10.26 10 18C10 28.5 24 44 24 44C24 44 38 28.5 38 18C38 10.26 31.74 4 24 4ZM24 23C21.24 23 19 20.76 19 18C19 15.24 21.24 13 24 13C26.76 13 29 15.24 29 18C29 20.76 26.76 23 24 23Z" fill="#9C150C"></path>
+</symbol><symbol id="icon-expand" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></symbol><symbol id="icon-insta" viewBox="0 0 256 256" preserveAspectRatio="xMidYMid">
     <g>
         <path d="M127.999746,23.06353 C162.177385,23.06353 166.225393,23.1936027 179.722476,23.8094161 C192.20235,24.3789926 198.979853,26.4642218 203.490736,28.2166477 C209.464938,30.5386501 213.729395,33.3128586 218.208268,37.7917319 C222.687141,42.2706052 225.46135,46.5350617 227.782844,52.5092638 C229.535778,57.0201472 231.621007,63.7976504 232.190584,76.277016 C232.806397,89.7746075 232.93647,93.8226147 232.93647,128.000254 C232.93647,162.177893 232.806397,166.225901 232.190584,179.722984 C231.621007,192.202858 229.535778,198.980361 227.782844,203.491244 C225.46135,209.465446 222.687141,213.729903 218.208268,218.208776 C213.729395,222.687649 209.464938,225.461858 203.490736,227.783352 C198.979853,229.536286 192.20235,231.621516 179.722476,232.191092 C166.227425,232.806905 162.179418,232.936978 127.999746,232.936978 C93.8200742,232.936978 89.772067,232.806905 76.277016,232.191092 C63.7971424,231.621516 57.0196391,229.536286 52.5092638,227.783352 C46.5345536,225.461858 42.2700971,222.687649 37.7912238,218.208776 C33.3123505,213.729903 30.538142,209.465446 28.2166477,203.491244 C26.4637138,198.980361 24.3784845,192.202858 23.808908,179.723492 C23.1930946,166.225901 23.0630219,162.177893 23.0630219,128.000254 C23.0630219,93.8226147 23.1930946,89.7746075 23.808908,76.2775241 C24.3784845,63.7976504 26.4637138,57.0201472 28.2166477,52.5092638 C30.538142,46.5350617 33.3123505,42.2706052 37.7912238,37.7917319 C42.2700971,33.3128586 46.5345536,30.5386501 52.5092638,28.2166477 C57.0196391,26.4642218 63.7971424,24.3789926 76.2765079,23.8094161 C89.7740994,23.1936027 93.8221066,23.06353 127.999746,23.06353 M127.999746,0 C93.2367791,0 88.8783247,0.147348072 75.2257637,0.770274749 C61.601148,1.39218523 52.2968794,3.55566141 44.1546281,6.72008828 C35.7374966,9.99121548 28.5992446,14.3679613 21.4833489,21.483857 C14.3674532,28.5997527 9.99070739,35.7380046 6.71958019,44.1551362 C3.55515331,52.2973875 1.39167714,61.6016561 0.769766653,75.2262718 C0.146839975,88.8783247 0,93.2372872 0,128.000254 C0,162.763221 0.146839975,167.122183 0.769766653,180.774236 C1.39167714,194.398852 3.55515331,203.703121 6.71958019,211.845372 C9.99070739,220.261995 14.3674532,227.400755 21.4833489,234.516651 C28.5992446,241.632547 35.7374966,246.009293 44.1546281,249.28042 C52.2968794,252.444847 61.601148,254.608323 75.2257637,255.230233 C88.8783247,255.85316 93.2367791,256 127.999746,256 C162.762713,256 167.121675,255.85316 180.773728,255.230233 C194.398344,254.608323 203.702613,252.444847 211.844864,249.28042 C220.261995,246.009293 227.400247,241.632547 234.516143,234.516651 C241.632039,227.400755 246.008785,220.262503 249.279912,211.845372 C252.444339,203.703121 254.607815,194.398852 255.229725,180.774236 C255.852652,167.122183 256,162.763221 256,128.000254 C256,93.2372872 255.852652,88.8783247 255.229725,75.2262718 C254.607815,61.6016561 252.444339,52.2973875 249.279912,44.1551362 C246.008785,35.7380046 241.632039,28.5997527 234.516143,21.483857 C227.400247,14.3679613 220.261995,9.99121548 211.844864,6.72008828 C203.702613,3.55566141 194.398344,1.39218523 180.773728,0.770274749 C167.121675,0.147348072 162.762713,0 127.999746,0 Z M127.999746,62.2703115 C91.698262,62.2703115 62.2698034,91.69877 62.2698034,128.000254 C62.2698034,164.301738 91.698262,193.730197 127.999746,193.730197 C164.30123,193.730197 193.729689,164.301738 193.729689,128.000254 C193.729689,91.69877 164.30123,62.2703115 127.999746,62.2703115 Z M127.999746,170.667175 C104.435741,170.667175 85.3328252,151.564259 85.3328252,128.000254 C85.3328252,104.436249 104.435741,85.3333333 127.999746,85.3333333 C151.563751,85.3333333 170.666667,104.436249 170.666667,128.000254 C170.666667,151.564259 151.563751,170.667175 127.999746,170.667175 Z M211.686338,59.6734287 C211.686338,68.1566129 204.809755,75.0337031 196.326571,75.0337031 C187.843387,75.0337031 180.966297,68.1566129 180.966297,59.6734287 C180.966297,51.1902445 187.843387,44.3136624 196.326571,44.3136624 C204.809755,44.3136624 211.686338,51.1902445 211.686338,59.6734287 Z"></path>
     </g>
@@ -56,11 +53,19 @@
 <path d="M42.4682 59.4898C41.4879 59.1486 40.7297 58.6968 40.1935 58.1368L40.7911 56.9673C41.3131 57.4873 42.0052 57.9062 42.8697 58.2286C43.7343 58.5509 44.6248 58.7109 45.546 58.7109C46.8357 58.7109 47.8018 58.4756 48.449 58.0027C49.0962 57.5297 49.4175 56.9202 49.4175 56.1673C49.4175 55.5931 49.2427 55.1366 48.8931 54.7931C48.5435 54.4519 48.1136 54.1883 47.6057 54.0048C47.0979 53.8212 46.3916 53.6189 45.4869 53.4C44.4027 53.1271 43.5382 52.8635 42.8934 52.6118C42.2485 52.36 41.6958 51.9741 41.2375 51.454C40.7769 50.934 40.5478 50.2305 40.5478 49.3433C40.5478 48.6186 40.7391 47.9597 41.1241 47.3644C41.5092 46.7691 42.0973 46.2961 42.8934 45.9384C43.6894 45.5831 44.6767 45.4043 45.8578 45.4043C46.6822 45.4043 47.4876 45.5172 48.2766 45.7431C49.0655 45.969 49.7482 46.2796 50.3245 46.6749L49.8096 47.8844C49.2049 47.4891 48.56 47.1903 47.875 46.9926C47.1877 46.795 46.5168 46.6961 45.8578 46.6961C44.5964 46.6961 43.6445 46.9385 43.0067 47.4232C42.369 47.908 42.0501 48.5339 42.0501 49.2986C42.0501 49.8728 42.2249 50.334 42.5745 50.6822C42.9241 51.0305 43.3634 51.2964 43.8925 51.4823C44.4216 51.6658 45.1303 51.8682 46.0231 52.087C47.079 52.3459 47.9341 52.6023 48.586 52.8565C49.238 53.1106 49.7907 53.4918 50.2418 54.0048C50.6954 54.5178 50.9221 55.2119 50.9221 56.0849C50.9221 56.8096 50.7261 57.4685 50.3363 58.0638C49.9442 58.6592 49.3442 59.1298 48.5364 59.478C47.7262 59.8263 46.7318 60.0004 45.5531 60.0004C44.4736 60.0028 43.4485 59.8333 42.4682 59.4898Z"></path>
 <path d="M64.0482 46.8408C65.0899 47.7161 65.6119 48.9185 65.6119 50.448C65.6119 51.9799 65.0899 53.1776 64.0482 54.0459C63.0042 54.9142 61.5657 55.3471 59.7256 55.3471H55.8564V59.8768H54.3329V45.5254H59.7256C61.5657 45.5277 63.0065 45.9654 64.0482 46.8408ZM62.9569 53.0835C63.7104 52.4623 64.0884 51.5846 64.0884 50.448C64.0884 49.2856 63.7104 48.3938 62.9569 47.7726C62.2011 47.1514 61.1121 46.8408 59.6854 46.8408H55.8564V54.0176H59.6854C61.1121 54.0153 62.2034 53.7047 62.9569 53.0835Z"></path>
 <path d="M80.1672 53.6988C80.6822 54.3082 80.9396 55.0894 80.9396 56.0471C80.9396 57.2778 80.4838 58.2237 79.572 58.8873C78.6602 59.5509 77.3115 59.8827 75.5281 59.8827H68.9V45.5312H75.1147C76.7209 45.5312 77.9658 45.8536 78.8492 46.496C79.735 47.1384 80.1767 48.0467 80.1767 49.2232C80.1767 50.0162 79.9806 50.6892 79.5909 51.2422C79.2011 51.7951 78.6602 52.2093 77.9752 52.4822C78.9224 52.6846 79.6523 53.0917 80.1672 53.6988ZM70.4212 46.7784V51.9857H75.0108C76.1777 51.9857 77.0752 51.7645 77.7059 51.3198C78.3366 50.8751 78.6531 50.2303 78.6531 49.3832C78.6531 48.5361 78.3366 47.889 77.7059 47.4467C77.0752 47.0019 76.1753 46.7807 75.0108 46.7807H70.4212V46.7784ZM78.4287 57.9743C79.0877 57.5366 79.4161 56.8542 79.4161 55.9248C79.4161 54.1341 78.1122 53.2399 75.5068 53.2399H70.4236V58.6308H75.5068C76.7942 58.6308 77.7697 58.412 78.4287 57.9743Z"></path>
-</symbol><symbol id="icon-mail" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10h5v-2h-5c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8v1.43c0 .79-.71 1.57-1.5 1.57s-1.5-.78-1.5-1.57V12c0-2.76-2.24-5-5-5s-5 2.24-5 5 2.24 5 5 5c1.38 0 2.64-.56 3.54-1.47.65.89 1.77 1.47 2.96 1.47 1.97 0 3.5-1.6 3.5-3.57V12c0-5.52-4.48-10-10-10zm0 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path></symbol><symbol id="icon-menu_closed" viewBox="0 0 24 24"><g><rect fill="none" height="24" width="24"></rect></g><g><g><g><path d="M20,9H4v2h16V9z M4,15h16v-2H4V15z"></path></g></g></g></symbol><symbol id="icon-menu_opened" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></symbol><symbol id="icon-minus" viewBox="0 0 7 3">
+</symbol><symbol id="icon-mail" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10h5v-2h-5c-4.34 0-8-3.66-8-8s3.66-8 8-8 8 3.66 8 8v1.43c0 .79-.71 1.57-1.5 1.57s-1.5-.78-1.5-1.57V12c0-2.76-2.24-5-5-5s-5 2.24-5 5 2.24 5 5 5c1.38 0 2.64-.56 3.54-1.47.65.89 1.77 1.47 2.96 1.47 1.97 0 3.5-1.6 3.5-3.57V12c0-5.52-4.48-10-10-10zm0 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path></symbol><symbol id="icon-map" viewBox="0 0 14 20">
+<path d="M7 0C3.13 0 0 3.13 0 7C0 12.25 7 20 7 20C7 20 14 12.25 14 7C14 3.13 10.87 0 7 0ZM7 9.5C5.62 9.5 4.5 8.38 4.5 7C4.5 5.62 5.62 4.5 7 4.5C8.38 4.5 9.5 5.62 9.5 7C9.5 8.38 8.38 9.5 7 9.5Z" fill="white"></path>
+</symbol><symbol id="icon-menu_closed" viewBox="0 0 24 24"><g><rect fill="none" height="24" width="24"></rect></g><g><g><g><path d="M20,9H4v2h16V9z M4,15h16v-2H4V15z"></path></g></g></g></symbol><symbol id="icon-menu_opened" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></symbol><symbol id="icon-min" viewBox="0 0 22 4">
+<path d="M0.5 3.125V0.875H21.5V3.125H0.5Z" fill="white"></path>
+</symbol><symbol id="icon-minus" viewBox="0 0 7 3">
 <path d="M6.00568 0.684659H0.278409V2.09091H6.00568V0.684659Z"></path>
+</symbol><symbol id="icon-pl" viewBox="0 0 22 22">
+<path d="M9.875 21.5V12.125H0.5V9.875H9.875V0.5H12.125V9.875H21.5V12.125H12.125V21.5H9.875Z" fill="white"></path>
 </symbol><symbol id="icon-plus" viewBox="0 0 10 10">
 <path d="M4.21591 9.10511H5.64773V5.60227H9.15057V4.17045H5.64773V0.667613H4.21591V4.17045H0.713068V5.60227H4.21591V9.10511Z"></path>
-</symbol><symbol id="icon-remove" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></symbol><symbol id="icon-search" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></symbol><symbol id="icon-vk" viewBox="0 0 24 24"><path d="m12.145 19.5c3.472 0 2.234-2.198 2.502-2.83-.004-.472-.008-.926.008-1.202.22.062.739.325 1.811 1.367 1.655 1.67 2.078 2.665 3.415 2.665h2.461c.78 0 1.186-.323 1.389-.594.196-.262.388-.722.178-1.438-.549-1.724-3.751-4.701-3.95-5.015.03-.058.078-.135.103-.175h-.002c.632-.835 3.044-4.449 3.399-5.895.001-.002.002-.005.002-.008.192-.66.016-1.088-.166-1.33-.274-.362-.71-.545-1.299-.545h-2.461c-.824 0-1.449.415-1.765 1.172-.529 1.345-2.015 4.111-3.129 5.09-.034-1.387-.011-2.446.007-3.233.036-1.535.152-3.029-1.441-3.029h-3.868c-.998 0-1.953 1.09-.919 2.384.904 1.134.325 1.766.52 4.912-.76-.815-2.112-3.016-3.068-5.829-.268-.761-.674-1.466-1.817-1.466h-2.461c-.998 0-1.594.544-1.594 1.455 0 2.046 4.529 13.544 12.145 13.544zm-8.09-13.499c.217 0 .239 0 .4.457.979 2.883 3.175 7.149 4.779 7.149 1.205 0 1.205-1.235 1.205-1.7l-.001-3.702c-.066-1.225-.512-1.835-.805-2.205l3.508.004c.002.017-.02 4.095.01 5.083 0 1.403 1.114 2.207 2.853.447 1.835-2.071 3.104-5.167 3.155-5.293.075-.18.14-.241.376-.241h2.461.01c-.001.003-.001.006-.002.009-.225 1.05-2.446 4.396-3.189 5.435-.012.016-.023.033-.034.05-.327.534-.593 1.124.045 1.954h.001c.058.07.209.234.429.462.684.706 3.03 3.12 3.238 4.08-.138.022-.288.006-2.613.011-.495 0-.882-.74-2.359-2.23-1.328-1.292-2.19-1.82-2.975-1.82-1.524 0-1.413 1.237-1.399 2.733.005 1.622-.005 1.109.006 1.211-.089.035-.344.105-1.009.105-6.345 0-10.477-10.071-10.636-11.996.055-.005.812-.002 2.546-.003z"></path></symbol></svg>
+</symbol><symbol id="icon-remove" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></symbol><symbol id="icon-search" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></symbol><symbol id="icon-select-arr" viewBox="0 0 12 12">
+<path d="M8.295 4.295L6 6.585L3.705 4.295L3 5L6 8L9 5L8.295 4.295Z" fill="#696666"></path>
+</symbol><symbol id="icon-vk" viewBox="0 0 24 24"><path d="m12.145 19.5c3.472 0 2.234-2.198 2.502-2.83-.004-.472-.008-.926.008-1.202.22.062.739.325 1.811 1.367 1.655 1.67 2.078 2.665 3.415 2.665h2.461c.78 0 1.186-.323 1.389-.594.196-.262.388-.722.178-1.438-.549-1.724-3.751-4.701-3.95-5.015.03-.058.078-.135.103-.175h-.002c.632-.835 3.044-4.449 3.399-5.895.001-.002.002-.005.002-.008.192-.66.016-1.088-.166-1.33-.274-.362-.71-.545-1.299-.545h-2.461c-.824 0-1.449.415-1.765 1.172-.529 1.345-2.015 4.111-3.129 5.09-.034-1.387-.011-2.446.007-3.233.036-1.535.152-3.029-1.441-3.029h-3.868c-.998 0-1.953 1.09-.919 2.384.904 1.134.325 1.766.52 4.912-.76-.815-2.112-3.016-3.068-5.829-.268-.761-.674-1.466-1.817-1.466h-2.461c-.998 0-1.594.544-1.594 1.455 0 2.046 4.529 13.544 12.145 13.544zm-8.09-13.499c.217 0 .239 0 .4.457.979 2.883 3.175 7.149 4.779 7.149 1.205 0 1.205-1.235 1.205-1.7l-.001-3.702c-.066-1.225-.512-1.835-.805-2.205l3.508.004c.002.017-.02 4.095.01 5.083 0 1.403 1.114 2.207 2.853.447 1.835-2.071 3.104-5.167 3.155-5.293.075-.18.14-.241.376-.241h2.461.01c-.001.003-.001.006-.002.009-.225 1.05-2.446 4.396-3.189 5.435-.012.016-.023.033-.034.05-.327.534-.593 1.124.045 1.954h.001c.058.07.209.234.429.462.684.706 3.03 3.12 3.238 4.08-.138.022-.288.006-2.613.011-.495 0-.882-.74-2.359-2.23-1.328-1.292-2.19-1.82-2.975-1.82-1.524 0-1.413 1.237-1.399 2.733.005 1.622-.005 1.109.006 1.211-.089.035-.344.105-1.009.105-6.345 0-10.477-10.071-10.636-11.996.055-.005.812-.002 2.546-.003z"></path></symbol></svg>
     </div>
     <header class="header">
       <div class="cmn__container cmn__wrapper">
@@ -163,21 +168,57 @@
           <aside class="category__sidebar">
             <div class="sidebar"> 
               <div class="sidebar__categories">
-                <h3 class="sidebar__title opened"><span class="js-expanded-btn">Категории товаров</span>
+                <h3 class="sidebar__title"><span class="js-expanded-btn">Категории товаров</span>
                   <svg width="12" height="12">
                     <use xlink:href="#icon-arr-down"></use>
                   </svg>
                 </h3>
-                <ul class="sidebar__categories-list expanded">
-                  <li class="sidebar__categories-item"><a href="#">Рабочая одежда</a></li>
-                  <li class="sidebar__categories-item"><a class="active" href="#">Одежда для моряков</a></li>
-                  <li class="sidebar__categories-item"><a href="#">Ооооооооооочень длинная категория товаров</a></li>
-                  <li class="sidebar__categories-item"><a href="#">Клининг</a></li>
-                  <li class="sidebar__categories-item"><a href="#">Просто так</a></li>
-                  <li class="sidebar__categories-item"><a href="#">Рабочая одежда</a></li>
-                  <li class="sidebar__categories-item"><a href="#">Оджеда для моряков</a></li>
-                  <li class="sidebar__categories-item"><a href="#">Рабочая одежда</a></li>
-                  <li class="sidebar__categories-item"><a href="#">Оджеда для моряков</a></li>
+                <ul class="sidebar__categories-list">
+                  <li class="sidebar__categories-item"><a href="#">Рабочая одежда</a>
+                    <ul class="sidebar__categories-inner">
+                      <li class="sidebar__categories-item"><a href="#">Рабочая одежда</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar__categories-item"><a class="active" href="#">Одежда для моряков</a>
+                    <ul class="sidebar__categories-inner">
+                      <li class="sidebar__categories-item"><a class="active" href="#">Одежда для моряков</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar__categories-item"><a href="#">Ооооооооооочень длинная категория товаров</a>
+                    <ul class="sidebar__categories-inner">
+                      <li class="sidebar__categories-item"><a href="#">Ооооооооооочень длинная категория товаров</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar__categories-item"><a href="#">Клининг</a>
+                    <ul class="sidebar__categories-inner">
+                      <li class="sidebar__categories-item"><a href="#">Клининг</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar__categories-item"><a href="#">Просто так</a>
+                    <ul class="sidebar__categories-inner">
+                      <li class="sidebar__categories-item"><a href="#">Просто так</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar__categories-item"><a href="#">Рабочая одежда</a>
+                    <ul class="sidebar__categories-inner">
+                      <li class="sidebar__categories-item"><a href="#">Рабочая одежда</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar__categories-item"><a href="#">Оджеда для моряков</a>
+                    <ul class="sidebar__categories-inner">
+                      <li class="sidebar__categories-item"><a href="#">Оджеда для моряков</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar__categories-item"><a href="#">Рабочая одежда</a>
+                    <ul class="sidebar__categories-inner">
+                      <li class="sidebar__categories-item"><a href="#">Рабочая одежда</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar__categories-item"><a href="#">Оджеда для моряков</a>
+                    <ul class="sidebar__categories-inner">
+                      <li class="sidebar__categories-item"><a href="#">Оджеда для моряков</a></li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
               <div class="sidebar__filter filter">
@@ -272,55 +313,55 @@
           </aside>
           <div class="category__content">
             <ul class="category__list">
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук с оооооооооооооооооооочень длинным названием">
+              <li class="category__item"><a class="category__item-header" href="product-card.html"> <img src="./assets/img/about_img@1x.jpg" alt="Фартук с оооооооооооооооооооочень длинным названием">
                   <div class="category__item-badges"><span class="category__item-badge category__item-badge--new">Новинка</span><span class="category__item-badge category__item-badge--popular"></span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук с оооооооооооооооооооочень длинным названием</a>
                   <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old">4600 <span>р.</span></span></div>
                 </div>
               </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/intro-slide_1@1x.jpg" alt="Фартук кактой- то">
+              <li class="category__item"><a class="category__item-header" href="product-card.html"> <img src="./assets/img/intro-slide_1@1x.jpg" alt="Фартук кактой- то">
                   <div class="category__item-badges"><span class="category__item-badge category__item-badge--new"></span><span class="category__item-badge category__item-badge--popular">Популярный товар</span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
                   <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old"></span></div>
                 </div>
               </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то">
+              <li class="category__item"><a class="category__item-header" href="product-card.html"> <img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то">
                   <div class="category__item-badges"><span class="category__item-badge category__item-badge--new"></span><span class="category__item-badge category__item-badge--popular"></span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
                   <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old">4600 <span>р.</span></span></div>
                 </div>
               </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук с оооооооооооооооооооочень длинным названием">
+              <li class="category__item"><a class="category__item-header" href="product-card.html"> <img src="./assets/img/about_img@1x.jpg" alt="Фартук с оооооооооооооооооооочень длинным названием">
                   <div class="category__item-badges"><span class="category__item-badge category__item-badge--new">Новинка</span><span class="category__item-badge category__item-badge--popular"></span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук с оооооооооооооооооооочень длинным названием</a>
                   <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old">4600 <span>р.</span></span></div>
                 </div>
               </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/intro-slide_1@1x.jpg" alt="Фартук кактой- то">
+              <li class="category__item"><a class="category__item-header" href="product-card.html"> <img src="./assets/img/intro-slide_1@1x.jpg" alt="Фартук кактой- то">
                   <div class="category__item-badges"><span class="category__item-badge category__item-badge--new"></span><span class="category__item-badge category__item-badge--popular">Популярный товар</span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
                   <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old"></span></div>
                 </div>
               </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то">
+              <li class="category__item"><a class="category__item-header" href="product-card.html"> <img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то">
                   <div class="category__item-badges"><span class="category__item-badge category__item-badge--new"></span><span class="category__item-badge category__item-badge--popular"></span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
                   <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old">4600 <span>р.</span></span></div>
                 </div>
               </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук с оооооооооооооооооооочень длинным названием">
+              <li class="category__item"><a class="category__item-header" href="product-card.html"> <img src="./assets/img/about_img@1x.jpg" alt="Фартук с оооооооооооооооооооочень длинным названием">
                   <div class="category__item-badges"><span class="category__item-badge category__item-badge--new">Новинка</span><span class="category__item-badge category__item-badge--popular"></span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук с оооооооооооооооооооочень длинным названием</a>
                   <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old">4600 <span>р.</span></span></div>
                 </div>
               </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/intro-slide_1@1x.jpg" alt="Фартук кактой- то">
+              <li class="category__item"><a class="category__item-header" href="product-card.html"> <img src="./assets/img/intro-slide_1@1x.jpg" alt="Фартук кактой- то">
                   <div class="category__item-badges"><span class="category__item-badge category__item-badge--new"></span><span class="category__item-badge category__item-badge--popular">Популярный товар</span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
                   <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old"></span></div>
                 </div>
               </li>
-              <li class="category__item"><a class="category__item-header" href="product-card.html"><img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то">
+              <li class="category__item"><a class="category__item-header" href="product-card.html"> <img src="./assets/img/about_img@1x.jpg" alt="Фартук кактой- то">
                   <div class="category__item-badges"><span class="category__item-badge category__item-badge--new"></span><span class="category__item-badge category__item-badge--popular"></span></div></a>
                 <div class="category__item-footer"><a class="category__item-title" href="product-card.html">Фартук кактой- то</a>
                   <div class="category__item-price-box"><span class="category__item-price">3500 <span>р.</span></span><span class="category__item-price category__item-price--old">4600 <span>р.</span></span></div>

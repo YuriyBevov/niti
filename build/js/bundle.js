@@ -97,6 +97,690 @@
 
 /***/ }),
 
+/***/ "./node_modules/custom-event-polyfill/custom-event-polyfill.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/custom-event-polyfill/custom-event-polyfill.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// Polyfill for creating CustomEvents on IE9/10/11
+
+// code pulled from:
+// https://github.com/d4tocchini/customevent-polyfill
+// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent#Polyfill
+
+try {
+    var ce = new window.CustomEvent('test');
+    ce.preventDefault();
+    if (ce.defaultPrevented !== true) {
+        // IE has problems with .preventDefault() on custom events
+        // http://stackoverflow.com/questions/23349191
+        throw new Error('Could not prevent default');
+    }
+} catch(e) {
+  var CustomEvent = function(event, params) {
+    var evt, origPrevent;
+    params = params || {
+      bubbles: false,
+      cancelable: false,
+      detail: undefined
+    };
+
+    evt = document.createEvent("CustomEvent");
+    evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+    origPrevent = evt.preventDefault;
+    evt.preventDefault = function () {
+      origPrevent.call(this);
+      try {
+        Object.defineProperty(this, 'defaultPrevented', {
+          get: function () {
+            return true;
+          }
+        });
+      } catch(e) {
+        this.defaultPrevented = true;
+      }
+    };
+    return evt;
+  };
+
+  CustomEvent.prototype = window.Event.prototype;
+  window.CustomEvent = CustomEvent; // expose definition to window
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/custom-select/build/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/custom-select/build/index.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }(); /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * custom-select
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * A lightweight JS script for custom select creation.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * Needs no dependencies.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * v0.0.1
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * (https://github.com/custom-select/custom-select)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * Copyright (c) 2016 Gionatan Lombardi & Marco Nucara
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * MIT License
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
+
+exports.default = customSelect;
+
+__webpack_require__(/*! custom-event-polyfill */ "./node_modules/custom-event-polyfill/custom-event-polyfill.js");
+
+var defaultParams = {
+  containerClass: 'custom-select-container',
+  openerClass: 'custom-select-opener',
+  panelClass: 'custom-select-panel',
+  optionClass: 'custom-select-option',
+  optgroupClass: 'custom-select-optgroup',
+  isSelectedClass: 'is-selected',
+  hasFocusClass: 'has-focus',
+  isDisabledClass: 'is-disabled',
+  isOpenClass: 'is-open'
+};
+
+function builder(el, builderParams) {
+  var containerClass = 'customSelect';
+  var isOpen = false;
+  var uId = '';
+  var select = el;
+  var container = void 0;
+  var opener = void 0;
+  var focusedElement = void 0;
+  var selectedElement = void 0;
+  var panel = void 0;
+  var currLabel = void 0;
+
+  var resetSearchTimeout = void 0;
+  var searchKey = '';
+
+  //
+  // Inner Functions
+  //
+
+  // Sets the focused element with the neccessary classes substitutions
+  function setFocusedElement(cstOption) {
+    if (focusedElement) {
+      focusedElement.classList.remove(builderParams.hasFocusClass);
+    }
+    if (typeof cstOption !== 'undefined') {
+      focusedElement = cstOption;
+      focusedElement.classList.add(builderParams.hasFocusClass);
+      // Offset update: checks if the focused element is in the visible part of the panelClass
+      // if not dispatches a custom event
+      if (isOpen) {
+        if (cstOption.offsetTop < cstOption.offsetParent.scrollTop || cstOption.offsetTop > cstOption.offsetParent.scrollTop + cstOption.offsetParent.clientHeight - cstOption.clientHeight) {
+          cstOption.dispatchEvent(new CustomEvent('custom-select:focus-outside-panel', { bubbles: true }));
+        }
+      }
+    } else {
+      focusedElement = undefined;
+    }
+  }
+
+  // Reassigns the focused and selected custom option
+  // Updates the opener text
+  // IMPORTANT: the setSelectedElement function doesn't change the select value!
+  function setSelectedElement(cstOption) {
+    if (selectedElement) {
+      selectedElement.classList.remove(builderParams.isSelectedClass);
+      selectedElement.removeAttribute('id');
+      opener.removeAttribute('aria-activedescendant');
+    }
+    if (typeof cstOption !== 'undefined') {
+      cstOption.classList.add(builderParams.isSelectedClass);
+      cstOption.setAttribute('id', containerClass + '-' + uId + '-selectedOption');
+      opener.setAttribute('aria-activedescendant', containerClass + '-' + uId + '-selectedOption');
+      selectedElement = cstOption;
+      opener.children[0].textContent = selectedElement.customSelectOriginalOption.text;
+    } else {
+      selectedElement = undefined;
+      opener.children[0].textContent = '';
+    }
+    setFocusedElement(cstOption);
+  }
+
+  function setValue(value) {
+    // Gets the option with the provided value
+    var toSelect = select.querySelector('option[value=\'' + value + '\']');
+    // If no option has the provided value get the first
+    if (!toSelect) {
+      var _select$options = _slicedToArray(select.options, 1);
+
+      toSelect = _select$options[0];
+    }
+    // The option with the provided value becomes the selected one
+    // And changes the select current value
+    toSelect.selected = true;
+
+    setSelectedElement(select.options[select.selectedIndex].customSelectCstOption);
+  }
+
+  function moveFocuesedElement(direction) {
+    // Get all the .custom-select-options
+    // Get the index of the current focused one
+    var currentFocusedIndex = [].indexOf.call(select.options, focusedElement.customSelectOriginalOption);
+    // If the next or prev custom option exist
+    // Sets it as the new focused one
+    if (select.options[currentFocusedIndex + direction]) {
+      setFocusedElement(select.options[currentFocusedIndex + direction].customSelectCstOption);
+    }
+  }
+
+  // Open/Close function (toggle)
+  function open(bool) {
+    // Open
+    if (bool || typeof bool === 'undefined') {
+      // If present closes an opened instance of the plugin
+      // Only one at time can be open
+      var openedCustomSelect = document.querySelector('.' + containerClass + '.' + builderParams.isOpenClass);
+      if (openedCustomSelect) {
+        openedCustomSelect.customSelect.open = false;
+      }
+
+      // Opens only the clicked one
+      container.classList.add(builderParams.isOpenClass);
+
+      // aria-expanded update
+      container.classList.add(builderParams.isOpenClass);
+      opener.setAttribute('aria-expanded', 'true');
+
+      // Updates the scrollTop position of the panel in relation with the focused option
+      if (selectedElement) {
+        panel.scrollTop = selectedElement.offsetTop;
+      }
+
+      // Dispatches the custom event open
+      container.dispatchEvent(new CustomEvent('custom-select:open'));
+
+      // Sets the global state
+      isOpen = true;
+
+      // Close
+    } else {
+      // Removes the css classes
+      container.classList.remove(builderParams.isOpenClass);
+
+      // aria-expanded update
+      opener.setAttribute('aria-expanded', 'false');
+
+      // Sets the global state
+      isOpen = false;
+
+      // When closing the panel the focused custom option must be the selected one
+      setFocusedElement(selectedElement);
+
+      // Dispatches the custom event close
+      container.dispatchEvent(new CustomEvent('custom-select:close'));
+    }
+    return isOpen;
+  }
+
+  function clickEvent(e) {
+    // Opener click
+    if (e.target === opener || opener.contains(e.target)) {
+      if (isOpen) {
+        open(false);
+      } else {
+        open();
+      }
+      // Custom Option click
+    } else if (e.target.classList && e.target.classList.contains(builderParams.optionClass) && panel.contains(e.target)) {
+      setSelectedElement(e.target);
+      // Sets the corrisponding select's option to selected updating the select's value too
+      selectedElement.customSelectOriginalOption.selected = true;
+      open(false);
+      // Triggers the native change event of the select
+      select.dispatchEvent(new CustomEvent('change'));
+      // click on label or select (click on label corrispond to select click)
+    } else if (e.target === select) {
+      // if the original select is focusable (for any external reason) let the focus
+      // else trigger the focus on opener
+      if (opener !== document.activeElement && select !== document.activeElement) {
+        opener.focus();
+      }
+      // Click outside the container closes the panel
+    } else if (isOpen && !container.contains(e.target)) {
+      open(false);
+    }
+  }
+
+  function mouseoverEvent(e) {
+    // On mouse move over and options it bacames the focused one
+    if (e.target.classList && e.target.classList.contains(builderParams.optionClass)) {
+      setFocusedElement(e.target);
+    }
+  }
+
+  function keydownEvent(e) {
+    if (!isOpen) {
+      // On "Arrow down", "Arrow up" and "Space" keys opens the panel
+      if (e.keyCode === 40 || e.keyCode === 38 || e.keyCode === 32) {
+        open();
+      }
+    } else {
+      switch (e.keyCode) {
+        case 13:
+        case 32:
+          // On "Enter" or "Space" selects the focused element as the selected one
+          setSelectedElement(focusedElement);
+          // Sets the corrisponding select's option to selected updating the select's value too
+          selectedElement.customSelectOriginalOption.selected = true;
+          // Triggers the native change event of the select
+          select.dispatchEvent(new CustomEvent('change'));
+          open(false);
+          break;
+        case 27:
+          // On "Escape" closes the panel
+          open(false);
+          break;
+
+        case 38:
+          // On "Arrow up" set focus to the prev option if present
+          moveFocuesedElement(-1);
+          break;
+        case 40:
+          // On "Arrow down" set focus to the next option if present
+          moveFocuesedElement(+1);
+          break;
+        default:
+          // search in panel (autocomplete)
+          if (e.keyCode >= 48 && e.keyCode <= 90) {
+            // clear existing reset timeout
+            if (resetSearchTimeout) {
+              clearTimeout(resetSearchTimeout);
+            }
+
+            // reset timeout for empty search key
+            resetSearchTimeout = setTimeout(function () {
+              searchKey = '';
+            }, 1500);
+
+            // update search keyword appending the current key
+            searchKey += String.fromCharCode(e.keyCode);
+
+            // search the element
+            for (var i = 0, l = select.options.length; i < l; i++) {
+              // removed cause not supported by IE:
+              // if (options[i].text.startsWith(searchKey))
+              if (select.options[i].text.toUpperCase().substr(0, searchKey.length) === searchKey) {
+                setFocusedElement(select.options[i].customSelectCstOption);
+                break;
+              }
+            }
+          }
+          break;
+      }
+    }
+  }
+
+  function changeEvent() {
+    var index = select.selectedIndex;
+    var element = index === -1 ? undefined : select.options[index].customSelectCstOption;
+
+    setSelectedElement(element);
+  }
+
+  // When the option is outside the visible part of the opened panel, updates the scrollTop position
+  // This is the default behaviour
+  // To block it the plugin user must
+  // add a "custom-select:focus-outside-panel" eventListener on the panel
+  // with useCapture set to true
+  // and stopPropagation
+  function scrollToFocused(e) {
+    var currPanel = e.currentTarget;
+    var currOption = e.target;
+    // Up
+    if (currOption.offsetTop < currPanel.scrollTop) {
+      currPanel.scrollTop = currOption.offsetTop;
+      // Down
+    } else {
+      currPanel.scrollTop = currOption.offsetTop + currOption.clientHeight - currPanel.clientHeight;
+    }
+  }
+
+  function addEvents() {
+    document.addEventListener('click', clickEvent);
+    panel.addEventListener('mouseover', mouseoverEvent);
+    panel.addEventListener('custom-select:focus-outside-panel', scrollToFocused);
+    select.addEventListener('change', changeEvent);
+    container.addEventListener('keydown', keydownEvent);
+  }
+
+  function removeEvents() {
+    document.removeEventListener('click', clickEvent);
+    panel.removeEventListener('mouseover', mouseoverEvent);
+    panel.removeEventListener('custom-select:focus-outside-panel', scrollToFocused);
+    select.removeEventListener('change', changeEvent);
+    container.removeEventListener('keydown', keydownEvent);
+  }
+
+  function disabled(bool) {
+    if (bool && !select.disabled) {
+      container.classList.add(builderParams.isDisabledClass);
+      select.disabled = true;
+      opener.removeAttribute('tabindex');
+      container.dispatchEvent(new CustomEvent('custom-select:disabled'));
+      removeEvents();
+    } else if (!bool && select.disabled) {
+      container.classList.remove(builderParams.isDisabledClass);
+      select.disabled = false;
+      opener.setAttribute('tabindex', '0');
+      container.dispatchEvent(new CustomEvent('custom-select:enabled'));
+      addEvents();
+    }
+  }
+
+  // Form a given select children DOM tree (options and optgroup),
+  // Creates the corresponding custom HTMLElements list (divs with different classes and attributes)
+  function parseMarkup(children) {
+    var nodeList = children;
+    var cstList = [];
+
+    if (typeof nodeList.length === 'undefined') {
+      throw new TypeError('Invalid Argument');
+    }
+
+    for (var i = 0, li = nodeList.length; i < li; i++) {
+      if (nodeList[i] instanceof HTMLElement && nodeList[i].tagName.toUpperCase() === 'OPTGROUP') {
+        var cstOptgroup = document.createElement('div');
+        cstOptgroup.classList.add(builderParams.optgroupClass);
+        cstOptgroup.setAttribute('data-label', nodeList[i].label);
+
+        // IMPORTANT: Stores in a property of the created custom option group
+        // a hook to the the corrisponding select's option group
+        cstOptgroup.customSelectOriginalOptgroup = nodeList[i];
+
+        // IMPORTANT: Stores in a property of select's option group
+        // a hook to the created custom option group
+        nodeList[i].customSelectCstOptgroup = cstOptgroup;
+
+        var subNodes = parseMarkup(nodeList[i].children);
+        for (var j = 0, lj = subNodes.length; j < lj; j++) {
+          cstOptgroup.appendChild(subNodes[j]);
+        }
+
+        cstList.push(cstOptgroup);
+      } else if (nodeList[i] instanceof HTMLElement && nodeList[i].tagName.toUpperCase() === 'OPTION') {
+        var cstOption = document.createElement('div');
+        cstOption.classList.add(builderParams.optionClass);
+        cstOption.textContent = nodeList[i].text;
+        cstOption.setAttribute('data-value', nodeList[i].value);
+        cstOption.setAttribute('role', 'option');
+
+        // IMPORTANT: Stores in a property of the created custom option
+        // a hook to the the corrisponding select's option
+        cstOption.customSelectOriginalOption = nodeList[i];
+
+        // IMPORTANT: Stores in a property of select's option
+        // a hook to the created custom option
+        nodeList[i].customSelectCstOption = cstOption;
+
+        // If the select's option is selected
+        if (nodeList[i].selected) {
+          setSelectedElement(cstOption);
+        }
+        cstList.push(cstOption);
+      } else {
+        throw new TypeError('Invalid Argument');
+      }
+    }
+    return cstList;
+  }
+
+  function _append(nodePar, appendIntoOriginal, targetPar) {
+    var target = void 0;
+    if (typeof targetPar === 'undefined' || targetPar === select) {
+      target = panel;
+    } else if (targetPar instanceof HTMLElement && targetPar.tagName.toUpperCase() === 'OPTGROUP' && select.contains(targetPar)) {
+      target = targetPar.customSelectCstOptgroup;
+    } else {
+      throw new TypeError('Invalid Argument');
+    }
+
+    // If the node provided is a single HTMLElement it is stored in an array
+    var node = nodePar instanceof HTMLElement ? [nodePar] : nodePar;
+
+    // Injects the options|optgroup in the select
+    if (appendIntoOriginal) {
+      for (var i = 0, l = node.length; i < l; i++) {
+        if (target === panel) {
+          select.appendChild(node[i]);
+        } else {
+          target.customSelectOriginalOptgroup.appendChild(node[i]);
+        }
+      }
+    }
+
+    // The custom markup to append
+    var markupToInsert = parseMarkup(node);
+
+    // Injects the created DOM content in the panel
+    for (var _i = 0, _l = markupToInsert.length; _i < _l; _i++) {
+      target.appendChild(markupToInsert[_i]);
+    }
+
+    return node;
+  }
+
+  function _insertBefore(node, targetPar) {
+    var target = void 0;
+    if (targetPar instanceof HTMLElement && targetPar.tagName.toUpperCase() === 'OPTION' && select.contains(targetPar)) {
+      target = targetPar.customSelectCstOption;
+    } else if (targetPar instanceof HTMLElement && targetPar.tagName.toUpperCase() === 'OPTGROUP' && select.contains(targetPar)) {
+      target = targetPar.customSelectCstOptgroup;
+    } else {
+      throw new TypeError('Invalid Argument');
+    }
+
+    // The custom markup to append
+    var markupToInsert = parseMarkup(node.length ? node : [node]);
+
+    target.parentNode.insertBefore(markupToInsert[0], target);
+
+    // Injects the option or optgroup node in the original select and returns the injected node
+    return targetPar.parentNode.insertBefore(node.length ? node[0] : node, targetPar);
+  }
+
+  function remove(node) {
+    var cstNode = void 0;
+    if (node instanceof HTMLElement && node.tagName.toUpperCase() === 'OPTION' && select.contains(node)) {
+      cstNode = node.customSelectCstOption;
+    } else if (node instanceof HTMLElement && node.tagName.toUpperCase() === 'OPTGROUP' && select.contains(node)) {
+      cstNode = node.customSelectCstOptgroup;
+    } else {
+      throw new TypeError('Invalid Argument');
+    }
+    cstNode.parentNode.removeChild(cstNode);
+    var removedNode = node.parentNode.removeChild(node);
+    changeEvent();
+    return removedNode;
+  }
+
+  function empty() {
+    var removed = [];
+    while (select.children.length) {
+      panel.removeChild(panel.children[0]);
+      removed.push(select.removeChild(select.children[0]));
+    }
+    setSelectedElement();
+    return removed;
+  }
+
+  function destroy() {
+    for (var i = 0, l = select.options.length; i < l; i++) {
+      delete select.options[i].customSelectCstOption;
+    }
+    var optGroup = select.getElementsByTagName('optgroup');
+    for (var _i2 = 0, _l2 = optGroup.length; _i2 < _l2; _i2++) {
+      delete optGroup.customSelectCstOptgroup;
+    }
+
+    removeEvents();
+
+    return container.parentNode.replaceChild(select, container);
+  }
+  //
+  // Custom Select DOM tree creation
+  //
+
+  // Creates the container/wrapper
+  container = document.createElement('div');
+  container.classList.add(builderParams.containerClass, containerClass);
+
+  // Creates the opener
+  opener = document.createElement('span');
+  opener.className = builderParams.openerClass;
+  opener.setAttribute('role', 'combobox');
+  opener.setAttribute('aria-autocomplete', 'list');
+  opener.setAttribute('aria-expanded', 'false');
+  opener.innerHTML = '<span>\n   ' + (select.selectedIndex !== -1 ? select.options[select.selectedIndex].text : '') + '\n   </span>';
+
+  // Creates the panel
+  // and injects the markup of the select inside
+  // with some tag and attributes replacement
+  panel = document.createElement('div');
+  // Create random id
+  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for (var i = 0; i < 5; i++) {
+    uId += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  panel.id = containerClass + '-' + uId + '-panel';
+  panel.className = builderParams.panelClass;
+  panel.setAttribute('role', 'listbox');
+  opener.setAttribute('aria-owns', panel.id);
+
+  _append(select.children, false);
+
+  // Injects the container in the original DOM position of the select
+  container.appendChild(opener);
+  select.parentNode.replaceChild(container, select);
+  container.appendChild(select);
+  container.appendChild(panel);
+
+  // ARIA labelledby - label
+  if (document.querySelector('label[for="' + select.id + '"]')) {
+    currLabel = document.querySelector('label[for="' + select.id + '"]');
+  } else if (container.parentNode.tagName.toUpperCase() === 'LABEL') {
+    currLabel = container.parentNode;
+  }
+  if (typeof currLabel !== 'undefined') {
+    currLabel.setAttribute('id', containerClass + '-' + uId + '-label');
+    opener.setAttribute('aria-labelledby', containerClass + '-' + uId + '-label');
+  }
+
+  // Event Init
+  if (select.disabled) {
+    container.classList.add(builderParams.isDisabledClass);
+  } else {
+    opener.setAttribute('tabindex', '0');
+    select.setAttribute('tabindex', '-1');
+    addEvents();
+  }
+
+  // Stores the plugin public exposed methods and properties, directly in the container HTMLElement
+  container.customSelect = {
+    get pluginOptions() {
+      return builderParams;
+    },
+    get open() {
+      return isOpen;
+    },
+    set open(bool) {
+      open(bool);
+    },
+    get disabled() {
+      return select.disabled;
+    },
+    set disabled(bool) {
+      disabled(bool);
+    },
+    get value() {
+      return select.value;
+    },
+    set value(val) {
+      setValue(val);
+    },
+    append: function append(node, target) {
+      return _append(node, true, target);
+    },
+    insertBefore: function insertBefore(node, target) {
+      return _insertBefore(node, target);
+    },
+    remove: remove,
+    empty: empty,
+    destroy: destroy,
+    opener: opener,
+    select: select,
+    panel: panel,
+    container: container
+  };
+
+  // Stores the plugin directly in the original select
+  select.customSelect = container.customSelect;
+
+  // Returns the plugin instance, with the public exposed methods and properties
+  return container.customSelect;
+}
+
+function customSelect(element, customParams) {
+  // Overrides the default options with the ones provided by the user
+  var nodeList = [];
+  var selects = [];
+
+  return function init() {
+    // The plugin is called on a single HTMLElement
+    if (element && element instanceof HTMLElement && element.tagName.toUpperCase() === 'SELECT') {
+      nodeList.push(element);
+      // The plugin is called on a selector
+    } else if (element && typeof element === 'string') {
+      var elementsList = document.querySelectorAll(element);
+      for (var i = 0, l = elementsList.length; i < l; ++i) {
+        if (elementsList[i] instanceof HTMLElement && elementsList[i].tagName.toUpperCase() === 'SELECT') {
+          nodeList.push(elementsList[i]);
+        }
+      }
+      // The plugin is called on any HTMLElements list (NodeList, HTMLCollection, Array, etc.)
+    } else if (element && element.length) {
+      for (var _i3 = 0, _l3 = element.length; _i3 < _l3; ++_i3) {
+        if (element[_i3] instanceof HTMLElement && element[_i3].tagName.toUpperCase() === 'SELECT') {
+          nodeList.push(element[_i3]);
+        }
+      }
+    }
+
+    // Launches the plugin over every HTMLElement
+    // And stores every plugin instance
+    for (var _i4 = 0, _l4 = nodeList.length; _i4 < _l4; ++_i4) {
+      selects.push(builder(nodeList[_i4], _extends({}, defaultParams, customParams)));
+    }
+
+    // Returns all plugin instances
+    return selects;
+  }();
+}
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
 /***/ "./node_modules/dom7/dom7.esm.js":
 /*!***************************************!*\
   !*** ./node_modules/dom7/dom7.esm.js ***!
@@ -2232,9 +2916,13 @@ var A11y = {
     }
 
     swiper.a11y.addElRole(Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(swiper.slides), params.slideRole);
-    swiper.slides.each(function (slideEl) {
+    var slidesLength = swiper.params.loop ? swiper.slides.filter(function (el) {
+      return !el.classList.contains(swiper.params.slideDuplicateClass);
+    }).length : swiper.slides.length;
+    swiper.slides.each(function (slideEl, index) {
       var $slideEl = Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(slideEl);
-      var ariaLabelMessage = params.slideLabelMessage.replace(/\{\{index\}\}/, $slideEl.index() + 1).replace(/\{\{slidesLength\}\}/, swiper.slides.length);
+      var slideIndex = swiper.params.loop ? parseInt($slideEl.attr('data-swiper-slide-index'), 10) : index;
+      var ariaLabelMessage = params.slideLabelMessage.replace(/\{\{index\}\}/, slideIndex + 1).replace(/\{\{slidesLength\}\}/, slidesLength);
       swiper.a11y.addElLabel($slideEl, ariaLabelMessage);
     }); // Navigation
 
@@ -2937,7 +3625,7 @@ function setBreakpoint() {
   } else if (!wasMultiRow && isMultiRow) {
     $el.addClass(params.containerModifierClass + "multirow");
 
-    if (breakpointParams.slidesPerColumnFill === 'column') {
+    if (breakpointParams.slidesPerColumnFill && breakpointParams.slidesPerColumnFill === 'column' || !breakpointParams.slidesPerColumnFill && params.slidesPerColumnFill === 'column') {
       $el.addClass(params.containerModifierClass + "multirow-column");
     }
 
@@ -4947,6 +5635,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../utils/utils */ "./node_modules/swiper/esm/utils/utils.js");
 
 
+ // Modified from https://stackoverflow.com/questions/54520554/custom-element-getrootnode-closest-function-crossing-multiple-parent-shadowd
+
+function closestElement(selector, base) {
+  if (base === void 0) {
+    base = this;
+  }
+
+  function __closestFrom(el) {
+    if (!el || el === Object(ssr_window__WEBPACK_IMPORTED_MODULE_0__["getDocument"])() || el === Object(ssr_window__WEBPACK_IMPORTED_MODULE_0__["getWindow"])()) return null;
+    if (el.assignedSlot) el = el.assignedSlot;
+    var found = el.closest(selector);
+    return found || __closestFrom(el.getRootNode().host);
+  }
+
+  return __closestFrom(base);
+}
 
 function onTouchStart(event) {
   var swiper = this;
@@ -4973,7 +5677,7 @@ function onTouchStart(event) {
   data.isTouchEvent = e.type === 'touchstart';
   if (!data.isTouchEvent && 'which' in e && e.which === 3) return;
   if (!data.isTouchEvent && 'button' in e && e.button > 0) return;
-  if (data.isTouched && data.isMoved) return; // change target el for shadow root componenet
+  if (data.isTouched && data.isMoved) return; // change target el for shadow root component
 
   var swipingClassHasValue = !!params.noSwipingClass && params.noSwipingClass !== '';
 
@@ -4981,7 +5685,10 @@ function onTouchStart(event) {
     $targetEl = Object(_utils_dom__WEBPACK_IMPORTED_MODULE_1__["default"])(event.path[0]);
   }
 
-  if (params.noSwiping && $targetEl.closest(params.noSwipingSelector ? params.noSwipingSelector : "." + params.noSwipingClass)[0]) {
+  var noSwipingSelector = params.noSwipingSelector ? params.noSwipingSelector : "." + params.noSwipingClass;
+  var isTargetShadow = !!(e.target && e.target.shadowRoot); // use closestElement for shadow root element to get the actual closest for nested shadow root element
+
+  if (params.noSwiping && (isTargetShadow ? closestElement(noSwipingSelector, e.target) : $targetEl.closest(noSwipingSelector)[0])) {
     swiper.allowClick = true;
     return;
   }
@@ -7039,10 +7746,12 @@ function updateSlides() {
 
   if (rtl) slides.css({
     marginLeft: '',
+    marginBottom: '',
     marginTop: ''
   });else slides.css({
     marginRight: '',
-    marginBottom: ''
+    marginBottom: '',
+    marginTop: ''
   });
   var slidesNumberEvenToRows;
 
@@ -8053,7 +8762,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 var HashNavigation = {
-  onHashCange: function onHashCange() {
+  onHashChange: function onHashChange() {
     var swiper = this;
     var document = Object(ssr_window__WEBPACK_IMPORTED_MODULE_0__["getDocument"])();
     swiper.emit('hashChange');
@@ -8105,7 +8814,7 @@ var HashNavigation = {
     }
 
     if (swiper.params.hashNavigation.watchState) {
-      Object(_utils_dom__WEBPACK_IMPORTED_MODULE_1__["default"])(window).on('hashchange', swiper.hashNavigation.onHashCange);
+      Object(_utils_dom__WEBPACK_IMPORTED_MODULE_1__["default"])(window).on('hashchange', swiper.hashNavigation.onHashChange);
     }
   },
   destroy: function destroy() {
@@ -8113,7 +8822,7 @@ var HashNavigation = {
     var window = Object(ssr_window__WEBPACK_IMPORTED_MODULE_0__["getWindow"])();
 
     if (swiper.params.hashNavigation.watchState) {
-      Object(_utils_dom__WEBPACK_IMPORTED_MODULE_1__["default"])(window).off('hashchange', swiper.hashNavigation.onHashCange);
+      Object(_utils_dom__WEBPACK_IMPORTED_MODULE_1__["default"])(window).off('hashchange', swiper.hashNavigation.onHashChange);
     }
   }
 };
@@ -11055,11 +11764,6 @@ var Zoom = {
       gesture.slideWidth = gesture.$slideEl[0].offsetWidth;
       gesture.slideHeight = gesture.$slideEl[0].offsetHeight;
       gesture.$imageWrapEl.transition(0);
-
-      if (swiper.rtl) {
-        image.startX = -image.startX;
-        image.startY = -image.startY;
-      }
     } // Define if we need image drag
 
 
@@ -12060,16 +12764,23 @@ function isObject(o) {
   return typeof o === 'object' && o !== null && o.constructor && Object.prototype.toString.call(o).slice(8, -1) === 'Object';
 }
 
+function isNode(node) {
+  // eslint-disable-next-line
+  if (typeof window !== 'undefined' && typeof window.HTMLElement !== 'undefined') {
+    return node instanceof HTMLElement;
+  }
+
+  return node && (node.nodeType === 1 || node.nodeType === 11);
+}
+
 function extend() {
   var to = Object(arguments.length <= 0 ? undefined : arguments[0]);
-  var noExtend = ['__proto__', 'constructor', 'prototype']; // eslint-disable-next-line
-
-  var HTMLElement = typeof window !== 'undefined' ? window.HTMLElement : undefined;
+  var noExtend = ['__proto__', 'constructor', 'prototype'];
 
   for (var i = 1; i < arguments.length; i += 1) {
     var nextSource = i < 0 || arguments.length <= i ? undefined : arguments[i];
 
-    if (nextSource !== undefined && nextSource !== null && !(HTMLElement && nextSource instanceof HTMLElement)) {
+    if (nextSource !== undefined && nextSource !== null && !isNode(nextSource)) {
       var keysArray = Object.keys(Object(nextSource)).filter(function (key) {
         return noExtend.indexOf(key) < 0;
       });
@@ -12123,7 +12834,7 @@ function classesToSelector(classes) {
     classes = '';
   }
 
-  return "." + classes.trim().replace(/([\.:\/])/g, '\\$1') // eslint-disable-line
+  return "." + classes.trim().replace(/([\.:!\/])/g, '\\$1') // eslint-disable-line
   .replace(/ /g, '.');
 }
 
@@ -12220,7 +12931,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Thumbs", function() { return _esm_components_thumbs_thumbs__WEBPACK_IMPORTED_MODULE_19__["default"]; });
 
 /**
- * Swiper 6.7.5
+ * Swiper 6.8.4
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -12228,7 +12939,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * Released under the MIT License
  *
- * Released on: July 1, 2021
+ * Released on: August 23, 2021
  */
 
 
@@ -12269,27 +12980,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_headerMenu_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_headerMenu_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/mapOverlay.js */ "./source/scripts/modules/mapOverlay.js");
 /* harmony import */ var _modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_mapOverlay_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _modules_loader_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/loader.js */ "./source/scripts/modules/loader.js");
-/* harmony import */ var _modules_loader_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_loader_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _modules_expItems_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/expItems.js */ "./source/scripts/modules/expItems.js");
-/* harmony import */ var _modules_expItems_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_modules_expItems_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _modules_colorpicker_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/colorpicker.js */ "./source/scripts/modules/colorpicker.js");
-/* harmony import */ var _modules_colorpicker_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_modules_colorpicker_js__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/modals.js */ "./source/scripts/modules/modals.js");
-/* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_modules_modals_js__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _modules_searchPrevent_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/searchPrevent.js */ "./source/scripts/modules/searchPrevent.js");
-/* harmony import */ var _modules_searchPrevent_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_modules_searchPrevent_js__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _modules_productCount_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/productCount.js */ "./source/scripts/modules/productCount.js");
-/* harmony import */ var _modules_productCount_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_modules_productCount_js__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _modules_showMinicart_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/showMinicart.js */ "./source/scripts/modules/showMinicart.js");
-/* harmony import */ var _modules_showMinicart_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_modules_showMinicart_js__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _modules_acceptRulesBtn__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/acceptRulesBtn */ "./source/scripts/modules/acceptRulesBtn.js");
-/* harmony import */ var _modules_acceptRulesBtn__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_modules_acceptRulesBtn__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _modules_expItems_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/expItems.js */ "./source/scripts/modules/expItems.js");
+/* harmony import */ var _modules_expItems_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_expItems_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _modules_colorpicker_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/colorpicker.js */ "./source/scripts/modules/colorpicker.js");
+/* harmony import */ var _modules_colorpicker_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_modules_colorpicker_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/modals.js */ "./source/scripts/modules/modals.js");
+/* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_modules_modals_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _modules_searchPrevent_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/searchPrevent.js */ "./source/scripts/modules/searchPrevent.js");
+/* harmony import */ var _modules_searchPrevent_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_modules_searchPrevent_js__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _modules_productCount_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/productCount.js */ "./source/scripts/modules/productCount.js");
+/* harmony import */ var _modules_productCount_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_modules_productCount_js__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _modules_showMinicart_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/showMinicart.js */ "./source/scripts/modules/showMinicart.js");
+/* harmony import */ var _modules_showMinicart_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_modules_showMinicart_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _modules_acceptRulesBtn__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/acceptRulesBtn */ "./source/scripts/modules/acceptRulesBtn.js");
+/* harmony import */ var _modules_acceptRulesBtn__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_modules_acceptRulesBtn__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _modules_expandCategoryTitle__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/expandCategoryTitle */ "./source/scripts/modules/expandCategoryTitle.js");
+/* harmony import */ var _modules_expandCategoryTitle__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_modules_expandCategoryTitle__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _modules_custom_select_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/custom_select.js */ "./source/scripts/modules/custom_select.js");
 
 
 
 
 
+
+// import loader from './modules/loader.js';
 
 
 
@@ -12336,9 +13050,6 @@ agreement.addEventListener('change', onClickTurnOnBtn) : null
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! aos */ "./node_modules/aos/dist/aos.js");
 /* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(aos__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/utils */ "./source/scripts/utils/utils.js");
-
-
 
 const galItems = document.querySelectorAll('.gallery__item');
 const isGalleryPage = document.querySelector('.main-catalog');
@@ -12352,16 +13063,6 @@ if(!isGalleryPage && galItems) {
         item.setAttribute('data-aos', 'fade-up')
 
         let delay = i === 2 || i === 4 ? 300 : i === 3 || i === 5 ? 400 : i === 7 ? 350 : 150
-
-        item.setAttribute('data-aos-delay', delay)
-    })
-} else if (isGalleryPage && galItems) {
-    Object(_utils_utils__WEBPACK_IMPORTED_MODULE_1__["changeLastItemWidth"])(galItems);
-
-    galItems.forEach((item, i) => {
-        item.setAttribute('data-aos', 'fade-up')
-
-        let delay = i < 6 ? 150 * (i + 1) : 25 * i
 
         item.setAttribute('data-aos-delay', delay)
     })
@@ -12448,6 +13149,23 @@ if(colorpickerSelect) {
 
 /***/ }),
 
+/***/ "./source/scripts/modules/custom_select.js":
+/*!*************************************************!*\
+  !*** ./source/scripts/modules/custom_select.js ***!
+  \*************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var custom_select__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! custom-select */ "./node_modules/custom-select/build/index.js");
+/* harmony import */ var custom_select__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(custom_select__WEBPACK_IMPORTED_MODULE_0__);
+
+
+custom_select__WEBPACK_IMPORTED_MODULE_0___default()('.custom-select');
+
+/***/ }),
+
 /***/ "./source/scripts/modules/expItems.js":
 /*!********************************************!*\
   !*** ./source/scripts/modules/expItems.js ***!
@@ -12463,7 +13181,65 @@ const onClickExpandItem = (evt) => {
     expItem.classList.toggle('expanded');
 }
 
-btns.forEach(btn => btn.addEventListener('click', onClickExpandItem))
+btns.forEach(btn => btn.addEventListener('click', onClickExpandItem));
+
+
+/***/ }),
+
+/***/ "./source/scripts/modules/expandCategoryTitle.js":
+/*!*******************************************************!*\
+  !*** ./source/scripts/modules/expandCategoryTitle.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+let title = document.querySelector('.sidebar__title');
+let list = document.querySelector('.sidebar__categories-list');
+
+if(title && list) {
+    let expandCategoryTitle = () => {
+        !title.classList.contains('opened') ?
+        title.classList.add('opened') : null;
+
+        !list.classList.contains('expanded') ?
+        list.classList.add('expanded') : null;
+    }
+
+    let collapseCategoryTitle = () => {
+        title.classList.contains('opened') ?
+        title.classList.remove('opened') : null;
+
+        list.classList.contains('expanded') ?
+        list.classList.remove('expanded') : null;
+    }
+
+    /*let onResizeCollapseCategory = () => {
+        if(window.innerWidth > 660) {
+			expandCategoryTitle();
+        } else {
+            collapseCategoryTitle();
+        }
+    }*/
+
+    window.innerWidth > 660 ?
+    expandCategoryTitle() : collapseCategoryTitle() ;
+
+    //window.addEventListener('resize', onResizeCollapseCategory);
+
+    let active = document.querySelector('.sidebar__categories-item > a.active'); 
+
+    if(active) {
+        let innerList = active.nextElementSibling;
+        if(innerList) {
+            innerList.classList.add('expanded')
+        }
+        let inners = document.querySelectorAll('.sidebar__categories-inner');
+        inners.forEach(inner => {
+            inner.contains(active) ?
+            inner.classList.add('expanded') : null;
+        })
+    }
+}
 
 /***/ }),
 
@@ -12507,35 +13283,6 @@ window.addEventListener('resize', () => {
         }
     }
 })
-
-/***/ }),
-
-/***/ "./source/scripts/modules/loader.js":
-/*!******************************************!*\
-  !*** ./source/scripts/modules/loader.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-const showPage = () => {
-    document.removeEventListener("DOMContentLoaded", showPage);
-
-    
-
-    const hideLoader = function () {
-        setTimeout(() => {
-            loader.classList.add('ended')
-        }, 1200)
-
-        setTimeout(() => {
-            loader.style.display ='none';
-        }, 2200)
-    }();
-};
-
-const loader = document.querySelector('.loader');
-
-document.addEventListener("DOMContentLoaded", showPage);
 
 /***/ }),
 
@@ -12634,13 +13381,20 @@ btns.forEach(btn => {
 
 const addBtns = document.querySelectorAll('.js-add-item');
 const removeBtns = document.querySelectorAll('.js-remove-item');
+const counter = document.querySelector('.js-product-card-count');
+if(counter) {
+    counter.innerHTML = 1;
+}
 
 const onClickAddItem = (evt) => {
     const input = evt.currentTarget.parentNode.querySelector('input');
     let value = Number(input.value);
 
-    value !== 100 ?
-    value +=  1 : value = 100;
+    value !== 99 ?
+    value +=  1 : value = 99;
+
+    counter ?
+    counter.innerHTML = value : null;
 
     input.value = value;
 }
@@ -12652,6 +13406,9 @@ const onClickRemoveItem = (evt) => {
 
     value !== 1 ?
     value -= 1 : value = 1;
+
+    counter ?
+    counter.innerHTML = value : null;
 
     input.value = value;
 }
@@ -12729,7 +13486,7 @@ minicartLink.addEventListener('mouseover', onMouseOverShowMiniCart);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
 
-swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"], swiper__WEBPACK_IMPORTED_MODULE_0__["Thumbs"], swiper__WEBPACK_IMPORTED_MODULE_0__["Zoom"]]);
+swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"], swiper__WEBPACK_IMPORTED_MODULE_0__["Thumbs"], swiper__WEBPACK_IMPORTED_MODULE_0__["Zoom"], swiper__WEBPACK_IMPORTED_MODULE_0__["EffectFade"], swiper__WEBPACK_IMPORTED_MODULE_0__["Navigation"]]);
 
 const sliderDelay = 5000;
 const iSlider = document.querySelector('.intro-swiper-container');
@@ -12764,7 +13521,6 @@ if(sSlider) {
         loop: true,
 
         breakpoints: {
-          // when window width is >= 320px
           320: {
             slidesPerView: 1,
             spaceBetween: 10
@@ -12783,73 +13539,96 @@ if(sSlider) {
     });
 }
 
-const pSlider = document.querySelector('.product-card-swiper-container');
+// Страница товара
 
-if(pSlider) {
-    let swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".product-card-slider-thumbs", {
-      slidesPerView: "auto",
+const thumbsSliderMain = document.querySelector('.thumbs-swiper');
+
+let zoomed = document.querySelectorAll('.zoomist');
+
+let zoomedArray = [];
+
+if(zoomed) {
+   zoomed.forEach(element => {
+      let zoomer = new Zoomist(element, {
+         slider: true,
+         zoomer: true,
+         maxRatio: 4,
+         bounds: true,
+         fill: 'fill',
+         height: 520,
+         zoomRatio: 0.2,
+      });
+
+      zoomedArray.push(zoomer);
+
+      let btns = document.querySelectorAll('.thumbs-swiper-button');
+
+      btns.forEach(btn => {
+         btn.addEventListener('click', function() {
+            zoomer.reset();
+         })
+      })
+   });
+}
+
+if(thumbsSliderMain) {
+   let sliderThumbs = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](thumbsSliderMain, {
+      slidesPerView: 4,
+      watchOverflow: true,
       watchSlidesVisibility: true,
       watchSlidesProgress: true,
-      spaceBetween: 10,
-      direction: "vertical",
+      spaceBetween: 0,
+      direction: 'horizontal',
 
       breakpoints: {
-        768: {
-          direction: "vertical",
-          spaceBetween: 0,
-        },
+         961: {
+           spaceBetween: 5,
+           slidesPerView: 3,
+           direction: "vertical",
+         },
 
-        534: {
-          spaceBetween: 10,
-          direction: "vertical",
-        },
-      }
-      
-    });
+         769: {
+            slidesPerView: 4,
+            direction: "horizontal"
+         },
 
-    let swiperThumbs = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".product-card-slider", {
-      zoom: true,
-      loop: true,
-      spaceBetween: 10,
+         555: {
+            slidesPerView: 3,
+            direction: "vertical"
+         }
+      },
+   });
+
+   let slider = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".thumbs-swiper-main", {
+      watchOverflow: true,
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+      preventInteractionOnTransition: true,
+      allowTouchMove: false,
+
+      navigation: {
+         nextEl: '.swiper-button-next',
+         prevEl: '.swiper-button-prev',
+      },
+
+      effect: 'fade',
+      fadeEffect: {
+         crossFade: true
+      },
 
       thumbs: {
-        swiper: swiper,
+         swiper: sliderThumbs
       },
-    });
+
+      on: {
+         slideChange: function() {
+            zoomedArray.forEach(el => {
+               el.reset();
+            })
+         }
+      },
+   });
 }
-
-
-
-/***/ }),
-
-/***/ "./source/scripts/utils/utils.js":
-/*!***************************************!*\
-  !*** ./source/scripts/utils/utils.js ***!
-  \***************************************/
-/*! exports provided: changeLastItemWidth */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeLastItemWidth", function() { return changeLastItemWidth; });
-const changeLastItemWidth = (arr) => {
-    window.innerWidth < 768 ? 
-    arr[arr.length - 1].style.width = 100 + '%' : null
-    
-    const onResizeHandler = () => {
-        if(window.innerWidth < 768 && arr.length % 2 === 1) {
-            arr[arr.length - 1].style.width !== 100 + '%' ?
-            arr[arr.length - 1].style.width = 100 + '%' : null
-        } else {
-            arr[arr.length - 1].style.width === 100 + '%' ?
-            arr[arr.length - 1].style.width = 'calc(100% / 3 - 1rem)' : null
-        }
-    }
-    
-    window.addEventListener('resize', onResizeHandler);
-}
-
-
 
 /***/ })
 

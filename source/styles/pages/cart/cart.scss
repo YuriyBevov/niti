@@ -163,7 +163,7 @@
             }
     
             &-total {
-                font-family: $font_mono;
+                font-weight: 600;
                 font-size: 2.5rem;
                 line-height: 3rem;
                 color: $color-maroon;
@@ -247,8 +247,8 @@
                 }
 
                 .product-card__img {
-                    border: 1px solid $color-black;
-                    border-radius: 1.2rem;
+                    /*border: 1px solid $color-black;
+                    border-radius: 1.2rem;*/
                     width: 30rem;
                     height: 30rem;
                     object-fit: cover;
@@ -340,7 +340,7 @@
             }
 
             &-input {
-                font-family: $font_mono;
+                font-weight: 600;
                 font-size: 1.6rem;
                 line-height: 100%;
                 width: 5.2rem;

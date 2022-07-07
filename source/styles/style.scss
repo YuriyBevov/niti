@@ -1,14 +1,19 @@
+// Стили для swiper.js
+@import "../../node_modules/swiper/swiper-bundle.min";
+
 @import "fonts";
 @import "normalize";
 @import "variables";
 @import "mixins";
 @import "global";
+@import "extends";
 @import "cmn";
 
 //--- plugins
 
-@import "plugins/swiper";
+//@import "plugins/swiper";
 @import "plugins/aos";
+@import "plugins/zoomist";
 
 // blocks
 @import "common/header";
@@ -24,7 +29,7 @@
 @import "pages/index/contacts";
 
 @import "pages/product-page/product-card";
-@import "pages/product-page/components/colorpicker";
+@import "pages/product-page/product-card-slider";
 
 @import "pages/category/category";
 @import "pages/category/sidebar";
@@ -39,7 +44,15 @@
 @import "pages/cart/components/form";
 @import "pages/search-result-page/search-result";
 
+//about-page
+@import "pages/about-page/about";
+
+//contacts-page
+@import "pages/contacts-page/contacts";
+
 @import "common/footer";
+
+@import "pages/branding-page/branding";
 
 // components
 
@@ -48,6 +61,9 @@
 @import "components/loader";
 @import "components/pagination";
 @import "components/minicart";
+@import "components/custom_select";
+@import "components/counter";
+@import "components/breadcrumbs";
 
 // modals
 

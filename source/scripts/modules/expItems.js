@@ -6,4 +6,4 @@ const onClickExpandItem = (evt) => {
     expItem.classList.toggle('expanded');
 }
 
-btns.forEach(btn => btn.addEventListener('click', onClickExpandItem))
+btns.forEach(btn => btn.addEventListener('click', onClickExpandItem));

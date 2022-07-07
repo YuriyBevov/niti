@@ -1,11 +1,6 @@
 //fonts
 
-$font_reg: 'Inter-Regular';
-$font_med: 'Inter-Medium';
-$font_bold: 'Inter-Bold';
-$font_semi: 'Inter-SemiBold';
-
-$font_mono: 'SpaceMono-Regular';
+$main-font: 'Montserrat';
 
 // work
 
@@ -19,6 +14,7 @@ $transition_rules: 0.3s 0.1s ease;
 
 $desktop-width: 1640px;
 $tablet_lg_width: 1140px;
+$tablet_md_width: 960px;
 $tablet_width: 768px;
 $mobile_lg_width: 534px;
 $mobile-width: 320px;
@@ -31,8 +27,13 @@ $color-white: #ffffff;
 $color-black: #000000;
 $color-lightblack: #4c4c4c;
 $color-footer_bcg: #242424;
+$color-black-400: #242424;
 $color-maroon: #9c150c;
 $color-grey: #d6d6d6;
+$color-gray-300: #a8a8a8;
+$color-gray-500: #696666;
+$color-gray-700: #353434;
+$color-green: #00a611;
 
 // links
 

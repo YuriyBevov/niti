@@ -46,7 +46,10 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  font-family: $font_reg, sans-serif;
+  font-family: $main-font, sans-serif;
+  line-height: 1.2;
+  font-weight: 400;
+  color: $color-black;
   overflow-x: hidden;
 }
 
@@ -98,3 +101,7 @@ svg {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+/*.zoomist-container {
+  height: 600px;
+} */

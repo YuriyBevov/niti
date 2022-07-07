@@ -1,0 +1,15 @@
+mixin breadcrumbs(array)
+  .breadcrumbs
+    div.breadcrumbs__list
+      each item in array
+        if item.pageUrl
+          a(href= item.pageUrl)!= `${item.pageName}&nbsp;/&nbsp;`
+        else
+          span=item.pageName
+
+    .breadcrumbs__title
+      each item in array
+        if !item.pageUrl
+          span= item.pageName
+
+    

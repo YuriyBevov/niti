@@ -1,101 +1,52 @@
-- 
-  imgList = [
-    {
-        imgUrl: './assets/img/about_img@1x.jpg'
-    },
-
-    {
-        imgUrl: './assets/img/intro-slide_1@1x.jpg'
-    },
-
-    {
-        imgUrl: './assets/img/about_img@1x.jpg'
-    },
-
-    {
-        imgUrl: './assets/img/intro-slide_1@1x.jpg'
-    },
-    
-    {
-        imgUrl: './assets/img/about_img@1x.jpg'
-    },
-
-    {
-        imgUrl: './assets/img/intro-slide_1@1x.jpg'
-    },
-
-    {
-        imgUrl: './assets/img/about_img@1x.jpg'
-    },
-
-    {
-        imgUrl: './assets/img/intro-slide_1@1x.jpg'
-    }
-  ];
  
-section.product-card
+section.product-card 
   .cmn__wrapper.cmn__container.product-card__wrapper
 
     .product-card__preview
+      .product-card__slider-container
+        .swiper.thumbs-swiper
+          .swiper-wrapper
+            each item in [1, 2, 3, 4, 5, 6, 7, 8, 9]
+              .swiper-slide
+                img(src="./assets/img/about_img@1x.jpg" alt="Фото товара" width="120" height="100")
+              .swiper-slide
+                img(src="./assets/img/intro-slide_1@1x.jpg" alt="Фото товара" width="120" height="100")
+        
+        .swiper.thumbs-swiper-main
+          .swiper-wrapper
+            each item in [1, 2, 3, 4, 5, 6, 7, 8, 9]
+              .swiper-slide
+                .zoomist(data-zoomist-src="./assets/img/about_img@1x.jpg")
+              .swiper-slide
+                .zoomist(data-zoomist-src="./assets/img/intro-slide_1@1x.jpg")
 
-      .product-card-swiper-container.product-card-slider 
-        .swiper-wrapper
-          each img in imgList
-            .swiper-slide
-              .swiper-zoom-container
-                img(src=img.imgUrl, alt="товар")
-      .product-card-swiper-container.product-card-slider-thumbs(thumbsSlider="")
-        .swiper-wrapper
-          each img in imgList
-            .swiper-slide
-              img(src=img.imgUrl, alt="товар")
+          .swiper-button-next.thumbs-swiper-button-next.thumbs-swiper-button
+          .swiper-button-prev.thumbs-swiper-button-prev.thumbs-swiper-button
 
     .product-card__content
-      .product-card__content-header
-        span.product-card__art Артикул товара: 001346578
+      .product-card__content-header 
+        span.product-card__art Артикул: Фартук F01
+
         h1.product-card__title Супер фартук
 
-        p.product-card-desc Фартук состоит из сочетания кожзама на облегченной подкладке. 
-        p.product-card-desc Данное изделие не нуждается в излишнем уходе. 
-        p.product-card-desc Стильные крестообразные подтяжки разгрузят шейный отдел за счет распределения веса фартука по спине.
-        p.product-card-desc Возможен пошив по вашим цветовым пожеланиям.
-      
-      .product-card__content-main
-        .product-card__content-main-wrapper
-          b.product-card__price 2400 р.
+        ul.product-card__chars
+          li.product-card__item.product-card__item--availability
+            p Есть в наличии
 
-          .product-card__quantity
-            button(type="button" aria-label="удалить").product-card__quantity-btn 	&minus;
-            span.product-cart__quantity-value 1
-            button(type="button" aria-label="добавить").product-card__quantity-btn 	&plus;
-
-          .product-card__stitch       
-            input(type="checkbox" id="stitch")
-            label(for="stitch") Нанести вышивку
-
-        button(type="button").product-card__btn Добавить в корзину
-          svg(width="16" height="16")
-            use(xlink:href="#icon-cart")
-
-
-      .product-card__content-footer
-        ul.product-card__characters
-          li.product-card__item
-            p.product-card__item-name Наличие:
-            p.product-card__item-desc Есть в наличии
-
-          li.product-card__item
-            p.product-card__item-name Размеры:
+          li.product-card__item.product-card__item--size
+            p Размер:
             
-            select(name="size")
+            select(name="size").custom-select
               option XS
               option S
               option M
+            
+          li.product-card__item
             button(data-id="sizeModal").product-card__item-btn.js-open-modal-btn Таблица размеров
           
           li.product-card__item
-            p.product-card__item-name Интервал роста:
-            select(name="height")
+            p Рост:
+            select(name="height").custom-select
               option 149-154
               option 155-160
               option 161-166
@@ -106,33 +57,60 @@ section.product-card
               option 191-196
               option 197-202
           
-          li.product-card__item.product-card__item--colorpicker
-            p.product-card__item-name Цвет:
-
-            button.js-colorpicker-opener
-            
-            select( name="colorpicker" id="colorpicker" required).visually-hidden
-              option #ffffff
-              option #000000
-              option #9c150c
-              option #ffffff
-              option #000000
-              option #9c150c
-              option #ffffff
-              option #000000
-              option #9c150c
-              option #ffffff
-              
-              option #9c150c
-
-            .colorpicker.js-closed
-              .colorpicker__wrapper
-                
-
           li.product-card__item
-            p.product-card__item-name Материал:
-            select( name="color")
+            p Материал:
+            select( name="material").custom-select
               option Хлопок
               option Нат.кожа
-              option Канвас      
+              option Канвас 
           
+          li.product-card__item
+            p Цвет:
+
+            select(name="colorpicker").custom-select
+              option whitewhitewhitewhite
+              option Black
+              option red
+
+        b.product-card__price 2400 р.
+        
+        .product-card__button-group
+          include ../../components/counter
+
+          button(type="button").product-card__btn В корзину
+            svg(width="24" height="20")
+              use(xlink:href="#icon-cart")
+        
+        p.product-card__info
+          | * для брендирования униформы предлагаем нанесение логотипов 
+          | различными способами: вышивка, термопечать, шелкография. 
+          | Услуга оплачивается <a href="#">дополнительно</a>.
+      
+
+      .product-card__content-body
+        .product-card__description
+          p
+            | Универсальная модель с нагрудником разработана для сотрудников ресторанов, баров, 
+            | кофеен, салонов красоты и барбершопов. Фартук «Самсон» производится из мраморного канваса – плотной 
+            | хлопковой ткани. Это крепкий, стойкий к внешним влияниям, но мягкий материал требует деликатного ухода: 
+            | отжима на низких оборотах, влажной глажки. Модель с двумя боковыми накладными карманами, возле одного из 
+            | них – декор контрастного цвета. Крестообразные лямки не натирают кожу на шее, могут сниматься, крепятся с 
+            | помощью карабинов.
+          
+          p
+            | Универсальная модель с нагрудником разработана для сотрудников ресторанов, баров, 
+            | кофеен, салонов красоты и барбершопов. Фартук «Самсон» производится из мраморного канваса – плотной 
+            | хлопковой ткани. Это крепкий, стойкий к внешним влияниям, но мягкий материал требует деликатного ухода: 
+            | отжима на низких оборотах, влажной глажки. Модель с двумя боковыми накладными карманами, возле одного из 
+            | них – декор контрастного цвета. Крестообразные лямки не натирают кожу на шее, могут сниматься, крепятся с 
+            | помощью карабинов.
+      
+      .product-card__content-footer
+        .product-card__delivery
+          h3 Условия доставки:
+          p 
+            | Мы осуществляем доставку по всей России и СНГ <br/>
+            | О более подробных условиях доставки и оплаты можно узнать <a href="#">тут.</a>
+
+  
+  include ../../components/same-products

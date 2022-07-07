@@ -78,7 +78,8 @@
                 border-radius: 0;
                 max-width: 10rem;
                 padding: 0.5rem;
-                border: 1px solid $color-maroon;
+                border: 1px solid #696666;
+                border-radius: 5px;
             }
 
             label {
@@ -105,11 +106,11 @@
             .ui-slider-handle.ui-corner-all.ui-state-default {
                 width: 15px;
                 left: 0%;
-                top: 50%;
+                top: 56%;
                 height: 15px;
                 border-radius: 50%;
-                color: red;
-                background-color: red;
+                color: #9C150C;
+                background-color: #9C150C;
                 transform: translateY(-50%);
             }
         }
@@ -117,21 +118,66 @@
         &-content--colorpicker {
             flex-direction: row;
             flex-wrap: wrap;
-            padding-left: 1rem;
+            //padding-left: 1rem;
 
-            &.expanded {
+            /*&.expanded {
                 padding-top: 2rem;
+            }*/
+
+            label {
+                min-height: 4rem;
+                width: calc(100% - 2rem);
+                display: flex;
+                align-items: center;
+        
+                font-size: 1.6rem;
+                line-height: 1.8rem;
+                cursor: pointer;
+                transition: color $transition-rules;
+        
+                @media(min-width: $tablet_width) {
+                    &:hover,
+                    &:focus {
+                        color: $color-maroon;
+                    }
+                
+                    &:active {
+                        color: $color-maroon;
+                    }
+                }
+        
+                @media (max-width: 660px ) {
+                    width: 50%;
+                }
+            }
+        
+            input{
+                box-sizing: border-box;
+                padding: 0;
+                background-color: transparent;
+                width: 2rem;
+                height: 2rem;
+                border: 1px solid black;
+                border-radius: 50%;
+                margin-right: 1rem;
+        
+                transition: border $transition-rules, background-color $transition-rules;
+            }
+        
+            input:checked {
+                background-color: $color-maroon;
             }
 
-            input {
+            /*input {
                 display: none;
             }
 
             label {
                 position: relative;
-                width: 4rem;
-                height: 4rem;
-                border-radius: 50%;
+                //width: 4rem;
+                //height: 4rem;
+                //border-radius: 50%;
+                border-radius: 5px;
                 border: 1px solid $color-grey;
                 margin-right: 1rem;
                 padding-left: 0;
@@ -148,8 +194,9 @@
             }
 
             input:checked + label {
-                opacity: 0.6;
-            }
+                // opacity: 0.6;
+                color: $color-maroon;
+            } */
         }
 
         &-content-number-inputs {
@@ -160,6 +207,11 @@
         }
     }
 
+    &__btn-box {
+        display: flex;
+        //justify-content: flex-end;
+    }
+
     &__submit {
         font-size: 1.6rem;
         line-height: 1.6rem;
@@ -168,6 +220,8 @@
         border: 1px solid $color-maroon;
         background-color: transparent;
         color: $color-maroon;
+        margin-left: 1rem;
+        border-radius: 5px;
     }
 
     &__reset {
@@ -178,5 +232,6 @@
         border: 1px solid $color-maroon;
         background-color: transparent;
         color: $color-maroon;
+        border-radius: 5px;
     }
 }

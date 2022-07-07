@@ -1,0 +1,138 @@
+.zoom-img {
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.zoomist-container {
+    height: 100%;
+}
+
+.product-card__slider-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    justify-content: flex-end;
+
+    @media (max-width: $tablet_md_width) {
+        flex-direction: column;
+    }
+
+    @media (max-width: $tablet_width) {
+        flex-direction: row;
+    }
+
+    @media (max-width: 554px) {
+        flex-direction: column;
+    }
+}
+
+.thumbs-swiper-main {
+    position: relative;
+    width: calc(100% - 150px);
+    max-width: 378px;
+    height: 100%;
+    overflow: hidden;
+
+    @media (max-width: $tablet_md_width) {
+        order: 1;
+        width: 100%;
+    }
+
+    @media (max-width: $tablet_width) {
+        order: 2;
+        width: calc(100% - 150px);
+        max-width: 378px;
+    }
+
+    @media (max-width: 554px) {
+        order: 1;
+        width: 100%;
+    }
+    
+    .swiper-slide {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+  
+    .swiper-button {
+        &-prev,
+        &-next {
+            position: absolute;
+            top: 50%;
+            height: 32px;
+            width: 32px;
+            color: $color_white;
+            background: $color_black;
+            border-radius: 3px;
+    
+            &::after {
+                font-size: 12px;
+            }
+        }
+    
+        &-next {
+            right: 10px;
+        }
+
+        &-prev {
+            left: 10px;
+        }
+    }
+}
+  
+.thumbs-swiper {
+    width: 150px;
+    height: 100%;
+    padding: 0 15px;
+
+    @media (max-width: $tablet_md_width) {
+        order: 2;
+        width: 100%;
+        height: 140px;
+        padding: 0;
+    }
+
+    @media (max-width: $tablet_width) {
+        order: 1;
+        width: 150px;
+        height: 100%;
+        padding: 0 15px;
+    }
+
+    @media (max-width: 554px) {
+        order: 2;
+        width: 100%;
+        height: 140px;
+        padding: 0;
+    }
+
+    .swiper-slide {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1px;
+        }
+    
+        opacity: 0.8;
+        border: 3px solid transparent;
+        transition: border-color 0.3s ease-in, opacity 0.3s ease-in;
+
+        &-thumb-active {
+            opacity: 1;
+            border-color: $color-gray-500;
+            border-radius: 5px;
+        } 
+    }
+}
+  
+@keyframes slide-in {
+    from {
+      opacity: 0;
+      right: -50%;
+    }
+}

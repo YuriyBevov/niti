@@ -1,7 +1,7 @@
 - 
   catList = [
     {
-        name: 'Рабочая одежда'
+        name: 'Рабочая одежда' 
     },
 
     {
@@ -41,16 +41,21 @@
 
 .sidebar 
   .sidebar__categories
-    h3.sidebar__title.opened
+    h3.sidebar__title
       span.js-expanded-btn Категории товаров
       svg(width="12" height="12")
         use(xlink:href="#icon-arr-down")
 
-    ul.sidebar__categories-list.expanded
+    ul.sidebar__categories-list
 
       each catItem in catList
         li.sidebar__categories-item
           a(href="#" class= catItem.class ? catItem.class : null)= catItem.name
+
+          ul.sidebar__categories-inner
+            li.sidebar__categories-item
+              a(href="#" class= catItem.class ? catItem.class : null)= catItem.name
+
   
   .sidebar__filter.filter
     ul.filter__list

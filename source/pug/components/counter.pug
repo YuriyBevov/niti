@@ -1,0 +1,11 @@
+.counter
+  input(type="hidden" name="count" value="1")
+
+  button.js-remove-item(type="button" aria-label="удалить")
+    svg(width="21" height="21")
+        use(xlink:href="#icon-min")
+  //input(type="number" name="count" value="1").js-product-card-input
+  span.js-product-card-count 1
+  button.js-add-item(type="button" aria-label="добавить")
+    svg(width="21" height="21")
+        use(xlink:href="#icon-pl")

@@ -1,0 +1,23 @@
+extends layouts/main-layout.pug
+include ./mixins/breadcrumbs
+
+block variables
+  -
+    const title = ""
+    const desc = ""
+    const keywords = ""
+
+block content
+  .about-page
+    +breadcrumbs([
+      {
+        pageName: 'Главная', pageUrl: 'index.html'
+      },
+      {
+        pageName: 'Брэндирование'
+      }
+    ])
+    include ./blocks/branding-page/branding
+
+block modals
+  // include ./modals/menuModal

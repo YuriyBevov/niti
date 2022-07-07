@@ -104,6 +104,11 @@ const js = () => {
     .pipe(gulp.dest(BUILD_PATH));
 };
 
+const vendors = () => {
+  return gulp.src([PATHS.vendors.src])
+  .pipe(gulp.dest(PATHS.vendors.output));
+};
+
 const server = () => {
   browserSync.init({
     server: BUILD_PATH,
@@ -132,7 +137,7 @@ const sprite = () => {
     .pipe(gulp.dest(PATHS.images.spriteDest));
 }
 
-const build = gulp.series(clean, fonts, sprite, html, styles, js, images);
+const build = gulp.series(clean, fonts, sprite, html, styles, js, vendors, images);
 const start = gulp.series(build, server);
 const convertToWebp = gulp.series(toWebp, start);
 

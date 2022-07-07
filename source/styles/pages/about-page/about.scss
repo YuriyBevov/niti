@@ -1,0 +1,178 @@
+@mixin mb() {
+    margin-bottom: 3rem;
+
+    @media(max-width: $desktop-width) {
+        margin-bottom: 2rem;
+    }
+
+    @media(max-width: $tablet_lg_width) {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@mixin mb-lg() {
+    margin-bottom: 5rem;
+
+    @media(max-width: $desktop-width) {
+        margin-bottom: 3rem;
+    }
+
+    @media(max-width: $tablet_lg_width) {
+        margin-bottom: 2rem;
+    }
+}
+
+.about-page {
+    .about {
+        &__wrapper {
+            flex-direction: column;
+            padding-top: 3rem;
+            padding-bottom: 5rem;
+
+            @media(max-width: $tablet_md_width) {
+                padding: 2rem;
+            }
+        }
+
+        &__text {
+            font-size: 24px;
+            line-height: 29px;
+            @include mb();
+
+            color: $color-black-400;
+
+            &--bold {
+                font-weight: 600;
+            }
+
+            @media(max-width: $desktop-width) {
+                font-size: 2rem;
+            }
+
+            @media(max-width: $tablet_lg_width) {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
+            @media(max-width: $tablet_md_width) {
+                font-size: 1.6rem;
+            }
+        }
+
+        &__title {
+            font-weight: 600;
+            font-size: 3.6rem;
+            text-transform: uppercase;
+            @include mb();
+            text-align: center;
+
+            color: $color-gray-700;
+
+            @media(max-width: $desktop-width) {
+                font-size: 2.8rem;
+            }
+
+            @media(max-width: $tablet_lg_width) {
+                font-size: 2.4rem;
+            }
+
+            @media(max-width: $tablet_md_width) {
+                font-size: 2.2rem;
+            }
+        }
+
+        &__img-lg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 32rem;
+            max-height: 60rem;
+            object-fit: cover;
+            object-position: top;
+            @include mb-lg();
+        }
+
+        &__list {
+            @include mb-lg();
+        }
+
+        &__item {
+            display: flex;
+            align-items: center;
+            @include mb();
+
+            &-content {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                margin-right: 4rem;
+            }
+
+            img {
+                width: 100%;
+                max-width: 50%;
+                height: 100%;
+                min-height: 20rem;
+                max-height: 32rem;
+                display: block;
+                object-fit: cover;
+
+                @media(max-width: $tablet_lg_width) {
+                    max-width: 100%;
+                }
+            }
+
+            &:nth-child(odd) {
+                img {
+                    order: 1;
+                    margin-right: 4rem;
+                }
+
+                .about__item-content {
+                    order: 2;
+                    margin-right: 0;
+                }
+            }
+
+            @media(max-width: $tablet_lg_width) {
+                flex-direction: column;
+
+                &:nth-child(odd) {
+                    img {
+                        order: 2;
+                        margin-right: 0;
+                    }
+    
+                    .about__item-content {
+                        order: 1;
+                        margin-right: 2rem;
+                    }
+                }
+            }
+        }
+
+        &__history {
+            padding-top: 5rem;
+
+            &-desc {
+                display: flex;
+                flex-wrap: wrap;
+                @include mb();
+
+                li {
+                    width: 50%;
+                    padding-right: 4rem;
+                }
+
+                @media(max-width: $tablet_lg_width) {
+                    flex-direction: column;
+
+                    li {
+                        width: 100%;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}
